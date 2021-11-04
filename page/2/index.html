@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,91 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/" class="post-title-link" itemprop="url">“菜鸟笔记1号”</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-09-19 13:24:27" itemprop="dateCreated datePublished" datetime="2021-09-19T13:24:27+08:00">2021-09-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-10-25 23:43:41" itemprop="dateModified" datetime="2021-10-25T23:43:41+08:00">2021-10-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure>
+<h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure>
+<h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure>
+<h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure>
+<h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
+<hr>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

