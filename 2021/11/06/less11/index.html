@@ -22,7 +22,7 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 <meta name="description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="less11-15">
+<meta property="og:title" content="less11-16">
 <meta property="og:url" content="http://example.com/2021/11/06/less11/index.html">
 <meta property="og:site_name" content="wds">
 <meta property="og:description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png">
 <meta property="og:image" content="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png">
 <meta property="article:published_time" content="2021-11-06T03:00:03.000Z">
-<meta property="article:modified_time" content="2021-11-07T13:31:16.077Z">
+<meta property="article:modified_time" content="2021-11-07T13:39:51.121Z">
 <meta property="article:author" content="发福的小菜狗">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
@@ -42,10 +42,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/06/less11/","path":"2021/11/06/less11/","title":"less11-15"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/06/less11/","path":"2021/11/06/less11/","title":"less11-16"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>less11-15 | wds</title>
+<title>less11-16 | wds</title>
   
 
 
@@ -200,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          less11-15
+          less11-16
         </h1>
 
         <div class="post-meta-container">
@@ -218,7 +218,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-11-07 21:31:16" itemprop="dateModified" datetime="2021-11-07T21:31:16+08:00">2021-11-07</time>
+        <time title="Modified: 2021-11-07 21:39:51" itemprop="dateModified" datetime="2021-11-07T21:39:51+08:00">2021-11-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -272,7 +272,11 @@
 <p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p>
 <p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p>
 <p>利用工具进行爆破详见less5,6总结</p>
-<p>less14，less15也是同理</p>
+<p>13     (‘’)</p>
+<p>14      “”</p>
+<p>15       ‘’</p>
+<p>16       (“”)</p>
+<p>less13,14,15,16同样的方法只是对数据的包裹方式不同。</p>
 
     </div>
 
