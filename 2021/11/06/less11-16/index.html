@@ -20,28 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta name="description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“菜鸟笔记1号”">
-<meta property="og:url" content="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/index.html">
+<meta property="og:title" content="less11-16">
+<meta property="og:url" content="http://example.com/2021/11/06/less11-16/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta property="og:description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-19T05:24:27.000Z">
-<meta property="article:modified_time" content="2021-10-25T15:43:41.658Z">
+<meta property="og:image" content="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png">
+<meta property="article:published_time" content="2021-11-06T03:00:03.000Z">
+<meta property="article:modified_time" content="2021-11-10T11:49:56.031Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！">
+<meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png">
 
 
-<link rel="canonical" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+<link rel="canonical" href="http://example.com/2021/11/06/less11-16/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/","path":"2021/09/19/“菜鸟笔记1号”/","title":"“菜鸟笔记1号”"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/06/less11-16/","path":"2021/11/06/less11-16/","title":"less11-16"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>“菜鸟笔记1号” | wds</title>
+<title>less11-16 | wds</title>
   
 
 
@@ -120,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%B8%80%E4%B8%AA%E7%BB%99%E5%AE%9A%E5%AF%B9%E5%BA%94IP%E5%9C%B0%E5%9D%80%E7%9A%84%E9%9D%B6%E5%9C%BA%E6%9C%BA%E5%99%A8%E6%8C%96%E6%8E%98%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">对于一个给定对应IP地址的靶场机器挖掘开放服务信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%9C%8D%E5%8A%A1%E7%89%88%E5%8F%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">为了得到靶场开放服务和服务版可使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%85%A8%E9%83%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.</span> <span class="nav-text">为了得到靶场全部信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BC%80%E6%94%BEhttp%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE"><span class="nav-number">1.3.</span> <span class="nav-text">对开放http的服务用浏览器访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E7%B4%A2%E8%AF%A5%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">探索该服务的隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%85%B7%E6%9C%89%E6%9D%83%E9%99%90root%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">查找具有权限root的文件</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#less-11"><span class="nav-number">1.</span> <span class="nav-text">less 11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less-12"><span class="nav-number">2.</span> <span class="nav-text">less 12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less13"><span class="nav-number">3.</span> <span class="nav-text">less13</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/06/less11-16/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          “菜鸟笔记1号”
+          less11-16
         </h1>
 
         <div class="post-meta-container">
@@ -207,14 +211,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-09-19 13:24:27" itemprop="dateCreated datePublished" datetime="2021-09-19T13:24:27+08:00">2021-09-19</time>
+      <time title="Created: 2021-11-06 11:00:03" itemprop="dateCreated datePublished" datetime="2021-11-06T11:00:03+08:00">2021-11-06</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:43:41" itemprop="dateModified" datetime="2021-10-25T23:43:41+08:00">2021-10-25</time>
+        <time title="Modified: 2021-11-10 19:49:56" itemprop="dateModified" datetime="2021-11-10T19:49:56+08:00">2021-11-10</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,7 +226,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
         </span>
     </span>
 
@@ -236,12 +240,43 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure>
-<h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure>
-<h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure>
-<h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure>
-<h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<hr>
+        <h1 id="less-11"><a href="#less-11" class="headerlink" title="less 11"></a>less 11</h1><p>这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.</p>
+<p><img src="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png" alt="QQ截图20211106114439.png"></p>
+<p>代理抓包发现题与以往不同</p>
+<p>以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password</p>
+<p>但是本质上还是之前的报错注入，不过是基于post的提交方式</p>
+<p><img src="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png" alt="QQ截图20211106115325.png"></p>
+<p>利用抓包得到的信息可知上传的data为：uname=&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>所以基于此，进行报错注入</p>
+<p>首先我们不知道账号密码，利用注释符和 or 1=1使其为真</p>
+<p>uname=n‘ or 1=1 #&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>这样无论账号存不存在都可以登入（猜的）</p>
+<p>事实也是这样，这里返回了账号密码和我们输入的不一样，但是我们知道我们成功登入了，注释符以前的內容是可执行的这样接下来就是类似less1的内容</p>
+<p>order by n 查看列数</p>
+<p>union select 1，2，。。n查看回显</p>
+<p>按照回显来嵌套</p>
+<p>select database();</p>
+<p>select schema_name from information_schema.schemata;</p>
+<p>select table_name from information_schema.tables where table_schema=’A’;</p>
+<p>select column_name from information_schema.column where table_name=’B’;</p>
+<p>select username,password from where A.B;</p>
+<p>利用group_concat()和concat_ws()来简便操作</p>
+<p><img src="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png" alt="QQ截图20211107111426.png"></p>
+<h1 id="less-12"><a href="#less-12" class="headerlink" title="less 12"></a>less 12</h1><p>同理同法，不过是把单引号改为双引号单括号。</p>
+<p>测试注入可以依次测试’  ,  ‘)  ,  ‘))  ,  “  ,  “)  ,  “))六种</p>
+<h1 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h1><p>同样操作</p>
+<p>post data：uname=1’) or 1=1#&amp;passwd=1&amp;submit=Submit</p>
+<p>这次没有报错，但也没有回显</p>
+<p>属于布尔盲注</p>
+<p>post data：uname=1’) or length(database()&gt;1#&amp;passwd=1&amp;submit=Submit来判断数据库名长度</p>
+<p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p>
+<p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p>
+<p>利用工具进行爆破详见less5,6总结</p>
+<p>13     (‘’)</p>
+<p>14      “”</p>
+<p>15       ‘’</p>
+<p>16       (“”)</p>
+<p>less13,14,15,16同样的方法只是对数据的包裹方式不同。</p>
 
     </div>
 
@@ -251,20 +286,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%9D%9E%E5%B8%B8%E9%AB%98%E5%85%B4%E8%83%BD%E5%9C%A8b%E7%AB%99%E4%B8%8A%E6%89%BE%E5%88%B0%E8%BF%99%E4%B9%88%E5%A4%9A%E7%9A%84%E2%80%9Cctf%E6%95%99%E7%A8%8B%E2%80%9D%EF%BC%8C%E6%84%9F%E8%B0%A2%E9%82%A3%E4%BA%9B%E6%97%A0%E5%81%BF%E7%9A%84%E2%80%9C%E6%90%AC%E8%BF%90%E5%A7%AC%E4%BB%AC%E2%80%9D%EF%BC%8C%E7%8E%B0%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E5%95%A6%EF%BC%81/" rel="tag"># 非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！</a>
+              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/18/The-First-Day/" rel="prev" title="The First Day">
-                  <i class="fa fa-chevron-left"></i> The First Day
+                <a href="/2021/11/04/less7-8/" rel="prev" title="less7-10">
+                  <i class="fa fa-chevron-left"></i> less7-10
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/" rel="next" title="“冷知识”">
-                  “冷知识” <i class="fa fa-chevron-right"></i>
+                <a href="/2021/11/10/less17/" rel="next" title="less17-">
+                  less17- <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>

