@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -176,6 +176,103 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/" class="post-title-link" itemprop="url">“流量包分析”之sqltest</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-11-24 20:41:47 / Modified: 22:35:14" itemprop="dateCreated datePublished" datetime="2021-11-24T20:41:47+08:00">2021-11-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a>sqltest</h1><p>原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。</p>
+<p>这是一道流量包分析，首先先下载流量包。</p>
+<p>然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~</p>
+<h2 id="第一次查看流量包"><a href="#第一次查看流量包" class="headerlink" title="第一次查看流量包"></a>第一次查看流量包</h2><p><img src="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png" alt="QQ截图20211124204947.png"></p>
+<p>这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。</p>
+<p>比如其中有一些get请求意外的相似：</p>
+<p>GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;99 </p>
+<p>8084    11.866325    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 </p>
+<p>8094    11.872110    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 HTTP/1.1 </p>
+<p>仔细看这不就是布尔盲注的爆破内容。</p>
+<p>刚好解释了为啥这题的名字叫做sqltest</p>
+<p>所以就简单了，道理就只要把最后一句查字段的爆破类容找出来就行，ascii码转一下就行了，但是！！我wireshark（查看浏览包的应用）没玩明白。。。惨惨π_π。</p>
+<p>在查了一大堆教程以后，终于有了一点眉目。</p>
+<p>首先在过滤器里搜索http（协议） get（请求）</p>
+<p><img src="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png" alt="QQ截图20211124220332.png"></p>
+<p>发现返回的的长度有两种1095和1025</p>
+<p><img src="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png" alt="QQ截图20211124221517.png"></p>
+<p>之所以返回变长了就是多了上面的部分。因此可知1095的语句是正确的</p>
+<p>然后导出过滤concat</p>
+<p><img src="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png" alt="QQ截图20211124222854.png"></p>
+<p>然后判断正确ascii码正确的为</p>
+<p>102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50  56 102 99 53 52 98 48 100 48 57 101 99 100 101 102 55 125</p>
+<p>所对应为</p>
+<p>flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/19/wp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -201,7 +298,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2021-11-19 20:53:10 / Modified: 21:34:07" itemprop="dateCreated datePublished" datetime="2021-11-19T20:53:10+08:00">2021-11-19</time>
+      <time title="Created: 2021-11-19 20:53:10 / Modified: 21:37:00" itemprop="dateCreated datePublished" datetime="2021-11-19T20:53:10+08:00">2021-11-19</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1304,127 +1401,6 @@
 <p>select user() regexp ‘r’;    regexp为匹配字符串user()的正则表达式，不管输入多少，相同                                                                                                                                                                                                  </p>
 </blockquote>
 <hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/" class="post-title-link" itemprop="url">sql注入之sqli-labs</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-06 16:27:22" itemprop="dateCreated datePublished" datetime="2021-10-06T16:27:22+08:00">2021-10-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-27 21:57:54" itemprop="dateModified" datetime="2021-10-27T21:57:54+08:00">2021-10-27</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="sql-是啥？"><a href="#sql-是啥？" class="headerlink" title="sql 是啥？"></a>sql 是啥？</h1><p>sql是用于访问和处理数据库的标准计算机语言。<del>没错又是一门语言,woc</del></p>
-<h2 id="首先搭建php环境"><a href="#首先搭建php环境" class="headerlink" title="首先搭建php环境"></a>首先搭建php环境</h2><p>虽然咱啥都不会，但是我精通各类软件的安装、下载（doge）！！！</p>
-<p><img src="https://i.loli.net/2021/10/06/NQ5Y3qPEVvz9jnR.png" alt="QQ截图20211006163829.png"></p>
-<p>但<strong>奇怪</strong>的是贴吧上很多巨佬都推荐我用5.6.9的php版本，可我7.3.4的版本照样用得好好地。</p>
-<p><del>（咱也不敢说，咱也不敢问）</del></p>
-<h2 id="下载sqli-labs"><a href="#下载sqli-labs" class="headerlink" title="下载sqli-labs"></a>下载sqli-labs</h2><p>然后打开群文件里的<a target="_blank" rel="noopener" href="https://github.com/Audi-1/sqli-labs">项目地址</a>去github 去下</p>
-<p>也可以在PHPstudy的WWW文件夹下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> https://github.com/Audi-1/sqli-labs.git sqli-labs</span><br></pre></td></tr></table></figure>
-
-<p>就可以了</p>
-<h2 id="最后搭建网站"><a href="#最后搭建网站" class="headerlink" title="最后搭建网站"></a>最后搭建网站</h2><p>点开阿帕奇和MYsql就行了，像上面那张图那样（有图真是超方便）</p>
-<h3 id="ps：我找到了一个可以上传图片的-好地方-（https-sm-ms-）"><a href="#ps：我找到了一个可以上传图片的-好地方-（https-sm-ms-）" class="headerlink" title="ps：我找到了一个可以上传图片的[好地方]（https://sm.ms/）"></a>ps：我找到了一个可以上传图片的[好地方]（<a target="_blank" rel="noopener" href="https://sm.ms/%EF%BC%89">https://sm.ms/）</a></h3><p>直接访问网络图片超方便。</p>
-<p>言归正传，打开后再点开管理里面的打开网站</p>
-<p><img src="https://i.loli.net/2021/10/06/zVg3deXYU2Z8Ecx.png" alt="QQ截图20211006170538.png"></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>然后就弹出来了</p>
-<p><img src="https://i.loli.net/2021/10/06/W9sN8mePHxkcb6Q.png" alt="QQ截图20211006170820.png"></p>
-<p>如果是第一次搭php环境弹出来的是另外的东西，我已经把之前WWW里面的文件删掉了换成了sqli-labs。</p>
-<p><img src="https://i.loli.net/2021/10/06/NhZQ63enblWXzr1.png" alt="QQ截图20211006171252.png"></p>
-<p>你以为这样就完了吗？随便点开一个东西，我就被警告了</p>
-<p><img src="https://i.loli.net/2021/10/06/DPkhO1YQs9NaTV6.jpg" alt="c633f4d97eaf12b46b4923112b20564ac679542c.jpg"></p>
-<p>但解决方法也很简单，就打开</p>
-<p>sql-connections把db-creds.inc里面的password初始化一下就好了。</p>
-<h2 id="补充MYsql的基本用法"><a href="#补充MYsql的基本用法" class="headerlink" title="补充MYsql的基本用法"></a>补充MYsql的基本用法</h2><blockquote>
-<p>select schema_name from information_schema.schemata //查库</p>
-<p>select table_name from information_schema.table where table_schema=’security’//查表</p>
-<p>select column_name from information_schema.clumns where table_name=’users’//查列</p>
-<p>select username,password from security.users//查字段</p>
-</blockquote>
-<p>依次执行效果如下：</p>
-<p><img src="https://i.loli.net/2021/10/07/H6rmY1xkpzcIi7K.png" alt="QQ截图20211007132949.png"></p>
-<p><img src="https://i.loli.net/2021/10/07/XUr3It7gPTpFhz5.png" alt="QQ截图20211007133009.png"></p>
-<p><img src="https://i.loli.net/2021/10/07/hGMQYrvTSjFxV3J.png" alt="QQ截图20211007133031.png"></p>
-<p><strong>PS</strong>：第一幅正常来说没有‘NO connection’除非你网不好<del>（顺便吐槽一下校园网）</del></p>
-<img src="https://i.loli.net/2021/10/07/UZl4YGI6rHMvpxV.png" alt="QQ截图20211007133846.png" style="zoom:120%;" />
-
-<p>还有建议不要下最新的PHPstudy，它的sql命令行的按钮不知道被谁扣掉了</p>
-<p>要用cmd cd 那个sql.exe的文件地址</p>
-<p>然后执行</p>
-<blockquote>
-<p>.\mysql.exe -uroot -p</p>
-</blockquote>
-<p><strong>超级麻烦！！！！</strong></p>
 
       
     </div>

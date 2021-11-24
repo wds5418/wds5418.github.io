@@ -20,31 +20,32 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="善用工具工欲善其事，必先利其器。好的工具一程度上能够压缩工作量，来使我们更高效的挖掘flag dirsearch（目录扫描工具） 常用命令： python dirsearch.py -u URL -e php -u 指定目标ip -e 指定网站语言 -w 加上自己的字典 -random-agents使用代理 sqlmap（针对sql注入的工具） 常用命令： sqlmap -u “URL” 指定目标">
+<meta name="description" content="sqltest原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。 这是一道流量包分析，首先先下载流量包。 然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~ 第一次查看流量包 这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。 比如其中有一些get请求意外的相似： GET &#x2F;index.php?act&#x3D;news&amp;id&#x3D;1%20a">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“鲲鹏杯战后总结”">
-<meta property="og:url" content="http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/index.html">
+<meta property="og:title" content="“流量包分析”之sqltest">
+<meta property="og:url" content="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="善用工具工欲善其事，必先利其器。好的工具一程度上能够压缩工作量，来使我们更高效的挖掘flag dirsearch（目录扫描工具） 常用命令： python dirsearch.py -u URL -e php -u 指定目标ip -e 指定网站语言 -w 加上自己的字典 -random-agents使用代理 sqlmap（针对sql注入的工具） 常用命令： sqlmap -u “URL” 指定目标">
+<meta property="og:description" content="sqltest原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。 这是一道流量包分析，首先先下载流量包。 然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~ 第一次查看流量包 这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。 比如其中有一些get请求意外的相似： GET &#x2F;index.php?act&#x3D;news&amp;id&#x3D;1%20a">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/10/21/S5pHdzOim1Ugr27.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/21/57MWvhqbnD2g3XF.png">
-<meta property="article:published_time" content="2021-10-21T11:10:17.000Z">
-<meta property="article:modified_time" content="2021-10-25T15:46:40.364Z">
+<meta property="og:image" content="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png">
+<meta property="og:image" content="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png">
+<meta property="article:published_time" content="2021-11-24T12:41:47.000Z">
+<meta property="article:modified_time" content="2021-11-24T14:35:14.165Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="文献参考CSDN">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/10/21/S5pHdzOim1Ugr27.png">
+<meta name="twitter:image" content="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png">
 
 
-<link rel="canonical" href="http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/">
+<link rel="canonical" href="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/","path":"2021/10/21/“鲲鹏杯战后总结”/","title":"“鲲鹏杯战后总结”"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/","path":"2021/11/24/“流量包分析”之sqltest/","title":"“流量包分析”之sqltest"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>“鲲鹏杯战后总结” | wds</title>
+<title>“流量包分析”之sqltest | wds</title>
   
 
 
@@ -123,7 +124,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%84%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">善用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dirsearch%EF%BC%88%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">dirsearch（目录扫描工具）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlmap%EF%BC%88%E9%92%88%E5%AF%B9sql%E6%B3%A8%E5%85%A5%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">sqlmap（针对sql注入的工具）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E6%98%8E%E7%A1%AE%EF%BC%88%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%AF%AB%E6%97%A0%E8%90%A5%E5%85%BB%E7%9A%84%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">目标明确（以下是毫无营养的经验之谈）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%8F%E4%B8%AA%E9%A2%98%E7%9B%AE%E9%83%BD%E7%9C%8B%EF%BC%88%E6%AF%95%E7%AB%9F%E8%8F%9C%E9%80%BC%EF%BC%8C%E8%A6%81%E6%8C%91%E8%BD%AF%E6%9F%BF%E5%AD%90%E6%8D%8F%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">每个题目都看（毕竟菜逼，要挑软柿子捏）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%96%84%E7%94%A8%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">善用搜索</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sqltest"><span class="nav-number">1.</span> <span class="nav-text">sqltest</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%9F%A5%E7%9C%8B%E6%B5%81%E9%87%8F%E5%8C%85"><span class="nav-number">1.1.</span> <span class="nav-text">第一次查看流量包</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,7 +187,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,7 +200,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          “鲲鹏杯战后总结”
+          “流量包分析”之sqltest
         </h1>
 
         <div class="post-meta-container">
@@ -209,23 +210,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-10-21 19:10:17" itemprop="dateCreated datePublished" datetime="2021-10-21T19:10:17+08:00">2021-10-21</time>
+      <time title="Created: 2021-11-24 20:41:47 / Modified: 22:35:14" itemprop="dateCreated datePublished" datetime="2021-11-24T20:41:47+08:00">2021-11-24</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:46:40" itemprop="dateModified" datetime="2021-10-25T23:46:40+08:00">2021-10-25</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
         </span>
     </span>
 
@@ -239,29 +234,30 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="善用工具"><a href="#善用工具" class="headerlink" title="善用工具"></a>善用工具</h1><p>工欲善其事，必先利其器。好的工具一程度上能够压缩工作量，来使我们更高效的挖掘flag</p>
-<h2 id="dirsearch（目录扫描工具）"><a href="#dirsearch（目录扫描工具）" class="headerlink" title="dirsearch（目录扫描工具）"></a>dirsearch（目录扫描工具）</h2><p><img src="https://i.loli.net/2021/10/21/S5pHdzOim1Ugr27.png" alt="QQ截图20211021201535.png"></p>
-<p>常用命令：</p>
-<p>python dirsearch.py -u URL -e php</p>
-<p>-u 指定目标ip</p>
-<p>-e 指定网站语言</p>
-<p>-w 加上自己的字典</p>
-<p>-random-agents使用代理</p>
-<h2 id="sqlmap（针对sql注入的工具）"><a href="#sqlmap（针对sql注入的工具）" class="headerlink" title="sqlmap（针对sql注入的工具）"></a>sqlmap（针对sql注入的工具）</h2><p><img src="https://i.loli.net/2021/10/21/57MWvhqbnD2g3XF.png" alt="QQ截图20211021201739.png"></p>
-<p>常用命令：</p>
-<p>sqlmap -u “URL” 指定目标</p>
-<p>sqlmap -m 1.txt 获取多个url</p>
-<p>sqlmap -r URL.txt  从文件中加载http请求</p>
-<p>sqlmap -g  利用谷歌获取目标</p>
-<p>sqlmap -l burp.txt</p>
-<p>—dbs 查看所有可用数据库</p>
-<p>-D&lt;库名&gt; –tables（查看某库下面的可用表）</p>
-<p>-D&lt;库名&gt; -T&lt;对应的数据库表名&gt;  – column（查询某数据库某表下的所有列名）</p>
-<h1 id="目标明确（以下是毫无营养的经验之谈）"><a href="#目标明确（以下是毫无营养的经验之谈）" class="headerlink" title="目标明确（以下是毫无营养的经验之谈）"></a>目标明确（以下是毫无营养的经验之谈）</h1><p>战场上紧张的情绪会影响心态，要调整心态明确目标。</p>
-<h2 id="每个题目都看（毕竟菜逼，要挑软柿子捏）"><a href="#每个题目都看（毕竟菜逼，要挑软柿子捏）" class="headerlink" title="每个题目都看（毕竟菜逼，要挑软柿子捏）"></a>每个题目都看（毕竟菜逼，要挑软柿子捏）</h2><p>就所有类型题目都看一遍嘛。web题就看看源代码，misc就改改文件名啊。</p>
-<p>这次也是运气非常好让我做出了web1，就是审查源代码找到了一个表情包的转码，但确实有点费眼睛（不得不说dirsearch真的好用，学到了！学到了！）</p>
-<h2 id="善用搜索"><a href="#善用搜索" class="headerlink" title="善用搜索"></a>善用搜索</h2><p>遇到非常恐怖的代码有一个小技巧，ctrl+a，Ctrl+c，复制到记事本里然后</p>
-<p>在编辑里面查找关键词（例如flag），可以省去一大段代码审计的时间。。。</p>
+        <h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a>sqltest</h1><p>原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。</p>
+<p>这是一道流量包分析，首先先下载流量包。</p>
+<p>然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~</p>
+<h2 id="第一次查看流量包"><a href="#第一次查看流量包" class="headerlink" title="第一次查看流量包"></a>第一次查看流量包</h2><p><img src="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png" alt="QQ截图20211124204947.png"></p>
+<p>这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。</p>
+<p>比如其中有一些get请求意外的相似：</p>
+<p>GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;99 </p>
+<p>8084    11.866325    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 </p>
+<p>8094    11.872110    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 HTTP/1.1 </p>
+<p>仔细看这不就是布尔盲注的爆破内容。</p>
+<p>刚好解释了为啥这题的名字叫做sqltest</p>
+<p>所以就简单了，道理就只要把最后一句查字段的爆破类容找出来就行，ascii码转一下就行了，但是！！我wireshark（查看浏览包的应用）没玩明白。。。惨惨π_π。</p>
+<p>在查了一大堆教程以后，终于有了一点眉目。</p>
+<p>首先在过滤器里搜索http（协议） get（请求）</p>
+<p><img src="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png" alt="QQ截图20211124220332.png"></p>
+<p>发现返回的的长度有两种1095和1025</p>
+<p><img src="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png" alt="QQ截图20211124221517.png"></p>
+<p>之所以返回变长了就是多了上面的部分。因此可知1095的语句是正确的</p>
+<p>然后导出过滤concat</p>
+<p><img src="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png" alt="QQ截图20211124222854.png"></p>
+<p>然后判断正确ascii码正确的为</p>
+<p>102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50  56 102 99 53 52 98 48 100 48 57 101 99 100 101 102 55 125</p>
+<p>所对应为</p>
+<p>flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p>
 
     </div>
 
@@ -270,22 +266,16 @@
     
 
     <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E6%96%87%E7%8C%AE%E5%8F%82%E8%80%83CSDN/" rel="tag"># 文献参考CSDN</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/10/08/less1-4%E6%80%BB%E7%BB%93/" rel="prev" title="less1~4总结">
-                  <i class="fa fa-chevron-left"></i> less1~4总结
+                <a href="/2021/11/19/wp/" rel="prev" title="finalsql">
+                  <i class="fa fa-chevron-left"></i> finalsql
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/10/27/less5,6/" rel="next" title="lesson5，6总结">
-                  lesson5，6总结 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
