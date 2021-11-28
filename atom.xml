@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-24T14:35:14.165Z</updated>
+  <updated>2021-11-28T01:32:43.048Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,13 +17,50 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://example.com/2021/11/28/Untitled/"/>
+    <id>http://example.com/2021/11/28/Untitled/</id>
+    <published>2021-11-28T01:32:43.048Z</published>
+    <updated>2021-11-28T01:32:43.048Z</updated>
+    
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>lesson18</title>
+    <link href="http://example.com/2021/11/28/lesson18/"/>
+    <id>http://example.com/2021/11/28/lesson18/</id>
+    <published>2021-11-28T01:20:42.000Z</published>
+    <updated>2021-11-28T02:55:48.300Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="less18-header-injection"><a href="#less18-header-injection" class="headerlink" title="less18 header injection"></a>less18 header injection</h1><p><img src="https://i.loli.net/2021/11/28/iUSL7pB8aXCKezf.png" alt="header injection.png"></p><p>登入成功返回我的ip地址和user agent</p><p>因为user agent在登入成功后会回显，所以理所当然的尝试在header的user agent注入</p><p>注入语句’ or updatexml(1,concat(0x7e,(database())),1) or ‘1’ =’1</p><p>直接在抓包处改</p><p><img src="https://i.loli.net/2021/11/28/IUwgv12aLkqbKDA.png" alt="header injection1.png"></p><p>后面就是正常的把database()改成其他的查库查列操作</p><p>或者使用方法二：</p><p>’ or updatexml（1，concat（0x7e，（database（））），1），‘’，‘’）#进行注入</p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>就是基于updatexml（1，，1）的报错注入，在header上进行注入</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;less18-header-injection&quot;&gt;&lt;a href=&quot;#less18-header-injection&quot; class=&quot;headerlink&quot; title=&quot;less18 header injection&quot;&gt;&lt;/a&gt;less18 header inj</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
     <title>“流量包分析”之sqltest</title>
     <link href="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/"/>
     <id>http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/</id>
     <published>2021-11-24T12:41:47.000Z</published>
-    <updated>2021-11-24T14:35:14.165Z</updated>
+    <updated>2021-11-26T12:21:12.912Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a>sqltest</h1><p>原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。</p><p>这是一道流量包分析，首先先下载流量包。</p><p>然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~</p><h2 id="第一次查看流量包"><a href="#第一次查看流量包" class="headerlink" title="第一次查看流量包"></a>第一次查看流量包</h2><p><img src="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png" alt="QQ截图20211124204947.png"></p><p>这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。</p><p>比如其中有一些get请求意外的相似：</p><p>GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;99 </p><p>8084    11.866325    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 </p><p>8094    11.872110    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 HTTP/1.1 </p><p>仔细看这不就是布尔盲注的爆破内容。</p><p>刚好解释了为啥这题的名字叫做sqltest</p><p>所以就简单了，道理就只要把最后一句查字段的爆破类容找出来就行，ascii码转一下就行了，但是！！我wireshark（查看浏览包的应用）没玩明白。。。惨惨π_π。</p><p>在查了一大堆教程以后，终于有了一点眉目。</p><p>首先在过滤器里搜索http（协议） get（请求）</p><p><img src="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png" alt="QQ截图20211124220332.png"></p><p>发现返回的的长度有两种1095和1025</p><p><img src="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png" alt="QQ截图20211124221517.png"></p><p>之所以返回变长了就是多了上面的部分。因此可知1095的语句是正确的</p><p>然后导出过滤concat</p><p><img src="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png" alt="QQ截图20211124222854.png"></p><p>然后判断正确ascii码正确的为</p><p>102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50  56 102 99 53 52 98 48 100 48 57 101 99 100 101 102 55 125</p><p>所对应为</p><p>flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a>sqltest</h1><p>原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。</p><p>这是一道流量包分析，首先先下载流量包。</p><p>然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~</p><h2 id="第一次查看流量包"><a href="#第一次查看流量包" class="headerlink" title="第一次查看流量包"></a>第一次查看流量包</h2><p><img src="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png" alt="QQ截图20211124204947.png"></p><p>这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。</p><p>比如其中有一些get请求意外的相似：</p><p>GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;99 </p><p>8084    11.866325    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 </p><p>8094    11.872110    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 HTTP/1.1 </p><p>仔细看这不就是布尔盲注的爆破内容。</p><p>刚好解释了为啥这题的名字叫做sqltest</p><p>所以就简单了，道理就只要把最后一句查字段的爆破类容找出来就行，ascii码转一下就行了，但是！！我wireshark（查看浏览包的应用）没玩明白。。。惨惨π_π。</p><p>在查了一大堆教程以后，终于有了一点眉目。</p><p>首先在过滤器里搜索http（协议） get（请求）</p><p><img src="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png" alt="QQ截图20211124220332.png"></p><p>发现返回的的长度有两种1095和1025</p><p><img src="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png" alt="QQ截图20211124221517.png"></p><p>之所以返回变长了就是多了上面的部分。因此可知1095的语句是正确的</p><p>然后导出过滤concat</p><p><img src="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png" alt="QQ截图20211124222854.png"></p><p>然后判断正确ascii码正确的为</p><p>102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50  56 102 99 53 52 98 48 100 48 57 101 99 100 101 102 55 125</p><p>所对应为</p><p>flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p><h1 id="关于wireshark"><a href="#关于wireshark" class="headerlink" title="关于wireshark"></a>关于wireshark</h1><p>wireshark是一个网络封包工具，可以截取各种网络数据包，并显示数据包详细信息</p><p><img src="https://i.loli.net/2021/11/26/oMcbNGYlUpP4Iqu.png" alt="wireshark.png"></p><p>详细使用类容参考<a href="https://blog.csdn.net/zzwwhhpp/article/details/113077747?utm_source=app&app_version=4.18.0&code=app_1562916241&uLinkId=usr1mkqgl919blen">csdn</a></p><p>执行ping+域名</p><h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p><img src="https://i.loli.net/2021/11/26/2HWM6ptYimaIcOR.png" alt="wireshark过滤器.png"></p><h3 id="数据包列表"><a href="#数据包列表" class="headerlink" title="数据包列表"></a>数据包列表</h3><p><img src="https://i.loli.net/2021/11/26/Lct7mxsWI3AjToM.png" alt="wireshark2.png"></p><h3 id="数据包详细信息"><a href="#数据包详细信息" class="headerlink" title="数据包详细信息"></a>数据包详细信息</h3><ol><li>frame：物理层数据帧概况</li><li>Ethernet||：数据链路层以太网头部信息</li><li>internet Protocol Version 4:互联网层IP包头部信息</li><li>Transmission control protocol：传输层T的数据段头部信息</li><li>Hypertext Transfer Protocol：应用层信息</li></ol>]]></content>
     
     
       
@@ -87,7 +124,7 @@
     <link href="http://example.com/2021/11/10/less17/"/>
     <id>http://example.com/2021/11/10/less17/</id>
     <published>2021-11-10T11:51:06.000Z</published>
-    <updated>2021-11-10T14:30:41.805Z</updated>
+    <updated>2021-11-28T01:22:00.118Z</updated>
     
     <content type="html"><![CDATA[<h1 id="less17的注入过滤"><a href="#less17的注入过滤" class="headerlink" title="less17的注入过滤"></a>less17的注入过滤</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_input</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$value</span>))</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// truncation (see comments)</span></span><br><span class="line"><span class="variable">$value</span> = substr(<span class="variable">$value</span>,<span class="number">0</span>,<span class="number">15</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Stripslashes if magic quotes enabled</span></span><br><span class="line"><span class="keyword">if</span> (get_magic_quotes_gpc())</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = stripslashes(<span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quote if not a number</span></span><br><span class="line"><span class="keyword">if</span> (!ctype_digit(<span class="variable">$value</span>))</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = <span class="string">&quot;&#x27;&quot;</span> . mysql_real_escape_string(<span class="variable">$value</span>) . <span class="string">&quot;&#x27;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = intval(<span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>substr（$value，0,15）；首先截取前16个字符</p><p>magic_quotes_gpc()函数在php中作用是判断用户提供数据，如包括有：post，get，cookie过来的数据增加转义字符“\”,以确保这些数据不会引起程序的错误</p><p>ctype_digit()判断是不是纯的数字</p><p> mysql_real_escape_string()调用mysql库的函数 mysql_real_escape_string,在以下字符前添加反斜杠：\x00,\n,\r,,‘,”,和\x1a，默认字符集。</p><p><img src="https://i.loli.net/2021/11/10/AyNRDwTH7zcB5xV.png" alt="QQ浏览器截图20211110212406.png"></p><p>只截取前16个字符，的同时注释（\）单引号</p><p>但是它对密码部分没做注入过滤，所以只要有正确的账号就可以尝试在passwd=后面进行注入</p><h1 id="UPDATEXML-XML-document-XPath-string-new-value-函数"><a href="#UPDATEXML-XML-document-XPath-string-new-value-函数" class="headerlink" title="UPDATEXML (XML_document, XPath_string, new_value)函数"></a>UPDATEXML (XML_document, XPath_string, new_value)函数</h1><p>XML_document是string格式，为XMl文档对象的名称</p><p>XPath_string(Xpath格式的字符串)</p><p>new_value为string格式，替换查找符合条件的数据</p><p>该函数用于改变文档中符合条件的节点的值，意为改变XML_document中符合XPATH_string的值</p><p>利用concat()函数只是将其拼接成字符串格式，来利用UPDATEXML (XML_document, XPath_string, new_value)函数报错出XPath_string的值</p><p>select updatexml(1,concat(0x7e,(database())),1);</p><p>select updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1)),1);</p><p>select updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table.schema=’security’ limit 0,1)),1);</p>]]></content>
     
@@ -99,6 +136,10 @@
     
     
     
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
