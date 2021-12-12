@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-11-28T01:32:43.048Z</updated>
+  <updated>2021-12-12T08:32:41.587Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>编码篇</title>
+    <link href="http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/"/>
+    <id>http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/</id>
+    <published>2021-12-12T07:11:28.000Z</published>
+    <updated>2021-12-12T08:32:41.587Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Morse编码"><a href="#Morse编码" class="headerlink" title="Morse编码"></a>Morse编码</h1><p>摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母、数字和标点符号。是由美国人艾尔菲德·维 尔(Alfred Lewis Vail)与萨缪尔·摩尔斯(Samuel Finley Breese Morse) 在1836年发明。由点（·）和划（-）组成。</p><p><img src="https://s2.loli.net/2021/12/12/B4nJizpyuHMCXm2.png" alt="CSDN_1639293456784.jpg"></p><p><a href="http://www.mathsking.net/morse.htm">莫斯在线编码</a></p><h1 id="ascii编码"><a href="#ascii编码" class="headerlink" title="ascii编码"></a>ascii编码</h1><p>ASCII(American Standard Code for Information  Interchange，美国信息交换标准代码)是基于拉丁字母的一套  电脑编码系统，主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO/IEC 646。</p><p><img src="https://s2.loli.net/2021/12/12/tgWfoxSkA892TcG.png" alt="CSDN_1639293840648.jpg"></p><p><a href="http://www.ab126.com/goju/1711.html">ascii码翻译器</a></p><h1 id="Tap-Code敲击码"><a href="#Tap-Code敲击码" class="headerlink" title="Tap Code敲击码"></a>Tap Code敲击码</h1><p> 敲击码(Tap code)是一种以非常简单的方式对文本信息进行 编码的方法。因该编码对信息通过使用一系列的点击声音来编 码而命名，敲击码是基于 5 ×5 方格波利比奥斯方阵来实现的， 不同点是是用 K 字母被整合到 C 中。</p><p><img src="https://s2.loli.net/2021/12/12/1YukBIh74wpg3Ld.png" alt="CSDN_1639294020485.jpg"></p><p>2,3 1,5 3,1 3,1 3,4 ==&gt;H E L L O 或 .. …/. …../… ./… ./… …./ ==&gt;H E L L O</p><h1 id="Base编码"><a href="#Base编码" class="headerlink" title="Base编码"></a>Base编码</h1><p> Base64是网络上最常见的用于传输8Bit字节码的编码方式之一，Base64 就是一种基于64(65)个可打印字符来表示二进制数据的方法。 a-z、A-Z、0-9、符号“+”、“/”（再加上作为补位的”=”，实际上是 65个字符） 。</p><p>  Base xx 中的 xx 表示的是采用多少个字符进行编码，比如说 base64 就是采用 64 个字符编码，由于 2 的 6 次方等于 64，所以每 6 个比特 为一个单元，对应某个可打印字符。</p><p>例如：d2VsY29tZQ==   ==&gt;welcome</p><p>特点：base64 结尾可能会有=号，但最多有2个 。</p><p>base32 结尾可能会有=号,最多有 3 个等号。</p><p>根据 base 的不同，字符集会有所限制 。 有可能需要自己加等号。</p><p><a href="http://tool.chinaz.com/tools/base64.aspx">base64在线解码</a></p><h1 id="URL编码"><a href="#URL编码" class="headerlink" title="URL编码"></a>URL编码</h1><p> URL编码,又叫百分号编码，是统一资源定位(URL)编码方式。URL地址 （常说网址）规定了常用地数字，字母可以直接使用，另外一批作为特殊 用户字符也可以直接用（/,:@等），剩下的其它所有字符必须通过%xx编码 处理。 现在已经成为一种规范了，基本所有程序语言都有这种编码，如js： 有encodeURI、encodeURIComponent，PHP有 urlencode、urldecode等。编 码方法很简单，在该字节ascii码的的16进制字符前面加%. 如空格字符， ascii码是32，对应16进制是‘20’，那么urlencode编码结果是:%20。</p><p>例如：URL%E7%BC%96%E7%A0%81   ==&gt; URL编码</p><p><a href="http://tool.oschina.net/encode?type=4">URL在线解码</a></p><h1 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h1><p> Unicode（统一码、万国码、单一码）是计算机科学领域里的一项业界 标准,包括字符集、编码方案等。Unicode 是为了解决传统的字符编码方案 的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的二进 制编码，以满足跨语言、跨平台进行文本转换、处理的要求。1990年开始 研发，1994年正式公布。</p><p><a href="http://tool.oschina.net/encode">Unicode在线解码</a></p><h1 id="jsfuck"><a href="#jsfuck" class="headerlink" title="jsfuck"></a>jsfuck</h1><p> JSFuck 可以让你只用 6 个字符 <a href=""> </a> ! + 来编写 JavaScript 程序</p><p><a href="http://www.bugku.com/tools/jsfuck/">jsfuck在线解码</a></p><h1 id="brainfuck"><a href="#brainfuck" class="headerlink" title="brainfuck"></a>brainfuck</h1><p> Brainfuck 是一种极小化的计算机语言，按照”Turing complete(完整图灵机) “思想设计 的语言，它的主要设计思路是:用最小的概念实现一种“简单”的语 言，BrainF**k 语言 只有八种符号，所有的操作都由这八种符号  &gt; &lt; + - . , [ ]  的组合来完成。</p><p><a href="https://www.splitbrain.org/services/ook">brainfuck在线解码</a></p><h1 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h1><p>凯撒密码（Caesar）加密时会将明文中的每个字母都按照其在字母表中的顺序向后（或 向前）移动固定数目（循环移动）作为密文。例如，当偏移量是左移 3 的时候（解密时 的密钥就是 3）。</p><p>  使用时，加密者查找明文字母表中需要加密的消息中的每一个字母所在位置，并且写下密 文字母表中对应的字母。需要解密的人则根据事先已知的密钥反过来操作，得到原来的明文。</p><p>  根据偏移量的不同，还存在若干特定的恺撒密码名称：</p><p>  偏移量为 10：Avocat （A→K）</p><p>  偏移量为 13：ROT13</p><p>  偏移量为 -5：Cassis （K 6）</p><p>  偏移量为 -6：Cassette （K 7）</p><p>例如：Uryyb,Jrypbzr   ==&gt; Hello,Welcome</p><p><a href="http://www.mxcz.net/tools/rot13.aspx">凯撒ROT13在线解码</a></p><p>参考链接：<a href="https://blog.csdn.net/Dog_Captain/article/d">https://blog.csdn.net/Dog_Captain/article/d</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Morse编码&quot;&gt;&lt;a href=&quot;#Morse编码&quot; class=&quot;headerlink&quot; title=&quot;Morse编码&quot;&gt;&lt;/a&gt;Morse编码&lt;/h1&gt;&lt;p&gt;摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母</summary>
+      
+    
+    
+    
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
+    
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -58,7 +80,7 @@
     <link href="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/"/>
     <id>http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/</id>
     <published>2021-11-24T12:41:47.000Z</published>
-    <updated>2021-11-26T12:21:12.912Z</updated>
+    <updated>2021-11-28T12:30:42.754Z</updated>
     
     <content type="html"><![CDATA[<h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a>sqltest</h1><p>原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。</p><p>这是一道流量包分析，首先先下载流量包。</p><p>然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~</p><h2 id="第一次查看流量包"><a href="#第一次查看流量包" class="headerlink" title="第一次查看流量包"></a>第一次查看流量包</h2><p><img src="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png" alt="QQ截图20211124204947.png"></p><p>这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。</p><p>比如其中有一些get请求意外的相似：</p><p>GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;99 </p><p>8084    11.866325    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 </p><p>8094    11.872110    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 HTTP/1.1 </p><p>仔细看这不就是布尔盲注的爆破内容。</p><p>刚好解释了为啥这题的名字叫做sqltest</p><p>所以就简单了，道理就只要把最后一句查字段的爆破类容找出来就行，ascii码转一下就行了，但是！！我wireshark（查看浏览包的应用）没玩明白。。。惨惨π_π。</p><p>在查了一大堆教程以后，终于有了一点眉目。</p><p>首先在过滤器里搜索http（协议） get（请求）</p><p><img src="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png" alt="QQ截图20211124220332.png"></p><p>发现返回的的长度有两种1095和1025</p><p><img src="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png" alt="QQ截图20211124221517.png"></p><p>之所以返回变长了就是多了上面的部分。因此可知1095的语句是正确的</p><p>然后导出过滤concat</p><p><img src="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png" alt="QQ截图20211124222854.png"></p><p>然后判断正确ascii码正确的为</p><p>102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50  56 102 99 53 52 98 48 100 48 57 101 99 100 101 102 55 125</p><p>所对应为</p><p>flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p><h1 id="关于wireshark"><a href="#关于wireshark" class="headerlink" title="关于wireshark"></a>关于wireshark</h1><p>wireshark是一个网络封包工具，可以截取各种网络数据包，并显示数据包详细信息</p><p><img src="https://i.loli.net/2021/11/26/oMcbNGYlUpP4Iqu.png" alt="wireshark.png"></p><p>详细使用类容参考<a href="https://blog.csdn.net/zzwwhhpp/article/details/113077747?utm_source=app&app_version=4.18.0&code=app_1562916241&uLinkId=usr1mkqgl919blen">csdn</a></p><p>执行ping+域名</p><h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p><img src="https://i.loli.net/2021/11/26/2HWM6ptYimaIcOR.png" alt="wireshark过滤器.png"></p><h3 id="数据包列表"><a href="#数据包列表" class="headerlink" title="数据包列表"></a>数据包列表</h3><p><img src="https://i.loli.net/2021/11/26/Lct7mxsWI3AjToM.png" alt="wireshark2.png"></p><h3 id="数据包详细信息"><a href="#数据包详细信息" class="headerlink" title="数据包详细信息"></a>数据包详细信息</h3><ol><li>frame：物理层数据帧概况</li><li>Ethernet||：数据链路层以太网头部信息</li><li>internet Protocol Version 4:互联网层IP包头部信息</li><li>Transmission control protocol：传输层T的数据段头部信息</li><li>Hypertext Transfer Protocol：应用层信息</li></ol>]]></content>
     
@@ -439,26 +461,6 @@
       
       
     <summary type="html">&lt;h2 id=&quot;今天是加入牛X发福队的第一，一切都是这么的亲切可爱，在亲爱的学长的热情指导下，我学会了编辑我的第一篇博客，感觉未来一片光明呢！好的。&quot;&gt;&lt;a href=&quot;#今天是加入牛X发福队的第一，一切都是这么的亲切可爱，在亲爱的学长的热情指导下，我学会了编辑我的第一篇博客，感</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2021/09/18/hello-world/"/>
-    <id>http://example.com/2021/09/18/hello-world/</id>
-    <published>2021-09-17T17:39:09.014Z</published>
-    <updated>2021-09-17T17:39:09.015Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
       
     
     
