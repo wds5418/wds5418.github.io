@@ -176,7 +176,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/22/upload-libs/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/22/upload-libs(1)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -189,7 +189,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/22/upload-libs/" class="post-title-link" itemprop="url">upload-libs</a>
+          <a href="/2022/02/22/upload-libs(1)/" class="post-title-link" itemprop="url">upload-libs</a>
         </h2>
 
         <div class="post-meta-container">
@@ -207,7 +207,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-23 16:30:07" itemprop="dateModified" datetime="2022-02-23T16:30:07+08:00">2022-02-23</time>
+        <time title="Modified: 2022-02-24 11:47:43" itemprop="dateModified" datetime="2022-02-24T11:47:43+08:00">2022-02-24</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -229,7 +229,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="UPload-libs"><a href="#UPload-libs" class="headerlink" title="UPload-libs"></a>UPload-libs</h1><p><img src="https://s2.loli.net/2022/02/23/HnJ8XdQLS2UgyIG.png" alt="QQ截图20220223121036.png"></p>
+          <h1 id="UPload-libs（pass-1-3）"><a href="#UPload-libs（pass-1-3）" class="headerlink" title="UPload-libs（pass 1-3）"></a>UPload-libs（pass 1-3）</h1><p><img src="https://s2.loli.net/2022/02/23/HnJ8XdQLS2UgyIG.png" alt="QQ截图20220223121036.png"></p>
 <p>  在这里我们搭建网站学习上传文件（病毒）</p>
 <p>首先学习一句话木马：</p>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(_POST[<span class="string">&#x27;wds5418&#x27;</span>])<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
@@ -256,6 +256,12 @@
 
 <p>法1：可以将一句话木马的文件后缀改成.php5</p>
 <p>法2：或者上传.htaccess文件来进绕过</p>
+<h2 id="基于文件后缀名的验证介绍"><a href="#基于文件后缀名的验证介绍" class="headerlink" title="基于文件后缀名的验证介绍"></a>基于文件后缀名的验证介绍</h2><p>分类：</p>
+<ol>
+<li>基于白名单验证：只针对白名单中有的后缀名，文件才能上传成功。</li>
+<li>基于黑名单验证：只针对黑名单中没有的后缀名，文件才能上传成功。</li>
+</ol>
+<p>可以利用Burpsuite工具截断HTTP请求，利用Intruder模块进行枚举后缀名，寻找黑名单中没有过滤的文件后缀。</p>
 
       
     </div>
