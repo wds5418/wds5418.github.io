@@ -199,10 +199,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-02-27 12:46:16 / Modified: 12:55:00" itemprop="dateCreated datePublished" datetime="2022-02-27T12:46:16+08:00">2022-02-27</time>
+      <time title="Created: 2022-02-27 12:46:16" itemprop="dateCreated datePublished" datetime="2022-02-27T12:46:16+08:00">2022-02-27</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-03-01 19:32:29" itemprop="dateModified" datetime="2022-03-01T19:32:29+08:00">2022-03-01</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -232,6 +238,23 @@
 <li>数字水印的隐写</li>
 <li>图片容差的隐写</li>
 </ol>
+<h1 id="第一部分-附加的图片隐写"><a href="#第一部分-附加的图片隐写" class="headerlink" title="第一部分 附加的图片隐写"></a>第一部分 附加的图片隐写</h1><p>在附加式的图片隐写术中，我们通常是用某种程序或者某种方法在裁体的文件中直接加上需要隐写的目标，然后将截体文件直接传输到接收者或者发布到网站上然后接收者根据方法提取出被隐写的对象，这一个过程就是我们这里想提到的附加图片隐写。</p>
+<p>而在CTF赛事中，关于这种图片隐写的大概有两种经典方法，一是直接附加字符串，二是图种的形式出现</p>
+<ol>
+<li>用binwalk来打开</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/03/01/kNydwRV14BJz2H6.png" alt="QQ截图20220301185619.png"></p>
+<p><img src="https://s2.loli.net/2022/03/01/LS9dgk3inla5QXz.jpg" alt="cqzb.jpg"></p>
+<p>就能得到</p>
+<p><img src="https://s2.loli.net/2022/03/01/oH239L6ycYkbQdm.png" alt="QQ截图20220301185751.png"></p>
+<p>利用linux的strings命令，对该图片进行处理</p>
+<p><img src="https://s2.loli.net/2022/03/01/RU8xagd4e1hk95V.jpg" alt="ctf.jpg"></p>
+<p>可以提取出字符串ZmxhZ3t3ZWxjb21lX3RvX3hpYW56aGl9</p>
+<p><img src="https://s2.loli.net/2022/03/01/xGvKqLwdYznQmAU.png" alt="QQ截图20220301191713.png"></p>
+<p>利用base64解密</p>
+<p><img src="https://s2.loli.net/2022/03/01/YOmQu87VwUok2vi.png" alt="QQ截图20220301192936.png"></p>
+<p>就可以看到flag。</p>
+<p><img src="https://s2.loli.net/2022/03/01/d2tOADlb7Kq4m6F.png" alt="QQ截图20220301193040.png"></p>
 
       
     </div>
