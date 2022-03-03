@@ -20,31 +20,28 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="善用工具工欲善其事，必先利其器。好的工具一程度上能够压缩工作量，来使我们更高效的挖掘flag dirsearch（目录扫描工具） 常用命令： python dirsearch.py -u URL -e php -u 指定目标ip -e 指定网站语言 -w 加上自己的字典 -random-agents使用代理 sqlmap（针对sql注入的工具） 常用命令： sqlmap -u “URL” 指定目标">
+<meta name="description" content="**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，顺便水一篇博客**，参考zipfile zip文件操作 zipfilezipfile.getinfo(name)功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。 zipfile.infolist()功能：获取zip文档內所有文件的信息返回一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="“鲲鹏杯战后总结”">
-<meta property="og:url" content="http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/index.html">
+<meta property="og:title" content="python之zipfile库">
+<meta property="og:url" content="http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/index.html">
 <meta property="og:site_name" content="wds">
-<meta property="og:description" content="善用工具工欲善其事，必先利其器。好的工具一程度上能够压缩工作量，来使我们更高效的挖掘flag dirsearch（目录扫描工具） 常用命令： python dirsearch.py -u URL -e php -u 指定目标ip -e 指定网站语言 -w 加上自己的字典 -random-agents使用代理 sqlmap（针对sql注入的工具） 常用命令： sqlmap -u “URL” 指定目标">
+<meta property="og:description" content="**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，顺便水一篇博客**，参考zipfile zip文件操作 zipfilezipfile.getinfo(name)功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。 zipfile.infolist()功能：获取zip文档內所有文件的信息返回一">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/10/21/S5pHdzOim1Ugr27.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/21/57MWvhqbnD2g3XF.png">
-<meta property="article:published_time" content="2021-10-21T11:10:17.000Z">
-<meta property="article:modified_time" content="2022-02-23T04:50:01.261Z">
+<meta property="article:published_time" content="2022-03-02T01:59:38.000Z">
+<meta property="article:modified_time" content="2022-03-02T03:50:38.852Z">
 <meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="工具">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/10/21/S5pHdzOim1Ugr27.png">
 
 
-<link rel="canonical" href="http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/">
+<link rel="canonical" href="http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/","path":"2021/10/21/“鲲鹏杯战后总结”/","title":"“鲲鹏杯战后总结”"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/","path":"2022/03/02/python之zipfile库/","title":"python之zipfile库"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>“鲲鹏杯战后总结” | wds</title>
+<title>python之zipfile库 | wds</title>
   
 
 
@@ -123,7 +120,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%96%84%E7%94%A8%E5%B7%A5%E5%85%B7"><span class="nav-number">1.</span> <span class="nav-text">善用工具</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#dirsearch%EF%BC%88%E7%9B%AE%E5%BD%95%E6%89%AB%E6%8F%8F%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">dirsearch（目录扫描工具）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sqlmap%EF%BC%88%E9%92%88%E5%AF%B9sql%E6%B3%A8%E5%85%A5%E7%9A%84%E5%B7%A5%E5%85%B7%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">sqlmap（针对sql注入的工具）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%9B%AE%E6%A0%87%E6%98%8E%E7%A1%AE%EF%BC%88%E4%BB%A5%E4%B8%8B%E6%98%AF%E6%AF%AB%E6%97%A0%E8%90%A5%E5%85%BB%E7%9A%84%E7%BB%8F%E9%AA%8C%E4%B9%8B%E8%B0%88%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">目标明确（以下是毫无营养的经验之谈）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AF%8F%E4%B8%AA%E9%A2%98%E7%9B%AE%E9%83%BD%E7%9C%8B%EF%BC%88%E6%AF%95%E7%AB%9F%E8%8F%9C%E9%80%BC%EF%BC%8C%E8%A6%81%E6%8C%91%E8%BD%AF%E6%9F%BF%E5%AD%90%E6%8D%8F%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">每个题目都看（毕竟菜逼，要挑软柿子捏）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%96%84%E7%94%A8%E6%90%9C%E7%B4%A2"><span class="nav-number">2.2.</span> <span class="nav-text">善用搜索</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#zipfile"><span class="nav-number">1.</span> <span class="nav-text">zipfile</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-getinfo-name"><span class="nav-number">1.1.</span> <span class="nav-text">zipfile.getinfo(name)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-infolist"><span class="nav-number">1.2.</span> <span class="nav-text">zipfile.infolist()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-namelist"><span class="nav-number">1.3.</span> <span class="nav-text">zipfile.namelist()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-extract-memeber-path-pwd"><span class="nav-number">1.4.</span> <span class="nav-text">zipfile.extract(memeber[,path[,pwd]])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-extractall-path-memebers-pwd"><span class="nav-number">1.5.</span> <span class="nav-text">zipfile.extractall([path[,memebers[,pwd]]])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-printdir"><span class="nav-number">1.6.</span> <span class="nav-text">zipfile.printdir()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-setpassword-pwd"><span class="nav-number">1.7.</span> <span class="nav-text">zipfile.setpassword(pwd)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-read-name-pwd"><span class="nav-number">1.8.</span> <span class="nav-text">zipfile.read(name[,pwd])</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#zipfile-getinfo-name-1"><span class="nav-number">1.9.</span> <span class="nav-text">zipfile.getinfo(name)</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,7 +183,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -199,7 +196,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          “鲲鹏杯战后总结”
+          python之zipfile库
         </h1>
 
         <div class="post-meta-container">
@@ -209,23 +206,17 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
+      
 
-      <time title="Created: 2021-10-21 19:10:17" itemprop="dateCreated datePublished" datetime="2021-10-21T19:10:17+08:00">2021-10-21</time>
+      <time title="Created: 2022-03-02 09:59:38 / Modified: 11:50:38" itemprop="dateCreated datePublished" datetime="2022-03-02T09:59:38+08:00">2022-03-02</time>
     </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-23 12:50:01" itemprop="dateModified" datetime="2022-02-23T12:50:01+08:00">2022-02-23</time>
-      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
       <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
         </span>
     </span>
 
@@ -239,29 +230,38 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="善用工具"><a href="#善用工具" class="headerlink" title="善用工具"></a>善用工具</h1><p>工欲善其事，必先利其器。好的工具一程度上能够压缩工作量，来使我们更高效的挖掘flag</p>
-<h2 id="dirsearch（目录扫描工具）"><a href="#dirsearch（目录扫描工具）" class="headerlink" title="dirsearch（目录扫描工具）"></a>dirsearch（目录扫描工具）</h2><p><img src="https://i.loli.net/2021/10/21/S5pHdzOim1Ugr27.png" alt="QQ截图20211021201535.png"></p>
-<p>常用命令：</p>
-<p>python dirsearch.py -u URL -e php</p>
-<p>-u 指定目标ip</p>
-<p>-e 指定网站语言</p>
-<p>-w 加上自己的字典</p>
-<p>-random-agents使用代理</p>
-<h2 id="sqlmap（针对sql注入的工具）"><a href="#sqlmap（针对sql注入的工具）" class="headerlink" title="sqlmap（针对sql注入的工具）"></a>sqlmap（针对sql注入的工具）</h2><p><img src="https://i.loli.net/2021/10/21/57MWvhqbnD2g3XF.png" alt="QQ截图20211021201739.png"></p>
-<p>常用命令：</p>
-<p>sqlmap -u “URL” 指定目标</p>
-<p>sqlmap -m 1.txt 获取多个url</p>
-<p>sqlmap -r URL.txt  从文件中加载http请求</p>
-<p>sqlmap -g  利用谷歌获取目标</p>
-<p>sqlmap -l burp.txt</p>
-<p>—dbs 查看所有可用数据库</p>
-<p>-D&lt;库名&gt; –tables（查看某库下面的可用表）</p>
-<p>-D&lt;库名&gt; -T&lt;对应的数据库表名&gt;  – column（查询某数据库某表下的所有列名）</p>
-<h1 id="目标明确（以下是毫无营养的经验之谈）"><a href="#目标明确（以下是毫无营养的经验之谈）" class="headerlink" title="目标明确（以下是毫无营养的经验之谈）"></a>目标明确（以下是毫无营养的经验之谈）</h1><p>战场上紧张的情绪会影响心态，要调整心态明确目标。</p>
-<h2 id="每个题目都看（毕竟菜逼，要挑软柿子捏）"><a href="#每个题目都看（毕竟菜逼，要挑软柿子捏）" class="headerlink" title="每个题目都看（毕竟菜逼，要挑软柿子捏）"></a>每个题目都看（毕竟菜逼，要挑软柿子捏）</h2><p>就所有类型题目都看一遍嘛。web题就看看源代码，misc就改改文件名啊。</p>
-<p>这次也是运气非常好让我做出了web1，就是审查源代码找到了一个表情包的转码，但确实有点费眼睛（不得不说dirsearch真的好用，学到了！学到了！）</p>
-<h2 id="善用搜索"><a href="#善用搜索" class="headerlink" title="善用搜索"></a>善用搜索</h2><p>遇到非常恐怖的代码有一个小技巧，ctrl+a，Ctrl+c，复制到记事本里然后</p>
-<p>在编辑里面查找关键词（例如flag），可以省去一大段代码审计的时间。。。</p>
+        <p>**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，<del>顺便水一篇博客</del>**，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43677350/article/details/84071552?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考zipfile zip文件操作</a></p>
+<h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a>zipfile</h1><h2 id="zipfile-getinfo-name"><a href="#zipfile-getinfo-name" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。</p>
+<h2 id="zipfile-infolist"><a href="#zipfile-infolist" class="headerlink" title="zipfile.infolist()"></a>zipfile.infolist()</h2><p>功能：获取zip文档內所有文件的信息返回一个zipfile.zipinfo列表</p>
+<h2 id="zipfile-namelist"><a href="#zipfile-namelist" class="headerlink" title="zipfile.namelist()"></a>zipfile.namelist()</h2><p>功能：获取zip文档內所有文件的名称列表。</p>
+<h2 id="zipfile-extract-memeber-path-pwd"><a href="#zipfile-extract-memeber-path-pwd" class="headerlink" title="zipfile.extract(memeber[,path[,pwd]])"></a>zipfile.extract(memeber[,path[,pwd]])</h2><p>功能：将zip文件內的制定文件解压到当前目录。</p>
+<p>参数：</p>
+<p>memeber      指定要解压的文件名称或对应的zipinfo对象</p>
+<p>path               指定解析文件保存的文件夹</p>
+<p>pwd                解压密码</p>
+<h2 id="zipfile-extractall-path-memebers-pwd"><a href="#zipfile-extractall-path-memebers-pwd" class="headerlink" title="zipfile.extractall([path[,memebers[,pwd]]])"></a>zipfile.extractall([path[,memebers[,pwd]]])</h2><p>功能：解压zip文档中的所有文件到当前目录。</p>
+<h2 id="zipfile-printdir"><a href="#zipfile-printdir" class="headerlink" title="zipfile.printdir()"></a>zipfile.printdir()</h2><p>功能：将zip文档內的信息打印到控制台上。</p>
+<h2 id="zipfile-setpassword-pwd"><a href="#zipfile-setpassword-pwd" class="headerlink" title="zipfile.setpassword(pwd)"></a>zipfile.setpassword(pwd)</h2><p>功能：设置zip文档的密码。</p>
+<h2 id="zipfile-read-name-pwd"><a href="#zipfile-read-name-pwd" class="headerlink" title="zipfile.read(name[,pwd])"></a>zipfile.read(name[,pwd])</h2><p>功能：获取zip文档指定文件的二进制数据。 </p>
+<h2 id="zipfile-getinfo-name-1"><a href="#zipfile-getinfo-name-1" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能返回一个zipinfo对象，表示zip文档中相对应的文件信息。</p>
+<p>支持以下属性：</p>
+<p>zipinfo.filename           获取文件的名称</p>
+<p>zipinfo.date_time        获取文件最后的修改时间。返回一个包含6个元素的元组：（年，月，日，时，分，秒）</p>
+<p>zipinfo.compress_type  压缩类型</p>
+<p>zipinfo.comment           文档说明</p>
+<p>zipinfo.extr                    文件的扩展数据</p>
+<p>zipinfo.create_system   获取创建文件的系统</p>
+<p>zipinfo.create_version   获取创建文件的PKZIP版本</p>
+<p>zipinfo.extract_versio      获取创建、解压zip文档的PKZIP所需要的PKZIP版本</p>
+<p>zipinfo.reserved               预留字段，当前实现总是返回0</p>
+<p>zipinfo.flag_bites              zip标志位</p>
+<p>zipinfo.volume                  文件头的卷标</p>
+<p>zipinfo.internal_attr           内部属性</p>
+<p>zipinfo.external_attr           外部属性</p>
+<p>zipinfo.header_offset          文件头偏移位</p>
+<p>zipinfo.CRC                        未压缩文件的CRC-32</p>
+<p>zipinfo.conpress_size          获取压缩后的大小</p>
+<p>zipinfo.file_size                     获取未压缩文件的大小</p>
 
     </div>
 
@@ -271,21 +271,18 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
+              <a href="/tags/python/" rel="tag"># python</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021/10/08/less1-4%E6%80%BB%E7%BB%93/" rel="prev" title="less1~4总结">
-                  <i class="fa fa-chevron-left"></i> less1~4总结
+                <a href="/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/" rel="prev" title="misc总结之图片隐写术">
+                  <i class="fa fa-chevron-left"></i> misc总结之图片隐写术
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2021/10/27/less5,6/" rel="next" title="lesson5，6总结">
-                  lesson5，6总结 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>

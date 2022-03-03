@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-03-01T11:32:29.032Z</updated>
+  <updated>2022-03-02T03:50:38.852Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python之zipfile库</title>
+    <link href="http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/"/>
+    <id>http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/</id>
+    <published>2022-03-02T01:59:38.000Z</published>
+    <updated>2022-03-02T03:50:38.852Z</updated>
+    
+    <content type="html"><![CDATA[<p>**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，<del>顺便水一篇博客</del>**，<a href="https://blog.csdn.net/weixin_43677350/article/details/84071552?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考zipfile zip文件操作</a></p><h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a>zipfile</h1><h2 id="zipfile-getinfo-name"><a href="#zipfile-getinfo-name" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。</p><h2 id="zipfile-infolist"><a href="#zipfile-infolist" class="headerlink" title="zipfile.infolist()"></a>zipfile.infolist()</h2><p>功能：获取zip文档內所有文件的信息返回一个zipfile.zipinfo列表</p><h2 id="zipfile-namelist"><a href="#zipfile-namelist" class="headerlink" title="zipfile.namelist()"></a>zipfile.namelist()</h2><p>功能：获取zip文档內所有文件的名称列表。</p><h2 id="zipfile-extract-memeber-path-pwd"><a href="#zipfile-extract-memeber-path-pwd" class="headerlink" title="zipfile.extract(memeber[,path[,pwd]])"></a>zipfile.extract(memeber[,path[,pwd]])</h2><p>功能：将zip文件內的制定文件解压到当前目录。</p><p>参数：</p><p>memeber      指定要解压的文件名称或对应的zipinfo对象</p><p>path               指定解析文件保存的文件夹</p><p>pwd                解压密码</p><h2 id="zipfile-extractall-path-memebers-pwd"><a href="#zipfile-extractall-path-memebers-pwd" class="headerlink" title="zipfile.extractall([path[,memebers[,pwd]]])"></a>zipfile.extractall([path[,memebers[,pwd]]])</h2><p>功能：解压zip文档中的所有文件到当前目录。</p><h2 id="zipfile-printdir"><a href="#zipfile-printdir" class="headerlink" title="zipfile.printdir()"></a>zipfile.printdir()</h2><p>功能：将zip文档內的信息打印到控制台上。</p><h2 id="zipfile-setpassword-pwd"><a href="#zipfile-setpassword-pwd" class="headerlink" title="zipfile.setpassword(pwd)"></a>zipfile.setpassword(pwd)</h2><p>功能：设置zip文档的密码。</p><h2 id="zipfile-read-name-pwd"><a href="#zipfile-read-name-pwd" class="headerlink" title="zipfile.read(name[,pwd])"></a>zipfile.read(name[,pwd])</h2><p>功能：获取zip文档指定文件的二进制数据。 </p><h2 id="zipfile-getinfo-name-1"><a href="#zipfile-getinfo-name-1" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能返回一个zipinfo对象，表示zip文档中相对应的文件信息。</p><p>支持以下属性：</p><p>zipinfo.filename           获取文件的名称</p><p>zipinfo.date_time        获取文件最后的修改时间。返回一个包含6个元素的元组：（年，月，日，时，分，秒）</p><p>zipinfo.compress_type  压缩类型</p><p>zipinfo.comment           文档说明</p><p>zipinfo.extr                    文件的扩展数据</p><p>zipinfo.create_system   获取创建文件的系统</p><p>zipinfo.create_version   获取创建文件的PKZIP版本</p><p>zipinfo.extract_versio      获取创建、解压zip文档的PKZIP所需要的PKZIP版本</p><p>zipinfo.reserved               预留字段，当前实现总是返回0</p><p>zipinfo.flag_bites              zip标志位</p><p>zipinfo.volume                  文件头的卷标</p><p>zipinfo.internal_attr           内部属性</p><p>zipinfo.external_attr           外部属性</p><p>zipinfo.header_offset          文件头偏移位</p><p>zipinfo.CRC                        未压缩文件的CRC-32</p><p>zipinfo.conpress_size          获取压缩后的大小</p><p>zipinfo.file_size                     获取未压缩文件的大小</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，&lt;del&gt;顺便水一篇博客&lt;/del&gt;**，&lt;a href=&quot;https://blog.csdn.net/weixin_43677350/article/details/840</summary>
+      
+    
+    
+    
+    <category term="python" scheme="http://example.com/categories/python/"/>
+    
+    
+    <category term="python" scheme="http://example.com/tags/python/"/>
+    
+  </entry>
   
   <entry>
     <title>misc总结之图片隐写术</title>
@@ -464,30 +488,6 @@
       
       
     <summary type="html">&lt;h1 id=&quot;sql注入之无名注入&quot;&gt;&lt;a href=&quot;#sql注入之无名注入&quot; class=&quot;headerlink&quot; title=&quot;sql注入之无名注入&quot;&gt;&lt;/a&gt;sql注入之无名注入&lt;/h1&gt;&lt;p&gt;在我们进行sql注入的时候，有时候information_schema这个库</summary>
-      
-    
-    
-    
-    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
-    
-    
-    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>less17-</title>
-    <link href="http://example.com/2021/11/10/less17/"/>
-    <id>http://example.com/2021/11/10/less17/</id>
-    <published>2021-11-10T11:51:06.000Z</published>
-    <updated>2022-02-10T12:23:06.882Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="less17的注入过滤"><a href="#less17的注入过滤" class="headerlink" title="less17的注入过滤"></a>less17的注入过滤</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_input</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$value</span>))</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">// truncation (see comments)</span></span><br><span class="line"><span class="variable">$value</span> = substr(<span class="variable">$value</span>,<span class="number">0</span>,<span class="number">15</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Stripslashes if magic quotes enabled</span></span><br><span class="line"><span class="keyword">if</span> (get_magic_quotes_gpc())</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = stripslashes(<span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Quote if not a number</span></span><br><span class="line"><span class="keyword">if</span> (!ctype_digit(<span class="variable">$value</span>))</span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = <span class="string">&quot;&#x27;&quot;</span> . mysql_real_escape_string(<span class="variable">$value</span>) . <span class="string">&quot;&#x27;&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="variable">$value</span> = intval(<span class="variable">$value</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> <span class="variable">$value</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>substr（$value，0,15）；首先截取前16个字符</p><p>magic_quotes_gpc()函数在php中作用是判断用户提供数据，如包括有：post，get，cookie过来的数据增加转义字符“\”,以确保这些数据不会引起程序的错误</p><p>ctype_digit()判断是不是纯的数字</p><p> mysql_real_escape_string()调用mysql库的函数 mysql_real_escape_string,在以下字符前添加反斜杠：\x00,\n,\r,,‘,”,和\x1a，默认字符集。</p><p><img src="https://i.loli.net/2021/11/10/AyNRDwTH7zcB5xV.png" alt="QQ浏览器截图20211110212406.png"></p><p>只截取前16个字符，的同时注释（\）单引号</p><p>但是它对密码部分没做注入过滤，所以只要有正确的账号就可以尝试在passwd=后面进行注入</p><h1 id="UPDATEXML-XML-document-XPath-string-new-value-函数"><a href="#UPDATEXML-XML-document-XPath-string-new-value-函数" class="headerlink" title="UPDATEXML (XML_document, XPath_string, new_value)函数"></a>UPDATEXML (XML_document, XPath_string, new_value)函数</h1><p>XML_document是string格式，为XMl文档对象的名称</p><p>XPath_string(Xpath格式的字符串)</p><p>new_value为string格式，替换查找符合条件的数据</p><p>该函数用于改变文档中符合条件的节点的值，意为改变XML_document中符合XPATH_string的值</p><p>利用concat()函数只是将其拼接成字符串格式，来利用UPDATEXML (XML_document, XPath_string, new_value)函数报错出XPath_string的值</p><p>select updatexml(1,concat(0x7e,(database())),1);</p><p>select updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1)),1);</p><p>select updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table.schema=’security’ limit 0,1)),1);</p><h1 id="补充（2022-01-29）：常用floor函数的报错注入"><a href="#补充（2022-01-29）：常用floor函数的报错注入" class="headerlink" title="补充（2022 01 29）：常用floor函数的报错注入"></a>补充（2022 01 29）：常用floor函数的报错注入</h1><p>floor函数：向下取整</p><p>rand函数：随机取数，诺有参数x，则使每一个x对应一个固定的值，如果连续多次执行会变化，但是可以预测。</p><p>floor（rand（0）*2）产生的随机数序列为011011.。。。</p><h2 id="报错注入原理"><a href="#报错注入原理" class="headerlink" title="报错注入原理"></a>报错注入原理</h2><p>利用数据库主键不能重复的原理，使用group by 分组，产生主键重复而导致报错</p><p>详见<a href="https://blog.csdn.net/weixin_45146120/article/details/100062786?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">csdn  dalao</a>的文章</p><p>因为发现好像lesson5，6也可以用报错来注入所以就在这里补充了</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;less17的注入过滤&quot;&gt;&lt;a href=&quot;#less17的注入过滤&quot; class=&quot;headerlink&quot; title=&quot;less17的注入过滤&quot;&gt;&lt;/a&gt;less17的注入过滤&lt;/h1&gt;&lt;figure class=&quot;highlight php&quot;&gt;&lt;table&gt;</summary>
       
     
     

