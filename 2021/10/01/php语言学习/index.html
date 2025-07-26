@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<meta name="description" content="PHP学习 &lt;!DOCTYPEhtmlPUBLIC”-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTDXHTML1.0Transitional&#x2F;&#x2F;EN””http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1transitional.dtd&quot;&gt;这里的“DOCTYPE”（Document Type），是指文档类型，一个DOCTYPE是一种标准通用标记语言的文档类型声明，它的目的是要告">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php语言学习">
+<meta property="og:url" content="http://example.com/2021/10/01/php%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/index.html">
+<meta property="og:site_name" content="wds&#39;s 学习博客">
+<meta property="og:description" content="PHP学习 &lt;!DOCTYPEhtmlPUBLIC”-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTDXHTML1.0Transitional&#x2F;&#x2F;EN””http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1transitional.dtd&quot;&gt;这里的“DOCTYPE”（Document Type），是指文档类型，一个DOCTYPE是一种标准通用标记语言的文档类型声明，它的目的是要告">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2021/10/03/GIFUdtWZ9jOMyLT.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/10/03/aI52NnplfhD9i8u.jpg">
+<meta property="og:image" content="https://i.loli.net/2021/10/03/SUYqJDpaI34zZnB.png">
+<meta property="og:image" content="https://i.loli.net/2021/10/03/AW2PbsGEqZF1v4N.png">
+<meta property="article:published_time" content="2021-10-01T01:36:29.000Z">
+<meta property="article:modified_time" content="2022-02-26T08:26:22.000Z">
+<meta property="article:author" content="wang deshan">
+<meta property="article:tag" content="php">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/10/03/GIFUdtWZ9jOMyLT.jpg">
+
+
+<link rel="canonical" href="http://example.com/2021/10/01/php%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2021/10/01/php%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/","path":"2021/10/01/php语言学习/","title":"php语言学习"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>php语言学习 | wds's 学习博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="wds's 学习博客" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">wds's 学习博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">个人势学习分享网站，闲记</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.</span> <span class="nav-text">PHP学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-DOCTYPEhtmlPUBLIC%E2%80%9D-W3C-DTDXHTML1-0Transitional-EN%E2%80%9D%E2%80%9Dhttp-www-w3-org-TR-xhtml1-DTD-xhtml1transitional-dtd-quot-gt"><span class="nav-number">1.1.</span> <span class="nav-text">&lt;!DOCTYPEhtmlPUBLIC”-&#x2F;&#x2F;W3C&#x2F;&#x2F;DTDXHTML1.0Transitional&#x2F;&#x2F;EN””http:&#x2F;&#x2F;www.w3.org&#x2F;TR&#x2F;xhtml1&#x2F;DTD&#x2F;xhtml1transitional.dtd&quot;&gt;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%92%8C"><span class="nav-number">1.3.</span> <span class="nav-text">  和 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">1.4.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#lt-php-%E2%80%A6-gt"><span class="nav-number">1.5.</span> <span class="nav-text">&lt;?php ….&gt;</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#include%E8%AF%AD%E5%8F%A5%E5%9C%A8PHP%E4%B8%AD%E7%9A%84%E4%BD%9C%E7%94%A8"><span class="nav-number">1.5.1.</span> <span class="nav-text">include语句在PHP中的作用</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="wang deshan"
+      src="/uploads/avatar.jpg">
+  <p class="site-author-name" itemprop="name">wang deshan</p>
+  <div class="site-description" itemprop="description">ctf/python/c++</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+
+<div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/10/01/php%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          php语言学习
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-01 09:36:29" itemprop="dateCreated datePublished" datetime="2021-10-01T09:36:29+08:00">2021-10-01</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2022-02-26 16:26:22" itemprop="dateModified" datetime="2022-02-26T16:26:22+08:00">2022-02-26</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h1 id="PHP学习"><a href="#PHP学习" class="headerlink" title="PHP学习"></a>PHP学习</h1><p><img src="https://i.loli.net/2021/10/03/GIFUdtWZ9jOMyLT.jpg" alt="QQ图片20211003123132.jpg"></p>
+<h2 id="lt-DOCTYPEhtmlPUBLIC”-W3C-DTDXHTML1-0Transitional-EN””http-www-w3-org-TR-xhtml1-DTD-xhtml1transitional-dtd-quot-gt"><a href="#lt-DOCTYPEhtmlPUBLIC”-W3C-DTDXHTML1-0Transitional-EN””http-www-w3-org-TR-xhtml1-DTD-xhtml1transitional-dtd-quot-gt" class="headerlink" title="&lt;!DOCTYPEhtmlPUBLIC”-//W3C//DTDXHTML1.0Transitional//EN””http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd&quot;&gt;"></a>&lt;!DOCTYPEhtmlPUBLIC”-//W3C//DTDXHTML1.0Transitional//EN””<a target="_blank" rel="noopener" href="http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd&quot;&gt;">http://www.w3.org/TR/xhtml1/DTD/xhtml1transitional.dtd&quot;&gt;</a></h2><p>这里的“DOCTYPE”（Document Type），是指<strong>文档类型</strong>，一个DOCTYPE是一种标准通用标记语言的文档类型声明，它的目的是要告诉标准通用标记语言解析器，它应该用什么样的文档类型定义（DTD）来解析文档。</p>
+<p>XHTML1.0提供了三种DOCTYPE可选择</p>
+<p>(1)过渡型（Transitional ）</p>
+<p>(2)严格型（Strict ）</p>
+<p>(3)框架型（Frameset ）</p>
+<p>因为过于深奥，我也无法描述其区别，所以这里我只做了解，反正就是文档类型。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><strong><u><html xmlns="http://www.w3.org/1999/xhtml"></u></strong></h2><p>xmlns属性 是用来定义xml namespace（命名空间）的，就是定义了一个命名空间。该属性可以放置在文档内任何元素的开始标签中。<del>（就是看懂也没啥用）</del></p>
+<h2 id="和"><a href="#和" class="headerlink" title="  和 "></a><head> </head> 和<body> </body></h2><p>就是html的结构，之间可以改web头部和身体的的颜色元素</p>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><strong><u><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /></u></strong></h2><p>meta是html的元标签,其中包含了对应html的相关信息,客户端浏览器或服务端程序都会根据这些信息进行处理 http类型:这个网页是表现内容用的 content(内容类型):这个网页的格式是文本的 charset(编码):这个网页的编码是UTF-8,需要注意的是这个是网页内容的编码,而不是文件本身的.</p>
+<h2 id="lt-php-…-gt"><a href="#lt-php-…-gt" class="headerlink" title="&lt;?php ….&gt;"></a>&lt;?php ….&gt;</h2><p>这里就比较重要，里面是一些执行语法</p>
+<p><img src="https://i.loli.net/2021/10/03/aI52NnplfhD9i8u.jpg" alt="QQ图片20211003123122.jpg"></p>
+<h3 id="include语句在PHP中的作用"><a href="#include语句在PHP中的作用" class="headerlink" title="include语句在PHP中的作用"></a>include语句在PHP中的作用</h3><p><img src="https://i.loli.net/2021/10/03/SUYqJDpaI34zZnB.png" alt="QQ图片20211003123144.png"></p>
+<ul>
+<li><p>error_reporting(0);   意思是不让报错出现</p>
+</li>
+<li><p>if(isset($_GET[‘id’]))   isset()函数用来判断变量是否被定义</p>
+</li>
+<li><p>$fp=fopen(‘result.txt’,’a’);就是打开reasult.txt</p>
+</li>
+<li><p>fwrite($fp,’ID’.$id.\n) 就是写入</p>
+<p><img src="https://i.loli.net/2021/10/03/AW2PbsGEqZF1v4N.png" alt="QQ图片20211003155007.png"></p>
+</li>
+<li><p>fclose($fp)就关闭$fbp</p>
+</li>
+</ul>
+<p>好吧，今天就先到这吧</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/php/" rel="tag"># php</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021/10/01/Markdown%E5%AD%A6%E4%B9%A0/" rel="prev" title="markdown学习">
+                  <i class="fa fa-chevron-left"></i> markdown学习
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021/10/06/sql%E6%B3%A8%E5%85%A5%E4%B9%8Bsqli-labs/" rel="next" title="sql注入之sqli-labs">
+                  sql注入之sqli-labs <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2025</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wang deshan</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
