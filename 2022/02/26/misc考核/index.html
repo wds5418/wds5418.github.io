@@ -20,19 +20,19 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
-<meta name="description" content="一道目标明确的流量包取证首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息  然后就打开ok后缀的请求包（肯定是从后往前找） 率先找到后半段flag   往前找还有前半段   千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9} 之前在buu上刷过一题更难的一题，有点">
+<meta name="description" content="一道目标明确的流量包取证首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息  然后就打开ok后缀的请求包（肯定是从后往前找）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="misc考核">
 <meta property="og:url" content="http://example.com/2022/02/26/misc%E8%80%83%E6%A0%B8/index.html">
 <meta property="og:site_name" content="wds&#39;s 学习博客">
-<meta property="og:description" content="一道目标明确的流量包取证首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息  然后就打开ok后缀的请求包（肯定是从后往前找） 率先找到后半段flag   往前找还有前半段   千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9} 之前在buu上刷过一题更难的一题，有点">
+<meta property="og:description" content="一道目标明确的流量包取证首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息  然后就打开ok后缀的请求包（肯定是从后往前找）">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png">
 <meta property="og:image" content="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png">
 <meta property="og:image" content="https://s2.loli.net/2022/02/26/v3CpGuLYkd7R84N.png">
 <meta property="og:image" content="https://s2.loli.net/2022/02/26/NMQc483tLwuKTB5.png">
 <meta property="article:published_time" content="2022-02-26T07:56:43.000Z">
-<meta property="article:modified_time" content="2022-02-26T08:23:38.000Z">
+<meta property="article:modified_time" content="2025-07-26T02:44:33.672Z">
 <meta property="article:author" content="wang deshan">
 <meta property="article:tag" content="兼职miscer">
 <meta name="twitter:card" content="summary">
@@ -211,10 +211,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-02-26 15:56:43 / Modified: 16:23:38" itemprop="dateCreated datePublished" datetime="2022-02-26T15:56:43+08:00">2022-02-26</time>
+      <time title="Created: 2022-02-26 15:56:43" itemprop="dateCreated datePublished" datetime="2022-02-26T15:56:43+08:00">2022-02-26</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2025-07-26 10:44:33" itemprop="dateModified" datetime="2025-07-26T10:44:33+08:00">2025-07-26</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -238,6 +244,8 @@
         <h1 id="一道目标明确的流量包取证"><a href="#一道目标明确的流量包取证" class="headerlink" title="一道目标明确的流量包取证"></a>一道目标明确的流量包取证</h1><p>首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息</p>
 <p><img src="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png" alt="QQ截图20220226104603.png"></p>
 <p>然后就打开ok后缀的请求包（肯定是从后往前找）</p>
+<span id="more"></span>
+
 <p>率先找到后半段flag</p>
 <img src="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png" alt="QQ截图20220226101554.png" style="zoom:200%;" />
 

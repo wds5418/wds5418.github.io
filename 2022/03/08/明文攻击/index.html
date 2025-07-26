@@ -29,7 +29,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://s2.loli.net/2022/03/08/ygYIGuEBMwbHUpv.png">
 <meta property="article:published_time" content="2022-03-08T10:26:01.000Z">
-<meta property="article:modified_time" content="2022-03-08T11:11:18.000Z">
+<meta property="article:modified_time" content="2025-07-26T02:43:09.956Z">
 <meta property="article:author" content="wang deshan">
 <meta property="article:tag" content="兼职miscer">
 <meta name="twitter:card" content="summary">
@@ -208,10 +208,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-03-08 18:26:01 / Modified: 19:11:18" itemprop="dateCreated datePublished" datetime="2022-03-08T18:26:01+08:00">2022-03-08</time>
+      <time title="Created: 2022-03-08 18:26:01" itemprop="dateCreated datePublished" datetime="2022-03-08T18:26:01+08:00">2022-03-08</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2025-07-26 10:43:09" itemprop="dateModified" datetime="2025-07-26T10:43:09+08:00">2025-07-26</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -236,6 +242,8 @@
 <h1 id="关于明文攻击一些不得不说的内容"><a href="#关于明文攻击一些不得不说的内容" class="headerlink" title="关于明文攻击一些不得不说的内容"></a>关于明文攻击一些不得不说的内容</h1><h2 id="明文攻击的条件："><a href="#明文攻击的条件：" class="headerlink" title="明文攻击的条件："></a>明文攻击的条件：</h2><p>一个压缩包，和拥有一个已知的存在压缩中出现的文件。</p>
 <h2 id="明文攻击的原理："><a href="#明文攻击的原理：" class="headerlink" title="明文攻击的原理："></a>明文攻击的原理：</h2><p>将已知文件进行ZIP加密后和待解密的ZIP里已知文件进行hex对比，两者的区别就是ZIP加密的三个key(压缩包中的每个文件都是通过这三个Key进行加密压缩的)，由此得到加密文件的三个key。（一个非常抽象的概念，就是由结果来推理过程吧）</p>
 <p>你输入的密码，首先被转换成3个32bit的key，所以可能的key的组合是2^96，这是个天文数字，如果用暴力穷举的方式是不太可能的，除非你的密码比较短或者有个厉害的字典。压缩软件用这3个key加密所有包中的文件，这也就是说，所有文件的key是一样的，如果我们能够找到这个key，就能解开所有的文件。如果我们找到加密压缩包中的任意一个文件，这个文件和压缩包里的文件是一样的，我们把这个文件用同样的压缩软件同样的压缩方式进行无密码的压缩，得到的文件就是我们的Known  plaintext。用这个无密码的压缩包和有密码的压缩包进行比较，分析两个包中相同的那个文件，抽取出两个文件的不同点，就是那3个key了，如此就能得到key。两个相同文件在压缩包中的字节数应该相差12个byte，就是那3个key了。虽然我们还是无法通过这个key还原出密码，但是我们已经可以用这个key解开所有的文件，所以已经满足我的要求了，而且要以前的密码也没什么用呀，我只要文件。</p>
+<span id="more"></span>
+
 <h2 id="明文攻击的工具："><a href="#明文攻击的工具：" class="headerlink" title="明文攻击的工具："></a>明文攻击的工具：</h2><p>AZPR</p>
 <h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><p>1.zip</p>
 <p><img src="https://s2.loli.net/2022/03/08/ygYIGuEBMwbHUpv.png" alt="QQ截图20220308190551.png"></p>

