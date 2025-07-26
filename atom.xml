@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>wds&#39;s 学习博客</title>
   
-  
+  <subtitle>个人势学习分享网站，闲记</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
