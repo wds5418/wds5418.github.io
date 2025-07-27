@@ -2718,3 +2718,7 @@ body {
   background-position: 50% 50%;
   background-size: 100% 100%;
 }
+.main-inner {
+  background: #fff;
+  opacity: 0.85;
+}
