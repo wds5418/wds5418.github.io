@@ -2725,17 +2725,11 @@ body {
   -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
   -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
 }
-.header-inner {
-  border-radius: 30px 30px 30px 30px;
-  position: absolute;
-  overflow: hidden;
-}
 .main-inner {
   background: #fff;
   opacity: 0.85;
 }
-.sidebar-inner {
-  background: url("https://s1.ax1x.com/2018/12/20/FrBGIs.jpg");
+.head-inner .sidebar-inner {
   background-repeat: no-repeat;
   background-position: center;
   background-size: over;
