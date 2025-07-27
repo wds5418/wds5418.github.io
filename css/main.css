@@ -2751,7 +2751,7 @@ body {
 .sidebar span.exturl,
 .site-state-item-name,
 .site-description {
-  color: #f4efdb;
+  color: #555;
 }
 .sidebar-nav .sidebar-nav-active {
   color: #fbda41;
