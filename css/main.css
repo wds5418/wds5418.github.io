@@ -2751,7 +2751,7 @@ body {
   color: #fff;
 }
 .header-inner {
-  background: #bc0100;
+  background: #555;
   background: linear-gradient(0deg, #bc0100 20%, #9b1d22 80%);
 }
 .menu-item a {
@@ -2760,13 +2760,13 @@ body {
 .menu-item-active a {
   color: #555;
 }
-article .post-header {
+article.post-header {
   background: url("/images/46265dece9bce1c56eb6dc6d4c931423.jpeg");
   background-repeat: no-repeat;
   background-position: right;
   background-size: contain;
 }
-article .post-copyright {
+article.post-copyright {
   background: url("https://s1.ax1x.com/2018/12/20/FrD60g.png");
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -2788,21 +2788,21 @@ article .post-copyright {
 .sidebar span.exturl,
 .site-state-item-name,
 .site-description {
-  color: #fbda41;
+  color: #fefdfb;
 }
 .sidebar-nav .sidebar-nav-active {
-  color: #fbda41;
+  color: #f4f4f3;
   border-bottom-color: #fbda41;
 }
 .sidebar-nav li {
-  color: #fbda41;
+  color: #f9f9f8;
   border-bottom-color: #fbda41;
 }
 .links-of-blogroll-list {
   text-shadow: #f00 0 1px 0;
 }
 .post-toc ol a {
-  color: #fbda41;
+  color: #f8f8f6;
 }
 .content .posts-expand .post-block {
   position: relative;
