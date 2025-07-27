@@ -2743,7 +2743,7 @@ body {
   box-shadow: rgba(0,0,0,0.1) 0px 15px 35px 0px, rgba(0,0,0,0.31) 6px 6px 10px 0px;
 }
 .brand {
-  color: #390044;
+  color: #eee5f0;
 }
 .site-subtitle {
   margin-top: 10px;
@@ -2755,7 +2755,7 @@ body {
   background: linear-gradient(0deg, #bc0100 20%, #9b1d22 80%);
 }
 .menu-item a {
-  color: #fbda41;
+  color: #f8f7f4;
 }
 .menu-item-active a {
   color: #555;
