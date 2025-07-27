@@ -2743,13 +2743,13 @@ body {
   overflow: hidden;
   box-shadow: rgba(0,0,0,0.1) 0px 15px 35px 0px, rgba(0,0,0,0.31) 6px 6px 10px 0px;
 }
-.sidebar-inner .site-overview-wrap .site-overview,
+.site-author-name .sidebar-inner .site-overview-wrap .site-overview,
 .sidebar-inner .site-overview-wrap .site-overview .site-author-name,
 .sidebar a,
 .sidebar span.exturl,
 .site-state-item-name,
 .site-description {
-  color: #fbda41;
+  color: #f4efdb;
 }
 .sidebar-nav .sidebar-nav-active {
   color: #fbda41;
