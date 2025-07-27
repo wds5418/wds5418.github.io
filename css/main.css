@@ -2790,20 +2790,6 @@ article.post-copyright {
 .site-description {
   color: #fefdfb;
 }
-.sidebar-nav .sidebar-nav-active {
-  color: #f4f4f3;
-  border-bottom-color: #fbda41;
-}
-.sidebar-nav li {
-  color: #f9f9f8;
-  border-bottom-color: #fbda41;
-}
-.links-of-blogroll-list {
-  text-shadow: #f00 0 1px 0;
-}
-.post-toc ol a {
-  color: #545452;
-}
 .content .posts-expand .post-block {
   position: relative;
   margin-bottom: 30px;
@@ -2832,11 +2818,4 @@ article.post-copyright {
   background: rgba(193,66,92,0);
   border-bottom: none;
   border-radius: 20px;
-}
-.headband {
-  height: 0px;
-  background: #fc6423;
-}
-.busuanzi-value {
-  color: #1890ff;
 }
