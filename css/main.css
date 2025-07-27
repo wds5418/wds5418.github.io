@@ -2729,11 +2729,35 @@ body {
   background: #fff;
   opacity: 0.85;
 }
-.tag-cloud a {
-  box-shadow: 0 1px 3px #6f42c1, 0 1px 2px #d9534f;
-  padding: 2px 10px;
-  margin: 8px;
-  background: rgba(193,66,92,0);
-  border-bottom: none;
-  border-radius: 20px;
+.sidebar-inner {
+  background: url("/images/d487657bd263d8d9d17e23b75c241034.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 30px 30px 30px 30px;
+  position: absolute;
+  overflow: hidden;
+  box-shadow: rgba(0,0,0,0.1) 0px 15px 35px 0px, rgba(0,0,0,0.31) 6px 6px 10px 0px;
+}
+.sidebar-inner .site-overview-wrap .site-overview,
+.sidebar-inner .site-overview-wrap .site-overview .site-author-name,
+.sidebar a,
+.sidebar span.exturl,
+.site-state-item-name,
+.site-description {
+  color: #fbda41;
+}
+.sidebar-nav .sidebar-nav-active {
+  color: #fbda41;
+  border-bottom-color: #fbda41;
+}
+.sidebar-nav li {
+  color: #fbda41;
+  border-bottom-color: #fbda41;
+}
+.links-of-blogroll-list {
+  text-shadow: #f00 0 1px 0;
+}
+.post-toc ol a {
+  color: #fbda41;
 }
