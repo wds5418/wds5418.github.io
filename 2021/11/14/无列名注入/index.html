@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://i.loli.net/2021/11/16/siyhoeba1frqQL3.png">
 <meta property="og:image" content="https://i.loli.net/2021/11/16/Nbk9mvRZyiJg5t6.png">
 <meta property="article:published_time" content="2021-11-14T13:04:50.000Z">
-<meta property="article:modified_time" content="2022-02-23T04:50:56.000Z">
+<meta property="article:modified_time" content="2025-07-28T05:02:35.488Z">
 <meta property="article:author" content="wang deshan">
 <meta property="article:tag" content="sql注入">
 <meta name="twitter:card" content="summary">
@@ -145,13 +145,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">36</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -229,7 +229,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-02-23 12:50:56" itemprop="dateModified" datetime="2022-02-23T12:50:56+08:00">2022-02-23</time>
+        <time title="修改时间：2025-07-28 13:02:35" itemprop="dateModified" datetime="2025-07-28T13:02:35+08:00">2025-07-28</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -253,6 +253,8 @@
     <div class="post-body" itemprop="articleBody">
         <h1 id="sql注入之无名注入"><a href="#sql注入之无名注入" class="headerlink" title="sql注入之无名注入"></a>sql注入之无名注入</h1><p>在我们进行sql注入的时候，有时候information_schema这个库可能会因为过滤而无法调用，这时我们就不能通过这个库来查出表名和列名。不过我们可以通过两种方法来查出表名：</p>
 <p>InnoDb引擎<br>从MYSQL5.5.8开始，InnoDB成为其默认存储引擎。而在MYSQL5.6以上的版本中，inndb增加了innodb_index_stats和innodb_table_stats两张表，这两张表中都存储了数据库和其数据表的信息，但是没有存储列名。<br>sys数据库<br>在5.7以上的MYSQL中，新增了sys数据库，该库的基础数据来自information_schema和performance_chema，其本身不存储数据。可以通过其中的schema_auto_increment_columns来获取表名。<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46330722/article/details/109605941">文章截取csdn</a></p>
+<span id="more"></span>
+
 <h1 id="二次注入"><a href="#二次注入" class="headerlink" title="二次注入"></a>二次注入</h1><p>指已经被存入数据库的值被误解读为错误指令。</p>
 <p>一般出现在读取值的过程中有各种过滤，然后对读取数据库时不进行过滤或转义。</p>
 <h1 id="swpu2019-web1"><a href="#swpu2019-web1" class="headerlink" title="[swpu2019]web1"></a>[swpu2019]web1</h1><p>先注册账号</p>
