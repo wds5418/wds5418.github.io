@@ -132,7 +132,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -143,7 +143,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -175,6 +175,97 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/06/30/%E2%80%9C%E8%93%9D%E9%98%9F%E9%98%B2%E5%AE%88%E4%BE%A7%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E2%80%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+      <meta itemprop="name" content="wang deshan">
+      <meta itemprop="description" content="ctf/python/c++">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="wds's 学习博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/30/%E2%80%9C%E8%93%9D%E9%98%9F%E9%98%B2%E5%AE%88%E4%BE%A7%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E2%80%9D/" class="post-title-link" itemprop="url">“蓝队防守侧面试知识总结”</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-06-30 13:44:02" itemprop="dateCreated datePublished" datetime="2024-06-30T13:44:02+08:00">2024-06-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2025-07-30 21:05:17" itemprop="dateModified" datetime="2025-07-30T21:05:17+08:00">2025-07-30</time>
+      </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>​    面试题目主要分为web渗透、内网横向、应急响应、流量分析几个大类。</p>
+<h1 id="web渗透"><a href="#web渗透" class="headerlink" title="web渗透"></a>web渗透</h1><h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><ul>
+<li><p><strong>sql注入的原理</strong>:对用户传入参数过滤不严导致恶意sql语句拼接到数据库从而造成漏洞//利用一些sql语句与后端数据库交互,获取数据库信息。</p>
+</li>
+<li><p><strong>注入分类</strong>：</p>
+<pre><code>1. 布尔盲注：即可以根据返回页面判断条件真假的注入。
+2. 时间盲注：（sleep、benchmark）即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行，（即页面返回时间是否增加）来判断。      
+3. 联合查询注入：可以使用union的情况下的注入。
+4. 堆叠注入：可以同时执行多条语句的执行时的注入。
+5. 宽字节注入：数据库使用jbk编码时反斜杠会被编译,通过利用%df或者%aa与反斜杠组成汉字,绕过编译
+6. 二次注入：利用函数（get_magic_quotes_gpc）将一些恶意数据处理一下，插入到数据库中，再次使用时，直接在数据库中直接调取命令，不进行检测
+7. 报错注入：即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。
+。。。。
+</code></pre></li></ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2024/06/30/%E2%80%9C%E8%93%9D%E9%98%9F%E9%98%B2%E5%AE%88%E4%BE%A7%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E2%80%9D/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -947,94 +1038,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/02/22/upload-libs(1)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.jpg">
-      <meta itemprop="name" content="wang deshan">
-      <meta itemprop="description" content="ctf/python/c++">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="wds's 学习博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">php反序列化漏洞的认识与学习</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-02-18 20:57:07" itemprop="dateCreated datePublished" datetime="2022-02-18T20:57:07+08:00">2022-02-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-07-26 10:46:02" itemprop="dateModified" datetime="2025-07-26T10:46:02+08:00">2025-07-26</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h1 id="php序列化"><a href="#php序列化" class="headerlink" title="php序列化"></a>php序列化</h1><p>序列化，即将php对象转换成字符串的一种操作，目的是为了有效地保护对象，并且不丢失其类型和结构</p>
-<p>反序列化，即将符合格式的字符串转换为php对象，这个对象的类必须在反序列化之前定义，可以通过包含一个定义该类的文件来完成</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/02/18/php%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E%E7%9A%84%E8%AE%A4%E8%AF%86%E4%B8%8E%E5%AD%A6%E4%B9%A0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

