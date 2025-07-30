@@ -2838,3 +2838,25 @@ body {
 .post-toc ol a {
   color: #555;
 }
+.carousel-item img {
+  width: 100%; /* 宽度100%填满容器 */
+  height: auto; /* 高度自适应保持比例 */
+  object-fit: cover; /* 保持比例覆盖容器 */
+}
+/* 设置轮播图容器高度 */
+.carousel-inner {
+  max-height: 500px; /* 最大高度限制 */
+}
+/* 响应式高度调整 */
+@media (max-width: 768px) {
+  .carousel-inner {
+    max-height: 300px;
+  }
+}
+.carousel-inner {
+  border-radius: 8px;
+  overflow: hidden;
+}
+.featured-gallery {
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}

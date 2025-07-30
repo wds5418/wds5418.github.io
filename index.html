@@ -39,6 +39,14 @@
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>wds's 学习博客</title>
+
+
+
+ <!-- 引入Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
+
+
+
   
 
 
@@ -174,8 +182,46 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
 
+    <div class="main-inner index posts-expand">
+<!-- 图片展示区域 - 只在首页显示，放置在main-inner顶部 -->
+      <div class="featured-gallery">
+        <div id="galleryCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+          <!-- 指示器 -->
+          <ol class="carousel-indicators">
+            <li data-target="#galleryCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#galleryCarousel" data-slide-to="1"></li>
+            <li data-target="#galleryCarousel" data-slide-to="2"></li>
+          </ol>
+          
+          <!-- 轮播图片 -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="/uploads/gallery1.png" alt="">
+            </div>
+            <div class="carousel-item">
+              <img src="/uploads/gallery2.png" alt="">
+            </div>
+            <div class="carousel-item">
+              <img src="/uploads/gallery3.png" alt="">
+            </div>
+          </div>
+          
+          <!-- 控制按钮 -->
+          <a class="carousel-control-prev" href="#galleryCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#galleryCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+
+
+
+      
     
 
 
@@ -215,7 +261,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-07-30 21:05:17" itemprop="dateModified" datetime="2025-07-30T21:05:17+08:00">2025-07-30</time>
+        <time title="修改时间：2025-07-30 21:31:06" itemprop="dateModified" datetime="2025-07-30T21:31:06+08:00">2025-07-30</time>
       </span>
 
   
@@ -230,7 +276,8 @@
     <div class="post-body" itemprop="articleBody">
           <p>​    面试题目主要分为web渗透、内网横向、应急响应、流量分析几个大类。</p>
 <h1 id="web渗透"><a href="#web渗透" class="headerlink" title="web渗透"></a>web渗透</h1><h2 id="sql注入"><a href="#sql注入" class="headerlink" title="sql注入"></a>sql注入</h2><ul>
-<li><p><strong>sql注入的原理</strong>:对用户传入参数过滤不严导致恶意sql语句拼接到数据库从而造成漏洞//利用一些sql语句与后端数据库交互,获取数据库信息。</p>
+<li><p><strong>sql注入的原理</strong>:</p>
+<p>对用户传入参数过滤不严导致恶意sql语句拼接到数据库从而造成漏洞//利用一些sql语句与后端数据库交互,获取数据库信息。</p>
 </li>
 <li><p><strong>注入分类</strong>：</p>
 <pre><code>1. 布尔盲注：即可以根据返回页面判断条件真假的注入。
@@ -1102,6 +1149,11 @@
 
 
 
+
+<!-- 引入Bootstrap JS及其依赖 -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
 
 
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/unitychan.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true}});</script></body>
