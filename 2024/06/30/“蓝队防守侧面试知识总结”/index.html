@@ -28,7 +28,7 @@
 <meta property="og:description" content="​    面试题目主要分为web渗透、内网横向、应急响应、流量分析几个大类。 web渗透sql注入 sql注入的原理: 对用户传入参数过滤不严导致恶意sql语句拼接到数据库从而造成漏洞&#x2F;&#x2F;利用一些sql语句与后端数据库交互,获取数据库信息。  注入分类： 1. 布尔盲注：即可以根据返回页面判断条件真假的注入。 2. 时间盲注：（sleep、benchmark）即不能根据页面返回内容判断任何信息，用">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-30T05:44:02.000Z">
-<meta property="article:modified_time" content="2025-07-30T13:31:06.532Z">
+<meta property="article:modified_time" content="2025-07-31T00:14:46.111Z">
 <meta property="article:author" content="wang deshan">
 <meta property="article:tag" content="hvv">
 <meta name="twitter:card" content="summary">
@@ -150,7 +150,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -233,8 +233,17 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2025-07-30 21:31:06" itemprop="dateModified" datetime="2025-07-30T21:31:06+08:00">2025-07-30</time>
+        <time title="修改时间：2025-07-31 08:14:46" itemprop="dateModified" datetime="2025-07-31T08:14:46+08:00">2025-07-31</time>
       </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hvv/" itemprop="url" rel="index"><span itemprop="name">hvv</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -345,7 +354,62 @@
 
 
 
-<h2 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h2><h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><h2 id="水平越权和垂直越权"><a href="#水平越权和垂直越权" class="headerlink" title="水平越权和垂直越权"></a>水平越权和垂直越权</h2><h2 id="框架及其漏洞"><a href="#框架及其漏洞" class="headerlink" title="框架及其漏洞"></a>框架及其漏洞</h2>
+<h2 id="代码执行"><a href="#代码执行" class="headerlink" title="代码执行"></a>代码执行</h2><ul>
+<li>代码执行的原因：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php中的一些函数可以将字符串当作php代码执行，如果这些函数的参数对用户输入的内容控制不严格，就会造成任意代码执行。</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>代码执行的函数：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">eval、assert、preg_replace、create_function、call_user_func、call_user_func_array</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>代码执行的防御芝士：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、使用addslashes函数将参数转义或使用黑白名单名单</span><br><span class="line">2、禁止或减少使用代码执行函数</span><br><span class="line">3、限制web用户的权限</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="命令执行"><a href="#命令执行" class="headerlink" title="命令执行"></a>命令执行</h2><ul>
+<li><p>命令执行的成因： 应用程序在调用可以执行系统命令的函数时，用户可以控制函数的参数或者参数本身，利用系统命令拼接符将恶意命令拼接到正常的命令语句中。</p>
+</li>
+<li><p>命令执行函数的成因：</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">system、passthru、exec、pcntl_exec、shell_execpcntl_exec、shell_exec、popen,``</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>命令执行的绕waf的方式：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1、无回显：使用crul dnslog盲注</span><br><span class="line">2、绕空格：$IFS，%09，%20，&#123;&#125;，linux重定向符</span><br><span class="line">3、绕关键字：变量拼接，空变量，系统变量，反斜杠，通配符</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>命令执行防御：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">1、防御方法实在php.ini中禁止这些函数system，exec</span><br><span class="line">2、尽量不要使用外部命令</span><br><span class="line">3、使用自定义函数或外部函数库代替外部函数的功能</span><br><span class="line">4、使用escapeshellarg函数来处理命令参数</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><ul>
+<li>序列化和反序列化原理：</li>
+</ul>
+<p> 序列化：此字符串包含了表达的value的字节流，可以存储在任意位置<br> 反序列化：对单一的反序列化的变量进行操作，将其转换为原来的值</p>
+<ul>
+<li>漏洞产生的原理：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">（1）反序列化函数的参数可控</span><br><span class="line">（2）存在魔术函数：__construct和__destruct、__sleep和__wakeup、__toString</span><br></pre></td></tr></table></figure>
+
+<p>存在反序列化漏洞的中间件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">weblogic T3反序列化/wls-anys xml格式反序列化</span><br><span class="line">tomcat 反序列化</span><br><span class="line">jboss 反序列化</span><br><span class="line">shiro 反序列化</span><br><span class="line">strust2 反序列化052</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="水平越权和垂直越权"><a href="#水平越权和垂直越权" class="headerlink" title="水平越权和垂直越权"></a>水平越权和垂直越权</h2><h2 id="框架及其漏洞"><a href="#框架及其漏洞" class="headerlink" title="框架及其漏洞"></a>框架及其漏洞</h2>
     </div>
 
     
